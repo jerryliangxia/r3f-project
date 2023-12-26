@@ -5,7 +5,7 @@ import { useRapier, RigidBody, CapsuleCollider } from "@react-three/rapier";
 import * as THREE from "three";
 
 const MAX_LINVEL = 2;
-const ROTATION_THRESHOLD = Math.PI;
+const ROTATION_THRESHOLD = 5;
 function verifyLinvel(body) {
   const linvel = body.current.linvel();
   const linvelMagnitude = Math.sqrt(linvel.x ** 2 + linvel.z ** 2);
@@ -50,13 +50,14 @@ export default function CharacterController() {
   const [characterState, setCharacterState] = useState("Idle");
   const [subscribeKeys, getKeys] = useKeyboardControls();
   const [isJumping, setIsJumping] = useState(false);
+  const [keysPressed, setKeysPressed] = useState(0);
 
   useFrame((state, delta) => {
     if (!isJumping) {
       const { forward, backward, leftward, rightward } = getKeys();
-      const keysPressed = [forward, backward, leftward, rightward].filter(
-        Boolean
-      ).length;
+      setKeysPressed(
+        [forward, backward, leftward, rightward].filter(Boolean).length
+      );
       if (keysPressed <= 2 && verifyLinvel(body)) {
         const inputDirection = new THREE.Vector3(0, 0, 0);
         if (forward) {
@@ -88,6 +89,12 @@ export default function CharacterController() {
     }
     body.current.wakeUp();
   });
+
+  useEffect(() => {
+    if (keysPressed > 2) {
+      setCharacterState("Idle");
+    }
+  }, [keysPressed]);
 
   useEffect(() => {
     if (isJumping) {
