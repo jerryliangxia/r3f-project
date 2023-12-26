@@ -12,7 +12,6 @@ function wrapAngle(angle) {
 
 export default function CharacterController() {
   const body = useRef();
-  const { rapier, world } = useRapier();
 
   const character = useGLTF("./animated_spiderman_ps5.glb");
   const animations = useAnimations(character.animations, character.scene);
@@ -68,7 +67,6 @@ export default function CharacterController() {
 
         // Calculate the magnitude of the linear velocity
         const linvelMagnitude = Math.sqrt(linvel.x ** 2 + linvel.z ** 2);
-        // Only apply the impulse if the linear velocity is below a certain threshold
         const maxLinvelMagnitude = 2; // Adjust this value to control the maximum speed
         if (linvelMagnitude < maxLinvelMagnitude) {
           // Use the transformed input direction for the impulse
@@ -89,25 +87,22 @@ export default function CharacterController() {
             );
 
             // // Check if the angle change is large
-            const angleDifference = Math.abs(newAngle - currentAngle);
+            const angleDifference = Math.abs(newAngle - targetAngle);
             const angleThreshold = Math.PI; // Adjust this value to control the threshold
 
+            console.log("Target: " + targetAngle);
             console.log("Diff: " + angleDifference);
             console.log("Threshold: " + angleThreshold);
 
             // Only set the character's rotation if the angle change is not too large
             if (angleDifference <= angleThreshold) {
               character.scene.rotation.y = newAngle;
-              //   body.current.applyImpulse(impulse);
-
-              // Check if the character's rotation is close enough to the target angle
+            } else {
+              console.log("Teleporting");
+              character.scene.rotation.y = targetAngle;
             }
-            const angleTolerance = 0.1; // Adjust this value to control the rotation tolerance
-
             // Only apply the impulse if the character's rotation is close enough to the target angle
-            if (angleDifference < angleTolerance) {
-              body.current.applyImpulse(impulse);
-            }
+            body.current.applyImpulse(impulse);
           }
 
           // Determine the animation state based on the movement
