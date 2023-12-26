@@ -1,7 +1,7 @@
 import { ContactShadows, Sky, OrbitControls } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import CharacterController from "./CharacterController";
-import { Physics, RigidBody, CapsuleCollider } from "@react-three/rapier";
+import { Physics, RigidBody } from "@react-three/rapier";
 
 export default function Experience() {
   return (
@@ -9,12 +9,12 @@ export default function Experience() {
       <Sky />
       <Perf position="top-left" />
 
-      <OrbitControls makeDefault />
+      <OrbitControls />
 
       <directionalLight castShadow position={[1, 2, 3]} intensity={2} />
       <ambientLight intensity={1} />
-      <ContactShadows position={[0, 0, 0]} />
-      <Physics debug>
+      <ContactShadows position={[0, 0.01, 0]} />
+      <Physics>
         <CharacterController />
         <RigidBody type="fixed" friction={1}>
           <mesh receiveShadow position-y={-1.25}>
