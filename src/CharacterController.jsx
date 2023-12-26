@@ -6,6 +6,8 @@ import * as THREE from "three";
 
 const MAX_LINVEL = 2;
 const ROTATION_THRESHOLD = 5;
+const THETA_TO_MOVE = 0.1;
+
 function verifyLinvel(body) {
   const linvel = body.current.linvel();
   const linvelMagnitude = Math.sqrt(linvel.x ** 2 + linvel.z ** 2);
@@ -26,12 +28,16 @@ function getRotationMatrix(state) {
   return rotationMatrix;
 }
 
-function getRotation(impulse, character) {
+function rotateAndMove(impulse, character, body) {
   const targetAngle = Math.atan2(impulse.x, impulse.z);
   const currentAngle = character.scene.rotation.y;
   const newAngle = THREE.MathUtils.lerp(currentAngle, targetAngle, 0.1);
   const angleDifference = Math.abs(newAngle - targetAngle);
-  return angleDifference <= ROTATION_THRESHOLD ? newAngle : targetAngle;
+  if (angleDifference < THETA_TO_MOVE) {
+    body.current.applyImpulse(impulse);
+  }
+  character.scene.rotation.y =
+    angleDifference <= ROTATION_THRESHOLD ? newAngle : targetAngle;
 }
 
 function getImpulse(delta, inputDirection) {
@@ -76,8 +82,7 @@ export default function CharacterController() {
         const impulse = getImpulse(delta, inputDirection);
         const isMoving = impulse.x !== 0 || impulse.z !== 0;
         if (isMoving) {
-          character.scene.rotation.y = getRotation(impulse, character);
-          body.current.applyImpulse(impulse);
+          rotateAndMove(impulse, character, body);
 
           if (characterState !== "Run") {
             setCharacterState("Run");
