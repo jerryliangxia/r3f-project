@@ -1,4 +1,5 @@
 import {
+  shaderMaterial,
   ContactShadows,
   Sky,
   OrbitControls,
@@ -9,10 +10,55 @@ import CharacterController from "./CharacterController";
 import { Physics, RigidBody, CuboidCollider } from "@react-three/rapier";
 import Model from "./Platform";
 import { useControls } from "leva";
+import lightBridgeVertexShader from "./shaders/light-bridge/vertex.glsl";
+import lightBridgeFragmentShader from "./shaders/light-bridge/fragment.glsl";
+import * as THREE from "three";
+import { extend, useFrame } from "@react-three/fiber";
+import { useRef } from "react";
+
+const LightBridgeMaterial = shaderMaterial(
+  {
+    uTime: 0,
+    uBigWavesElevation: 0,
+    uBigWavesFrequency: new THREE.Vector2(4, 1.5),
+    uBigWavesSpeed: 0.75,
+    uDepthColor: new THREE.Color("#23a2e7"),
+    uSurfaceColor: new THREE.Color("#9bd8ff"),
+    uColorOffset: 0.08,
+    uColorMultiplier: 5,
+    uBrightness: 0.8,
+  },
+  lightBridgeVertexShader,
+  lightBridgeFragmentShader
+);
+
+const OceanMaterial = shaderMaterial(
+  {
+    uTime: 0,
+    uBigWavesElevation: 0.1,
+    uBigWavesFrequency: new THREE.Vector2(20, 20),
+    uBigWavesSpeed: 1,
+    uDepthColor: new THREE.Color("#195576"),
+    uSurfaceColor: new THREE.Color("#2772a0"),
+    uColorOffset: 0.3,
+    uColorMultiplier: 1.3,
+    uBrightness: 0.7,
+  },
+  lightBridgeVertexShader,
+  lightBridgeFragmentShader
+);
+
+extend({ LightBridgeMaterial, OceanMaterial });
 
 export default function Experience() {
   const { sunPosition } = useControls("sky", {
     sunPosition: { value: [1, 2, 3] },
+  });
+  const lightBridgeMaterial = useRef();
+  const oceanMaterial = useRef();
+  useFrame((state, delta) => {
+    lightBridgeMaterial.current.uTime += delta;
+    oceanMaterial.current.uTime += delta;
   });
 
   return (
@@ -43,6 +89,28 @@ export default function Experience() {
         // intensity={1}
         files="/drakensberg_solitary_mountain_puresky_4k.hdr"
       ></Environment> */}
+      {/* <mesh
+        receiveShadow
+        rotation-x={-Math.PI / 2}
+        position-z={3.5}
+        position-y={0.22}
+      >
+        <boxGeometry args={[3, 3, 0.05, 256, 256]} />
+        <lightBridgeMaterial ref={lightBridgeMaterial} />
+      </mesh> */}
+      <mesh
+        receiveShadow
+        rotation-x={-Math.PI / 2}
+        position-x={3.5}
+        position-y={0.22}
+      >
+        <boxGeometry args={[3, 3, 0.05, 512, 512]} />
+        <lightBridgeMaterial ref={lightBridgeMaterial} />
+      </mesh>
+      <mesh rotation-x={-Math.PI / 2} position-y={-10}>
+        <planeGeometry args={[400, 400, 128, 128]} />
+        <oceanMaterial ref={oceanMaterial} />
+      </mesh>
       <Physics>
         <CharacterController />
         {/* <RigidBody type="fixed" friction={1} position-y={-0.5}> */}
