@@ -10,42 +10,42 @@ export default function Model(props) {
   return (
     <group {...props} dispose={null}>
       <mesh
-        castShadow
-        receiveShadow
+        // castShadow
+        // receiveShadow
         geometry={nodes.Cube.geometry}
         material={materials.Material}
         rotation={[-Math.PI, 0, 0]}
         scale={[5.059, 0.282, 5.091]}
       />
       <mesh
-        castShadow
-        receiveShadow
+        // castShadow
+        // receiveShadow
         geometry={nodes.Cube001.geometry}
         material={materials.Material}
       />
       <mesh
-        castShadow
-        receiveShadow
+        // castShadow
+        // receiveShadow
         geometry={nodes.Cube002.geometry}
         material={nodes.Cube002.material}
       />
       <mesh
-        castShadow
-        receiveShadow
+        // castShadow
+        // receiveShadow
         geometry={nodes.Cylinder.geometry}
         material={nodes.Cylinder.material}
         position={[2.461, 0.663, 3.061]}
         scale={[0.415, 0.273, 0.415]}
       />
       <mesh
-        castShadow
-        receiveShadow
+        // castShadow
+        // receiveShadow
         geometry={nodes.Plane.geometry}
         material={nodes.Plane.material}
       />
       <mesh
-        castShadow
-        receiveShadow
+        // castShadow
+        // receiveShadow
         geometry={nodes.Cube003.geometry}
         material={nodes.Cube003.material}
       />
