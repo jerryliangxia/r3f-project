@@ -5,7 +5,7 @@ import { RigidBody, CapsuleCollider } from "@react-three/rapier";
 import * as THREE from "three";
 
 const MAX_LINVEL = 2;
-const ROTATION_THRESHOLD = 5;
+const ROTATION_THRESHOLD = Math.PI;
 const THETA_TO_MOVE = 0.1;
 
 function verifyLinvel(body) {

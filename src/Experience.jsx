@@ -210,29 +210,17 @@ export default function Experience({ setHtmlComponent, setShowDiv }) {
     // oceanMaterial.current.uTime += delta;
   });
 
-  const [smoothedCameraPosition] = useState(() => new THREE.Vector3());
   const [smoothedCameraTarget] = useState(() => new THREE.Vector3());
+  const lerpFactor = 0.1;
 
-  useFrame((state, delta) => {
+  useFrame((state) => {
     if (body != null) {
       const bodyPosition = body.current.translation();
-      const cameraPosition = new THREE.Vector3();
-      cameraPosition.copy(bodyPosition);
-      cameraPosition.z += 2.25;
-      cameraPosition.y += 0.65;
+      smoothedCameraTarget.lerp(bodyPosition, lerpFactor);
 
-      const cameraTarget = new THREE.Vector3();
-      cameraTarget.copy(bodyPosition);
-      cameraTarget.y += 0.25;
-
-      smoothedCameraPosition.lerp(cameraPosition, 0.1);
-      smoothedCameraTarget.lerp(cameraTarget, 0.1);
-
-      state.camera.position.copy(cameraPosition);
-      state.camera.lookAt(cameraTarget);
-
-      state.camera.position.copy(smoothedCameraPosition);
-      state.camera.lookAt(smoothedCameraTarget);
+      state.camera.lookAt(
+        new THREE.Vector3(smoothedCameraTarget.x, 1.0, smoothedCameraTarget.z)
+      );
     }
   });
 
