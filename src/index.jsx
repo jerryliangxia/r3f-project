@@ -26,6 +26,7 @@ root.render(
         position: [-4, 3, 6],
       }}
     >
+      {/* <fog attach="fog" args={["ivory", 0, 1000]} /> */}
       <Experience />
     </Canvas>
   </KeyboardControls>

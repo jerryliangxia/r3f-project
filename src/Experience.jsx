@@ -12,6 +12,8 @@ import Model from "./Platform";
 import { useControls } from "leva";
 import lightBridgeVertexShader from "./shaders/light-bridge/vertex.glsl";
 import lightBridgeFragmentShader from "./shaders/light-bridge/fragment.glsl";
+import skyVertexShader from "./shaders/sky/vertex.glsl";
+import skyFragmentShader from "./shaders/sky/fragment.glsl";
 import * as THREE from "three";
 import { extend, useFrame } from "@react-three/fiber";
 import { useRef } from "react";
@@ -48,7 +50,13 @@ const OceanMaterial = shaderMaterial(
   lightBridgeFragmentShader
 );
 
-extend({ LightBridgeMaterial, OceanMaterial });
+const SkyMaterial = shaderMaterial(
+  { uTexture: new THREE.TextureLoader().load("sky.jpg") },
+  skyVertexShader,
+  skyFragmentShader
+);
+
+extend({ LightBridgeMaterial, OceanMaterial, SkyMaterial });
 
 export default function Experience() {
   const { sunPosition } = useControls("sky", {
@@ -56,21 +64,19 @@ export default function Experience() {
   });
   const lightBridgeMaterial = useRef();
   const oceanMaterial = useRef();
+  const skyMaterial = useRef();
   useFrame((state, delta) => {
     lightBridgeMaterial.current.uTime += delta;
-    oceanMaterial.current.uTime += delta;
+    // oceanMaterial.current.uTime += delta;
   });
 
   return (
     <>
-      <Sky
-        sunPosition={sunPosition}
-        exposure={0.3}
-        mieDirectionalG={0.6}
-        turbidity={10}
-        mieCoefficient={0.002}
-        elevation={9}
-      />
+      <Environment preset="sunset" />
+      <mesh>
+        <sphereGeometry args={[100, 256, 256]} />
+        <skyMaterial ref={skyMaterial} side={THREE.DoubleSide} />
+      </mesh>
       <Perf position="top-left" />
 
       <OrbitControls />
@@ -78,26 +84,6 @@ export default function Experience() {
       <directionalLight castShadow position={[1, 2, 3]} intensity={2} />
       <ambientLight intensity={1} />
       <ContactShadows position={[0, 0.01, 0]} />
-      {/* <Environment
-        background
-        // preset="sunset"
-        // ground={{
-        //   height: envMapHeight,
-        //   radius: envMapRadius,
-        //   scale: envMapScale,
-        // }}
-        // intensity={1}
-        files="/drakensberg_solitary_mountain_puresky_4k.hdr"
-      ></Environment> */}
-      {/* <mesh
-        receiveShadow
-        rotation-x={-Math.PI / 2}
-        position-z={3.5}
-        position-y={0.22}
-      >
-        <boxGeometry args={[3, 3, 0.05, 256, 256]} />
-        <lightBridgeMaterial ref={lightBridgeMaterial} />
-      </mesh> */}
       <mesh
         receiveShadow
         rotation-x={-Math.PI / 2}
@@ -107,10 +93,10 @@ export default function Experience() {
         <boxGeometry args={[3, 3, 0.05, 512, 512]} />
         <lightBridgeMaterial ref={lightBridgeMaterial} />
       </mesh>
-      <mesh rotation-x={-Math.PI / 2} position-y={-10}>
+      {/* <mesh rotation-x={-Math.PI / 2} position-y={-10}>
         <planeGeometry args={[400, 400, 128, 128]} />
         <oceanMaterial ref={oceanMaterial} />
-      </mesh>
+      </mesh> */}
       <Physics>
         <CharacterController />
         {/* <RigidBody type="fixed" friction={1} position-y={-0.5}> */}

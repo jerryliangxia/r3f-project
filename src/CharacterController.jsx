@@ -9,7 +9,7 @@ const ROTATION_THRESHOLD = 5;
 const THETA_TO_MOVE = 0.1;
 
 function verifyLinvel(body) {
-  const linvel = body.current.linvel();
+  const linvel = body?.current?.linvel();
   const linvelMagnitude = Math.sqrt(linvel.x ** 2 + linvel.z ** 2);
   return linvelMagnitude < MAX_LINVEL;
 }
