@@ -10,7 +10,7 @@ const THETA_TO_MOVE = 0.1;
 
 function verifyLinvel(body) {
   const linvel = body?.current?.linvel();
-  const linvelMagnitude = Math.sqrt(linvel.x ** 2 + linvel.z ** 2);
+  const linvelMagnitude = Math.sqrt(linvel?.x ** 2 + linvel?.z ** 2);
   return linvelMagnitude < MAX_LINVEL;
 }
 
@@ -49,7 +49,7 @@ function getImpulse(delta, inputDirection) {
   };
 }
 
-export default function CharacterController() {
+export default function CharacterController({ handleCharacterClick }) {
   const body = useRef();
   const character = useGLTF("./animated_spiderman_ps5.glb");
   const animations = useAnimations(character.animations, character.scene);
@@ -153,6 +153,10 @@ export default function CharacterController() {
           scale={1}
           position={[0, 0, 0]}
           rotation-y={0.3}
+          onClick={(event) => {
+            event.stopPropagation();
+            handleCharacterClick(body);
+          }}
         />
         <CapsuleCollider args={[0.4, 0.4]} position={[0, 0.8, 0]} />
       </RigidBody>
