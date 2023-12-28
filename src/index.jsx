@@ -5,33 +5,44 @@ import Experience from "./Experience.jsx";
 import { KeyboardControls } from "@react-three/drei";
 import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes";
+import Interface from "./Interface.jsx";
+import React, { useState } from "react";
 
-const root = ReactDOM.createRoot(document.querySelector("#root"));
+function App() {
+  const [showDiv, setShowDiv] = useState(false);
 
-root.render(
-  <Theme>
-    <KeyboardControls
-      map={[
-        { name: "forward", keys: ["ArrowUp", "KeyW"] },
-        { name: "backward", keys: ["ArrowDown", "KeyS"] },
-        { name: "leftward", keys: ["ArrowLeft", "KeyA"] },
-        { name: "rightward", keys: ["ArrowRight", "KeyD"] },
-        { name: "jump", keys: ["Space"] },
-      ]}
-    >
-      <Canvas
-        shadows
-        camera={{
-          fov: 45,
-          near: 0.1,
-          far: 200,
-          position: [-4, 3, 6],
-        }}
-        style={{ position: "fixed" }}
+  return (
+    <Theme>
+      <KeyboardControls
+        map={[
+          { name: "forward", keys: ["ArrowUp", "KeyW"] },
+          { name: "backward", keys: ["ArrowDown", "KeyS"] },
+          { name: "leftward", keys: ["ArrowLeft", "KeyA"] },
+          { name: "rightward", keys: ["ArrowRight", "KeyD"] },
+          { name: "jump", keys: ["Space"] },
+        ]}
       >
-        {/* <fog attach="fog" args={["ivory", 0, 1000]} /> */}
-        <Experience />
-      </Canvas>
-    </KeyboardControls>
-  </Theme>
-);
+        <Canvas
+          shadows
+          camera={{
+            fov: 45,
+            near: 0.1,
+            far: 200,
+            position: [-4, 3, 6],
+          }}
+          style={{ position: "fixed" }}
+        >
+          <Experience setShowDiv={setShowDiv} />
+        </Canvas>
+        {showDiv && <Interface setShowDiv={setShowDiv} />}
+      </KeyboardControls>
+    </Theme>
+  );
+}
+
+// Create the root once
+const rootElement = document.querySelector("#root");
+const root = ReactDOM.createRoot(rootElement);
+
+// Then call render on it as many times as you want
+root.render(<App />);

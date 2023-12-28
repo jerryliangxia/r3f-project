@@ -19,7 +19,7 @@ import * as THREE from "three";
 import { extend, useFrame } from "@react-three/fiber";
 import { useRef, useState } from "react";
 import { Card, Text } from "@radix-ui/themes";
-// import FullScreenDiv from "./components/FullScreenDiv";
+import FullScreenDiv from "./components/FullScreenDiv";
 
 const isNight = true;
 
@@ -67,10 +67,7 @@ const SkyMaterial = shaderMaterial(
 
 extend({ LightBridgeMaterial, OceanMaterial, SkyMaterial });
 
-export default function Experience() {
-  // HTML components
-  // const [showDiv, setShowDiv] = useState(false);
-
+export default function Experience({ setShowDiv }) {
   // MeshMatcapMaterial
   const textureLoader = new THREE.TextureLoader();
   const material = new THREE.MeshMatcapMaterial();
@@ -98,18 +95,24 @@ export default function Experience() {
       </mesh>
 
       {/* ABOUT */}
-      <mesh material={material} position={[3.5, 1, 3]} scale={0.2}>
+      <mesh
+        material={material}
+        position={[3.5, 1, 3]}
+        scale={0.2}
+        onClick={() => setShowDiv(true)}
+      >
         <sphereGeometry args={[1]} />
         <Html distanceFactor={4}>
           <Card>
             <Text>About</Text>
           </Card>
         </Html>
-        {/* <Html onClick={() => setShowDiv(true)}>
-          <Text>About</Text>
-        </Html>
-        <FullScreenDiv showDiv={showDiv} setShowDiv={setShowDiv} /> */}
       </mesh>
+      {/* {showDiv && (
+        <Html style={{ transform: "translate3d(0px, 0px, 0px) scale(1)" }}>
+          <FullScreenDiv showDiv={showDiv} setShowDiv={setShowDiv} />
+        </Html>
+      )} */}
 
       <Perf position="top-left" />
 
