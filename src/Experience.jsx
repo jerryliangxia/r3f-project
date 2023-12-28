@@ -19,7 +19,8 @@ import * as THREE from "three";
 import { extend, useFrame } from "@react-three/fiber";
 import { useRef, useState } from "react";
 import { Card, Text } from "@radix-ui/themes";
-import FullScreenDiv from "./components/FullScreenDiv";
+import About from "./components/About";
+import ThreeD from "./components/ThreeD";
 
 const isNight = true;
 
@@ -67,7 +68,12 @@ const SkyMaterial = shaderMaterial(
 
 extend({ LightBridgeMaterial, OceanMaterial, SkyMaterial });
 
-export default function Experience({ setShowDiv }) {
+export default function Experience({ setHtmlComponent, setShowDiv }) {
+  const handleMeshClick = (Component) => {
+    setHtmlComponent(<Component />);
+    setShowDiv(true);
+  };
+
   // MeshMatcapMaterial
   const textureLoader = new THREE.TextureLoader();
   const material = new THREE.MeshMatcapMaterial();
@@ -75,9 +81,9 @@ export default function Experience({ setShowDiv }) {
   matcapTexture.colorSpace = THREE.SRGBColorSpace;
   material.matcap = matcapTexture;
 
-  const { sunPosition } = useControls("sky", {
-    sunPosition: { value: [1, 2, 3] },
-  });
+  // const { sunPosition } = useControls("sky", {
+  //   sunPosition: { value: [1, 2, 3] },
+  // });
   const lightBridgeMaterial = useRef();
   const oceanMaterial = useRef();
   const skyMaterial = useRef();
@@ -88,35 +94,38 @@ export default function Experience({ setShowDiv }) {
 
   return (
     <>
+      <Perf position="top-left" />
+      <OrbitControls />
       <Environment preset={isNight ? "night" : "sunset"} />
       <mesh>
         <sphereGeometry args={[100, 256, 256]} />
         <skyMaterial ref={skyMaterial} side={THREE.DoubleSide} />
       </mesh>
 
-      {/* ABOUT */}
+      {/* CLICKABLE COMPONENTS */}
       <mesh
         material={material}
         position={[3.5, 1, 3]}
         scale={0.2}
-        onClick={() => setShowDiv(true)}
+        onClick={() => handleMeshClick(About)}
       >
         <sphereGeometry args={[1]} />
-        <Html distanceFactor={4}>
-          <Card>
-            <Text>About</Text>
-          </Card>
+        <Html distanceFactor={4} position-y={1}>
+          <Text color="white">About</Text>
         </Html>
       </mesh>
-      {/* {showDiv && (
-        <Html style={{ transform: "translate3d(0px, 0px, 0px) scale(1)" }}>
-          <FullScreenDiv showDiv={showDiv} setShowDiv={setShowDiv} />
+
+      <mesh
+        material={material}
+        position={[-3.5, 1, 3]}
+        scale={0.2}
+        onClick={() => handleMeshClick(ThreeD)}
+      >
+        <sphereGeometry args={[1]} />
+        <Html distanceFactor={4} position-y={1}>
+          <Text color="white">3D</Text>
         </Html>
-      )} */}
-
-      <Perf position="top-left" />
-
-      <OrbitControls />
+      </mesh>
 
       <directionalLight
         castShadow
@@ -125,7 +134,6 @@ export default function Experience({ setShowDiv }) {
         intensity={2}
       />
       <ambientLight />
-      <ContactShadows position={[0, 0.01, 0]} />
       <mesh
         receiveShadow
         rotation-x={-Math.PI / 2}
@@ -141,18 +149,8 @@ export default function Experience({ setShowDiv }) {
       </mesh> */}
       <Physics>
         <CharacterController />
-        {/* <RigidBody type="fixed" friction={1} position-y={-0.5}> */}
-        {/* <mesh receiveShadow position-y={-1.25}>
-            <boxGeometry args={[10, 0.5, 10]} />
-            <meshStandardMaterial color="ivory" />
-          </mesh>
-          <mesh receiveShadow position-y={-1.25}>
-            <boxGeometry args={[2, 1.5, 2]} />
-            <meshStandardMaterial color="ivory" />
-          </mesh> */}
         <Model receiveShadow castShadow scale={1} />
         <CuboidCollider args={[5, 0.1, 5]} position={[0, 0.2, 0]} />
-        {/* </RigidBody> */}
       </Physics>
     </>
   );

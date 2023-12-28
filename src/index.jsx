@@ -10,6 +10,7 @@ import React, { useState } from "react";
 
 function App() {
   const [showDiv, setShowDiv] = useState(false);
+  const [htmlComponent, setHtmlComponent] = useState(null);
 
   return (
     <Theme>
@@ -32,9 +33,14 @@ function App() {
           }}
           style={{ position: "fixed" }}
         >
-          <Experience setShowDiv={setShowDiv} />
+          <Experience
+            setHtmlComponent={setHtmlComponent}
+            setShowDiv={setShowDiv}
+          />
         </Canvas>
-        {showDiv && <Interface setShowDiv={setShowDiv} />}
+        {showDiv && (
+          <Interface htmlComponent={htmlComponent} setShowDiv={setShowDiv} />
+        )}
       </KeyboardControls>
     </Theme>
   );
