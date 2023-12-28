@@ -107,6 +107,13 @@ export default function Experience({ setHtmlComponent, setShowDiv }) {
         material={material}
         position={[3.5, 1, 3]}
         scale={0.2}
+        onPointerEnter={() => {
+          document.body.style.cursor = "pointer";
+        }}
+        onPointerLeave={() => {
+          document.body.style.cursor = "default";
+        }}
+        // onPointerEnter={(event) => event.stopPropagation()}
         onClick={() => handleMeshClick(About)}
       >
         <sphereGeometry args={[1]} />
@@ -119,6 +126,12 @@ export default function Experience({ setHtmlComponent, setShowDiv }) {
         material={material}
         position={[-3.5, 1, 3]}
         scale={0.2}
+        onPointerEnter={() => {
+          document.body.style.cursor = "pointer";
+        }}
+        onPointerLeave={() => {
+          document.body.style.cursor = "default";
+        }}
         onClick={() => handleMeshClick(ThreeD)}
       >
         <sphereGeometry args={[1]} />
@@ -149,7 +162,12 @@ export default function Experience({ setHtmlComponent, setShowDiv }) {
       </mesh> */}
       <Physics>
         <CharacterController />
-        <Model receiveShadow castShadow scale={1} />
+        <Model
+          onPointerEnter={(event) => event.stopPropagation()}
+          receiveShadow
+          castShadow
+          scale={1}
+        />
         <CuboidCollider args={[5, 0.1, 5]} position={[0, 0.2, 0]} />
       </Physics>
     </>
