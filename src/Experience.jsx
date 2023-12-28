@@ -1,4 +1,5 @@
 import {
+  Html,
   shaderMaterial,
   ContactShadows,
   Sky,
@@ -16,7 +17,11 @@ import skyVertexShader from "./shaders/sky/vertex.glsl";
 import skyFragmentShader from "./shaders/sky/fragment.glsl";
 import * as THREE from "three";
 import { extend, useFrame } from "@react-three/fiber";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { Card, Text } from "@radix-ui/themes";
+// import FullScreenDiv from "./components/FullScreenDiv";
+
+const isNight = true;
 
 const LightBridgeMaterial = shaderMaterial(
   {
@@ -51,7 +56,11 @@ const OceanMaterial = shaderMaterial(
 );
 
 const SkyMaterial = shaderMaterial(
-  { uTexture: new THREE.TextureLoader().load("sky.jpg") },
+  {
+    uTexture: new THREE.TextureLoader().load(
+      isNight ? "nightsky.jpg" : "sky.jpg"
+    ),
+  },
   skyVertexShader,
   skyFragmentShader
 );
@@ -59,6 +68,16 @@ const SkyMaterial = shaderMaterial(
 extend({ LightBridgeMaterial, OceanMaterial, SkyMaterial });
 
 export default function Experience() {
+  // HTML components
+  // const [showDiv, setShowDiv] = useState(false);
+
+  // MeshMatcapMaterial
+  const textureLoader = new THREE.TextureLoader();
+  const material = new THREE.MeshMatcapMaterial();
+  const matcapTexture = textureLoader.load("/matcap/2.png");
+  matcapTexture.colorSpace = THREE.SRGBColorSpace;
+  material.matcap = matcapTexture;
+
   const { sunPosition } = useControls("sky", {
     sunPosition: { value: [1, 2, 3] },
   });
@@ -72,17 +91,37 @@ export default function Experience() {
 
   return (
     <>
-      <Environment preset="sunset" />
+      <Environment preset={isNight ? "night" : "sunset"} />
       <mesh>
         <sphereGeometry args={[100, 256, 256]} />
         <skyMaterial ref={skyMaterial} side={THREE.DoubleSide} />
       </mesh>
+
+      {/* ABOUT */}
+      <mesh material={material} position={[3.5, 1, 3]} scale={0.2}>
+        <sphereGeometry args={[1]} />
+        <Html distanceFactor={4}>
+          <Card>
+            <Text>About</Text>
+          </Card>
+        </Html>
+        {/* <Html onClick={() => setShowDiv(true)}>
+          <Text>About</Text>
+        </Html>
+        <FullScreenDiv showDiv={showDiv} setShowDiv={setShowDiv} /> */}
+      </mesh>
+
       <Perf position="top-left" />
 
       <OrbitControls />
 
-      <directionalLight castShadow position={[1, 2, 3]} intensity={2} />
-      <ambientLight intensity={1} />
+      <directionalLight
+        castShadow
+        color="purple"
+        position={[1, 2, 3]}
+        intensity={2}
+      />
+      <ambientLight />
       <ContactShadows position={[0, 0.01, 0]} />
       <mesh
         receiveShadow
@@ -108,7 +147,7 @@ export default function Experience() {
             <boxGeometry args={[2, 1.5, 2]} />
             <meshStandardMaterial color="ivory" />
           </mesh> */}
-        <Model scale={1} />
+        <Model receiveShadow castShadow scale={1} />
         <CuboidCollider args={[5, 0.1, 5]} position={[0, 0.2, 0]} />
         {/* </RigidBody> */}
       </Physics>
