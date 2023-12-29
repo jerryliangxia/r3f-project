@@ -63,7 +63,7 @@ export default function CharacterController({
   const [keysPressed, setKeysPressed] = useState(0);
 
   useFrame((state, delta) => {
-    if (!isJumping) {
+    if (!isJumping && !isComputerClicked) {
       const { forward, backward, leftward, rightward } = getKeys();
       setKeysPressed(
         [forward, backward, leftward, rightward].filter(Boolean).length

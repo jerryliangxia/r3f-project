@@ -47,6 +47,29 @@ const Computer = forwardRef((props, ref) => {
   );
 });
 
+const Workbench = forwardRef((props, ref) => {
+  return (
+    <>
+      <mesh
+        ref={ref}
+        {...props}
+        position={[-3, 1, 3]}
+        onPointerEnter={() => {
+          document.body.style.cursor = props.isComputerClicked
+            ? "default"
+            : "pointer";
+        }}
+        onPointerLeave={() => {
+          document.body.style.cursor = "default";
+        }}
+      >
+        <boxGeometry args={[1.0, 0.5, 1.0]} />
+        <meshStandardMaterial color="#9d4a4a" />
+      </mesh>
+    </>
+  );
+});
+
 const LightBridgeMaterial = shaderMaterial(
   {
     uTime: 0,
@@ -105,6 +128,7 @@ export default function Experience({
   setMaxDistance,
 }) {
   const meshRef = useRef();
+  const workbenchRef = useRef();
   const { camera } = useThree();
   const [body, setBody] = useState(null);
   const [isMovableCharacter, setIsMovableCharacter] = useState(false);
@@ -135,12 +159,12 @@ export default function Experience({
       setPosition: folder(
         {
           vec2: { value: [-5, 2, 1], label: "vec" },
-          "setPosition(…vec)": button((get) =>
+          "setPosition(…vec)": button((get) => {
             cameraControlsRef.current?.setPosition(
               ...get("setPosition.vec2"),
               true
-            )
-          ),
+            );
+          }),
         },
         { collapsed: true }
       ),
@@ -270,6 +294,27 @@ export default function Experience({
               setShowButtonDiv(false);
             }
             cameraControlsRef.current?.fitToBox(meshRef.current, true);
+            cameraControlsRef.current.distance = 3.0;
+          }
+        }}
+      />
+      <Workbench
+        ref={workbenchRef}
+        isComputerClicked={isComputerClicked}
+        onClick={(event) => {
+          if (!isComputerClicked) {
+            setIsComputerClicked(true);
+            setMinDistance(1.0);
+            setMaxDistance(5.0);
+            setMesh(event.object.position);
+            setIsMovableCharacter(false);
+            if (!showButtonDiv) {
+              setShowButtonDiv(true);
+            } else {
+              setShowButtonDiv(false);
+            }
+            cameraControlsRef.current?.fitToBox(workbenchRef.current, true);
+            cameraControlsRef.current.distance = 3.0;
           }
         }}
       />
@@ -297,15 +342,19 @@ export default function Experience({
 
       <mesh
         material={material}
-        position={[-3.5, 1, 3]}
+        position={[-3, 1.5, 3]}
         scale={0.2}
         onPointerEnter={() => {
-          document.body.style.cursor = "pointer";
+          document.body.style.cursor = isComputerClicked
+            ? "pointer"
+            : "default";
         }}
         onPointerLeave={() => {
           document.body.style.cursor = "default";
         }}
-        onClick={() => handleMeshClick(ThreeD)}
+        onClick={() => {
+          if (isComputerClicked) handleMeshClick(ThreeD);
+        }}
       >
         <sphereGeometry args={[1]} />
       </mesh>
