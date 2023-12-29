@@ -15,7 +15,7 @@ import skyVertexShader from "./shaders/sky/vertex.glsl";
 import skyFragmentShader from "./shaders/sky/fragment.glsl";
 import * as THREE from "three";
 import { extend, useFrame } from "@react-three/fiber";
-import { useRef, useState, forwardRef } from "react";
+import { useRef, useState, useEffect, forwardRef } from "react";
 import { Text } from "@radix-ui/themes";
 import About from "./components/About";
 import ThreeD from "./components/ThreeD";
@@ -89,11 +89,18 @@ const SkyMaterial = shaderMaterial(
 
 extend({ LightBridgeMaterial, OceanMaterial, SkyMaterial });
 
-export default function Experience({ setHtmlComponent, setShowDiv }) {
+export default function Experience({
+  setHtmlComponent,
+  setShowDiv,
+  setShowButtonDiv,
+  showButtonDiv,
+  cameraControlsRef,
+}) {
   const meshRef = useRef();
-  const cameraControlsRef = useRef();
+  // const cameraControlsRef = useRef();
   const { camera } = useThree();
-  let body = null;
+  const [body, setBody] = useState(null);
+  const [isShown, setIsShown] = useState(false);
 
   // All same options as the original "basic" example: https://yomotsu.github.io/camera-controls/examples/basic.html
   const { enabled, verticalDragToForward, dollyToCursor, infinityDolly } =
@@ -180,20 +187,49 @@ export default function Experience({ setHtmlComponent, setShowDiv }) {
       enabled: { value: true, label: "controls on" },
     });
 
+  const Reset = () => {
+    console.log("Resetting");
+    // body = null;
+    cameraControlsRef.current.reset(true);
+  };
+
   const handleMeshClick = (Component) => {
     setHtmlComponent(<Component />);
     setShowDiv(true);
   };
 
+  const displayButton = () => {
+    console.log("Displaying button");
+    setShowButtonDiv(true);
+  };
+
   const handleCharacterClick = (object) => {
     console.log("clicked");
-    if (body == null) {
-      body = object;
+    console.log(isShown);
+    if (body === null) setBody(object);
+    if (!isShown) {
+      displayButton();
+      setIsShown(true);
     } else {
-      body = null;
-      cameraControlsRef.current?.reset(true);
+      setIsShown(false);
     }
+    // else {
+    //   setIsShown(false);
+    //   Reset();
+    // }
   };
+
+  // useEffect(() => {
+  //   const handleKeyDown = (event) => {
+  //     if (event.key === "r") {
+  //       Reset();
+  //     }
+  //   };
+  //   window.addEventListener("keydown", handleKeyDown);
+  //   return () => {
+  //     window.removeEventListener("keydown", handleKeyDown);
+  //   };
+  // }, [cameraControlsRef]);
 
   // MeshMatcapMaterial
   const textureLoader = new THREE.TextureLoader();
@@ -214,7 +250,7 @@ export default function Experience({ setHtmlComponent, setShowDiv }) {
   const lerpFactor = 0.1;
 
   useFrame((state) => {
-    if (body != null) {
+    if (showButtonDiv) {
       const bodyPosition = body.current.translation();
       smoothedCameraTarget.lerp(bodyPosition, lerpFactor);
 

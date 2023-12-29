@@ -1,10 +1,19 @@
-export default function About() {
+import { Card, Button, Text } from "@radix-ui/themes";
+
+export default function About({ setShowDiv }) {
   return (
-    <>
-      <div>
-        <h1>Hello, world!</h1>
-        <p>Welcome to my website.</p>
-      </div>
-    </>
+    <Card
+      radius="none"
+      style={{
+        width: "100vw",
+        height: "100vh",
+      }}
+      color="black"
+    >
+      About!!!
+      <Button onClick={() => setShowDiv(false)}>
+        <Text>Close</Text>
+      </Button>
+    </Card>
   );
 }

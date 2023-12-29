@@ -1,10 +1,19 @@
-export default function ThreeD() {
+import { Card, Button, Text } from "@radix-ui/themes";
+
+export default function ThreeD({ setShowDiv }) {
   return (
-    <>
-      <div>
-        <h1>Hello, world!</h1>
-        <p>This is my 3D page.</p>
-      </div>
-    </>
+    <Card
+      radius="none"
+      style={{
+        width: "100vw",
+        height: "100vh",
+      }}
+      color="black"
+    >
+      3D!!!
+      <Button onClick={() => setShowDiv(false)}>
+        <Text>Close</Text>
+      </Button>
+    </Card>
   );
 }
