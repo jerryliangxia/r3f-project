@@ -99,6 +99,8 @@ export default function Experience({
   const meshRef = useRef();
   const { camera } = useThree();
   const [body, setBody] = useState(null);
+  const [isMovableCharacter, setIsMovableCharacter] = useState(false);
+  const [mesh, setMesh] = useState(null);
 
   // All same options as the original "basic" example: https://yomotsu.github.io/camera-controls/examples/basic.html
   const { enabled, verticalDragToForward, dollyToCursor, infinityDolly } =
@@ -192,6 +194,8 @@ export default function Experience({
 
   const handleCharacterClick = (object) => {
     setBody(object);
+    if (object.current.translation()) setIsMovableCharacter(true);
+    else setIsMovableCharacter(false);
     if (!showButtonDiv) {
       setShowButtonDiv(true);
     } else {
@@ -217,9 +221,12 @@ export default function Experience({
   const [smoothedCameraTarget] = useState(() => new THREE.Vector3());
   const lerpFactor = 0.1;
 
+  // console.log(mesh);
   useFrame((state) => {
     if (showButtonDiv) {
-      const bodyPosition = body.current.translation();
+      const bodyPosition = isMovableCharacter
+        ? body.current.translation()
+        : mesh;
       smoothedCameraTarget.lerp(bodyPosition, lerpFactor);
 
       state.camera.lookAt(
@@ -243,10 +250,13 @@ export default function Experience({
       <Computer
         ref={meshRef}
         onClick={(event) => {
-          console.log(event.object.position);
-          // cameraControlsRef.current?.fitToBox(event.object, true);
-          // setShowButtonDiv(true);
-          handleCharacterClick(event.object);
+          setMesh(event.object.position);
+          setIsMovableCharacter(false);
+          if (!showButtonDiv) {
+            setShowButtonDiv(true);
+          } else {
+            setShowButtonDiv(false);
+          }
         }}
       />
       <Environment preset={isNight ? "night" : "sunset"} />
