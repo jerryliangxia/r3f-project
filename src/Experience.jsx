@@ -218,10 +218,11 @@ export default function Experience({
     // oceanMaterial.current.uTime += delta;
   });
 
-  const [smoothedCameraTarget] = useState(() => new THREE.Vector3());
+  const [smoothedCameraTarget, setSmoothedCameraTarget] = useState(
+    () => new THREE.Vector3()
+  );
   const lerpFactor = 0.1;
 
-  // console.log(mesh);
   useFrame((state) => {
     if (showButtonDiv) {
       const bodyPosition = isMovableCharacter
@@ -229,10 +230,20 @@ export default function Experience({
         : mesh;
       smoothedCameraTarget.lerp(bodyPosition, lerpFactor);
 
-      state.camera.lookAt(
-        new THREE.Vector3(smoothedCameraTarget.x, 1.0, smoothedCameraTarget.z)
+      setSmoothedCameraTarget(
+        new THREE.Vector3(
+          smoothedCameraTarget.x,
+          smoothedCameraTarget.y,
+          smoothedCameraTarget.z
+        )
       );
+    } else {
+      const bodyPosition = new THREE.Vector3(0, 1, 0);
+      smoothedCameraTarget.lerp(bodyPosition, lerpFactor);
     }
+    state.camera.lookAt(
+      new THREE.Vector3(smoothedCameraTarget.x, 1.0, smoothedCameraTarget.z)
+    );
   });
 
   return (
