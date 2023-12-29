@@ -49,7 +49,11 @@ function getImpulse(delta, inputDirection) {
   };
 }
 
-export default function CharacterController({ handleCharacterClick }) {
+export default function CharacterController({
+  handleCharacterClick,
+  isComputerClicked,
+  setIsComputerClicked,
+}) {
   const body = useRef();
   const character = useGLTF("./animated_spiderman_ps5.glb");
   const animations = useAnimations(character.animations, character.scene);
@@ -153,9 +157,20 @@ export default function CharacterController({ handleCharacterClick }) {
           scale={1}
           position={[0, 0, 0]}
           rotation-y={0.3}
+          onPointerEnter={() => {
+            document.body.style.cursor = isComputerClicked
+              ? "default"
+              : "pointer";
+          }}
+          onPointerLeave={() => {
+            document.body.style.cursor = "default";
+          }}
           onClick={(event) => {
-            event.stopPropagation();
-            handleCharacterClick(body);
+            if (!isComputerClicked) {
+              event.stopPropagation();
+              setIsComputerClicked(true);
+              handleCharacterClick(body);
+            }
           }}
         />
         <CapsuleCollider args={[0.4, 0.4]} position={[0, 0.8, 0]} />

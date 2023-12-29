@@ -32,13 +32,15 @@ const Computer = forwardRef((props, ref) => {
         {...props}
         position={[3, 1, -3.5]}
         onPointerEnter={() => {
-          document.body.style.cursor = "pointer";
+          document.body.style.cursor = props.isComputerClicked
+            ? "default"
+            : "pointer";
         }}
         onPointerLeave={() => {
           document.body.style.cursor = "default";
         }}
       >
-        <boxGeometry args={[1, 1, 1]} />
+        <boxGeometry args={[1.0, 1.0, 1.0]} />
         <meshStandardMaterial color="#9d4b4b" />
       </mesh>
     </>
@@ -95,6 +97,12 @@ export default function Experience({
   setShowButtonDiv,
   showButtonDiv,
   cameraControlsRef,
+  isComputerClicked,
+  setIsComputerClicked,
+  minDistance,
+  setMinDistance,
+  maxDistance,
+  setMaxDistance,
 }) {
   const meshRef = useRef();
   const { camera } = useThree();
@@ -198,8 +206,8 @@ export default function Experience({
     else setIsMovableCharacter(false);
     if (!showButtonDiv) {
       setShowButtonDiv(true);
-    } else {
-      setShowButtonDiv(false);
+      setMinDistance(5.0);
+      setMaxDistance(10.0);
     }
   };
 
@@ -239,8 +247,8 @@ export default function Experience({
       <Perf position="top-left" />
       <CameraControls
         ref={cameraControlsRef}
-        minDistance={10.0}
-        maxDistance={20.0}
+        minDistance={minDistance}
+        maxDistance={maxDistance}
         enabled={enabled}
         verticalDragToForward={verticalDragToForward}
         dollyToCursor={dollyToCursor}
@@ -248,15 +256,21 @@ export default function Experience({
       />
       <Computer
         ref={meshRef}
+        isComputerClicked={isComputerClicked}
         onClick={(event) => {
-          setMesh(event.object.position);
-          setIsMovableCharacter(false);
-          if (!showButtonDiv) {
-            setShowButtonDiv(true);
-          } else {
-            setShowButtonDiv(false);
+          if (!isComputerClicked) {
+            setIsComputerClicked(true);
+            setMinDistance(1.0);
+            setMaxDistance(5.0);
+            setMesh(event.object.position);
+            setIsMovableCharacter(false);
+            if (!showButtonDiv) {
+              setShowButtonDiv(true);
+            } else {
+              setShowButtonDiv(false);
+            }
+            cameraControlsRef.current?.fitToBox(meshRef.current, true);
           }
-          cameraControlsRef.current?.fitToBox(meshRef.current, true);
         }}
       />
       <Environment preset={isNight ? "night" : "sunset"} />
@@ -279,9 +293,6 @@ export default function Experience({
         onClick={() => handleMeshClick(About)}
       >
         <sphereGeometry args={[1]} />
-        <Html distanceFactor={4} position-y={1}>
-          <Text color="white">About</Text>
-        </Html>
       </mesh>
 
       <mesh
@@ -297,9 +308,6 @@ export default function Experience({
         onClick={() => handleMeshClick(ThreeD)}
       >
         <sphereGeometry args={[1]} />
-        <Html distanceFactor={4} position-y={1}>
-          <Text color="white">3D</Text>
-        </Html>
       </mesh>
 
       <directionalLight
@@ -323,7 +331,11 @@ export default function Experience({
         <oceanMaterial ref={oceanMaterial} />
       </mesh> */}
       <Physics>
-        <CharacterController handleCharacterClick={handleCharacterClick} />
+        <CharacterController
+          handleCharacterClick={handleCharacterClick}
+          isComputerClicked={isComputerClicked}
+          setIsComputerClicked={setIsComputerClicked}
+        />
         <Model
           onPointerEnter={(event) => event.stopPropagation()}
           receiveShadow

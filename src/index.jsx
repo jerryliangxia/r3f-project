@@ -12,11 +12,16 @@ function App() {
   const [showDiv, setShowDiv] = useState(false);
   const [showButtonDiv, setShowButtonDiv] = useState(false);
   const [htmlComponent, setHtmlComponent] = useState(null);
+  const [isComputerClicked, setIsComputerClicked] = useState(false);
   const cameraControlsRef = useRef();
+  const [minDistance, setMinDistance] = useState(10.0);
+  const [maxDistance, setMaxDistance] = useState(20.0);
 
   const Reset = () => {
-    console.log("Resetting");
     setShowButtonDiv(false);
+    setMinDistance(6.0);
+    setMaxDistance(20.0);
+    if (isComputerClicked) setIsComputerClicked(false);
     cameraControlsRef.current.reset(true);
   };
 
@@ -47,6 +52,12 @@ function App() {
             setShowDiv={setShowDiv}
             setShowButtonDiv={setShowButtonDiv}
             showButtonDiv={showButtonDiv}
+            isComputerClicked={isComputerClicked}
+            setIsComputerClicked={setIsComputerClicked}
+            minDistance={minDistance}
+            setMinDistance={setMinDistance}
+            maxDistance={maxDistance}
+            setMaxDistance={setMaxDistance}
           />
         </Canvas>
         {showDiv && (
@@ -62,6 +73,12 @@ function App() {
             justifyContent: "center",
             alignItems: "center",
             zIndex: 1,
+          }}
+          onPointerEnter={() => {
+            document.body.style.cursor = "pointer";
+          }}
+          onPointerLeave={() => {
+            document.body.style.cursor = "default";
           }}
         >
           <Button
