@@ -97,10 +97,8 @@ export default function Experience({
   cameraControlsRef,
 }) {
   const meshRef = useRef();
-  // const cameraControlsRef = useRef();
   const { camera } = useThree();
   const [body, setBody] = useState(null);
-  const [isShown, setIsShown] = useState(false);
 
   // All same options as the original "basic" example: https://yomotsu.github.io/camera-controls/examples/basic.html
   const { enabled, verticalDragToForward, dollyToCursor, infinityDolly } =
@@ -187,49 +185,19 @@ export default function Experience({
       enabled: { value: true, label: "controls on" },
     });
 
-  const Reset = () => {
-    console.log("Resetting");
-    // body = null;
-    cameraControlsRef.current.reset(true);
-  };
-
   const handleMeshClick = (Component) => {
     setHtmlComponent(<Component />);
     setShowDiv(true);
   };
 
-  const displayButton = () => {
-    console.log("Displaying button");
-    setShowButtonDiv(true);
-  };
-
   const handleCharacterClick = (object) => {
-    console.log("clicked");
-    console.log(isShown);
-    if (body === null) setBody(object);
-    if (!isShown) {
-      displayButton();
-      setIsShown(true);
+    setBody(object);
+    if (!showButtonDiv) {
+      setShowButtonDiv(true);
     } else {
-      setIsShown(false);
+      setShowButtonDiv(false);
     }
-    // else {
-    //   setIsShown(false);
-    //   Reset();
-    // }
   };
-
-  // useEffect(() => {
-  //   const handleKeyDown = (event) => {
-  //     if (event.key === "r") {
-  //       Reset();
-  //     }
-  //   };
-  //   window.addEventListener("keydown", handleKeyDown);
-  //   return () => {
-  //     window.removeEventListener("keydown", handleKeyDown);
-  //   };
-  // }, [cameraControlsRef]);
 
   // MeshMatcapMaterial
   const textureLoader = new THREE.TextureLoader();
@@ -276,7 +244,9 @@ export default function Experience({
         ref={meshRef}
         onClick={(event) => {
           console.log(event.object.position);
-          cameraControlsRef.current?.fitToBox(event.object, true);
+          // cameraControlsRef.current?.fitToBox(event.object, true);
+          // setShowButtonDiv(true);
+          handleCharacterClick(event.object);
         }}
       />
       <Environment preset={isNight ? "night" : "sunset"} />
