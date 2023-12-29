@@ -224,26 +224,14 @@ export default function Experience({
   const lerpFactor = 0.1;
 
   useFrame((state) => {
-    if (showButtonDiv) {
-      const bodyPosition = isMovableCharacter
+    const targetPosition = showButtonDiv
+      ? isMovableCharacter
         ? body.current.translation()
-        : mesh;
-      smoothedCameraTarget.lerp(bodyPosition, lerpFactor);
+        : mesh
+      : new THREE.Vector3(0, 1, 0);
 
-      setSmoothedCameraTarget(
-        new THREE.Vector3(
-          smoothedCameraTarget.x,
-          smoothedCameraTarget.y,
-          smoothedCameraTarget.z
-        )
-      );
-    } else {
-      const bodyPosition = new THREE.Vector3(0, 1, 0);
-      smoothedCameraTarget.lerp(bodyPosition, lerpFactor);
-    }
-    state.camera.lookAt(
-      new THREE.Vector3(smoothedCameraTarget.x, 1.0, smoothedCameraTarget.z)
-    );
+    smoothedCameraTarget.lerp(targetPosition, lerpFactor);
+    state.camera.lookAt(smoothedCameraTarget.x, 1.0, smoothedCameraTarget.z);
   });
 
   return (
@@ -268,6 +256,7 @@ export default function Experience({
           } else {
             setShowButtonDiv(false);
           }
+          cameraControlsRef.current?.fitToBox(meshRef.current, true);
         }}
       />
       <Environment preset={isNight ? "night" : "sunset"} />
