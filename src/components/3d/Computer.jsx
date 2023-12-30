@@ -1,7 +1,18 @@
-import { Html } from "@react-three/drei";
+import { Html, useGLTF } from "@react-three/drei";
 import { forwardRef, useState, useEffect } from "react";
+import { useControls } from "leva";
 
 const Computer = forwardRef((props, ref) => {
+  const { position } = useControls("Computer", {
+    position: {
+      value: [3.17, 0.78, -2.78],
+      step: 0.01,
+    },
+  });
+
+  const computer = useGLTF(
+    "https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf"
+  );
   const [showHtml, setShowHtml] = useState(false);
 
   useEffect(() => {
@@ -17,7 +28,6 @@ const Computer = forwardRef((props, ref) => {
         clearTimeout(timeoutId);
       }
     }
-    // Cleanup function to clear the timeout if the component unmounts
     return () => {
       if (timeoutId) {
         clearTimeout(timeoutId);
@@ -27,10 +37,11 @@ const Computer = forwardRef((props, ref) => {
 
   return (
     <>
+      <primitive position={position} scale={0.207} object={computer.scene} />
       <mesh
         ref={ref}
         {...props}
-        position={[3.15, 0.65, -3.07]}
+        position={[3.15, 0.66, -3.12]}
         onPointerEnter={() => {
           document.body.style.cursor = props.isComputerClicked
             ? "default"
@@ -46,10 +57,10 @@ const Computer = forwardRef((props, ref) => {
             transform
             wrapperClass="htmlScreen"
             distanceFactor={0.25}
-            position={[-0.3, 0.75, 0]}
+            position={[-0.3, 0.65, 0]}
             rotation-x={-0.256}
           >
-            <iframe src="https://jerryxia.com/blog/" />
+            <iframe src="https://r3f-blog.vercel.app/" />
           </Html>
         )}
         {/*
