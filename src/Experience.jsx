@@ -1,118 +1,19 @@
-import {
-  Html,
-  shaderMaterial,
-  ContactShadows,
-  CameraControls,
-  Environment,
-} from "@react-three/drei";
+import { CameraControls, Environment } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import CharacterController from "./CharacterController";
-import { Physics, RigidBody, CuboidCollider } from "@react-three/rapier";
-import Model from "./Platform";
-import lightBridgeVertexShader from "./shaders/light-bridge/vertex.glsl";
-import lightBridgeFragmentShader from "./shaders/light-bridge/fragment.glsl";
-import skyVertexShader from "./shaders/sky/vertex.glsl";
-import skyFragmentShader from "./shaders/sky/fragment.glsl";
+import { Physics, CuboidCollider } from "@react-three/rapier";
+import Model from "./components/3d/Platform";
 import * as THREE from "three";
-import { extend, useFrame } from "@react-three/fiber";
-import { useRef, useState, useEffect, forwardRef } from "react";
-import { Text } from "@radix-ui/themes";
+import { useFrame } from "@react-three/fiber";
+import { useRef, useState } from "react";
 import About from "./components/About";
 import ThreeD from "./components/ThreeD";
 import { useThree } from "@react-three/fiber";
 import { useControls, button, buttonGroup, folder } from "leva";
-
-const isNight = true;
-
-const Computer = forwardRef((props, ref) => {
-  return (
-    <>
-      <mesh
-        ref={ref}
-        {...props}
-        position={[3, 1, -3.5]}
-        onPointerEnter={() => {
-          document.body.style.cursor = props.isComputerClicked
-            ? "default"
-            : "pointer";
-        }}
-        onPointerLeave={() => {
-          document.body.style.cursor = "default";
-        }}
-      >
-        <boxGeometry args={[1.0, 1.0, 1.0]} />
-        <meshStandardMaterial color="#9d4b4b" />
-      </mesh>
-    </>
-  );
-});
-
-const Workbench = forwardRef((props, ref) => {
-  return (
-    <>
-      <mesh
-        ref={ref}
-        {...props}
-        position={[-3, 1, 3]}
-        onPointerEnter={() => {
-          document.body.style.cursor = props.isComputerClicked
-            ? "default"
-            : "pointer";
-        }}
-        onPointerLeave={() => {
-          document.body.style.cursor = "default";
-        }}
-      >
-        <boxGeometry args={[1.0, 0.5, 1.0]} />
-        <meshStandardMaterial color="#9d4a4a" />
-      </mesh>
-    </>
-  );
-});
-
-const LightBridgeMaterial = shaderMaterial(
-  {
-    uTime: 0,
-    uBigWavesElevation: 0,
-    uBigWavesFrequency: new THREE.Vector2(4, 1.5),
-    uBigWavesSpeed: 0.75,
-    uDepthColor: new THREE.Color("#23a2e7"),
-    uSurfaceColor: new THREE.Color("#9bd8ff"),
-    uColorOffset: 0.08,
-    uColorMultiplier: 5,
-    uBrightness: 0.8,
-  },
-  lightBridgeVertexShader,
-  lightBridgeFragmentShader
-);
-
-const OceanMaterial = shaderMaterial(
-  {
-    uTime: 0,
-    uBigWavesElevation: 0.1,
-    uBigWavesFrequency: new THREE.Vector2(20, 20),
-    uBigWavesSpeed: 1,
-    uDepthColor: new THREE.Color("#195576"),
-    uSurfaceColor: new THREE.Color("#2772a0"),
-    uColorOffset: 0.3,
-    uColorMultiplier: 1.3,
-    uBrightness: 0.7,
-  },
-  lightBridgeVertexShader,
-  lightBridgeFragmentShader
-);
-
-const SkyMaterial = shaderMaterial(
-  {
-    uTexture: new THREE.TextureLoader().load(
-      isNight ? "nightsky.jpg" : "sky.jpg"
-    ),
-  },
-  skyVertexShader,
-  skyFragmentShader
-);
-
-extend({ LightBridgeMaterial, OceanMaterial, SkyMaterial });
+import Computer from "./components/3d/Computer";
+import Workbench from "./components/3d/Workbench";
+import LightBridge from "./components/3d/shader/LightBridge";
+import Sky from "./components/3d/shader/Sky";
 
 export default function Experience({
   setHtmlComponent,
@@ -127,7 +28,8 @@ export default function Experience({
   maxDistance,
   setMaxDistance,
 }) {
-  const meshRef = useRef();
+  const isNight = true;
+  const computerRef = useRef();
   const workbenchRef = useRef();
   const { camera } = useThree();
   const [body, setBody] = useState(null);
@@ -154,7 +56,7 @@ export default function Experience({
         { collapsed: true }
       ),
       "fitToBox(mesh)": button(() =>
-        cameraControlsRef.current?.fitToBox(meshRef.current, true)
+        cameraControlsRef.current?.fitToBox(computerRef.current, true)
       ),
       setPosition: folder(
         {
@@ -232,27 +134,32 @@ export default function Experience({
       setShowButtonDiv(true);
       setMinDistance(5.0);
       setMaxDistance(10.0);
+      cameraControlsRef.current.distance = 5.0;
     }
   };
 
-  // MeshMatcapMaterial
-  const textureLoader = new THREE.TextureLoader();
-  const material = new THREE.MeshMatcapMaterial();
-  const matcapTexture = textureLoader.load("/matcap/2.png");
-  matcapTexture.colorSpace = THREE.SRGBColorSpace;
-  material.matcap = matcapTexture;
+  const handleMajorMeshClick = (
+    custMinDistance,
+    custMaxDistance,
+    objectPosition,
+    meshObjectRef,
+    initialZoom
+  ) => {
+    setIsComputerClicked(true);
+    setMinDistance(custMinDistance);
+    setMaxDistance(custMaxDistance);
+    setMesh(objectPosition);
+    setIsMovableCharacter(false);
+    if (!showButtonDiv) {
+      setShowButtonDiv(true);
+    } else {
+      setShowButtonDiv(false);
+    }
+    cameraControlsRef.current?.fitToBox(meshObjectRef, true);
+    cameraControlsRef.current.distance = initialZoom;
+  };
 
-  const lightBridgeMaterial = useRef();
-  const oceanMaterial = useRef();
-  const skyMaterial = useRef();
-  useFrame((state, delta) => {
-    lightBridgeMaterial.current.uTime += delta;
-    // oceanMaterial.current.uTime += delta;
-  });
-
-  const [smoothedCameraTarget, setSmoothedCameraTarget] = useState(
-    () => new THREE.Vector3()
-  );
+  const [smoothedCameraTarget] = useState(() => new THREE.Vector3());
   const lerpFactor = 0.1;
 
   useFrame((state) => {
@@ -279,22 +186,17 @@ export default function Experience({
         infinityDolly={infinityDolly}
       />
       <Computer
-        ref={meshRef}
+        ref={computerRef}
         isComputerClicked={isComputerClicked}
         onClick={(event) => {
           if (!isComputerClicked) {
-            setIsComputerClicked(true);
-            setMinDistance(1.0);
-            setMaxDistance(5.0);
-            setMesh(event.object.position);
-            setIsMovableCharacter(false);
-            if (!showButtonDiv) {
-              setShowButtonDiv(true);
-            } else {
-              setShowButtonDiv(false);
-            }
-            cameraControlsRef.current?.fitToBox(meshRef.current, true);
-            cameraControlsRef.current.distance = 3.0;
+            handleMajorMeshClick(
+              1.0,
+              5.0,
+              event.object.position,
+              computerRef.current,
+              3.0
+            );
           }
         }}
       />
@@ -303,30 +205,21 @@ export default function Experience({
         isComputerClicked={isComputerClicked}
         onClick={(event) => {
           if (!isComputerClicked) {
-            setIsComputerClicked(true);
-            setMinDistance(1.0);
-            setMaxDistance(5.0);
-            setMesh(event.object.position);
-            setIsMovableCharacter(false);
-            if (!showButtonDiv) {
-              setShowButtonDiv(true);
-            } else {
-              setShowButtonDiv(false);
-            }
-            cameraControlsRef.current?.fitToBox(workbenchRef.current, true);
-            cameraControlsRef.current.distance = 3.0;
+            handleMajorMeshClick(
+              1.0,
+              5.0,
+              event.object.position,
+              workbenchRef.current,
+              3.0
+            );
           }
         }}
       />
       <Environment preset={isNight ? "night" : "sunset"} />
-      <mesh>
-        <sphereGeometry args={[100, 256, 256]} />
-        <skyMaterial ref={skyMaterial} side={THREE.DoubleSide} />
-      </mesh>
+      <Sky isNight={isNight} />
 
       {/* CLICKABLE COMPONENTS */}
       <mesh
-        material={material}
         position={[3.5, 1, 3]}
         scale={0.2}
         onPointerEnter={() => {
@@ -339,9 +232,7 @@ export default function Experience({
       >
         <sphereGeometry args={[1]} />
       </mesh>
-
       <mesh
-        material={material}
         position={[-3, 1.5, 3]}
         scale={0.2}
         onPointerEnter={() => {
@@ -358,7 +249,6 @@ export default function Experience({
       >
         <sphereGeometry args={[1]} />
       </mesh>
-
       <directionalLight
         castShadow
         color="purple"
@@ -366,19 +256,7 @@ export default function Experience({
         intensity={2}
       />
       <ambientLight />
-      <mesh
-        receiveShadow
-        rotation-x={-Math.PI / 2}
-        position-x={3.5}
-        position-y={0.22}
-      >
-        <boxGeometry args={[3, 3, 0.05, 512, 512]} />
-        <lightBridgeMaterial ref={lightBridgeMaterial} />
-      </mesh>
-      {/* <mesh rotation-x={-Math.PI / 2} position-y={-10}>
-        <planeGeometry args={[400, 400, 128, 128]} />
-        <oceanMaterial ref={oceanMaterial} />
-      </mesh> */}
+      <LightBridge />
       <Physics>
         <CharacterController
           handleCharacterClick={handleCharacterClick}

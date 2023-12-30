@@ -100,9 +100,6 @@ function App() {
   );
 }
 
-// Create the root once
 const rootElement = document.querySelector("#root");
 const root = ReactDOM.createRoot(rootElement);
-
-// Then call render on it as many times as you want
 root.render(<App />);
