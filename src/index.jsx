@@ -13,6 +13,7 @@ function App() {
   const [showButtonDiv, setShowButtonDiv] = useState(false);
   const [htmlComponent, setHtmlComponent] = useState(null);
   const [isComputerClicked, setIsComputerClicked] = useState(false);
+  const [isActualComputerClicked, setIsActualComputerClicked] = useState(false);
   const cameraControlsRef = useRef();
   const [minDistance, setMinDistance] = useState(6.0);
   const [maxDistance, setMaxDistance] = useState(10.0);
@@ -54,6 +55,8 @@ function App() {
             showButtonDiv={showButtonDiv}
             isComputerClicked={isComputerClicked}
             setIsComputerClicked={setIsComputerClicked}
+            isActualComputerClicked={isActualComputerClicked}
+            setIsActualComputerClicked={setIsActualComputerClicked}
             minDistance={minDistance}
             setMinDistance={setMinDistance}
             maxDistance={maxDistance}

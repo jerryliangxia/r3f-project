@@ -6,7 +6,6 @@ import * as THREE from "three";
 
 const MAX_LINVEL = 2;
 const ROTATION_THRESHOLD = Math.PI;
-const THETA_TO_MOVE = 0.3;
 
 function verifyLinvel(body) {
   const linvel = body?.current?.linvel();
@@ -33,9 +32,7 @@ function rotateAndMove(impulse, character, body) {
   const currentAngle = character.scene.rotation.y;
   const newAngle = THREE.MathUtils.lerp(currentAngle, targetAngle, 0.1);
   const angleDifference = Math.abs(newAngle - targetAngle);
-  if (angleDifference < THETA_TO_MOVE) {
-    body.current.applyImpulse(impulse);
-  }
+  body.current.applyImpulse(impulse);
   character.scene.rotation.y =
     angleDifference <= ROTATION_THRESHOLD ? newAngle : targetAngle;
 }

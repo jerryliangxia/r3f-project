@@ -1,8 +1,9 @@
-import { CameraControls, Environment } from "@react-three/drei";
+import { Html, CameraControls, Environment } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import CharacterController from "./CharacterController";
 import { Physics, CuboidCollider } from "@react-three/rapier";
-import Model from "./components/3d/Platform";
+// import Model from "./components/3d/Platform";
+import Model from "./components/3d/Platform2";
 import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
 import { useRef, useState } from "react";
@@ -23,6 +24,8 @@ export default function Experience({
   cameraControlsRef,
   isComputerClicked,
   setIsComputerClicked,
+  isActualComputerClicked,
+  setIsActualComputerClicked,
   minDistance,
   setMinDistance,
   maxDistance,
@@ -188,8 +191,11 @@ export default function Experience({
       <Computer
         ref={computerRef}
         isComputerClicked={isComputerClicked}
+        isActualComputerClicked={isActualComputerClicked}
+        setIsActualComputerClicked={setIsActualComputerClicked}
         onClick={(event) => {
           if (!isComputerClicked) {
+            setIsActualComputerClicked(true);
             handleMajorMeshClick(
               1.0,
               5.0,
@@ -220,7 +226,7 @@ export default function Experience({
 
       {/* CLICKABLE COMPONENTS */}
       <mesh
-        position={[3.5, 1, 3]}
+        position={[3.05, 1, 3.15]}
         scale={0.2}
         onPointerEnter={() => {
           document.body.style.cursor = "pointer";
@@ -233,7 +239,7 @@ export default function Experience({
         <sphereGeometry args={[1]} />
       </mesh>
       <mesh
-        position={[-3, 1.5, 3]}
+        position={[-2.9, 0.9, 3.27]}
         scale={0.2}
         onPointerEnter={() => {
           document.body.style.cursor = isComputerClicked
@@ -263,13 +269,14 @@ export default function Experience({
           isComputerClicked={isComputerClicked}
           setIsComputerClicked={setIsComputerClicked}
         />
-        <Model
+        {/* <Model
           onPointerEnter={(event) => event.stopPropagation()}
           receiveShadow
           castShadow
           scale={1}
-        />
-        <CuboidCollider args={[5, 0.1, 5]} position={[0, 0.2, 0]} />
+        /> */}
+        <Model onPointerEnter={(event) => event.stopPropagation()} scale={1} />
+        <CuboidCollider args={[5, 0.1, 5]} position={[0, 0.1, 0]} />
       </Physics>
     </>
   );

@@ -33,9 +33,9 @@ const LightBridge = () => {
       receiveShadow
       rotation-x={-Math.PI / 2}
       position-x={3.5}
-      position-y={0.22}
+      position-y={0.075}
     >
-      <boxGeometry args={[3, 3, 0.05, 512, 512]} />
+      <boxGeometry args={[3, 3, 0.1, 512, 512]} />
       <lightBridgeMaterial ref={lightBridgeMaterial} />
     </mesh>
   );
