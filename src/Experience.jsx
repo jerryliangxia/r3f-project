@@ -1,9 +1,8 @@
-import { Html, CameraControls, Environment } from "@react-three/drei";
+import { CameraControls, Environment } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import CharacterController from "./CharacterController";
 import { Physics, CuboidCollider } from "@react-three/rapier";
-// import Model from "./components/3d/Platform";
-import Model from "./components/3d/Platform2";
+import Model from "./components/3d/Platform";
 import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
 import { useRef, useState } from "react";
@@ -17,11 +16,11 @@ import LightBridge from "./components/3d/shader/LightBridge";
 import Sky from "./components/3d/shader/Sky";
 
 export default function Experience({
+  cameraControlsRef,
   setHtmlComponent,
   setShowDiv,
-  setShowButtonDiv,
   showButtonDiv,
-  cameraControlsRef,
+  setShowButtonDiv,
   isComputerClicked,
   setIsComputerClicked,
   isActualComputerClicked,
@@ -191,6 +190,7 @@ export default function Experience({
       <Computer
         ref={computerRef}
         isComputerClicked={isComputerClicked}
+        setIsComputerClicked={setIsComputerClicked}
         isActualComputerClicked={isActualComputerClicked}
         setIsActualComputerClicked={setIsActualComputerClicked}
         onClick={(event) => {
@@ -198,10 +198,10 @@ export default function Experience({
             setIsActualComputerClicked(true);
             handleMajorMeshClick(
               1.0,
-              5.0,
+              2.0,
               event.object.position,
               computerRef.current,
-              3.0
+              1.0
             );
           }
         }}
@@ -269,12 +269,6 @@ export default function Experience({
           isComputerClicked={isComputerClicked}
           setIsComputerClicked={setIsComputerClicked}
         />
-        {/* <Model
-          onPointerEnter={(event) => event.stopPropagation()}
-          receiveShadow
-          castShadow
-          scale={1}
-        /> */}
         <Model onPointerEnter={(event) => event.stopPropagation()} scale={1} />
         <CuboidCollider args={[5, 0.1, 5]} position={[0, 0.1, 0]} />
       </Physics>

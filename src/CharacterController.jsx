@@ -149,11 +149,8 @@ export default function CharacterController({
         angularDamping={0.5}
         enabledRotations={[false, false, false]}
       >
-        <primitive
-          object={character.scene}
-          scale={1}
-          position={[0, 0, 0]}
-          rotation-y={0.3}
+        <primitive object={character.scene} scale={1} position={[0, 0, 0]} />
+        <mesh
           onPointerEnter={() => {
             document.body.style.cursor = isComputerClicked
               ? "default"
@@ -169,7 +166,11 @@ export default function CharacterController({
               handleCharacterClick(body);
             }
           }}
-        />
+          position-y={0.9}
+          visible={false}
+        >
+          <cylinderGeometry args={[0.2, 0.2, 1.5, 8]} />
+        </mesh>
         <CapsuleCollider args={[0.4, 0.4]} position={[0, 0.8, 0]} />
       </RigidBody>
     </>

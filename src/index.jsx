@@ -22,7 +22,7 @@ function App() {
     setShowButtonDiv(false);
     setMinDistance(6.0);
     setMaxDistance(10.0);
-    if (isComputerClicked) setIsComputerClicked(false);
+    setIsComputerClicked(false);
     cameraControlsRef.current.reset(true);
   };
 
@@ -51,8 +51,8 @@ function App() {
             cameraControlsRef={cameraControlsRef}
             setHtmlComponent={setHtmlComponent}
             setShowDiv={setShowDiv}
-            setShowButtonDiv={setShowButtonDiv}
             showButtonDiv={showButtonDiv}
+            setShowButtonDiv={setShowButtonDiv}
             isComputerClicked={isComputerClicked}
             setIsComputerClicked={setIsComputerClicked}
             isActualComputerClicked={isActualComputerClicked}

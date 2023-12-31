@@ -5,7 +5,7 @@ import { useControls } from "leva";
 const Computer = forwardRef((props, ref) => {
   const { position } = useControls("Computer", {
     position: {
-      value: [3.17, 0.78, -2.78],
+      value: [3.17, 0.78, -2.72],
       step: 0.01,
     },
   });
@@ -41,7 +41,7 @@ const Computer = forwardRef((props, ref) => {
       <mesh
         ref={ref}
         {...props}
-        position={[3.15, 0.66, -3.12]}
+        position={[3.15, 0.66, -3.07]}
         onPointerEnter={() => {
           document.body.style.cursor = props.isComputerClicked
             ? "default"
