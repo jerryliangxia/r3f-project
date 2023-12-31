@@ -150,6 +150,7 @@ export default function CharacterController({
         enabledRotations={[false, false, false]}
       >
         <primitive object={character.scene} scale={1} position={[0, 0, 0]} />
+        {/* Mesh for click events */}
         <mesh
           onPointerEnter={() => {
             document.body.style.cursor = isComputerClicked

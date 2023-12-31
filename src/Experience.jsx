@@ -197,11 +197,11 @@ export default function Experience({
           if (!isComputerClicked) {
             setIsActualComputerClicked(true);
             handleMajorMeshClick(
+              0.5,
               1.0,
-              2.0,
               event.object.position,
               computerRef.current,
-              1.0
+              1.5
             );
           }
         }}
