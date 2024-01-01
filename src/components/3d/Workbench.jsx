@@ -1,5 +1,4 @@
-import { Html, useGLTF } from "@react-three/drei";
-import { forwardRef, useState, useEffect } from "react";
+import { forwardRef, useState, useEffect, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import MiniSpid from "./MiniSpid";
 import MiniSymb from "./MiniSymb";
@@ -9,9 +8,9 @@ import Webshooter from "./Webshooter";
 import MiniHand from "./MiniHand";
 import PizzaTime from "./PizzaTime";
 import CityScene from "./CityScene";
-import Spid from "./shader/Spid";
+// import Spid from "./shader/Spid";
 import SpidHead from "./SpidHead";
-// import { RectAreaLight, RectAreaLightHelper } from "@react-three/drei";
+// import RectAreaLightModels from "./RectAreaLightModels";
 
 const Workbench = forwardRef((props, ref) => {
   const [showHtml, setShowHtml] = useState(false);
@@ -38,6 +37,22 @@ const Workbench = forwardRef((props, ref) => {
 
   return (
     <>
+      <rectAreaLight
+        position={[-3.4, 1.6, 3.25]}
+        rotation={[-Math.PI / 2, -1.0, 0.0]}
+        width={2.0}
+        height={2.0}
+        intensity={3.0}
+        color="#9D47FF"
+      />
+      <rectAreaLight
+        position={[-2.2, 1.0, 3.27]}
+        rotation={[-Math.PI / 2, -4.0, 0.0]}
+        width={0.6}
+        height={1.0}
+        intensity={1.0}
+        color="pink"
+      />
       <mesh
         ref={ref}
         {...props}
