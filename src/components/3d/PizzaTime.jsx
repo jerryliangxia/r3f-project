@@ -56,6 +56,7 @@ export default function PizzaTime(props) {
   useFrame((state, delta) => {
     customUniforms.uTime.value += delta;
   });
+
   return (
     <group
       {...props}

@@ -6,7 +6,7 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
 export default function Webshooter(props) {
-  const { nodes, materials } = useGLTF("/miniwebshooter.glb");
+  const { nodes, materials } = useGLTF("/minifbwebshooter.glb");
   return (
     <group
       {...props}
@@ -15,7 +15,7 @@ export default function Webshooter(props) {
       rotation-y={props.rotationY}
       scale={props.scale}
     >
-      <group position={[0, 0.852, -0.238]} rotation={[-Math.PI / 4, 0, 0]}>
+      <group position={[0, 0.764, 0]} rotation={[-Math.PI / 4, 0, 0]}>
         <mesh
           castShadow
           receiveShadow
@@ -67,7 +67,7 @@ export default function Webshooter(props) {
           receiveShadow
           geometry={nodes.Metal_Bottom_Back.geometry}
           material={materials.Gray}
-          position={[-0.002, -3.25, 0.239]}
+          position={[-0.002, -3.251, 0.239]}
         />
         <mesh
           castShadow
@@ -95,4 +95,4 @@ export default function Webshooter(props) {
   );
 }
 
-useGLTF.preload("/miniwebshooter.glb");
+useGLTF.preload("/minifbwebshooter.glb");

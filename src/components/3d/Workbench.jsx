@@ -11,7 +11,6 @@ import PizzaTime from "./PizzaTime";
 import CityScene from "./CityScene";
 import Spid from "./shader/Spid";
 import SpidHead from "./SpidHead";
-import SymbHead from "./SymbHead";
 // import { RectAreaLight, RectAreaLightHelper } from "@react-three/drei";
 
 const Workbench = forwardRef((props, ref) => {
@@ -57,21 +56,24 @@ const Workbench = forwardRef((props, ref) => {
         <boxGeometry args={[1.1, 0.5, 1.1]} />
         <meshStandardMaterial color="#9d4a4a" />
       </mesh>
-      <MiniSpid position={[-3.25, 0.9, 3.6]} rotationY={2.0} scale={0.1} />
+      {/* <Spid position={[-2.3, 0.88, 2.34]} rotationY={1.6} scale={0.4} /> */}
+      {/* Top row */}
       <MiniSymb position={[-3.25, 0.9, 3.3]} rotationY={2.0} scale={0.12} />
       <MiniSymbTendrils
         position={[-3.25, 0.87, 3.3]}
         rotationY={2.0}
         scale={0.12}
       />
-      <Venom position={[-3.25, 0.87, 2.9]} rotationY={1.2} scale={0.1} />
-      <Webshooter position={[-2.9, 0.9, 3.6]} rotationY={1.2} scale={0.06} />
-      <MiniHand position={[-2.9, 0.9, 3.3]} rotationY={1.2} scale={0.3} />
+      <Venom position={[-3.3, 0.87, 2.9]} rotationY={1.2} scale={0.1} />
+
+      {/* Middle row */}
       <PizzaTime position={[-2.9, 0.85, 2.9]} rotationY={1.6} scale={0.1} />
-      <CityScene position={[-2.45, 0.873, 3.6]} rotationY={1.6} scale={0.01} />
-      <Spid position={[-2.3, 0.88, 2.34]} rotationY={1.6} scale={0.4} />
+      <MiniSpid position={[-2.9, 0.9, 3.3]} rotationY={2.0} scale={0.1} />
+      <CityScene position={[-2.75, 0.873, 3.6]} rotationY={1.6} scale={0.01} />
+      {/* Bottom row */}
+      <Webshooter position={[-2.5, 0.9, 3.6]} rotationY={1.2} scale={0.06} />
       <SpidHead position={[-2.5, 0.88, 3.3]} rotationY={1.6} scale={0.1} />
-      <SymbHead position={[-2.5, 0.88, 2.92]} rotationY={1.6} scale={0.1} />
+      <MiniHand position={[-2.5, 0.9, 2.95]} rotationY={1.2} scale={0.2} />
     </>
   );
 });

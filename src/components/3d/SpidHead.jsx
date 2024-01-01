@@ -43,13 +43,13 @@ export default function SpidHead(props) {
         castShadow
         receiveShadow
         geometry={nodes.Plane.geometry}
-        material={materials.MASK_MAT}
+        material={materials.Brown}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Plane_1.geometry}
-        material={materials.Brown}
+        material={materials.Red}
       />
     </group>
   );
