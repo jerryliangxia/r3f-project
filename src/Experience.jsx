@@ -182,7 +182,7 @@ export default function Experience({
   return (
     <>
       <Perf position="top-left" />
-      <Spid />
+      {/* <Spid /> */}
       <CameraControls
         ref={cameraControlsRef}
         minDistance={minDistance}

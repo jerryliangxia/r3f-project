@@ -1,10 +1,10 @@
 import { Html, useGLTF } from "@react-three/drei";
 import { forwardRef, useState, useEffect } from "react";
-// import { useControls } from "leva";
 import { useFrame } from "@react-three/fiber";
 import MiniSpid from "./MiniSpid";
 import MiniSymb from "./MiniSymb";
 import MiniSymbTendrils from "./MiniSymbTendrils";
+import Venom from "./Venom";
 
 const Workbench = forwardRef((props, ref) => {
   const [showHtml, setShowHtml] = useState(false);
@@ -49,9 +49,10 @@ const Workbench = forwardRef((props, ref) => {
         <boxGeometry args={[1.1, 0.5, 1.1]} />
         <meshStandardMaterial color="#9d4a4a" />
       </mesh>
-      <MiniSpid />
-      <MiniSymb />
-      <MiniSymbTendrils />
+      <MiniSpid position={[-3.25, 0.9, 3.6]} rotationY={2.0} />
+      <MiniSymb position={[-3.25, 0.9, 3.3]} rotationY={2.0} />
+      <MiniSymbTendrils position={[-3.25, 0.87, 3.3]} rotationY={2.0} />
+      <Venom position={[-3.25, 0.87, 2.9]} rotationY={1.2} />
     </>
   );
 });

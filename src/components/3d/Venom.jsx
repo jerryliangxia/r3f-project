@@ -7,10 +7,10 @@ import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
-export default function MiniSpid(props) {
-  const { nodes, materials } = useGLTF("/minispid.glb");
+export default function Venom(props) {
+  const { nodes, materials } = useGLTF("/venom.glb");
   const material = new THREE.MeshStandardMaterial({
-    color: "white",
+    color: "#94002C",
   });
 
   const customUniforms = {
@@ -22,22 +22,22 @@ export default function MiniSpid(props) {
     shader.vertexShader = shader.vertexShader.replace(
       "#include <common>",
       `
-        #include <common>
+            #include <common>
 
-        uniform float uTime;
+            uniform float uTime;
 
-        mat2 get2dRotateMatrix(float _angle)
-        {
-            return mat2(cos(_angle), - sin(_angle), sin(_angle), cos(_angle));
-        }
-    `
+            mat2 get2dRotateMatrix(float _angle)
+            {
+                return mat2(cos(_angle), - sin(_angle), sin(_angle), cos(_angle));
+            }
+        `
     );
     shader.vertexShader = shader.vertexShader.replace(
       "#include <beginnormal_vertex>",
       `
             #include <beginnormal_vertex>
     
-            float angle = (sin(position.y + uTime)) * 0.07;
+            float angle = (sin(position.y + uTime)) * 0.15;
             mat2 rotateMatrix = get2dRotateMatrix(angle);
     
             objectNormal.xz = rotateMatrix * objectNormal.xz;
@@ -68,37 +68,43 @@ export default function MiniSpid(props) {
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.Cube.geometry}
+        geometry={nodes.Rock.geometry}
+        material={materials.Gray}
+        position={[0.849, 0.138, 1.211]}
+        scale={0.435}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Venommesh.geometry}
+        material={materials.Black}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Venommesh_1.geometry}
+        material={materials.White}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Venommesh_2.geometry}
+        material={materials.Red}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Venommesh001.geometry}
+        material={materials.White}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Venommesh001_1.geometry}
         material={material}
       />
-      <group rotation={[Math.PI / 2, 0, 0]}>
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes["Spider-Man_Redmesh"].geometry}
-          material={materials.Red}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes["Spider-Man_Redmesh_1"].geometry}
-          material={materials.Blue}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes["Spider-Man_Redmesh_2"].geometry}
-          material={materials.Black}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes["Spider-Man_Redmesh_3"].geometry}
-          material={materials.White}
-        />
-      </group>
     </group>
   );
 }
 
-useGLTF.preload("/minispid.glb");
+useGLTF.preload("/venom.glb");
