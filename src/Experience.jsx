@@ -27,6 +27,8 @@ export default function Experience({
   setIsComputerClicked,
   isActualComputerClicked,
   setIsActualComputerClicked,
+  isActualWorkbenchClicked,
+  setIsActualWorkbenchClicked,
   minDistance,
   setMinDistance,
   maxDistance,
@@ -212,6 +214,8 @@ export default function Experience({
       <Workbench
         ref={workbenchRef}
         isComputerClicked={isComputerClicked}
+        isActualWorkbenchClicked={isActualWorkbenchClicked}
+        setIsActualWorkbenchClicked={setIsActualWorkbenchClicked}
         onClick={(event) => {
           if (!isComputerClicked) {
             handleMajorMeshClick(
@@ -241,7 +245,7 @@ export default function Experience({
       >
         <sphereGeometry args={[1]} />
       </mesh>
-      <mesh
+      {/* <mesh
         position={[-2.9, 0.9, 3.27]}
         scale={0.2}
         onPointerEnter={() => {
@@ -253,11 +257,11 @@ export default function Experience({
           document.body.style.cursor = "default";
         }}
         onClick={() => {
-          if (isComputerClicked) handleMeshClick(ThreeD);
+          setIsActualWorkbenchClicked(!isActualWorkbenchClicked);
         }}
       >
         <sphereGeometry args={[1]} />
-      </mesh>
+      </mesh> */}
       <directionalLight
         castShadow
         color="purple"

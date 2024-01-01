@@ -18,7 +18,7 @@ const Computer = forwardRef((props, ref) => {
 
   const [showBasedOnRotation, setShowBasedOnRotation] = useState(false);
 
-  useFrame((state, delta) => {
+  useFrame((state) => {
     setShowBasedOnRotation(
       state.camera.position.z > -3.07 && state.camera.position.y < 3
     );
