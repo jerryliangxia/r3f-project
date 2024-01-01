@@ -5,6 +5,9 @@ import MiniSpid from "./MiniSpid";
 import MiniSymb from "./MiniSymb";
 import MiniSymbTendrils from "./MiniSymbTendrils";
 import Venom from "./Venom";
+import Webshooter from "./Webshooter";
+import MiniHand from "./MiniHand";
+import PizzaTime from "./PizzaTime";
 
 const Workbench = forwardRef((props, ref) => {
   const [showHtml, setShowHtml] = useState(false);
@@ -49,10 +52,17 @@ const Workbench = forwardRef((props, ref) => {
         <boxGeometry args={[1.1, 0.5, 1.1]} />
         <meshStandardMaterial color="#9d4a4a" />
       </mesh>
-      <MiniSpid position={[-3.25, 0.9, 3.6]} rotationY={2.0} />
-      <MiniSymb position={[-3.25, 0.9, 3.3]} rotationY={2.0} />
-      <MiniSymbTendrils position={[-3.25, 0.87, 3.3]} rotationY={2.0} />
-      <Venom position={[-3.25, 0.87, 2.9]} rotationY={1.2} />
+      <MiniSpid position={[-3.25, 0.9, 3.6]} rotationY={2.0} scale={0.1} />
+      <MiniSymb position={[-3.25, 0.9, 3.3]} rotationY={2.0} scale={0.12} />
+      <MiniSymbTendrils
+        position={[-3.25, 0.87, 3.3]}
+        rotationY={2.0}
+        scale={0.12}
+      />
+      <Venom position={[-3.25, 0.87, 2.9]} rotationY={1.2} scale={0.1} />
+      <Webshooter position={[-2.9, 0.9, 3.6]} rotationY={1.2} scale={0.09} />
+      <MiniHand position={[-2.9, 0.9, 3.3]} rotationY={1.2} scale={0.3} />
+      <PizzaTime position={[-2.9, 0.85, 2.9]} rotationY={1.6} scale={0.1} />
     </>
   );
 });

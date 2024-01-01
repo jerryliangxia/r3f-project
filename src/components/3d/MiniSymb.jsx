@@ -13,7 +13,7 @@ export default function MiniSymb(props) {
       dispose={null}
       position={props.position}
       rotation-y={props.rotationY}
-      scale={0.12}
+      scale={props.scale}
     >
       <mesh
         castShadow

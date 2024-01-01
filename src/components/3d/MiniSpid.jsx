@@ -63,7 +63,7 @@ export default function MiniSpid(props) {
       dispose={null}
       position={props.position}
       rotation-y={props.rotationY}
-      scale={0.1}
+      scale={props.scale}
     >
       <mesh
         castShadow

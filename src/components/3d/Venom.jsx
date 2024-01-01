@@ -37,7 +37,7 @@ export default function Venom(props) {
       `
             #include <beginnormal_vertex>
     
-            float angle = (sin(position.y + uTime)) * 0.15;
+            float angle = (sin(position.y + uTime)) * 0.1;
             mat2 rotateMatrix = get2dRotateMatrix(angle);
     
             objectNormal.xz = rotateMatrix * objectNormal.xz;
@@ -63,7 +63,7 @@ export default function Venom(props) {
       dispose={null}
       position={props.position}
       rotation-y={props.rotationY}
-      scale={0.1}
+      scale={props.scale}
     >
       <mesh
         castShadow

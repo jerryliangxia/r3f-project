@@ -15,7 +15,7 @@ import Workbench from "./components/3d/Workbench";
 import LightBridge from "./components/3d/shader/LightBridge";
 import Sky from "./components/3d/shader/Sky";
 // import Demo from "./components/3d/shader/Demo";
-import Spid from "./components/3d/shader/Spid";
+// import Spid from "./components/3d/shader/Spid";
 
 export default function Experience({
   cameraControlsRef,
