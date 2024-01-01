@@ -1,5 +1,6 @@
 import { forwardRef, useState, useEffect, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
+import { useMatcapTexture, Center, Text3D } from "@react-three/drei";
 import MiniSpid from "./MiniSpid";
 import MiniSymb from "./MiniSymb";
 import MiniSymbTendrils from "./MiniSymbTendrils";
@@ -14,6 +15,7 @@ import SpidHead from "./SpidHead";
 
 const Workbench = forwardRef((props, ref) => {
   const [showHtml, setShowHtml] = useState(false);
+  const [matcapTexture] = useMatcapTexture("7877EE_D87FC5_75D9C7_1C78C0", 256);
 
   useEffect(() => {
     let timeoutId;
@@ -37,6 +39,23 @@ const Workbench = forwardRef((props, ref) => {
 
   return (
     <>
+      <Center position={[-3.6, 1.3, 3.25]} rotation={[0, Math.PI / 2, 0.0]}>
+        <Text3D
+          font="./fonts/helvetiker_regular.typeface.json"
+          size={0.75}
+          height={0.2}
+          curveSegments={12}
+          bevelEnabled
+          bevelThickness={0.02}
+          bevelSize={0.02}
+          bevelOffset={0}
+          bevelSegments={8}
+          // position={}
+        >
+          3D
+          <meshMatcapMaterial matcap={matcapTexture} />
+        </Text3D>
+      </Center>
       <rectAreaLight
         position={[-3.4, 1.6, 3.25]}
         rotation={[-Math.PI / 2, -1.0, 0.0]}
