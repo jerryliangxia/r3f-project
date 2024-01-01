@@ -8,6 +8,7 @@ import Venom from "./Venom";
 import Webshooter from "./Webshooter";
 import MiniHand from "./MiniHand";
 import PizzaTime from "./PizzaTime";
+// import { RectAreaLight, RectAreaLightHelper } from "@react-three/drei";
 
 const Workbench = forwardRef((props, ref) => {
   const [showHtml, setShowHtml] = useState(false);
@@ -52,6 +53,10 @@ const Workbench = forwardRef((props, ref) => {
         <boxGeometry args={[1.1, 0.5, 1.1]} />
         <meshStandardMaterial color="#9d4a4a" />
       </mesh>
+      {/* <mesh position={[-3.7, 0.7, 3.27]}>
+        <boxGeometry args={[0.3, 1.1, 1.1]} />
+        <meshStandardMaterial color="gray" />
+      </mesh> */}
       <MiniSpid position={[-3.25, 0.9, 3.6]} rotationY={2.0} scale={0.1} />
       <MiniSymb position={[-3.25, 0.9, 3.3]} rotationY={2.0} scale={0.12} />
       <MiniSymbTendrils
