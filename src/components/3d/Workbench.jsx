@@ -21,8 +21,7 @@ const Workbench = forwardRef((props, ref) => {
   const [showHtml, setShowHtml] = useState(false);
   const [matcapTexture] = useMatcapTexture("7877EE_D87FC5_75D9C7_1C78C0", 256);
   const hoverRef = useRef();
-  const [hovered, hover] = useState(null);
-  console.log(hovered);
+  const [hovered, hover] = useState([0, 0, 0, 0, 0, 0, 0]);
 
   useEffect(() => {
     let timeoutId;
@@ -96,51 +95,131 @@ const Workbench = forwardRef((props, ref) => {
         <boxGeometry args={[1.1, 0.5, 1.1]} />
         <meshStandardMaterial color="#9d4a4a" />
       </mesh>
-      {/* <Spid position={[-2.3, 0.88, 2.34]} rotationY={1.6} scale={0.4} /> */}
       <Selection>
-        <EffectComposer multisampling={8} autoClear={false}>
-          <Outline
-            blur
-            visibleEdgeColor="white"
-            edgeStrength={1}
-            width={1000}
-          />
+        <EffectComposer multisampling={1} autoClear={false}>
+          <Outline visibleEdgeColor="pink" edgeStrength={1} width={900} />
         </EffectComposer>
         {/* Top row */}
-        <MiniSymb position={[-3.25, 0.9, 3.3]} rotationY={2.0} scale={0.12} />
+        <Select enabled={hovered[0] == 1}>
+          <MiniSymb
+            position={[-3.25, 0.9, 3.3]}
+            rotationY={2.0}
+            scale={0.12}
+            onPointerOver={() => hover((prevHover) => ({ ...prevHover, 0: 1 }))}
+            onPointerOut={() => hover((prevHover) => ({ ...prevHover, 0: 0 }))}
+            onClick={(event) => {
+              event.stopPropagation();
+              console.log("Spider-Man Symbiote");
+            }}
+          />
+        </Select>
         <MiniSymbTendrils
           position={[-3.25, 0.87, 3.3]}
           rotationY={2.0}
           scale={0.12}
         />
-        <Venom position={[-3.3, 0.87, 2.9]} rotationY={1.2} scale={0.1} />
+
+        <Select enabled={hovered[1] == 1}>
+          <Venom
+            position={[-3.3, 0.87, 2.9]}
+            rotationY={1.2}
+            scale={0.1}
+            onPointerOver={() => hover((prevHover) => ({ ...prevHover, 1: 1 }))}
+            onPointerOut={() => hover((prevHover) => ({ ...prevHover, 1: 0 }))}
+            onClick={(event) => {
+              event.stopPropagation();
+              console.log("Venom");
+            }}
+          />
+        </Select>
+
+        {/* Middle Row */}
+        <Select enabled={hovered[2] == 1}>
+          <PizzaTime
+            position={[-2.9, 0.85, 2.9]}
+            rotationY={1.6}
+            scale={0.1}
+            onPointerOver={() => hover((prevHover) => ({ ...prevHover, 2: 1 }))}
+            onPointerOut={() => hover((prevHover) => ({ ...prevHover, 2: 0 }))}
+            onClick={(event) => {
+              event.stopPropagation();
+              console.log("Pizza Time!");
+            }}
+          />
+        </Select>
 
         {/* Middle row */}
-        <PizzaTime position={[-2.9, 0.85, 2.9]} rotationY={1.6} scale={0.1} />
-        {/* <mesh position={[-2.9, 0.9, 2.9]} rotationY={1.6} scale={0.1}>
-        <boxGeometry args={[1.1, 1.1, 1.1]} />
-        <meshStandardMaterial color="#9d4a4a" />
-      </mesh> */}
-        <MiniSpid position={[-2.9, 0.9, 3.3]} rotationY={2.0} scale={0.1} />
-        <CityScene
-          position={[-2.75, 0.873, 3.6]}
-          rotationY={1.6}
-          scale={0.01}
-        />
+        <Select enabled={hovered[3] == 1}>
+          <MiniSpid
+            position={[-2.9, 0.9, 3.3]}
+            rotationY={2.0}
+            scale={0.1}
+            onPointerOver={() => hover((prevHover) => ({ ...prevHover, 3: 1 }))}
+            onPointerOut={() => hover((prevHover) => ({ ...prevHover, 3: 0 }))}
+            onClick={(event) => {
+              event.stopPropagation();
+              console.log("Spider-Man");
+            }}
+          />
+        </Select>
+
+        <Select enabled={hovered[4] == 1}>
+          <CityScene
+            position={[-2.75, 0.873, 3.6]}
+            rotationY={1.6}
+            scale={0.01}
+            onPointerOver={() => hover((prevHover) => ({ ...prevHover, 4: 1 }))}
+            onPointerOut={() => hover((prevHover) => ({ ...prevHover, 4: 0 }))}
+            onClick={(event) => {
+              event.stopPropagation();
+              console.log("City Scene");
+            }}
+          />
+        </Select>
+
         {/* Bottom row */}
-        <Webshooter position={[-2.5, 0.9, 3.6]} rotationY={1.2} scale={0.06} />
-        <Select enabled={hovered}>
+        <Select enabled={hovered[5] == 1}>
+          <Webshooter
+            position={[-2.5, 0.9, 3.6]}
+            rotationY={1.2}
+            scale={0.06}
+            onPointerOver={() => hover((prevHover) => ({ ...prevHover, 5: 1 }))}
+            onPointerOut={() => hover((prevHover) => ({ ...prevHover, 5: 0 }))}
+            onClick={(event) => {
+              event.stopPropagation();
+              console.log("Webshooter");
+            }}
+          />
+        </Select>
+        <Select enabled={hovered[6] == 1}>
           <SpidHead
             ref={hoverRef}
             position={[-2.5, 0.88, 3.3]}
             rotationY={1.6}
             scale={0.1}
-            onPointerOver={() => hover(true)}
-            onPointerOut={() => hover(false)}
+            onPointerOver={() => hover((prevHover) => ({ ...prevHover, 6: 1 }))}
+            onPointerOut={() => hover((prevHover) => ({ ...prevHover, 6: 0 }))}
+            onClick={(event) => {
+              event.stopPropagation();
+              console.log("Spider-Man head");
+            }}
           />
         </Select>
 
-        <MiniHand position={[-2.5, 0.9, 2.95]} rotationY={1.2} scale={0.2} />
+        <Select enabled={hovered[7] == 1}>
+          <MiniHand
+            ref={hoverRef}
+            position={[-2.5, 0.9, 2.95]}
+            rotationY={1.2}
+            scale={0.2}
+            onPointerOver={() => hover((prevHover) => ({ ...prevHover, 7: 1 }))}
+            onPointerOut={() => hover((prevHover) => ({ ...prevHover, 7: 0 }))}
+            onClick={(event) => {
+              event.stopPropagation();
+              console.log("Hand");
+            }}
+          />
+        </Select>
       </Selection>
     </>
   );

@@ -23,8 +23,6 @@ const SpidHead = forwardRef((props, ref) => {
       position={props.position}
       rotation-y={props.rotationY}
       scale={props.scale}
-      onPointerOver={props.onPointerOver}
-      onPointerOut={props.onPointerOut}
     >
       <mesh
         castShadow

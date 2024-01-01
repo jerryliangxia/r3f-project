@@ -56,7 +56,7 @@ export default function MiniSymbTendrils(props) {
 
   useFrame((state, delta) => {
     customUniforms.uTime.value += delta;
-    setUTime((prevUTime) => prevUTime + delta);
+    setUTime((prevUTime) => (prevUTime + delta) % 50);
   });
 
   return (
