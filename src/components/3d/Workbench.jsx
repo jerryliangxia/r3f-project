@@ -9,13 +9,20 @@ import Webshooter from "./Webshooter";
 import MiniHand from "./MiniHand";
 import PizzaTime from "./PizzaTime";
 import CityScene from "./CityScene";
-// import Spid from "./shader/Spid";
 import SpidHead from "./SpidHead";
-// import RectAreaLightModels from "./RectAreaLightModels";
+import {
+  Selection,
+  Select,
+  EffectComposer,
+  Outline,
+} from "@react-three/postprocessing";
 
 const Workbench = forwardRef((props, ref) => {
   const [showHtml, setShowHtml] = useState(false);
   const [matcapTexture] = useMatcapTexture("7877EE_D87FC5_75D9C7_1C78C0", 256);
+  const hoverRef = useRef();
+  const [hovered, hover] = useState(null);
+  console.log(hovered);
 
   useEffect(() => {
     let timeoutId;
@@ -50,7 +57,6 @@ const Workbench = forwardRef((props, ref) => {
           bevelSize={0.02}
           bevelOffset={0}
           bevelSegments={8}
-          // position={}
         >
           3D
           <meshMatcapMaterial matcap={matcapTexture} />
@@ -91,23 +97,51 @@ const Workbench = forwardRef((props, ref) => {
         <meshStandardMaterial color="#9d4a4a" />
       </mesh>
       {/* <Spid position={[-2.3, 0.88, 2.34]} rotationY={1.6} scale={0.4} /> */}
-      {/* Top row */}
-      <MiniSymb position={[-3.25, 0.9, 3.3]} rotationY={2.0} scale={0.12} />
-      <MiniSymbTendrils
-        position={[-3.25, 0.87, 3.3]}
-        rotationY={2.0}
-        scale={0.12}
-      />
-      <Venom position={[-3.3, 0.87, 2.9]} rotationY={1.2} scale={0.1} />
+      <Selection>
+        <EffectComposer multisampling={8} autoClear={false}>
+          <Outline
+            blur
+            visibleEdgeColor="white"
+            edgeStrength={1}
+            width={1000}
+          />
+        </EffectComposer>
+        {/* Top row */}
+        <MiniSymb position={[-3.25, 0.9, 3.3]} rotationY={2.0} scale={0.12} />
+        <MiniSymbTendrils
+          position={[-3.25, 0.87, 3.3]}
+          rotationY={2.0}
+          scale={0.12}
+        />
+        <Venom position={[-3.3, 0.87, 2.9]} rotationY={1.2} scale={0.1} />
 
-      {/* Middle row */}
-      <PizzaTime position={[-2.9, 0.85, 2.9]} rotationY={1.6} scale={0.1} />
-      <MiniSpid position={[-2.9, 0.9, 3.3]} rotationY={2.0} scale={0.1} />
-      <CityScene position={[-2.75, 0.873, 3.6]} rotationY={1.6} scale={0.01} />
-      {/* Bottom row */}
-      <Webshooter position={[-2.5, 0.9, 3.6]} rotationY={1.2} scale={0.06} />
-      <SpidHead position={[-2.5, 0.88, 3.3]} rotationY={1.6} scale={0.1} />
-      <MiniHand position={[-2.5, 0.9, 2.95]} rotationY={1.2} scale={0.2} />
+        {/* Middle row */}
+        <PizzaTime position={[-2.9, 0.85, 2.9]} rotationY={1.6} scale={0.1} />
+        {/* <mesh position={[-2.9, 0.9, 2.9]} rotationY={1.6} scale={0.1}>
+        <boxGeometry args={[1.1, 1.1, 1.1]} />
+        <meshStandardMaterial color="#9d4a4a" />
+      </mesh> */}
+        <MiniSpid position={[-2.9, 0.9, 3.3]} rotationY={2.0} scale={0.1} />
+        <CityScene
+          position={[-2.75, 0.873, 3.6]}
+          rotationY={1.6}
+          scale={0.01}
+        />
+        {/* Bottom row */}
+        <Webshooter position={[-2.5, 0.9, 3.6]} rotationY={1.2} scale={0.06} />
+        <Select enabled={hovered}>
+          <SpidHead
+            ref={hoverRef}
+            position={[-2.5, 0.88, 3.3]}
+            rotationY={1.6}
+            scale={0.1}
+            onPointerOver={() => hover(true)}
+            onPointerOut={() => hover(false)}
+          />
+        </Select>
+
+        <MiniHand position={[-2.5, 0.9, 2.95]} rotationY={1.2} scale={0.2} />
+      </Selection>
     </>
   );
 });
