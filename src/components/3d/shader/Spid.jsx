@@ -68,10 +68,11 @@ export default function Spid(props) {
         receiveShadow
         geometry={nodes.EYES.geometry}
         material={material}
-        rotation-y={Math.PI / 2}
-        scale={0.2}
-        position={[-2.9, 0.9, 3.6]}
-      ></mesh>
+        // rotation-y={Math.PI / 2}
+        position={props.position}
+        rotation-y={props.rotationY}
+        scale={props.scale}
+      />
     </group>
   );
 }

@@ -22,7 +22,23 @@ const LightBridgeMaterial = shaderMaterial(
   lightBridgeFragmentShader
 );
 
-extend({ LightBridgeMaterial });
+const OtherLightBridgeMaterial = shaderMaterial(
+  {
+    uTime: 0,
+    uBigWavesElevation: 0,
+    uBigWavesFrequency: new THREE.Vector2(4, 1.5),
+    uBigWavesSpeed: 0.75,
+    uDepthColor: new THREE.Color("#23a2e7"),
+    uSurfaceColor: new THREE.Color("#9bd8ff"),
+    uColorOffset: 0.08,
+    uColorMultiplier: 5,
+    uBrightness: 0.8,
+  },
+  lightBridgeVertexShader,
+  lightBridgeFragmentShader
+);
+
+extend({ LightBridgeMaterial, OtherLightBridgeMaterial });
 
 const LightBridge = () => {
   const { rotationX, rotationY, rotationZ } = useControls("Light Rotation", {
@@ -41,8 +57,11 @@ const LightBridge = () => {
   });
 
   const lightBridgeMaterial = useRef();
+  const otherLightBridgeMaterial = useRef();
+
   useFrame((state, delta) => {
     lightBridgeMaterial.current.uTime += delta;
+    otherLightBridgeMaterial.current.uTime += delta;
   });
   return (
     <>
@@ -55,9 +74,10 @@ const LightBridge = () => {
         <boxGeometry args={[3, 3, 0.1, 512, 512]} />
         <lightBridgeMaterial ref={lightBridgeMaterial} />
       </mesh>
-      <mesh position={[-3.59, 0.7, 3.27]}>
-        <boxGeometry args={[0.3, 1.1, 1.1, 512, 512]} />
-        <lightBridgeMaterial ref={lightBridgeMaterial} />
+      {/* Lighting for 3D Models */}
+      <mesh receiveShadow position={[-3.59, 0.7, 3.27]}>
+        <boxGeometry args={[0.3, 1.1, 1.1, 256, 256]} />
+        <lightBridgeMaterial ref={otherLightBridgeMaterial} />
       </mesh>
       <rectAreaLight
         width={5.5}
