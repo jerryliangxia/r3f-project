@@ -20,6 +20,7 @@ import {
 // 3D Descriptions
 import Symbiote from "./3d-descriptions/Symbiote";
 import WebshooterDiv from "./3d-descriptions/Webshooter";
+import VenomDiv from "./3d-descriptions/Venom";
 
 const Workbench = forwardRef((props, ref) => {
   const [showHtml, setShowHtml] = useState(false);
@@ -144,7 +145,8 @@ const Workbench = forwardRef((props, ref) => {
             }}
             onClick={(event) => {
               event.stopPropagation();
-              console.log("Venom");
+              props.setHtmlComponent(<VenomDiv />);
+              props.setShowDiv(true);
             }}
           />
         </Select>
