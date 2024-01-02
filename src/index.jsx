@@ -92,7 +92,7 @@ function App() {
           <Button
             style={{
               position: "absolute",
-              bottom: showButtonDiv ? "0px" : "-120px",
+              bottom: showButtonDiv ? 0 : "-120px",
               left: "50%",
               transform: "translateX(-50%)",
               zIndex: 1,
