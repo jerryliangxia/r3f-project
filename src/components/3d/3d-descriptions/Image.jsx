@@ -13,6 +13,7 @@ function Image({ src }) {
   return (
     <>
       <img
+        className="image-class"
         src={src}
         style={{ width: "100%" }}
         onLoad={handleImageLoad}

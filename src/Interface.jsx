@@ -1,5 +1,6 @@
 import { cloneElement } from "react";
-import { Button, Text, Flex } from "@radix-ui/themes";
+import { Flex } from "@radix-ui/themes";
+import { motion } from "framer-motion";
 
 export default function Interface({ htmlComponent, setShowDiv }) {
   return (
@@ -25,10 +26,16 @@ export default function Interface({ htmlComponent, setShowDiv }) {
           marginBottom: "5vh",
         }}
       >
-        <Flex gap="6" direction="column" align="left">
-          {cloneElement(htmlComponent, { setShowDiv })}
-          <div></div>
-        </Flex>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          <Flex gap="6" direction="column" align="left">
+            {cloneElement(htmlComponent, { setShowDiv })}
+            <div></div>
+          </Flex>
+        </motion.div>
       </div>
     </div>
   );

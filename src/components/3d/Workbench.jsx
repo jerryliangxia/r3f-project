@@ -1,6 +1,5 @@
-import { forwardRef, useState, useEffect, useRef } from "react";
-import { useFrame } from "@react-three/fiber";
-import { useMatcapTexture, Center, Text3D, Html } from "@react-three/drei";
+import { forwardRef, useState, useEffect } from "react";
+import { useMatcapTexture, Center, Text3D } from "@react-three/drei";
 import MiniSpid from "./MiniSpid";
 import MiniSymb from "./MiniSymb";
 import MiniSymbTendrils from "./MiniSymbTendrils";
