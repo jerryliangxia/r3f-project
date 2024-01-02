@@ -19,7 +19,6 @@ import {
 const Workbench = forwardRef((props, ref) => {
   const [showHtml, setShowHtml] = useState(false);
   const [matcapTexture] = useMatcapTexture("7877EE_D87FC5_75D9C7_1C78C0", 256);
-  const [hovered, hover] = useState([0, 0, 0, 0, 0, 0, 0]);
 
   useEffect(() => {
     let timeoutId;
@@ -91,12 +90,12 @@ const Workbench = forwardRef((props, ref) => {
         <meshStandardMaterial color="#9d4a4a" />
       </mesh>
       <Selection>
-        <EffectComposer blur multisampling={32} autoClear={false}>
+        <EffectComposer blur multisampling={16} autoClear={false}>
           <Outline
             blur
             visibleEdgeColor="white"
             edgeStrength={3}
-            width={10000}
+            width={1500}
           />
         </EffectComposer>
 
