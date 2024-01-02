@@ -12,25 +12,13 @@ import CityScene from "./CityScene";
 import SpidHead from "./SpidHead";
 import {
   Selection,
-  Select,
   EffectComposer,
   Outline,
 } from "@react-three/postprocessing";
 
-// 3D Descriptions
-import Symbiote from "./3d-descriptions/Symbiote";
-import WebshooterDiv from "./3d-descriptions/Webshooter";
-import VenomDiv from "./3d-descriptions/Venom";
-import UnmaskedDiv from "./3d-descriptions/Unmasked";
-import MaskDiv from "./3d-descriptions/Mask";
-import CitySceneDiv from "./3d-descriptions/Animation";
-import HandDiv from "./3d-descriptions/Hand";
-import AdvancedSuitDiv from "./3d-descriptions/AdvancedSuit";
-
 const Workbench = forwardRef((props, ref) => {
   const [showHtml, setShowHtml] = useState(false);
   const [matcapTexture] = useMatcapTexture("7877EE_D87FC5_75D9C7_1C78C0", 256);
-  const hoverRef = useRef();
   const [hovered, hover] = useState([0, 0, 0, 0, 0, 0, 0]);
 
   useEffect(() => {
@@ -103,194 +91,89 @@ const Workbench = forwardRef((props, ref) => {
         <meshStandardMaterial color="#9d4a4a" />
       </mesh>
       <Selection>
-        <EffectComposer multisampling={1} autoClear={false}>
-          <Outline visibleEdgeColor="pink" edgeStrength={1} width={900} />
-        </EffectComposer>
-        {/* Top row */}
-        <Select enabled={hovered[0] == 1 && props.isActualWorkbenchClicked}>
-          <MiniSymb
-            position={[-3.25, 0.9, 3.3]}
-            rotationY={2.0}
-            scale={0.12}
-            onPointerOver={(event) => {
-              event.stopPropagation();
-              document.body.style.cursor = "pointer";
-              hover((prevHover) => ({ ...prevHover, 0: 1 }));
-            }}
-            onPointerOut={() => {
-              document.body.style.cursor = "default";
-              hover((prevHover) => ({ ...prevHover, 0: 0 }));
-            }}
-            onClick={(event) => {
-              event.stopPropagation();
-              props.setHtmlComponent(<Symbiote />);
-              props.setShowDiv(true);
-            }}
+        <EffectComposer blur multisampling={32} autoClear={false}>
+          <Outline
+            blur
+            visibleEdgeColor="white"
+            edgeStrength={3}
+            width={10000}
           />
-        </Select>
+        </EffectComposer>
+
+        {/* Top row */}
+        <MiniSymb
+          position={[-3.25, 0.9, 3.3]}
+          rotationY={2.0}
+          scale={0.12}
+          isActualWorkbenchClicked={props.isActualWorkbenchClicked}
+          setHtmlComponent={props.setHtmlComponent}
+          setShowDiv={props.setShowDiv}
+        />
         <MiniSymbTendrils
           position={[-3.25, 0.87, 3.3]}
           rotationY={2.0}
           scale={0.12}
         />
-
-        <Select enabled={hovered[1] == 1 && props.isActualWorkbenchClicked}>
-          <Venom
-            position={[-3.3, 0.87, 2.9]}
-            rotationY={1.2}
-            scale={0.1}
-            onPointerOver={(event) => {
-              event.stopPropagation();
-              document.body.style.cursor = "pointer";
-              hover((prevHover) => ({ ...prevHover, 1: 1 }));
-            }}
-            onPointerOut={() => {
-              document.body.style.cursor = "default";
-              hover((prevHover) => ({ ...prevHover, 1: 0 }));
-            }}
-            onClick={(event) => {
-              event.stopPropagation();
-              props.setHtmlComponent(<VenomDiv />);
-              props.setShowDiv(true);
-            }}
-          />
-        </Select>
+        <Venom
+          position={[-3.3, 0.87, 2.9]}
+          rotationY={1.2}
+          scale={0.1}
+          isActualWorkbenchClicked={props.isActualWorkbenchClicked}
+          setHtmlComponent={props.setHtmlComponent}
+          setShowDiv={props.setShowDiv}
+        />
 
         {/* Middle Row */}
-        <Select enabled={hovered[2] == 1 && props.isActualWorkbenchClicked}>
-          <PizzaTime
-            position={[-2.9, 0.85, 2.9]}
-            rotationY={1.6}
-            scale={0.1}
-            onPointerOver={(event) => {
-              event.stopPropagation();
-              document.body.style.cursor = "pointer";
-              hover((prevHover) => ({ ...prevHover, 2: 1 }));
-            }}
-            onPointerOut={() => {
-              document.body.style.cursor = "default";
-              hover((prevHover) => ({ ...prevHover, 2: 0 }));
-            }}
-            onClick={(event) => {
-              event.stopPropagation();
-              props.setHtmlComponent(<UnmaskedDiv />);
-              props.setShowDiv(true);
-            }}
-          />
-        </Select>
-
-        {/* Middle row */}
-        <Select enabled={hovered[3] == 1 && props.isActualWorkbenchClicked}>
-          <MiniSpid
-            position={[-2.9, 0.9, 3.3]}
-            rotationY={2.0}
-            scale={0.1}
-            onPointerOver={(event) => {
-              event.stopPropagation();
-              document.body.style.cursor = "pointer";
-              hover((prevHover) => ({ ...prevHover, 3: 1 }));
-            }}
-            onPointerOut={() => {
-              document.body.style.cursor = "default";
-              hover((prevHover) => ({ ...prevHover, 3: 0 }));
-            }}
-            onClick={(event) => {
-              event.stopPropagation();
-              props.setHtmlComponent(<AdvancedSuitDiv />);
-              props.setShowDiv(true);
-            }}
-          />
-        </Select>
-
-        <Select enabled={hovered[4] == 1 && props.isActualWorkbenchClicked}>
-          <CityScene
-            position={[-2.75, 0.873, 3.6]}
-            rotationY={1.6}
-            scale={0.01}
-            onPointerOver={(event) => {
-              event.stopPropagation();
-              document.body.style.cursor = "pointer";
-              hover((prevHover) => ({ ...prevHover, 4: 1 }));
-            }}
-            onPointerOut={() => {
-              document.body.style.cursor = "default";
-              hover((prevHover) => ({ ...prevHover, 4: 0 }));
-            }}
-            onClick={(event) => {
-              event.stopPropagation();
-              props.setHtmlComponent(<CitySceneDiv />);
-              props.setShowDiv(true);
-            }}
-          />
-        </Select>
+        <PizzaTime
+          position={[-2.9, 0.85, 2.9]}
+          rotationY={1.6}
+          scale={0.1}
+          isActualWorkbenchClicked={props.isActualWorkbenchClicked}
+          setHtmlComponent={props.setHtmlComponent}
+          setShowDiv={props.setShowDiv}
+        />
+        <MiniSpid
+          position={[-2.9, 0.9, 3.3]}
+          rotationY={2.0}
+          scale={0.1}
+          isActualWorkbenchClicked={props.isActualWorkbenchClicked}
+          setHtmlComponent={props.setHtmlComponent}
+          setShowDiv={props.setShowDiv}
+        />
+        <CityScene
+          position={[-2.75, 0.873, 3.6]}
+          rotationY={1.6}
+          scale={0.01}
+          isActualWorkbenchClicked={props.isActualWorkbenchClicked}
+          setHtmlComponent={props.setHtmlComponent}
+          setShowDiv={props.setShowDiv}
+        />
 
         {/* Bottom row */}
-        <Select enabled={hovered[5] == 1 && props.isActualWorkbenchClicked}>
-          <Webshooter
-            position={[-2.5, 0.9, 3.6]}
-            rotationY={1.2}
-            scale={0.06}
-            onPointerOver={(event) => {
-              event.stopPropagation();
-              document.body.style.cursor = "pointer";
-              hover((prevHover) => ({ ...prevHover, 5: 1 }));
-            }}
-            onPointerOut={() => {
-              document.body.style.cursor = "default";
-              hover((prevHover) => ({ ...prevHover, 5: 0 }));
-            }}
-            onClick={(event) => {
-              event.stopPropagation();
-              props.setHtmlComponent(<WebshooterDiv />);
-              props.setShowDiv(true);
-            }}
-          />
-        </Select>
-        <Select enabled={hovered[6] == 1 && props.isActualWorkbenchClicked}>
-          <SpidHead
-            ref={hoverRef}
-            position={[-2.5, 0.88, 3.3]}
-            rotationY={1.6}
-            scale={0.1}
-            onPointerOver={(event) => {
-              event.stopPropagation();
-              document.body.style.cursor = "pointer";
-              hover((prevHover) => ({ ...prevHover, 6: 1 }));
-            }}
-            onPointerOut={() => {
-              document.body.style.cursor = "default";
-              hover((prevHover) => ({ ...prevHover, 6: 0 }));
-            }}
-            onClick={(event) => {
-              event.stopPropagation();
-              props.setHtmlComponent(<MaskDiv />);
-              props.setShowDiv(true);
-            }}
-          />
-        </Select>
-
-        <Select enabled={hovered[7] == 1 && props.isActualWorkbenchClicked}>
-          <MiniHand
-            ref={hoverRef}
-            position={[-2.5, 0.9, 2.95]}
-            rotationY={1.2}
-            scale={0.2}
-            onPointerOver={(event) => {
-              event.stopPropagation();
-              document.body.style.cursor = "pointer";
-              hover((prevHover) => ({ ...prevHover, 7: 1 }));
-            }}
-            onPointerOut={() => {
-              document.body.style.cursor = "default";
-              hover((prevHover) => ({ ...prevHover, 7: 0 }));
-            }}
-            onClick={(event) => {
-              event.stopPropagation();
-              props.setHtmlComponent(<HandDiv />);
-              props.setShowDiv(true);
-            }}
-          />
-        </Select>
+        <Webshooter
+          position={[-2.5, 0.9, 3.6]}
+          rotationY={1.2}
+          scale={0.06}
+          isActualWorkbenchClicked={props.isActualWorkbenchClicked}
+          setHtmlComponent={props.setHtmlComponent}
+          setShowDiv={props.setShowDiv}
+        />
+        <SpidHead
+          position={[-2.5, 0.88, 3.3]}
+          rotationY={1.6}
+          scale={0.1}
+          isActualWorkbenchClicked={props.isActualWorkbenchClicked}
+          setHtmlComponent={props.setHtmlComponent}
+          setShowDiv={props.setShowDiv}
+        />
+        <MiniHand
+          position={[-2.5, 0.9, 2.95]}
+          rotationY={1.2}
+          scale={0.2}
+          isActualWorkbenchClicked={props.isActualWorkbenchClicked}
+          setHtmlComponent={props.setHtmlComponent}
+          setShowDiv={props.setShowDiv}
+        />
       </Selection>
     </>
   );
