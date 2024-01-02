@@ -1,6 +1,6 @@
 import { forwardRef, useState, useEffect, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import { useMatcapTexture, Center, Text3D } from "@react-three/drei";
+import { useMatcapTexture, Center, Text3D, Html } from "@react-three/drei";
 import MiniSpid from "./MiniSpid";
 import MiniSymb from "./MiniSymb";
 import MiniSymbTendrils from "./MiniSymbTendrils";
@@ -26,9 +26,7 @@ const Workbench = forwardRef((props, ref) => {
   useEffect(() => {
     let timeoutId;
     if (props.isComputerClicked) {
-      timeoutId = setTimeout(() => {
-        setShowHtml(true);
-      }, 1000);
+      props.setIsActualWorkbenchClicked(true);
     } else {
       setShowHtml(false);
       props.setIsActualWorkbenchClicked(false);
@@ -91,7 +89,6 @@ const Workbench = forwardRef((props, ref) => {
         }}
         visible={false}
       >
-        {/* {showHtml && props.isActualWorkbenchClicked && <></>} */}
         <boxGeometry args={[1.1, 0.5, 1.1]} />
         <meshStandardMaterial color="#9d4a4a" />
       </mesh>
@@ -100,7 +97,7 @@ const Workbench = forwardRef((props, ref) => {
           <Outline visibleEdgeColor="pink" edgeStrength={1} width={900} />
         </EffectComposer>
         {/* Top row */}
-        <Select enabled={hovered[0] == 1}>
+        <Select enabled={hovered[0] == 1 && props.isActualWorkbenchClicked}>
           <MiniSymb
             position={[-3.25, 0.9, 3.3]}
             rotationY={2.0}
@@ -109,7 +106,8 @@ const Workbench = forwardRef((props, ref) => {
             onPointerOut={() => hover((prevHover) => ({ ...prevHover, 0: 0 }))}
             onClick={(event) => {
               event.stopPropagation();
-              console.log("Spider-Man Symbiote");
+              props.setHtmlComponent(<>Spider-Man Symbiote</>);
+              props.setShowDiv(true);
             }}
           />
         </Select>
@@ -119,7 +117,7 @@ const Workbench = forwardRef((props, ref) => {
           scale={0.12}
         />
 
-        <Select enabled={hovered[1] == 1}>
+        <Select enabled={hovered[1] == 1 && props.isActualWorkbenchClicked}>
           <Venom
             position={[-3.3, 0.87, 2.9]}
             rotationY={1.2}
@@ -134,7 +132,7 @@ const Workbench = forwardRef((props, ref) => {
         </Select>
 
         {/* Middle Row */}
-        <Select enabled={hovered[2] == 1}>
+        <Select enabled={hovered[2] == 1 && props.isActualWorkbenchClicked}>
           <PizzaTime
             position={[-2.9, 0.85, 2.9]}
             rotationY={1.6}
@@ -149,7 +147,7 @@ const Workbench = forwardRef((props, ref) => {
         </Select>
 
         {/* Middle row */}
-        <Select enabled={hovered[3] == 1}>
+        <Select enabled={hovered[3] == 1 && props.isActualWorkbenchClicked}>
           <MiniSpid
             position={[-2.9, 0.9, 3.3]}
             rotationY={2.0}
@@ -163,7 +161,7 @@ const Workbench = forwardRef((props, ref) => {
           />
         </Select>
 
-        <Select enabled={hovered[4] == 1}>
+        <Select enabled={hovered[4] == 1 && props.isActualWorkbenchClicked}>
           <CityScene
             position={[-2.75, 0.873, 3.6]}
             rotationY={1.6}
@@ -178,7 +176,7 @@ const Workbench = forwardRef((props, ref) => {
         </Select>
 
         {/* Bottom row */}
-        <Select enabled={hovered[5] == 1}>
+        <Select enabled={hovered[5] == 1 && props.isActualWorkbenchClicked}>
           <Webshooter
             position={[-2.5, 0.9, 3.6]}
             rotationY={1.2}
@@ -191,7 +189,7 @@ const Workbench = forwardRef((props, ref) => {
             }}
           />
         </Select>
-        <Select enabled={hovered[6] == 1}>
+        <Select enabled={hovered[6] == 1 && props.isActualWorkbenchClicked}>
           <SpidHead
             ref={hoverRef}
             position={[-2.5, 0.88, 3.3]}
@@ -206,7 +204,7 @@ const Workbench = forwardRef((props, ref) => {
           />
         </Select>
 
-        <Select enabled={hovered[7] == 1}>
+        <Select enabled={hovered[7] == 1 && props.isActualWorkbenchClicked}>
           <MiniHand
             ref={hoverRef}
             position={[-2.5, 0.9, 2.95]}

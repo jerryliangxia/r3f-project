@@ -7,7 +7,6 @@ import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
 import { useRef, useState } from "react";
 import About from "./components/About";
-import ThreeD from "./components/ThreeD";
 import { useThree } from "@react-three/fiber";
 import { useControls, button, buttonGroup, folder } from "leva";
 import Computer from "./components/3d/Computer";
@@ -216,6 +215,8 @@ export default function Experience({
         isComputerClicked={isComputerClicked}
         isActualWorkbenchClicked={isActualWorkbenchClicked}
         setIsActualWorkbenchClicked={setIsActualWorkbenchClicked}
+        setHtmlComponent={setHtmlComponent}
+        setShowDiv={setShowDiv}
         onClick={(event) => {
           if (!isComputerClicked) {
             handleMajorMeshClick(

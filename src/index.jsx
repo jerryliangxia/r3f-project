@@ -21,6 +21,7 @@ function App() {
   const [maxDistance, setMaxDistance] = useState(10.0);
 
   const Reset = () => {
+    setShowDiv(false);
     setShowButtonDiv(false);
     setMinDistance(6.0);
     setMaxDistance(10.0);
@@ -91,11 +92,12 @@ function App() {
           <Button
             style={{
               position: "absolute",
-              bottom: showButtonDiv ? 0 : "-120px",
+              bottom: showButtonDiv && !showDiv ? 0 : "-120px",
               left: "50%",
               transform: "translateX(-50%)",
               zIndex: 1,
-              transition: "bottom 0.5s ease-in-out",
+              transition: "bottom 0.5s ease-in-out, opacity 0.5s ease-in-out",
+              opacity: showButtonDiv && !showDiv ? 1 : 0,
             }}
             onClick={Reset}
           >
