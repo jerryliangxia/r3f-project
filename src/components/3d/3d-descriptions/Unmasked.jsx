@@ -8,7 +8,6 @@ export default function Unmasked() {
       <Image src="images/3d/unmasked/sample.png" />
       <WhiteText text={ThreeD.parkerHead} />
       <Image src="images/3d/unmasked/onbody.png" />
-      <Image src="images/3d/unmasked/315.png" />
       <WhiteText text={ThreeD.parkerHead2} />
     </>
   );

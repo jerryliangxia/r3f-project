@@ -25,6 +25,7 @@ import UnmaskedDiv from "./3d-descriptions/Unmasked";
 import MaskDiv from "./3d-descriptions/Mask";
 import CitySceneDiv from "./3d-descriptions/Animation";
 import HandDiv from "./3d-descriptions/Hand";
+import AdvancedSuitDiv from "./3d-descriptions/AdvancedSuit";
 
 const Workbench = forwardRef((props, ref) => {
   const [showHtml, setShowHtml] = useState(false);
@@ -195,7 +196,8 @@ const Workbench = forwardRef((props, ref) => {
             }}
             onClick={(event) => {
               event.stopPropagation();
-              console.log("Spider-Man");
+              props.setHtmlComponent(<AdvancedSuitDiv />);
+              props.setShowDiv(true);
             }}
           />
         </Select>

@@ -49,7 +49,9 @@ export const ThreeD = {
   insomniac:
     "My passion for gaming has led me to pursue a career in the industry, where my combination of gaming and software skills can be utilized in development support.",
   fullSuit:
-    "Modeled after Insomniac Games' Spider-Man 2 (2023). A low-poly Spider-Man model was created in Blender to form a basis. Web lines were traced onto the body and the magnet tool used to add webbing and seams to the base; adding a skin modifier created depth. Materials were UV generated. More on the material in the Mask section.",
+    "Modeled after Insomniac Games' Spider-Man 2 (2023). A low-poly Spider-Man model was created in Blender to form a base. Substance Painter was used to create indentations in the mesh, web lines, along with a nylon fabric pattern.",
+  fullSuit2:
+    "Below is the original model for the suit I made a few months ago. Web lines were traced onto the body and the magnet tool used to add webbing and seams to the base; adding a skin modifier created depth.",
   symbioteSuit:
     "To make this model, I referenced an article to ensure the creation of a model with appropriate topology. The initial step involved using the sculpt tool to carve out a rudimentary body shape. After applying the mirror modifier, distinctive patterns were sculpted onto the sides of the body. To get the sculpting of finer details, three subdivisions were created enhancing the precision and intricacy of the model.",
   venom:
