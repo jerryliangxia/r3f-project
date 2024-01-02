@@ -24,6 +24,7 @@ import VenomDiv from "./3d-descriptions/Venom";
 import UnmaskedDiv from "./3d-descriptions/Unmasked";
 import MaskDiv from "./3d-descriptions/Mask";
 import CitySceneDiv from "./3d-descriptions/Animation";
+import HandDiv from "./3d-descriptions/Hand";
 
 const Workbench = forwardRef((props, ref) => {
   const [showHtml, setShowHtml] = useState(false);
@@ -283,7 +284,8 @@ const Workbench = forwardRef((props, ref) => {
             }}
             onClick={(event) => {
               event.stopPropagation();
-              console.log("Hand");
+              props.setHtmlComponent(<HandDiv />);
+              props.setShowDiv(true);
             }}
           />
         </Select>

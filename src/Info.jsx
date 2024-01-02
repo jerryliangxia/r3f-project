@@ -49,11 +49,11 @@ export const ThreeD = {
   insomniac:
     "My passion for gaming has led me to pursue a career in the industry, where my combination of gaming and software skills can be utilized in development support.",
   fullSuit:
-    "Modeled after Insomniac Games' Spider-Man 2 (2023). A low-poly Spider-Man model was created in Blender (seen below) to form a basis. Web lines were traced onto the body and the magnet tool used to add webbing and seams to the base; adding a skin modifier created depth. Materials were UV generated. More on the material in the Mask section.",
+    "Modeled after Insomniac Games' Spider-Man 2 (2023). A low-poly Spider-Man model was created in Blender to form a basis. Web lines were traced onto the body and the magnet tool used to add webbing and seams to the base; adding a skin modifier created depth. Materials were UV generated. More on the material in the Mask section.",
   symbioteSuit:
     "To make this model, I referenced an article to ensure the creation of a model with appropriate topology. The initial step involved using the sculpt tool to carve out a rudimentary body shape. After applying the mirror modifier, distinctive patterns were sculpted onto the sides of the body. To get the sculpting of finer details, three subdivisions were created enhancing the precision and intricacy of the model.",
   venom:
-    "(From Marvel's Spider-Man 2) This model was made from an original low-poly mesh like the full suit Spider-Man seen below. Venom doesn't have as many details as Spider-Man, so it was important to get the finer parts of him right. I used the sculpt tool to bring out his muscles and give more definition to his build.",
+    "(From Marvel's Spider-Man 2) This model was made from an original low-poly mesh like my full suit Spider-Man model. Venom doesn't have as many details as Spider-Man, so it was important to get the finer parts of him right. I used the sculpt tool to bring out his muscles and give more definition to his build.",
   webshooterInit: "Web shooter from Marvel's Spider-Man (2018).",
   webshooter:
     "This project involved using Blender's crease tool and a dual subdivision surface modifier, with both Simple and Catmull-Clark variants; layering these on top of one another create smooth yet sharp edges. A metallic material was used for the shooter itself, and a rough plastic material was used for the base; this was generated through an object-mapped noise texture with low intensity details.",
@@ -67,7 +67,7 @@ export const ThreeD = {
     "Original face model based off of Ben Jordan from the Remastered game (2020). Keen's FaceBuilder tool was used for the head sculpt, with minor adjustments using Blender's sculp tool. Blender's geometry nodes were used for the hair, eyebrows and eyelashes.",
   parkerHead2:
     "Added in webshooters, padding for palms, and improved textures on gloves.",
-  hand: "This hand is made up of the same mask material above; the original hand used was part of a previous rig, which I sculpted to fit a more glove-like surrounding.",
+  hand: "This hand is made up of the same mask material; the original hand used was part of a previous rig, which I sculpted to fit a more glove-like surrounding.",
   animation:
     "Here, Blender and Cascadeur were used to create this animation, which was replicated from Insomniac Games' Spider-Man (2018). Cascadeur's AI-assisted keyframing greatly aided in creating an accurate animation, while Blender's Geometry Nodes were utilized to create the portal and Blender's NLA strips were used to slow down time.",
 };
