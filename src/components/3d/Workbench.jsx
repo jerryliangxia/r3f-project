@@ -21,6 +21,7 @@ import {
 import Symbiote from "./3d-descriptions/Symbiote";
 import WebshooterDiv from "./3d-descriptions/Webshooter";
 import VenomDiv from "./3d-descriptions/Venom";
+import UnmaskedDiv from "./3d-descriptions/Unmasked";
 
 const Workbench = forwardRef((props, ref) => {
   const [showHtml, setShowHtml] = useState(false);
@@ -168,7 +169,8 @@ const Workbench = forwardRef((props, ref) => {
             }}
             onClick={(event) => {
               event.stopPropagation();
-              console.log("Pizza Time!");
+              props.setHtmlComponent(<UnmaskedDiv />);
+              props.setShowDiv(true);
             }}
           />
         </Select>
