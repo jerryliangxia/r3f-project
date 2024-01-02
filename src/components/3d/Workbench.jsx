@@ -17,6 +17,10 @@ import {
   Outline,
 } from "@react-three/postprocessing";
 
+// 3D Descriptions
+import Symbiote from "./3d-descriptions/Symbiote";
+import WebshooterDiv from "./3d-descriptions/Webshooter";
+
 const Workbench = forwardRef((props, ref) => {
   const [showHtml, setShowHtml] = useState(false);
   const [matcapTexture] = useMatcapTexture("7877EE_D87FC5_75D9C7_1C78C0", 256);
@@ -113,7 +117,7 @@ const Workbench = forwardRef((props, ref) => {
             }}
             onClick={(event) => {
               event.stopPropagation();
-              props.setHtmlComponent(<>Spider-Man Symbiote</>);
+              props.setHtmlComponent(<Symbiote />);
               props.setShowDiv(true);
             }}
           />
@@ -227,7 +231,8 @@ const Workbench = forwardRef((props, ref) => {
             }}
             onClick={(event) => {
               event.stopPropagation();
-              console.log("Webshooter");
+              props.setHtmlComponent(<WebshooterDiv />);
+              props.setShowDiv(true);
             }}
           />
         </Select>

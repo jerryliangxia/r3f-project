@@ -4,25 +4,32 @@ import { Button, Text, Flex } from "@radix-ui/themes";
 export default function Interface({ htmlComponent, setShowDiv }) {
   return (
     <div
+      className="example"
       style={{
         display: "flex",
         justifyContent: "center",
-        alignItems: "center",
         position: "absolute",
         top: "10vh",
-        left: "10vh",
+        left: "10vw",
         width: "80vw",
         height: "80vh",
-        backgroundColor: setShowDiv ? "rgba(0, 0, 0, 0.5)" : "rgba(0, 0, 0, 0)", // optional: semi-transparent background
+        overflow: "auto",
+        backgroundColor: setShowDiv ? "rgba(0, 0, 0, 0.8)" : "rgba(0, 0, 0, 0)", // optional: semi-transparent background
         pointerEvents: setShowDiv ? "" : "none",
       }}
     >
-      <Flex gap="4" direction="column">
-        {cloneElement(htmlComponent, { setShowDiv })}
-        <Button onClick={() => setShowDiv(false)}>
-          <Text>Close</Text>
-        </Button>
-      </Flex>
+      <div
+        style={{
+          width: "70%",
+          marginTop: "5vh",
+          marginBottom: "5vh",
+        }}
+      >
+        <Flex gap="6" direction="column" align="left">
+          {cloneElement(htmlComponent, { setShowDiv })}
+          <div></div>
+        </Flex>
+      </div>
     </div>
   );
 }

@@ -74,7 +74,7 @@ function App() {
         <div
           style={{
             position: "absolute",
-            top: "90vh",
+            top: "95vh",
             width: "100%",
             height: "100%",
             display: "flex",
@@ -92,16 +92,18 @@ function App() {
           <Button
             style={{
               position: "absolute",
-              bottom: showButtonDiv && !showDiv ? 0 : "-120px",
+              bottom: showButtonDiv ? "0px" : "-120px",
               left: "50%",
               transform: "translateX(-50%)",
               zIndex: 1,
               transition: "bottom 0.5s ease-in-out, opacity 0.5s ease-in-out",
-              opacity: showButtonDiv && !showDiv ? 1 : 0,
+              opacity: showButtonDiv ? 1 : 0,
             }}
-            onClick={Reset}
+            onClick={() => {
+              showDiv ? setShowDiv(false) : Reset();
+            }}
           >
-            Normal View
+            {showDiv ? <>Back</> : <>Normal View</>}
           </Button>
         </div>
       </KeyboardControls>
