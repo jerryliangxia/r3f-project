@@ -102,8 +102,15 @@ const Workbench = forwardRef((props, ref) => {
             position={[-3.25, 0.9, 3.3]}
             rotationY={2.0}
             scale={0.12}
-            onPointerOver={() => hover((prevHover) => ({ ...prevHover, 0: 1 }))}
-            onPointerOut={() => hover((prevHover) => ({ ...prevHover, 0: 0 }))}
+            onPointerOver={(event) => {
+              event.stopPropagation();
+              document.body.style.cursor = "pointer";
+              hover((prevHover) => ({ ...prevHover, 0: 1 }));
+            }}
+            onPointerOut={() => {
+              document.body.style.cursor = "default";
+              hover((prevHover) => ({ ...prevHover, 0: 0 }));
+            }}
             onClick={(event) => {
               event.stopPropagation();
               props.setHtmlComponent(<>Spider-Man Symbiote</>);
@@ -122,8 +129,15 @@ const Workbench = forwardRef((props, ref) => {
             position={[-3.3, 0.87, 2.9]}
             rotationY={1.2}
             scale={0.1}
-            onPointerOver={() => hover((prevHover) => ({ ...prevHover, 1: 1 }))}
-            onPointerOut={() => hover((prevHover) => ({ ...prevHover, 1: 0 }))}
+            onPointerOver={(event) => {
+              event.stopPropagation();
+              document.body.style.cursor = "pointer";
+              hover((prevHover) => ({ ...prevHover, 1: 1 }));
+            }}
+            onPointerOut={() => {
+              document.body.style.cursor = "default";
+              hover((prevHover) => ({ ...prevHover, 1: 0 }));
+            }}
             onClick={(event) => {
               event.stopPropagation();
               console.log("Venom");
@@ -137,8 +151,15 @@ const Workbench = forwardRef((props, ref) => {
             position={[-2.9, 0.85, 2.9]}
             rotationY={1.6}
             scale={0.1}
-            onPointerOver={() => hover((prevHover) => ({ ...prevHover, 2: 1 }))}
-            onPointerOut={() => hover((prevHover) => ({ ...prevHover, 2: 0 }))}
+            onPointerOver={(event) => {
+              event.stopPropagation();
+              document.body.style.cursor = "pointer";
+              hover((prevHover) => ({ ...prevHover, 2: 1 }));
+            }}
+            onPointerOut={() => {
+              document.body.style.cursor = "default";
+              hover((prevHover) => ({ ...prevHover, 2: 0 }));
+            }}
             onClick={(event) => {
               event.stopPropagation();
               console.log("Pizza Time!");
@@ -152,8 +173,15 @@ const Workbench = forwardRef((props, ref) => {
             position={[-2.9, 0.9, 3.3]}
             rotationY={2.0}
             scale={0.1}
-            onPointerOver={() => hover((prevHover) => ({ ...prevHover, 3: 1 }))}
-            onPointerOut={() => hover((prevHover) => ({ ...prevHover, 3: 0 }))}
+            onPointerOver={(event) => {
+              event.stopPropagation();
+              document.body.style.cursor = "pointer";
+              hover((prevHover) => ({ ...prevHover, 3: 1 }));
+            }}
+            onPointerOut={() => {
+              document.body.style.cursor = "default";
+              hover((prevHover) => ({ ...prevHover, 3: 0 }));
+            }}
             onClick={(event) => {
               event.stopPropagation();
               console.log("Spider-Man");
@@ -166,8 +194,15 @@ const Workbench = forwardRef((props, ref) => {
             position={[-2.75, 0.873, 3.6]}
             rotationY={1.6}
             scale={0.01}
-            onPointerOver={() => hover((prevHover) => ({ ...prevHover, 4: 1 }))}
-            onPointerOut={() => hover((prevHover) => ({ ...prevHover, 4: 0 }))}
+            onPointerOver={(event) => {
+              event.stopPropagation();
+              document.body.style.cursor = "pointer";
+              hover((prevHover) => ({ ...prevHover, 4: 1 }));
+            }}
+            onPointerOut={() => {
+              document.body.style.cursor = "default";
+              hover((prevHover) => ({ ...prevHover, 4: 0 }));
+            }}
             onClick={(event) => {
               event.stopPropagation();
               console.log("City Scene");
@@ -181,8 +216,15 @@ const Workbench = forwardRef((props, ref) => {
             position={[-2.5, 0.9, 3.6]}
             rotationY={1.2}
             scale={0.06}
-            onPointerOver={() => hover((prevHover) => ({ ...prevHover, 5: 1 }))}
-            onPointerOut={() => hover((prevHover) => ({ ...prevHover, 5: 0 }))}
+            onPointerOver={(event) => {
+              event.stopPropagation();
+              document.body.style.cursor = "pointer";
+              hover((prevHover) => ({ ...prevHover, 5: 1 }));
+            }}
+            onPointerOut={() => {
+              document.body.style.cursor = "default";
+              hover((prevHover) => ({ ...prevHover, 5: 0 }));
+            }}
             onClick={(event) => {
               event.stopPropagation();
               console.log("Webshooter");
@@ -195,8 +237,15 @@ const Workbench = forwardRef((props, ref) => {
             position={[-2.5, 0.88, 3.3]}
             rotationY={1.6}
             scale={0.1}
-            onPointerOver={() => hover((prevHover) => ({ ...prevHover, 6: 1 }))}
-            onPointerOut={() => hover((prevHover) => ({ ...prevHover, 6: 0 }))}
+            onPointerOver={(event) => {
+              event.stopPropagation();
+              document.body.style.cursor = "pointer";
+              hover((prevHover) => ({ ...prevHover, 6: 1 }));
+            }}
+            onPointerOut={() => {
+              document.body.style.cursor = "default";
+              hover((prevHover) => ({ ...prevHover, 6: 0 }));
+            }}
             onClick={(event) => {
               event.stopPropagation();
               console.log("Spider-Man head");
@@ -210,8 +259,15 @@ const Workbench = forwardRef((props, ref) => {
             position={[-2.5, 0.9, 2.95]}
             rotationY={1.2}
             scale={0.2}
-            onPointerOver={() => hover((prevHover) => ({ ...prevHover, 7: 1 }))}
-            onPointerOut={() => hover((prevHover) => ({ ...prevHover, 7: 0 }))}
+            onPointerOver={(event) => {
+              event.stopPropagation();
+              document.body.style.cursor = "pointer";
+              hover((prevHover) => ({ ...prevHover, 7: 1 }));
+            }}
+            onPointerOut={() => {
+              document.body.style.cursor = "default";
+              hover((prevHover) => ({ ...prevHover, 7: 0 }));
+            }}
             onClick={(event) => {
               event.stopPropagation();
               console.log("Hand");
