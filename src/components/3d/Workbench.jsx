@@ -2,7 +2,6 @@ import { forwardRef, useState, useEffect } from "react";
 import { useMatcapTexture, Center, Text3D } from "@react-three/drei";
 import MiniSpid from "./MiniSpid";
 import MiniSymb from "./MiniSymb";
-import MiniSymbTendrils from "./MiniSymbTendrils";
 import Venom from "./Venom";
 import Webshooter from "./Webshooter";
 import MiniHand from "./MiniHand";
@@ -100,20 +99,15 @@ const Workbench = forwardRef((props, ref) => {
 
         {/* Top row */}
         <MiniSymb
-          position={[-3.25, 0.9, 3.3]}
+          position={[-3.3, 0.9, 3.3]}
           rotationY={2.0}
           scale={0.12}
           isActualWorkbenchClicked={props.isActualWorkbenchClicked}
           setHtmlComponent={props.setHtmlComponent}
           setShowDiv={props.setShowDiv}
         />
-        <MiniSymbTendrils
-          position={[-3.25, 0.87, 3.3]}
-          rotationY={2.0}
-          scale={0.12}
-        />
         <Venom
-          position={[-3.3, 0.87, 2.9]}
+          position={[-3.3, 0.9, 2.9]}
           rotationY={1.2}
           scale={0.1}
           isActualWorkbenchClicked={props.isActualWorkbenchClicked}
@@ -122,10 +116,10 @@ const Workbench = forwardRef((props, ref) => {
         />
 
         {/* Middle Row */}
-        <PizzaTime
-          position={[-2.9, 0.85, 2.9]}
+        <CityScene
+          position={[-2.9, 0.9, 3.6]}
           rotationY={1.6}
-          scale={0.1}
+          scale={0.01}
           isActualWorkbenchClicked={props.isActualWorkbenchClicked}
           setHtmlComponent={props.setHtmlComponent}
           setShowDiv={props.setShowDiv}
@@ -138,10 +132,10 @@ const Workbench = forwardRef((props, ref) => {
           setHtmlComponent={props.setHtmlComponent}
           setShowDiv={props.setShowDiv}
         />
-        <CityScene
-          position={[-2.75, 0.873, 3.6]}
+        <PizzaTime
+          position={[-2.9, 0.9, 2.9]}
           rotationY={1.6}
-          scale={0.01}
+          scale={0.1}
           isActualWorkbenchClicked={props.isActualWorkbenchClicked}
           setHtmlComponent={props.setHtmlComponent}
           setShowDiv={props.setShowDiv}
@@ -157,7 +151,7 @@ const Workbench = forwardRef((props, ref) => {
           setShowDiv={props.setShowDiv}
         />
         <SpidHead
-          position={[-2.5, 0.88, 3.3]}
+          position={[-2.5, 0.9, 3.3]}
           rotationY={1.6}
           scale={0.1}
           isActualWorkbenchClicked={props.isActualWorkbenchClicked}
@@ -165,7 +159,7 @@ const Workbench = forwardRef((props, ref) => {
           setShowDiv={props.setShowDiv}
         />
         <MiniHand
-          position={[-2.5, 0.9, 2.95]}
+          position={[-2.5, 0.9, 2.9]}
           rotationY={1.2}
           scale={0.2}
           isActualWorkbenchClicked={props.isActualWorkbenchClicked}

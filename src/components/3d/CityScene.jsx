@@ -89,7 +89,9 @@ export default function CityScene(props) {
       <group
         {...props}
         dispose={null}
-        position={props.position}
+        position={props.position.map(
+          (value, index) => value + [0.15, -0.027, 0][index]
+        )}
         rotation-y={props.rotationY}
         scale={props.scale}
         onPointerOver={handlePointerOver}

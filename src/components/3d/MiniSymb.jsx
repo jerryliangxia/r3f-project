@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import { useGLTF } from "@react-three/drei";
 import { Select } from "@react-three/postprocessing";
 import Symbiote from "./3d-descriptions/Symbiote";
+import MiniSymbTendrils from "./MiniSymbTendrils";
 
 export default function MiniSymb(props) {
   const { nodes, materials } = useGLTF("/symb_body.glb");
@@ -31,36 +32,49 @@ export default function MiniSymb(props) {
     }, 10); // delay in milliseconds
   };
 
+  console.log(props.position);
+
   return (
-    <Select enabled={enabled && props.isActualWorkbenchClicked}>
-      <group
-        {...props}
-        dispose={null}
-        position={props.position}
-        rotation-y={props.rotationY}
+    <>
+      <Select enabled={enabled && props.isActualWorkbenchClicked}>
+        <group
+          {...props}
+          dispose={null}
+          position={props.position.map(
+            (value, index) => value + [0.05, 0, 0][index]
+          )}
+          rotation-y={props.rotationY}
+          scale={props.scale}
+          onPointerOver={handlePointerOver}
+          onPointerOut={handlePointerOut}
+          onClick={(event) => {
+            event.stopPropagation();
+            props.setHtmlComponent(<Symbiote />);
+            props.setShowDiv(true);
+          }}
+        >
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes["Spider-Manmesh001"].geometry}
+            material={materials.Black}
+          />
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes["Spider-Manmesh001_1"].geometry}
+            material={materials.White}
+          />
+        </group>
+      </Select>
+      <MiniSymbTendrils
+        position={props.position.map(
+          (value, index) => value + [0.05, 0, 0][index]
+        )}
+        rotationY={props.rotationY}
         scale={props.scale}
-        onPointerOver={handlePointerOver}
-        onPointerOut={handlePointerOut}
-        onClick={(event) => {
-          event.stopPropagation();
-          props.setHtmlComponent(<Symbiote />);
-          props.setShowDiv(true);
-        }}
-      >
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes["Spider-Manmesh001"].geometry}
-          material={materials.Black}
-        />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes["Spider-Manmesh001_1"].geometry}
-          material={materials.White}
-        />
-      </group>
-    </Select>
+      />
+    </>
   );
 }
 
