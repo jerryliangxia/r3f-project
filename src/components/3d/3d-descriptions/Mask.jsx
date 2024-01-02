@@ -1,7 +1,6 @@
 import { WhiteText } from "./WhiteText";
 import { ThreeD } from "../../../Info";
 import Image from "./Image";
-import ImageRotation from "./ImageRotation";
 
 export default function Mask() {
   return (
