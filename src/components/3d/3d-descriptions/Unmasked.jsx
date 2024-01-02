@@ -3,7 +3,7 @@ import { ThreeD } from "../../../Info";
 import Image from "./Image";
 import ImageRotation from "./ImageRotation";
 
-export default function Webshooter() {
+export default function Unmasked() {
   return (
     <>
       <Image src="images/3d/unmasked/sample.png" />

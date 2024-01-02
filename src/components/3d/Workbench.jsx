@@ -22,6 +22,7 @@ import Symbiote from "./3d-descriptions/Symbiote";
 import WebshooterDiv from "./3d-descriptions/Webshooter";
 import VenomDiv from "./3d-descriptions/Venom";
 import UnmaskedDiv from "./3d-descriptions/Unmasked";
+import MaskDiv from "./3d-descriptions/Mask";
 
 const Workbench = forwardRef((props, ref) => {
   const [showHtml, setShowHtml] = useState(false);
@@ -257,7 +258,8 @@ const Workbench = forwardRef((props, ref) => {
             }}
             onClick={(event) => {
               event.stopPropagation();
-              console.log("Spider-Man head");
+              props.setHtmlComponent(<MaskDiv />);
+              props.setShowDiv(true);
             }}
           />
         </Select>

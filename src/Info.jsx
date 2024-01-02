@@ -57,12 +57,12 @@ export const ThreeD = {
   webshooterInit: "Web shooter from Marvel's Spider-Man (2018).",
   webshooter:
     "This project involved using Blender's crease tool and a dual subdivision surface modifier, with both Simple and Catmull-Clark variants; layering these on top of one another create smooth yet sharp edges. A metallic material was used for the shooter itself, and a rough plastic material was used for the base; this was generated through an object-mapped noise texture with low intensity details.",
+  mask: "The mask's webbing is thicker and wider than the full suit model's. This process was tedious, requiring 16 vertices (5 faces) at each intersection as opposed to one. Still, the depth added to the mask was worth it; I liked the final render. I used a bevel to preserve sharp edges for the lenses and then Blender's Sculpt tool to create small indentations for a realistic, imperfect finish.",
   maskShaderEditor:
     "I created a vector mapping connected to the UV of the mesh for this texture. Two sine wave textures were used along the X and Y axes to create a grid-like pattern of holes. A multiply and color burn were applied to add realism to the effect. The holes were a mix of black and red to create a sense of depth, and finally, the black base was passed through a bump node and then connected to the distribution function's normal.",
   symbiote: "This model is inspired from Marvel's Spider-Man 2 (2023).",
   symbioteShaderEditor:
     "Here, two 3D noise textures with three bump nodes were utilized to achieve a liquid-like symbiote effect. The first noise texture was connected to a generation mapping, and both were inputted into a final bump node, where their normal was mixed and added to the principled BSDF. This was the inner part of the mask, which was much more alien and fluid. To create the outer part, the scale of the noise texture was increased, and the color ramp was fine-tuned. Additionally, more detail and overall roughness were added to complete the look.",
-  mask: "The mask's webbing is thicker and wider than the full suit model's. This process was tedious, requiring 16 vertices (5 faces) at each intersection as opposed to one. Still, the depth added to the mask was worth it; I liked the final render. I used a bevel to preserve sharp edges for the lenses and then Blender's Sculpt tool to create small indentations for a realistic, imperfect finish.",
   parkerHead:
     "Original face model based off of Ben Jordan from the Remastered game (2020). Keen's FaceBuilder tool was used for the head sculpt, with minor adjustments using Blender's sculp tool. Blender's geometry nodes were used for the hair, eyebrows and eyelashes.",
   parkerHead2:
