@@ -38,7 +38,7 @@ export default function Webshooter(props) {
         dispose={null}
         position={props.position}
         rotation-y={props.rotationY}
-        scale={props.scale}
+        scale={props.scale * 0.6}
         onPointerOver={handlePointerOver}
         onPointerOut={handlePointerOut}
         onClick={(event) => {

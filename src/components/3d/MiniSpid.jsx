@@ -37,7 +37,7 @@ export default function MiniSpid(props) {
         {...props}
         dispose={null}
         position={props.position}
-        rotation-y={props.rotationY}
+        rotation-y={props.rotationY + 0.8}
         scale={props.scale}
         onPointerOver={handlePointerOver}
         onPointerOut={handlePointerOut}

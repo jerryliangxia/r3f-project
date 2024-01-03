@@ -91,7 +91,7 @@ export default function PizzaTime(props) {
         position={props.position.map(
           (value, index) => value + [0, -0.05, 0][index]
         )}
-        rotation-y={props.rotationY}
+        rotation-y={props.rotationY + 0.4}
         scale={props.scale}
         onPointerOver={handlePointerOver}
         onPointerOut={handlePointerOut}

@@ -43,8 +43,8 @@ export default function MiniSymb(props) {
           position={props.position.map(
             (value, index) => value + [0.05, 0, 0][index]
           )}
-          rotation-y={props.rotationY}
-          scale={props.scale}
+          rotation-y={props.rotationY + 0.8}
+          scale={props.scale * 1.2}
           onPointerOver={handlePointerOver}
           onPointerOut={handlePointerOut}
           onClick={(event) => {
@@ -71,8 +71,8 @@ export default function MiniSymb(props) {
         position={props.position.map(
           (value, index) => value + [0.05, 0, 0][index]
         )}
-        rotationY={props.rotationY}
-        scale={props.scale}
+        rotationY={props.rotationY + 0.8}
+        scale={props.scale * 1.2}
       />
     </>
   );
