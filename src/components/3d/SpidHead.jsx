@@ -50,38 +50,38 @@ export default function SpidHead(props) {
         }}
       >
         <mesh
-          castShadow
-          receiveShadow
+          // castShadow
+          // receiveShadow
           geometry={nodes.S_OUT.geometry}
           material={materials.BLACK_MAT}
         />
         <mesh
-          castShadow
-          receiveShadow
+          // castShadow
+          // receiveShadow
           geometry={nodes.S_INNER.geometry}
           material={materials.BLACK_MAT}
         />
         <mesh
-          castShadow
-          receiveShadow
+          // castShadow
+          // receiveShadow
           geometry={nodes.WEBS.geometry}
           material={materials.BLACK_MAT}
         />
         <mesh
-          castShadow
-          receiveShadow
+          // castShadow
+          // receiveShadow
           geometry={nodes.EYES.geometry}
           material={materials.EYES}
         />
         <mesh
-          castShadow
-          receiveShadow
+          // castShadow
+          // receiveShadow
           geometry={nodes.Plane.geometry}
           material={materials.Brown}
         />
         <mesh
-          castShadow
-          receiveShadow
+          // castShadow
+          // receiveShadow
           geometry={nodes.Plane_1.geometry}
           material={materials.Red}
         />

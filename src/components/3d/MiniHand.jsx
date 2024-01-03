@@ -50,16 +50,16 @@ export default function MiniHand(props) {
         }}
       >
         <mesh
-          castShadow
-          receiveShadow
+          // castShadow
+          // receiveShadow
           geometry={nodes.Hand.geometry}
           material={materials.Red}
           position={[0.01, -0.019, 0.018]}
           scale={3.253}
         />
         <mesh
-          castShadow
-          receiveShadow
+          // castShadow
+          // receiveShadow
           geometry={nodes.Webs.geometry}
           material={materials.Black}
           position={[0.02, 0.257, -0.161]}

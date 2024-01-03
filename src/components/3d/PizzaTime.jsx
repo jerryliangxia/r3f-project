@@ -103,20 +103,20 @@ export default function PizzaTime(props) {
       >
         <group rotation={[Math.PI / 2, 0, 0]}>
           <mesh
-            castShadow
-            receiveShadow
+            // castShadow
+            // receiveShadow
             geometry={nodes["Spider-Man_Redmesh"].geometry}
             material={materials.Red}
           />
           <mesh
-            castShadow
-            receiveShadow
+            // castShadow
+            // receiveShadow
             geometry={nodes["Spider-Man_Redmesh_1"].geometry}
             material={materials.Blue}
           />
           <mesh
-            castShadow
-            receiveShadow
+            // castShadow
+            // receiveShadow
             geometry={nodes["Spider-Man_Redmesh_2"].geometry}
             material={materials.White}
           />
@@ -133,26 +133,26 @@ export default function PizzaTime(props) {
           scale={0.114}
         >
           <mesh
-            castShadow
-            receiveShadow
+            // castShadow
+            // receiveShadow
             geometry={nodes.Plane_1.geometry}
             material={materials.Cheese}
           />
           <mesh
-            castShadow
-            receiveShadow
+            // castShadow
+            // receiveShadow
             geometry={nodes.Plane_2.geometry}
             material={materials["Brown ish"]}
           />
           <mesh
-            castShadow
-            receiveShadow
+            // castShadow
+            // receiveShadow
             geometry={nodes.Plane_3.geometry}
             material={materials.Red}
           />
           <mesh
-            castShadow
-            receiveShadow
+            // castShadow
+            // receiveShadow
             geometry={nodes.Plane_4.geometry}
             material={materials.Green}
           />
@@ -163,32 +163,32 @@ export default function PizzaTime(props) {
           scale={0.981}
         >
           <mesh
-            castShadow
-            receiveShadow
+            // castShadow
+            // receiveShadow
             geometry={nodes.FBHead_mesh001_1.geometry}
             material={materials["Procedural Skin head"]}
           />
           <mesh
-            castShadow
-            receiveShadow
+            // castShadow
+            // receiveShadow
             geometry={nodes.FBHead_mesh001_2.geometry}
             material={materials.Material}
           />
           <mesh
-            castShadow
-            receiveShadow
+            // castShadow
+            // receiveShadow
             geometry={nodes.FBHead_mesh001_3.geometry}
             material={materials.Lips}
           />
           <mesh
-            castShadow
-            receiveShadow
+            // castShadow
+            // receiveShadow
             geometry={nodes.FBHead_mesh001_4.geometry}
             material={materials.White}
           />
           <mesh
-            castShadow
-            receiveShadow
+            // castShadow
+            // receiveShadow
             geometry={nodes.FBHead_mesh001_5.geometry}
             material={materials["Dark Brown"]}
           />
@@ -204,64 +204,64 @@ export default function PizzaTime(props) {
         />
         <group position={[-0.012, 0.934, 0.051]} scale={0.836}>
           <mesh
-            castShadow
-            receiveShadow
+            // castShadow
+            // receiveShadow
             geometry={nodes.Circle001.geometry}
             material={materials["Brown ish"]}
           />
           <mesh
-            castShadow
-            receiveShadow
+            // castShadow
+            // receiveShadow
             geometry={nodes.Circle001_1.geometry}
             material={materials.Red}
           />
           <mesh
-            castShadow
-            receiveShadow
+            // castShadow
+            // receiveShadow
             geometry={nodes.Circle001_2.geometry}
             material={materials.Cheese}
           />
           <mesh
-            castShadow
-            receiveShadow
+            // castShadow
+            // receiveShadow
             geometry={nodes.Circle001_3.geometry}
             material={materials["Brown ish"]}
           />
           <mesh
-            castShadow
-            receiveShadow
+            // castShadow
+            // receiveShadow
             geometry={nodes.Circle001_4.geometry}
             material={materials.Green}
           />
         </group>
         <group position={[-0.182, 0.395, -0.528]} scale={[0.727, 1.324, 0.727]}>
           <mesh
-            castShadow
-            receiveShadow
+            // castShadow
+            // receiveShadow
             geometry={nodes.Cube003_1.geometry}
             material={materials.Black}
           />
           <mesh
-            castShadow
-            receiveShadow
+            // castShadow
+            // receiveShadow
             geometry={nodes.Cube003_2.geometry}
             material={materials["Brick 1"]}
           />
           <mesh
-            castShadow
-            receiveShadow
+            // castShadow
+            // receiveShadow
             geometry={nodes.Cube003_3.geometry}
             material={materials["Brick 2"]}
           />
           <mesh
-            castShadow
-            receiveShadow
+            // castShadow
+            // receiveShadow
             geometry={nodes.Cube003_4.geometry}
             material={materials["Brick 3"]}
           />
           <mesh
-            castShadow
-            receiveShadow
+            // castShadow
+            // receiveShadow
             geometry={nodes.Cube003_5.geometry}
             material={materials["Dark Gray"]}
           />

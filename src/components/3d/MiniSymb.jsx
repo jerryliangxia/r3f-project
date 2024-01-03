@@ -54,14 +54,14 @@ export default function MiniSymb(props) {
           }}
         >
           <mesh
-            castShadow
-            receiveShadow
+            // castShadow
+            // receiveShadow
             geometry={nodes["Spider-Manmesh001"].geometry}
             material={materials.Black}
           />
           <mesh
-            castShadow
-            receiveShadow
+            // castShadow
+            // receiveShadow
             geometry={nodes["Spider-Manmesh001_1"].geometry}
             material={materials.White}
           />

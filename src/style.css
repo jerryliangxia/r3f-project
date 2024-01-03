@@ -42,11 +42,11 @@ body,
   scrollbar-width: none; /* Firefox */
 }
 
-.image-class {
+.imageClass {
   transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
   transform: scale(0.95);
 }
 
-.image-class:hover {
+.imageClass:hover {
   transform: scale(1);
 }
