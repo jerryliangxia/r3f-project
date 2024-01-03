@@ -1,5 +1,5 @@
-import skyVertexShader from "../../../shaders/sky/vertex.glsl";
-import skyFragmentShader from "../../../shaders/sky/fragment.glsl";
+import skyVertexShader from "./sky/vertex.glsl";
+import skyFragmentShader from "./sky/fragment.glsl";
 import { useRef } from "react";
 import { shaderMaterial } from "@react-three/drei";
 import * as THREE from "three";

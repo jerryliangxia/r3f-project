@@ -2,17 +2,17 @@ import { CameraControls, Environment } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import CharacterController from "./CharacterController";
 import { Physics, CuboidCollider } from "@react-three/rapier";
-import Model from "./components/3d/Platform";
+import Model from "./components/scene/Platform";
 import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
 import { useRef, useState } from "react";
-import About from "./components/About";
+import About from "./components/about/About";
 import { useThree } from "@react-three/fiber";
 import { useControls, button, buttonGroup, folder } from "leva";
-import Computer from "./components/3d/Computer";
+import Computer from "./components/blog/Computer";
 import Workbench from "./components/3d/Workbench";
-import LightBridge from "./components/3d/shader/LightBridge";
-import Sky from "./components/3d/shader/Sky";
+import LightBridge from "./components/scene/shader/LightBridge";
+import Sky from "./components/scene/shader/Sky";
 
 export default function Experience({
   cameraControlsRef,

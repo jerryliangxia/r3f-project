@@ -1,10 +1,9 @@
-import lightBridgeVertexShader from "../../../shaders/light-bridge/vertex.glsl";
-import lightBridgeFragmentShader from "../../../shaders/light-bridge/fragment.glsl";
+import lightBridgeVertexShader from "./light-bridge/vertex.glsl";
+import lightBridgeFragmentShader from "./light-bridge/fragment.glsl";
 import { extend, useFrame } from "@react-three/fiber";
 import { shaderMaterial } from "@react-three/drei";
 import * as THREE from "three";
 import { useRef } from "react";
-import { useControls } from "leva";
 
 const LightBridgeMaterial = shaderMaterial(
   {
