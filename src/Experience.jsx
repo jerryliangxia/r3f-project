@@ -1,6 +1,6 @@
 import { CameraControls, Environment } from "@react-three/drei";
 import { Perf } from "r3f-perf";
-import CharacterController from "./CharacterController";
+import CharacterController from "./components/scene/CharacterController";
 import { Physics, CuboidCollider } from "@react-three/rapier";
 import Model from "./components/scene/Platform";
 import * as THREE from "three";

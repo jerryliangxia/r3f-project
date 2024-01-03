@@ -15,7 +15,7 @@ export default function Interface({ htmlComponent, setShowDiv }) {
         width: "80vw",
         height: "80vh",
         overflow: "auto",
-        backgroundColor: setShowDiv ? "rgba(0, 0, 0, 0.8)" : "rgba(0, 0, 0, 0)", // optional: semi-transparent background
+        backgroundColor: setShowDiv ? "rgba(0, 0, 0, 0.8)" : "rgba(0, 0, 0, 0)",
         pointerEvents: setShowDiv ? "" : "none",
       }}
     >
