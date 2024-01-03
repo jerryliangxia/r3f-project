@@ -78,15 +78,16 @@ export default function Model(props) {
       >
         <meshBasicMaterial map={bakedTexture} />
       </mesh> */}
-      <mesh
+      {/* Computer box */}
+      {/* <mesh
         castShadow
         receiveShadow
         geometry={nodes.Cube006.geometry}
         material={nodes.Cube006.material}
       >
         <meshBasicMaterial map={bakedTexture} />
-      </mesh>
-      <mesh
+      </mesh> */}
+      {/* <mesh
         castShadow
         receiveShadow
         geometry={nodes.Cube010.geometry}
@@ -96,7 +97,7 @@ export default function Model(props) {
         scale={-1}
       >
         <meshBasicMaterial map={bakedTexture} />
-      </mesh>
+      </mesh> */}
       <mesh
         castShadow
         receiveShadow

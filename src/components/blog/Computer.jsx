@@ -2,20 +2,26 @@ import { Html, useGLTF } from "@react-three/drei";
 import { forwardRef, useState, useEffect } from "react";
 import { useControls } from "leva";
 import { useFrame } from "@react-three/fiber";
+import Desk from "./Desk";
 
 const Computer = forwardRef((props, ref) => {
-  const { position } = useControls("Computer", {
-    position: {
-      value: [3.17, 0.78, -2.723],
-      step: 0.01,
+  const { positionX, positionY, positionZ, deskScale } = useControls("desk", {
+    positionX: {
+      value: 3.17,
+      step: 0.1,
     },
+    positionY: {
+      value: 0.15,
+      step: 0.1,
+    },
+    positionZ: {
+      value: -2.85,
+      step: 0.1,
+    },
+    deskScale: { value: 0.207 },
   });
 
-  const computer = useGLTF(
-    "https://vazxmixjsiawhamofees.supabase.co/storage/v1/object/public/models/macbook/model.gltf"
-  );
   const [showHtml, setShowHtml] = useState(false);
-
   const [showBasedOnRotation, setShowBasedOnRotation] = useState(false);
 
   useFrame((state) => {
@@ -46,7 +52,6 @@ const Computer = forwardRef((props, ref) => {
 
   return (
     <>
-      <primitive position={position} scale={0.207} object={computer.scene} />
       {/* Mesh that will be looked at */}
       <mesh ref={ref} {...props} position={[3.15, 0.99, -3.07]} visible={false}>
         <boxGeometry args={[1.1, 0.5, 1.1]} />
@@ -71,8 +76,9 @@ const Computer = forwardRef((props, ref) => {
             transform
             wrapperClass="htmlScreen"
             distanceFactor={0.25}
-            position={[-0.3, 0.65, 0]}
-            rotation-x={-0.256}
+            position={[-0.305, 0.515, 0]}
+            scale={1.02}
+            // rotation-x={-0.256}
             style={{ opacity: showBasedOnRotation ? 1 : 0 }}
           >
             <iframe src="https://r3f-blog.vercel.app/" />
@@ -81,6 +87,7 @@ const Computer = forwardRef((props, ref) => {
         <boxGeometry args={[0.55, 0.5, 1.1]} />
         <meshStandardMaterial color="#9d4b4b" />
       </mesh>
+      <Desk position={[positionX, positionY, positionZ]} scale={deskScale} />
     </>
   );
 });
