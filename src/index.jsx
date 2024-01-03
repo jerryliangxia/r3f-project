@@ -4,7 +4,7 @@ import { Canvas } from "@react-three/fiber";
 import Experience from "./Experience.jsx";
 import { KeyboardControls, Loader } from "@react-three/drei";
 import "@radix-ui/themes/styles.css";
-import { Theme, Button } from "@radix-ui/themes";
+import { Theme, Button, Card, Text } from "@radix-ui/themes";
 import Interface from "./Interface.jsx";
 import React, { useState, useRef } from "react";
 
@@ -89,7 +89,7 @@ function App() {
             if (!active) {
               setTimeout(() => {
                 setLoadingOpaque(false);
-              }, 500);
+              }, 20);
             }
             return active;
           }}

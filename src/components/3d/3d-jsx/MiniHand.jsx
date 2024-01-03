@@ -52,7 +52,7 @@ export default function MiniHand(props) {
         <mesh
           // castShadow
           // receiveShadow
-          geometry={nodes.Hand.geometry}
+          geometry={nodes.Outside_Hand.geometry}
           material={materials.Red}
           position={[0.01, -0.019, 0.018]}
           scale={3.253}
