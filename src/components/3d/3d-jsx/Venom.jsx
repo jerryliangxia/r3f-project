@@ -80,7 +80,7 @@ export default function Venom(props) {
 
   useFrame((state, delta) => {
     customUniforms.uTime.value += delta;
-    setUTime((prevUTime) => (prevUTime + delta) % 50);
+    setUTime((prevUTime) => (prevUTime + delta) % 6.3);
   });
 
   return (

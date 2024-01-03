@@ -80,7 +80,7 @@ export default function PizzaTime(props) {
 
   useFrame((state, delta) => {
     customUniforms.uTime.value += delta;
-    setUTime((prevUTime) => (prevUTime + delta) % 50);
+    setUTime((prevUTime) => (prevUTime + delta) % 5.75);
   });
 
   return (

@@ -81,7 +81,7 @@ export default function CityScene(props) {
 
   useFrame((state, delta) => {
     customUniforms.uTime.value += delta;
-    setUTime((prevUTime) => (prevUTime + delta) % 50);
+    setUTime((prevUTime) => (prevUTime + delta) % 2.3);
   });
 
   return (
