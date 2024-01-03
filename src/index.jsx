@@ -81,22 +81,10 @@ function App() {
             alignItems: "center",
             justifyContent: "center",
             background: "linear-gradient(to right, #1D1C40, #10001C)",
-            transition: "opacity 0.5s ease-in-out",
+            transition: "opacity 1.0s ease-in-out",
             opacity: loadingOpaque ? 1.0 : 0.0,
           }}
-          barStyles={
-            {
-              // display: "none",
-              // opacity: 0,
-              // visible: "false",
-            }
-          }
-          dataStyles={{
-            color: "white",
-            fontSize: "1em",
-            opacity: 0.5,
-          }}
-          dataInterpolation={() => "Loading..."}
+          dataInterpolation={(p) => `Loading ${p.toFixed(0)}%`}
           initialState={(active) => {
             if (!active) {
               setTimeout(() => {

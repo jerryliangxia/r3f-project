@@ -93,7 +93,7 @@ export default function CharacterController({
         }
       }
     }
-    body.current.wakeUp();
+    body?.current?.wakeUp();
   });
 
   useEffect(() => {
