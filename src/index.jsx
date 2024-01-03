@@ -2,7 +2,7 @@ import "./style.css";
 import ReactDOM from "react-dom/client";
 import { Canvas } from "@react-three/fiber";
 import Experience from "./Experience.jsx";
-import { KeyboardControls } from "@react-three/drei";
+import { KeyboardControls, Loader } from "@react-three/drei";
 import "@radix-ui/themes/styles.css";
 import { Theme, Button } from "@radix-ui/themes";
 import Interface from "./Interface.jsx";
@@ -68,6 +68,43 @@ function App() {
             setMaxDistance={setMaxDistance}
           />
         </Canvas>
+        <Loader
+          className="loader-container"
+          containerStyles={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "linear-gradient(to right, #1D1C40, #10001C)",
+            transition: "background 1s ease-out",
+          }}
+          barStyles={
+            {
+              // display: "none",
+              // opacity: 0,
+              // visible: "false",
+            }
+          }
+          dataStyles={{
+            color: "white",
+            fontSize: "1em",
+            opacity: 0.5,
+          }}
+          dataInterpolation={() => "Loading..."}
+          initialState={(active) => {
+            if (!active) {
+              setTimeout(() => {
+                document.querySelector(".loader-container").style.background =
+                  "rgba(0, 0, 0, 0)";
+              }, 500);
+            }
+            return active;
+          }}
+        />
         {showDiv && (
           <Interface htmlComponent={htmlComponent} setShowDiv={setShowDiv} />
         )}
