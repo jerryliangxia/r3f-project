@@ -81,7 +81,7 @@ function App() {
             alignItems: "center",
             justifyContent: "center",
             background: "linear-gradient(to right, #1D1C40, #10001C)",
-            transition: "opacity 2.0s ease-in-out",
+            transition: "opacity 0.5ss ease-in-out",
             opacity: loadingOpaque ? 1.0 : 0.0,
           }}
           dataInterpolation={(p) => `Loading ${p.toFixed(0)}%`}
