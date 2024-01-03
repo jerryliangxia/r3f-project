@@ -1,6 +1,6 @@
-import { WhiteText } from "./WhiteText";
+import { WhiteText } from "./components/WhiteText";
 import { ThreeD } from "../../../Info";
-import Image from "./Image";
+import Image from "./components/Image";
 
 export default function Symbiote() {
   return (

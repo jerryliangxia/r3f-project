@@ -1,8 +1,8 @@
-import { WhiteText } from "./WhiteText";
+import { WhiteText } from "./components/WhiteText";
 import { ThreeD } from "../../../Info";
-import Image from "./Image";
+import Image from "./components/Image";
 
-export default function Unmasked() {
+export default function PizzaTime() {
   return (
     <>
       <Image src="images/3d/unmasked/sample.png" />
