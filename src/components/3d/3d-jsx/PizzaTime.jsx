@@ -84,191 +84,205 @@ export default function PizzaTime(props) {
   });
 
   return (
-    <Select enabled={enabled && props.isActualWorkbenchClicked}>
+    <>
+      <Select enabled={enabled && props.isActualWorkbenchClicked}>
+        <group
+          {...props}
+          dispose={null}
+          position={props.position.map(
+            (value, index) => value + [0, -0.05, 0][index]
+          )}
+          rotation-y={props.rotationY + 0.4}
+          scale={props.scale}
+          onPointerOver={handlePointerOver}
+          onPointerOut={handlePointerOut}
+          onClick={(event) => {
+            event.stopPropagation();
+            props.setHtmlComponent(<PizzaTimeDiv />);
+            props.setShowDiv(true);
+          }}
+        >
+          <group rotation={[Math.PI / 2, 0, 0]}>
+            <mesh
+              // castShadow
+              // receiveShadow
+              geometry={nodes["Spider-Man_Redmesh"].geometry}
+              material={materials.Red}
+            />
+            <mesh
+              // castShadow
+              // receiveShadow
+              geometry={nodes["Spider-Man_Redmesh_1"].geometry}
+              material={materials.Blue}
+            />
+            <mesh
+              // castShadow
+              // receiveShadow
+              geometry={nodes["Spider-Man_Redmesh_2"].geometry}
+              material={materials.White}
+            />
+          </group>
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Cube.geometry}
+            material={materials.Gray}
+          />
+          <group
+            position={[0.216, 1.413, 0.228]}
+            rotation={[0, -0.676, 0]}
+            scale={0.114}
+          >
+            <mesh
+              // castShadow
+              // receiveShadow
+              geometry={nodes.Plane_1.geometry}
+              material={materials.Cheese}
+            />
+            <mesh
+              // castShadow
+              // receiveShadow
+              geometry={nodes.Plane_2.geometry}
+              material={materials["Brown ish"]}
+            />
+            <mesh
+              // castShadow
+              // receiveShadow
+              geometry={nodes.Plane_3.geometry}
+              material={materials.Red}
+            />
+            <mesh
+              // castShadow
+              // receiveShadow
+              geometry={nodes.Plane_4.geometry}
+              material={materials.Green}
+            />
+          </group>
+          <group
+            position={[-0.225, -0.347, -0.471]}
+            rotation={[0.342, 0.557, -0.167]}
+            scale={0.981}
+          >
+            <mesh
+              // castShadow
+              // receiveShadow
+              geometry={nodes.FBHead_mesh001_1.geometry}
+              material={materials["Procedural Skin head"]}
+            />
+            <mesh
+              // castShadow
+              // receiveShadow
+              geometry={nodes.FBHead_mesh001_2.geometry}
+              material={materials.Material}
+            />
+            <mesh
+              // castShadow
+              // receiveShadow
+              geometry={nodes.FBHead_mesh001_3.geometry}
+              material={materials.Lips}
+            />
+            <mesh
+              // castShadow
+              // receiveShadow
+              geometry={nodes.FBHead_mesh001_4.geometry}
+              material={materials.White}
+            />
+            <mesh
+              // castShadow
+              // receiveShadow
+              geometry={nodes.FBHead_mesh001_5.geometry}
+              material={materials["Dark Brown"]}
+            />
+          </group>
+          <mesh
+            castShadow
+            receiveShadow
+            geometry={nodes.Cube001.geometry}
+            material={materials.Material}
+            position={[0.146, 1.665, 0.171]}
+            rotation={[0.342, 0.557, -0.167]}
+            scale={[0.134, 0.024, 0.119]}
+          />
+          <group position={[-0.012, 0.934, 0.051]} scale={0.836}>
+            <mesh
+              // castShadow
+              // receiveShadow
+              geometry={nodes.Circle001.geometry}
+              material={materials["Brown ish"]}
+            />
+            <mesh
+              // castShadow
+              // receiveShadow
+              geometry={nodes.Circle001_1.geometry}
+              material={materials.Red}
+            />
+            <mesh
+              // castShadow
+              // receiveShadow
+              geometry={nodes.Circle001_2.geometry}
+              material={materials.Cheese}
+            />
+            <mesh
+              // castShadow
+              // receiveShadow
+              geometry={nodes.Circle001_3.geometry}
+              material={materials["Brown ish"]}
+            />
+            <mesh
+              // castShadow
+              // receiveShadow
+              geometry={nodes.Circle001_4.geometry}
+              material={materials.Green}
+            />
+          </group>
+          <group
+            position={[-0.182, 0.395, -0.528]}
+            scale={[0.727, 1.324, 0.727]}
+          >
+            <mesh
+              // castShadow
+              // receiveShadow
+              geometry={nodes.Cube003_1.geometry}
+              material={materials.Black}
+            />
+            <mesh
+              // castShadow
+              // receiveShadow
+              geometry={nodes.Cube003_2.geometry}
+              material={materials["Brick 1"]}
+            />
+            <mesh
+              // castShadow
+              // receiveShadow
+              geometry={nodes.Cube003_3.geometry}
+              material={materials["Brick 2"]}
+            />
+            <mesh
+              // castShadow
+              // receiveShadow
+              geometry={nodes.Cube003_4.geometry}
+              material={materials["Brick 3"]}
+            />
+            <mesh
+              // castShadow
+              // receiveShadow
+              geometry={nodes.Cube003_5.geometry}
+              material={materials["Dark Gray"]}
+            />
+          </group>
+        </group>
+      </Select>
       <group
-        {...props}
         dispose={null}
         position={props.position.map(
           (value, index) => value + [0, -0.05, 0][index]
         )}
         rotation-y={props.rotationY + 0.4}
         scale={props.scale}
-        onPointerOver={handlePointerOver}
-        onPointerOut={handlePointerOut}
-        onClick={(event) => {
-          event.stopPropagation();
-          props.setHtmlComponent(<PizzaTimeDiv />);
-          props.setShowDiv(true);
-        }}
       >
-        <group rotation={[Math.PI / 2, 0, 0]}>
-          <mesh
-            // castShadow
-            // receiveShadow
-            geometry={nodes["Spider-Man_Redmesh"].geometry}
-            material={materials.Red}
-          />
-          <mesh
-            // castShadow
-            // receiveShadow
-            geometry={nodes["Spider-Man_Redmesh_1"].geometry}
-            material={materials.Blue}
-          />
-          <mesh
-            // castShadow
-            // receiveShadow
-            geometry={nodes["Spider-Man_Redmesh_2"].geometry}
-            material={materials.White}
-          />
-        </group>
         <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube.geometry}
-          material={materials.Gray}
-        />
-        <group
-          position={[0.216, 1.413, 0.228]}
-          rotation={[0, -0.676, 0]}
-          scale={0.114}
-        >
-          <mesh
-            // castShadow
-            // receiveShadow
-            geometry={nodes.Plane_1.geometry}
-            material={materials.Cheese}
-          />
-          <mesh
-            // castShadow
-            // receiveShadow
-            geometry={nodes.Plane_2.geometry}
-            material={materials["Brown ish"]}
-          />
-          <mesh
-            // castShadow
-            // receiveShadow
-            geometry={nodes.Plane_3.geometry}
-            material={materials.Red}
-          />
-          <mesh
-            // castShadow
-            // receiveShadow
-            geometry={nodes.Plane_4.geometry}
-            material={materials.Green}
-          />
-        </group>
-        <group
-          position={[-0.225, -0.347, -0.471]}
-          rotation={[0.342, 0.557, -0.167]}
-          scale={0.981}
-        >
-          <mesh
-            // castShadow
-            // receiveShadow
-            geometry={nodes.FBHead_mesh001_1.geometry}
-            material={materials["Procedural Skin head"]}
-          />
-          <mesh
-            // castShadow
-            // receiveShadow
-            geometry={nodes.FBHead_mesh001_2.geometry}
-            material={materials.Material}
-          />
-          <mesh
-            // castShadow
-            // receiveShadow
-            geometry={nodes.FBHead_mesh001_3.geometry}
-            material={materials.Lips}
-          />
-          <mesh
-            // castShadow
-            // receiveShadow
-            geometry={nodes.FBHead_mesh001_4.geometry}
-            material={materials.White}
-          />
-          <mesh
-            // castShadow
-            // receiveShadow
-            geometry={nodes.FBHead_mesh001_5.geometry}
-            material={materials["Dark Brown"]}
-          />
-        </group>
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube001.geometry}
-          material={materials.Material}
-          position={[0.146, 1.665, 0.171]}
-          rotation={[0.342, 0.557, -0.167]}
-          scale={[0.134, 0.024, 0.119]}
-        />
-        <group position={[-0.012, 0.934, 0.051]} scale={0.836}>
-          <mesh
-            // castShadow
-            // receiveShadow
-            geometry={nodes.Circle001.geometry}
-            material={materials["Brown ish"]}
-          />
-          <mesh
-            // castShadow
-            // receiveShadow
-            geometry={nodes.Circle001_1.geometry}
-            material={materials.Red}
-          />
-          <mesh
-            // castShadow
-            // receiveShadow
-            geometry={nodes.Circle001_2.geometry}
-            material={materials.Cheese}
-          />
-          <mesh
-            // castShadow
-            // receiveShadow
-            geometry={nodes.Circle001_3.geometry}
-            material={materials["Brown ish"]}
-          />
-          <mesh
-            // castShadow
-            // receiveShadow
-            geometry={nodes.Circle001_4.geometry}
-            material={materials.Green}
-          />
-        </group>
-        <group position={[-0.182, 0.395, -0.528]} scale={[0.727, 1.324, 0.727]}>
-          <mesh
-            // castShadow
-            // receiveShadow
-            geometry={nodes.Cube003_1.geometry}
-            material={materials.Black}
-          />
-          <mesh
-            // castShadow
-            // receiveShadow
-            geometry={nodes.Cube003_2.geometry}
-            material={materials["Brick 1"]}
-          />
-          <mesh
-            // castShadow
-            // receiveShadow
-            geometry={nodes.Cube003_3.geometry}
-            material={materials["Brick 2"]}
-          />
-          <mesh
-            // castShadow
-            // receiveShadow
-            geometry={nodes.Cube003_4.geometry}
-            material={materials["Brick 3"]}
-          />
-          <mesh
-            // castShadow
-            // receiveShadow
-            geometry={nodes.Cube003_5.geometry}
-            material={materials["Dark Gray"]}
-          />
-        </group>
-        <mesh
-          castShadow
-          receiveShadow
+          // castShadow
+          // receiveShadow
           geometry={nodes.Cube002.geometry}
           material={material}
           position={[-0.104, 1.259, 0.359]}
@@ -276,8 +290,8 @@ export default function PizzaTime(props) {
           scale={[0.055, 0.226, 0.055]}
         />
         <mesh
-          castShadow
-          receiveShadow
+          // castShadow
+          // receiveShadow
           geometry={nodes.Cube004.geometry}
           material={material}
           position={[-0.022, 1.158, 0.354]}
@@ -285,7 +299,7 @@ export default function PizzaTime(props) {
           scale={[0.028, 0.159, 0.028]}
         />
       </group>
-    </Select>
+    </>
   );
 }
 

@@ -77,7 +77,6 @@ export default function Experience({
         {
           vec3: { value: [3, 0, -3], label: "vec" },
           "setTarget(…vec)": button((get) => {
-            console.log(...get("setTarget.vec3"));
             cameraControlsRef.current?.setTarget(
               ...get("setTarget.vec3"),
               true

@@ -32,8 +32,6 @@ export default function MiniSymb(props) {
     }, 10); // delay in milliseconds
   };
 
-  console.log(props.position);
-
   return (
     <>
       <Select enabled={enabled && props.isActualWorkbenchClicked}>

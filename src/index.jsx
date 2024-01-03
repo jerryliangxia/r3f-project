@@ -19,6 +19,7 @@ function App() {
   const cameraControlsRef = useRef();
   const [minDistance, setMinDistance] = useState(6.0);
   const [maxDistance, setMaxDistance] = useState(10.0);
+  const [loadingOpaque, setLoadingOpaque] = useState(true);
 
   const Reset = () => {
     setShowDiv(false);
@@ -80,7 +81,8 @@ function App() {
             alignItems: "center",
             justifyContent: "center",
             background: "linear-gradient(to right, #1D1C40, #10001C)",
-            transition: "background 1s ease-out",
+            transition: "opacity 0.5s ease-in-out",
+            opacity: loadingOpaque ? 1.0 : 0.0,
           }}
           barStyles={
             {
@@ -98,8 +100,7 @@ function App() {
           initialState={(active) => {
             if (!active) {
               setTimeout(() => {
-                document.querySelector(".loader-container").style.background =
-                  "rgba(0, 0, 0, 0)";
+                setLoadingOpaque(false);
               }, 500);
             }
             return active;
