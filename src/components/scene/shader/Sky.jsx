@@ -3,7 +3,7 @@ import skyFragmentShader from "./sky/fragment.glsl";
 import { useRef } from "react";
 import { shaderMaterial } from "@react-three/drei";
 import * as THREE from "three";
-import { extend } from "@react-three/fiber";
+import { extend, useFrame } from "@react-three/fiber";
 
 const Sky = ({ isNight }) => {
   const SkyMaterial = shaderMaterial(
@@ -18,11 +18,18 @@ const Sky = ({ isNight }) => {
   extend({ SkyMaterial });
 
   const skyMaterial = useRef();
+  const meshRef = useRef();
+
+  useFrame((state, delta) => {
+    if (meshRef.current) {
+      meshRef.current.rotation.y += delta / 500;
+    }
+  });
 
   return (
-    <mesh>
-      <sphereGeometry args={[100, 256, 256]} />
-      <skyMaterial ref={skyMaterial} side={THREE.DoubleSide} />
+    <mesh ref={meshRef}>
+      <sphereGeometry args={[150, 256, 256]} />
+      <skyMaterial ref={skyMaterial} side={THREE.BackSide} />
     </mesh>
   );
 };
