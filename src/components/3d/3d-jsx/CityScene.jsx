@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { Select } from "@react-three/postprocessing";
-import CitySceneDiv from "./3d-descriptions/Animation";
+import CitySceneDiv from "../3d-descriptions/Animation";
 import * as THREE from "three";
 
 export default function CityScene(props) {

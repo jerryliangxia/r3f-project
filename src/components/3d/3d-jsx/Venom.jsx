@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { Select } from "@react-three/postprocessing";
-import VenomDiv from "./3d-descriptions/Venom";
+import VenomDiv from "../3d-descriptions/Venom";
 import * as THREE from "three";
 
 export default function Venom(props) {

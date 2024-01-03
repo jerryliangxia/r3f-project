@@ -1,13 +1,13 @@
 import React from "react";
-import SymbHead from "./SymbHead";
-import MiniSymb from "./MiniSymb";
-import Venom from "./Venom";
-import CityScene from "./CityScene";
-import MiniSpid from "./MiniSpid";
-import PizzaTime from "./PizzaTime";
-import Webshooter from "./Webshooter";
-import SpidHead from "./SpidHead";
-import MiniHand from "./MiniHand";
+import SymbHead from "./3d-jsx/SymbHead";
+import MiniSymb from "./3d-jsx/MiniSymb";
+import Venom from "./3d-jsx/Venom";
+import CityScene from "./3d-jsx/CityScene";
+import MiniSpid from "./3d-jsx/MiniSpid";
+import PizzaTime from "./3d-jsx/PizzaTime";
+import Webshooter from "./3d-jsx/Webshooter";
+import SpidHead from "./3d-jsx/SpidHead";
+import MiniHand from "./3d-jsx/MiniHand";
 import {
   Selection,
   EffectComposer,
