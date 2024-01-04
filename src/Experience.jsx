@@ -2,7 +2,7 @@ import { CameraControls, Environment } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import CharacterController from "./components/scene/CharacterController";
 import { Physics, CuboidCollider } from "@react-three/rapier";
-import Model from "./components/scene/Platform";
+import { Model } from "./components/scene/Platform";
 import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
 import { useRef, useState } from "react";
@@ -13,6 +13,7 @@ import Computer from "./components/blog/Computer";
 import Workbench from "./components/3d/Workbench";
 import LightBridge from "./components/scene/shader/LightBridge";
 import Sky from "./components/scene/shader/Sky";
+import Grass from "./components/scene/Grass";
 
 export default function Experience({
   cameraControlsRef,
@@ -208,6 +209,8 @@ export default function Experience({
       />
       <Workbench
         ref={workbenchRef}
+        position={[-1.8, 0.7, -4.4]}
+        rotationY={-Math.PI / 2}
         isComputerClicked={isComputerClicked}
         isActualWorkbenchClicked={isActualWorkbenchClicked}
         setIsActualWorkbenchClicked={setIsActualWorkbenchClicked}
@@ -256,6 +259,7 @@ export default function Experience({
           isComputerClicked={isComputerClicked}
           setIsComputerClicked={setIsComputerClicked}
         />
+        {/* <Grass /> */}
         <Model onPointerEnter={(event) => event.stopPropagation()} scale={1} />
         <CuboidCollider args={[5, 0.1, 5]} position={[0, 0.1, 0]} />
       </Physics>

@@ -17,15 +17,15 @@ function App() {
   const [isActualWorkbenchClicked, setIsActualWorkbenchClicked] =
     useState(false);
   const cameraControlsRef = useRef();
-  const [minDistance, setMinDistance] = useState(6.0);
-  const [maxDistance, setMaxDistance] = useState(10.0);
+  const [minDistance, setMinDistance] = useState(5.0);
+  const [maxDistance, setMaxDistance] = useState(7.0);
   const [loadingOpaque, setLoadingOpaque] = useState(true);
 
   const Reset = () => {
     setShowDiv(false);
     setShowButtonDiv(false);
-    setMinDistance(6.0);
-    setMaxDistance(10.0);
+    setMinDistance(5.0);
+    setMaxDistance(7.0);
     setIsComputerClicked(false);
     cameraControlsRef.current.reset(true);
   };

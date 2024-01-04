@@ -59,22 +59,29 @@ const WorkbenchGrid = ({
   ];
 
   return (
-    <Selection>
-      <EffectComposer blur multisampling={16} autoClear={false}>
-        <Outline blur visibleEdgeColor="white" edgeStrength={3} width={1500} />
-      </EffectComposer>
+    <group>
+      <Selection>
+        <EffectComposer blur multisampling={16} autoClear={false}>
+          <Outline
+            blur
+            visibleEdgeColor="white"
+            edgeStrength={3}
+            width={1500}
+          />
+        </EffectComposer>
 
-      {components.map((Component, i) => (
-        <Row
-          key={i}
-          Component={Component}
-          position={positions[i]}
-          rotationY={rotationY}
-          scale={scale}
-          {...props}
-        />
-      ))}
-    </Selection>
+        {components.map((Component, i) => (
+          <Row
+            key={i}
+            Component={Component}
+            position={positions[i]}
+            rotationY={rotationY}
+            scale={scale}
+            {...props}
+          />
+        ))}
+      </Selection>
+    </group>
   );
 };
 

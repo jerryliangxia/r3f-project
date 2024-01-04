@@ -90,7 +90,7 @@ export default function CityScene(props) {
         {...props}
         dispose={null}
         position={props.position.map(
-          (value, index) => value + [0.15, -0.027, 0][index]
+          (value, index) => value + [0, -0.027, 0.1][index]
         )}
         rotation-y={props.rotationY + 0.4}
         scale={props.scale * 0.1}

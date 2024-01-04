@@ -29,7 +29,7 @@ const RectArealightWithHelper = ({
   );
 };
 
-export default function RectAreaLightModels() {
+export default function RectAreaLightModels(props) {
   const { width, height, intensity } = useControls("Light Scaling", {
     width: {
       value: 2.0,
@@ -47,26 +47,26 @@ export default function RectAreaLightModels() {
 
   const { positionX, positionY, positionZ } = useControls("Light Position", {
     positionX: {
-      value: -3.4,
+      value: 0,
       step: 0.1,
     },
     positionY: {
-      value: 1.6,
+      value: 1.2,
       step: 0.1,
     },
     positionZ: {
-      value: 3.25,
+      value: -0.8,
       step: 0.1,
     },
   });
 
   const { rotationX, rotationY, rotationZ } = useControls("Light Rotation", {
     rotationX: {
-      value: -Math.PI / 2,
+      value: -Math.PI,
       step: 0.01,
     },
     rotationY: {
-      value: -1.0,
+      value: 0,
       step: 0.01,
     },
     rotationZ: {
@@ -78,21 +78,23 @@ export default function RectAreaLightModels() {
   return (
     <>
       <RectArealightWithHelper
-        position={[-3.4, 1.6, 3.25]}
-        rotation={[-Math.PI / 2, -1.0, 0.0]}
+        position={props.position.map(
+          (value, index) => value + [positionX, positionY, positionZ][index]
+        )}
+        rotation={[rotationX, rotationY, rotationZ]}
         width={2.0}
         height={2.0}
         intensity={7.5}
         color="pink"
       />
-      <RectArealightWithHelper
+      {/* <RectArealightWithHelper
         position={[-2.2, 1.0, 3.27]}
         rotation={[-Math.PI / 2, -4.0, 0.0]}
         width={0.6}
         height={1.0}
         intensity={1.0}
         color="pink"
-      />
+      /> */}
     </>
   );
 }
