@@ -95,5 +95,3 @@ export default function Grassblade(props) {
     </mesh>
   );
 }
-
-useGLTF.preload("/grass.glb");

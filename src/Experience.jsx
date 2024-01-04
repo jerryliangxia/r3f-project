@@ -14,6 +14,7 @@ import Workbench from "./components/3d/Workbench";
 import LightBridge from "./components/scene/shader/LightBridge";
 import Sky from "./components/scene/shader/Sky";
 import Grass from "./components/scene/Grass";
+import { Leva } from "leva";
 
 export default function Experience({
   cameraControlsRef,
@@ -259,9 +260,17 @@ export default function Experience({
           isComputerClicked={isComputerClicked}
           setIsComputerClicked={setIsComputerClicked}
         />
-        {/* <Grass /> */}
+        <Grass />
         <Model onPointerEnter={(event) => event.stopPropagation()} scale={1} />
         <CuboidCollider args={[5, 0.1, 5]} position={[0, 0.1, 0]} />
+        <CuboidCollider args={[0.1, 0.1, 5]} position={[5, 1, 0]} />
+        <CuboidCollider args={[0.1, 0.1, 5]} position={[-5, 1, 0]} />
+        <CuboidCollider args={[5, 0.1, 0.1]} position={[0, 1, -5]} />
+        <CuboidCollider
+          args={[0.55, 0.5, 0.55]}
+          position={[-1.8, 0.45, -4.4]}
+        />
+        <CuboidCollider args={[0.65, 0.5, 0.3]} position={[3.15, 0.7, -2.9]} />
       </Physics>
     </>
   );

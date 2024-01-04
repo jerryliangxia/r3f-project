@@ -418,7 +418,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane012.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-1.952, 1.872, 7.43]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.055}
@@ -427,7 +427,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane013.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-2.867, -0.655, 7.108]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -435,7 +435,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane014.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-2.867, -0.655, 7.108]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -443,7 +443,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane015.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-2.47, -0.718, 7.283]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -451,7 +451,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane016.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-2.523, -1.111, 7.272]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -459,7 +459,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane017.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-1.84, 2.675, 7.455]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.055}
@@ -468,7 +468,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane018.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-1.903, 2.269, 7.44]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.055}
@@ -477,7 +477,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane019.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-2.526, 1.956, 7.177]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.055}
@@ -486,7 +486,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane020.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-3.442, -0.571, 6.854]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -494,7 +494,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane021.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-3.442, -0.571, 6.854]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -502,7 +502,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane022.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-3.044, -0.634, 7.03]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -510,7 +510,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane023.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-3.098, -1.027, 7.018]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -518,7 +518,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane024.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-2.414, 2.759, 7.201]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.055}
@@ -527,7 +527,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane025.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-2.477, 2.353, 7.186]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.055}
@@ -536,7 +536,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane026.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-3.256, 2.07, 6.855]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.055}
@@ -545,7 +545,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane027.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-4.172, -0.457, 6.532]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -553,7 +553,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane028.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-4.172, -0.457, 6.532]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -561,7 +561,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane029.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-3.774, -0.519, 6.707]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -569,7 +569,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane030.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-3.828, -0.913, 6.696]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -577,7 +577,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane031.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-3.144, 2.873, 6.879]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.055}
@@ -586,7 +586,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane032.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-3.207, 2.467, 6.864]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.055}
@@ -595,7 +595,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane033.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-3.83, 2.16, 6.602]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.055}
@@ -604,7 +604,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane034.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-4.745, -0.367, 6.279]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -612,7 +612,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane035.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-4.745, -0.367, 6.279]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -620,7 +620,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane036.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-4.348, -0.429, 6.454]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -628,7 +628,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane037.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-4.401, -0.823, 6.443]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -636,7 +636,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane038.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-3.718, 2.963, 6.626]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.055}
@@ -645,7 +645,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane039.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-3.781, 2.557, 6.611]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.055}
@@ -654,7 +654,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane040.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-5.196, 2.299, 6.001]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.055}
@@ -663,7 +663,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane041.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-6.112, -0.229, 5.678]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -671,7 +671,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane042.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-6.112, -0.229, 5.678]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -679,7 +679,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane043.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-5.714, -0.291, 5.854]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -687,7 +687,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane044.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-5.768, -0.684, 5.842]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -695,7 +695,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane045.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-5.084, 3.101, 6.025]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.055}
@@ -704,7 +704,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane046.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-5.147, 2.695, 6.01]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.055}
@@ -713,7 +713,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane047.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-5.76, 2.381, 5.752]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.055}
@@ -722,7 +722,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane048.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-6.676, -0.146, 5.429]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -730,7 +730,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane049.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-6.676, -0.146, 5.429]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -738,7 +738,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane050.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-6.279, -0.209, 5.605]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -746,7 +746,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane051.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-6.332, -0.602, 5.593]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -754,7 +754,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane052.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-5.648, 3.184, 5.777]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.055}
@@ -763,7 +763,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane053.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-5.711, 2.778, 5.761]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.055}
@@ -772,7 +772,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane054.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-5.507, 0.692, 5.914]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.052}
@@ -781,7 +781,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane055.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-6.369, -1.688, 5.61]}
         rotation={[3.111, 0.411, -2.987]}
         scale={0.942}
@@ -790,7 +790,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane056.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-6.369, -1.688, 5.61]}
         rotation={[3.111, 0.411, -2.987]}
         scale={0.942}
@@ -799,7 +799,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane057.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-5.995, -1.746, 5.775]}
         rotation={[3.111, 0.411, -2.987]}
         scale={0.942}
@@ -808,7 +808,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane058.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-6.046, -2.117, 5.765]}
         rotation={[3.111, 0.411, -2.987]}
         scale={0.942}
@@ -817,7 +817,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane059.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-5.402, 1.448, 5.937]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.052}
@@ -826,7 +826,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane060.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-5.461, 1.066, 5.923]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.052}
@@ -835,7 +835,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane061.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-6.038, 0.77, 5.68]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.052}
@@ -844,7 +844,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane062.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-6.9, -1.61, 5.376]}
         rotation={[3.111, 0.411, -2.987]}
         scale={0.942}
@@ -853,7 +853,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane063.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-6.9, -1.61, 5.376]}
         rotation={[3.111, 0.411, -2.987]}
         scale={0.942}
@@ -862,7 +862,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane064.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-6.526, -1.669, 5.541]}
         rotation={[3.111, 0.411, -2.987]}
         scale={0.942}
@@ -871,7 +871,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane065.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-6.577, -2.039, 5.53]}
         rotation={[3.111, 0.411, -2.987]}
         scale={0.942}
@@ -880,7 +880,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane066.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-5.933, 1.525, 5.703]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.052}
@@ -889,7 +889,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane067.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-5.992, 1.143, 5.689]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.052}
@@ -898,7 +898,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane068.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-0.504, -0.081, 8.122]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.052}
@@ -907,7 +907,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane069.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-1.366, -2.461, 7.818]}
         rotation={[3.111, 0.411, -2.987]}
         scale={0.942}
@@ -916,7 +916,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane070.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-1.366, -2.461, 7.818]}
         rotation={[3.111, 0.411, -2.987]}
         scale={0.942}
@@ -925,7 +925,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane071.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-0.992, -2.52, 7.983]}
         rotation={[3.111, 0.411, -2.987]}
         scale={0.942}
@@ -934,7 +934,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane072.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-1.043, -2.89, 7.972]}
         rotation={[3.111, 0.411, -2.987]}
         scale={0.942}
@@ -943,7 +943,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane073.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-0.399, 0.675, 8.145]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.052}
@@ -952,7 +952,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane074.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-0.458, 0.292, 8.13]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.052}
@@ -961,7 +961,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane075.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[0.019, 1.462, 8.303]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.055}
@@ -970,7 +970,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane076.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-0.897, -1.066, 7.98]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -978,7 +978,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane077.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-0.897, -1.066, 7.98]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -986,7 +986,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane078.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-0.499, -1.128, 8.156]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -994,7 +994,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane079.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-0.553, -1.521, 8.144]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -1002,7 +1002,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane080.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[0.131, 2.265, 8.327]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.055}
@@ -1011,7 +1011,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane081.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[0.068, 1.859, 8.312]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.055}
@@ -1020,7 +1020,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane082.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-0.545, 1.544, 8.054]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.055}
@@ -1029,7 +1029,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane083.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-1.461, -0.983, 7.732]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -1037,7 +1037,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane084.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-1.461, -0.983, 7.732]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -1045,7 +1045,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane085.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-1.064, -1.045, 7.907]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -1053,7 +1053,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane086.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-1.117, -1.439, 7.895]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -1061,7 +1061,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane087.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-0.433, 2.347, 8.079]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.055}
@@ -1070,7 +1070,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane088.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-0.496, 1.941, 8.064]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.055}
@@ -1079,7 +1079,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane089.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-1.827, 0.046, 7.54]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.028}
@@ -1088,7 +1088,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane090.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-2.298, -1.256, 7.374]}
         rotation={[3.111, 0.411, -2.987]}
         scale={0.515}
@@ -1097,7 +1097,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane091.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-2.298, -1.256, 7.374]}
         rotation={[3.111, 0.411, -2.987]}
         scale={0.515}
@@ -1106,7 +1106,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane092.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-2.094, -1.288, 7.465]}
         rotation={[3.111, 0.411, -2.987]}
         scale={0.515}
@@ -1115,7 +1115,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane093.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-2.121, -1.49, 7.459]}
         rotation={[3.111, 0.411, -2.987]}
         scale={0.515}
@@ -1124,7 +1124,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane094.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-1.769, 0.459, 7.553]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.028}
@@ -1133,7 +1133,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane095.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-1.802, 0.25, 7.545]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.028}
@@ -1142,7 +1142,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane096.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-4.461, 0.453, 6.378]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.028}
@@ -1151,7 +1151,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane097.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-4.933, -0.848, 6.212]}
         rotation={[3.111, 0.411, -2.987]}
         scale={0.515}
@@ -1160,7 +1160,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane098.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-4.933, -0.848, 6.212]}
         rotation={[3.111, 0.411, -2.987]}
         scale={0.515}
@@ -1169,7 +1169,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane099.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-4.728, -0.88, 6.302]}
         rotation={[3.111, 0.411, -2.987]}
         scale={0.515}
@@ -1178,7 +1178,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane100.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-4.756, -1.083, 6.296]}
         rotation={[3.111, 0.411, -2.987]}
         scale={0.515}
@@ -1187,7 +1187,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane101.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-4.404, 0.867, 6.391]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.028}
@@ -1196,7 +1196,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane102.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-4.436, 0.658, 6.383]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.028}
@@ -1205,7 +1205,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane103.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-3.117, 0.304, 6.969]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.052}
@@ -1214,7 +1214,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane104.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-3.978, -2.074, 6.666]}
         rotation={[3.111, 0.411, -2.987]}
         scale={0.941}
@@ -1223,7 +1223,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane105.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-3.978, -2.074, 6.666]}
         rotation={[3.111, 0.411, -2.987]}
         scale={0.941}
@@ -1232,7 +1232,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane106.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-3.604, -2.132, 6.831]}
         rotation={[3.111, 0.411, -2.987]}
         scale={0.941}
@@ -1241,7 +1241,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane107.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-3.655, -2.502, 6.82]}
         rotation={[3.111, 0.411, -2.987]}
         scale={0.941}
@@ -1250,7 +1250,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane108.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-3.012, 1.059, 6.992]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.052}
@@ -1259,7 +1259,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane109.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-3.071, 0.677, 6.978]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.052}
@@ -1726,7 +1726,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane155.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-3.574, -0.325, 6.789]}
         rotation={[3.111, 0.411, -2.987]}
       />
@@ -1734,7 +1734,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Plane156.geometry}
-        material={materials.Yellow}
+        material={materials.Red}
         position={[-3.603, -0.528, 6.783]}
         rotation={[3.111, 0.411, -2.987]}
       />
