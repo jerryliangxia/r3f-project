@@ -51,6 +51,7 @@ function App() {
           }}
           style={{ position: "fixed" }}
         >
+          <fog attach="fog" args={["#181818", 0, 130]} />
           <Experience
             cameraControlsRef={cameraControlsRef}
             setHtmlComponent={setHtmlComponent}

@@ -29,9 +29,8 @@ const Workbench = forwardRef((props, ref) => {
     <>
       <Center
         position={props.position.map(
-          (value, index) => value + [0.02, 0.6, -0.7][index]
+          (value, index) => value + [0.02, 0.7, -0.7][index]
         )}
-        // position={[-3.6, 1.3, 3.25]}
         rotation={[0, Math.PI / 2 + props.rotationY, 0.0]}
       >
         <Text3D
