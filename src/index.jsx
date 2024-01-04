@@ -18,14 +18,14 @@ function App() {
     useState(false);
   const cameraControlsRef = useRef();
   const [minDistance, setMinDistance] = useState(5.0);
-  const [maxDistance, setMaxDistance] = useState(7.0);
+  const [maxDistance, setMaxDistance] = useState(7.8);
   const [loadingOpaque, setLoadingOpaque] = useState(true);
 
   const Reset = () => {
     setShowDiv(false);
     setShowButtonDiv(false);
     setMinDistance(5.0);
-    setMaxDistance(7.0);
+    setMaxDistance(7.8);
     setIsComputerClicked(false);
     cameraControlsRef.current.reset(true);
   };
