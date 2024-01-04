@@ -106,8 +106,8 @@ export function Model(props) {
         />
       </group>
       <group
-        position={[6.959, 1.226, 2.48]}
-        rotation={[1.393, -0.787, 1.874]}
+        position={[6.898, 0.572, 2.434]}
+        rotation={[2.899, -1.049, 2.78]}
         scale={[1.507, 0.789, 0.12]}
       >
         <mesh
@@ -409,7 +409,7 @@ export function Model(props) {
         // castShadow
         // receiveShadow
         geometry={nodes.Circle.geometry}
-        material={materials.White}
+        material={materials["White Glow"]}
         position={[-1.322, 1.657, 7.782]}
         rotation={[1.603, -0.142, -2.726]}
         scale={0.107}
