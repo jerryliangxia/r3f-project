@@ -76,7 +76,7 @@ const LightBridge = () => {
   return (
     <>
       <mesh receiveShadow rotation-x={-Math.PI / 2} position-y={-10.0}>
-        <boxGeometry args={[300, 300, 0.1, 512, 512]} />
+        <boxGeometry args={[300, 300, 0.1, 256, 256]} />
         <lightBridgeMaterial ref={lightBridgeMaterial} />
       </mesh>
     </>

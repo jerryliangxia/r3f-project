@@ -53,7 +53,13 @@ const Computer = forwardRef((props, ref) => {
   return (
     <>
       {/* Mesh that will be looked at */}
-      <mesh ref={ref} {...props} position={[3.15, 0.99, -3.07]} visible={false}>
+      <mesh
+        ref={ref}
+        {...props}
+        position={[3.15, 0.99, -3.07]}
+        // rotation={[0, -Math.PI / 4, 0]}
+        visible={false}
+      >
         <boxGeometry args={[1.1, 0.5, 1.1]} />
         <meshStandardMaterial color="#9d4b4b" />
       </mesh>
