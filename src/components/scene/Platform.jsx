@@ -14,36 +14,18 @@ export function Model(props) {
         // receiveShadow
         geometry={nodes.Plane003.geometry}
         material={materials["Field Grass"]}
-        position={[-22.739, 5.847, -17.278]}
+        position={[12.67, 4.98, -17.592]}
         rotation={[Math.PI, -0.43, Math.PI]}
-        scale={1.223}
+        scale={1.252}
       />
       <mesh
         // castShadow
         // receiveShadow
         geometry={nodes.Plane004.geometry}
         material={materials.Brown}
-        position={[-22.739, 5.645, -17.278]}
+        position={[12.67, 4.67, -17.592]}
         rotation={[Math.PI, -0.43, Math.PI]}
         scale={1.223}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane001.geometry}
-        material={materials["Field Grass"]}
-        position={[7.308, 2.47, -23.611]}
-        rotation={[0, -0.481, 0]}
-        scale={0.963}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane005.geometry}
-        material={materials.Brown}
-        position={[7.308, 2.311, -23.611]}
-        rotation={[0, -0.481, 0]}
-        scale={0.963}
       />
       <group
         position={[3.145, 3.215, -7.137]}
@@ -77,13 +59,13 @@ export function Model(props) {
         <mesh
           // castShadow
           // receiveShadow
-          geometry={nodes.Cube.geometry}
+          geometry={nodes.Cube_1.geometry}
           material={materials.Black}
         />
         <mesh
           // castShadow
           // receiveShadow
-          geometry={nodes.Cube_1.geometry}
+          geometry={nodes.Cube_2.geometry}
           material={materials["White Glow"]}
         />
       </group>
@@ -262,8 +244,8 @@ export function Model(props) {
         scale={1.356}
       />
       <group
-        position={[63.826, -46.665, 5.597]}
-        rotation={[Math.PI, 0, Math.PI]}
+        position={[61.874, -47.606, 57.952]}
+        rotation={[-Math.PI, 0.355, -Math.PI]}
         scale={22.743}
       >
         <mesh
@@ -280,7 +262,7 @@ export function Model(props) {
         />
       </group>
       <group
-        position={[-114.02, -42.76, -6.584]}
+        position={[-104.775, -42.254, 25.819]}
         rotation={[0, 0.818, 0]}
         scale={20.989}
       >
@@ -302,10 +284,309 @@ export function Model(props) {
         // receiveShadow
         geometry={nodes.Venommesh004.geometry}
         material={materials.Symbiote}
-        position={[-111.805, -42.477, -6.957]}
+        position={[-102.56, -41.97, 25.446]}
         rotation={[0, 0.773, 0]}
         scale={20.563}
       />
+      <group
+        position={[12.054, 1.98, -0.094]}
+        rotation={[2.416, -1.489, 2.656]}
+      >
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Circle002.geometry}
+          material={materials.Metallic}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Circle002_1.geometry}
+          material={materials["Middle Black Car"]}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Circle002_2.geometry}
+          material={materials["Car Black"]}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Circle002_3.geometry}
+          material={materials.White}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Circle002_4.geometry}
+          material={materials.Windows}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Circle002_5.geometry}
+          material={materials.Red}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Circle002_6.geometry}
+          material={materials["White Glow"]}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Circle002_7.geometry}
+          material={materials.Orange}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Circle002_8.geometry}
+          material={materials.Blue}
+        />
+      </group>
+      <group position={[-7.124, 0.07, -0.865]} rotation={[1.57, -1.385, 1.43]}>
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Cylinder.geometry}
+          material={materials.Black}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Cylinder_1.geometry}
+          material={materials.Red}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Cylinder_2.geometry}
+          material={materials["Oscorp Gray"]}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Cylinder_3.geometry}
+          material={materials["Dirty Gray 2"]}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Cylinder_4.geometry}
+          material={materials.Orange}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Cylinder_5.geometry}
+          material={materials.Green}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Cylinder_6.geometry}
+          material={materials["White Glow"]}
+        />
+      </group>
+      <mesh
+        // castShadow
+        // receiveShadow
+        geometry={nodes.Cube.geometry}
+        material={materials.Metallic}
+        position={[-5.72, 0.034, 3.951]}
+        rotation={[Math.PI / 2, 0, -2.021]}
+      />
+      <group
+        position={[-23.123, 5.374, -4.726]}
+        rotation={[0.992, 0.148, 0.046]}
+      >
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Circle003.geometry}
+          material={materials.Metallic}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Circle003_1.geometry}
+          material={materials["Middle Black Car"]}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Circle003_2.geometry}
+          material={materials["Taxi Color"]}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Circle003_3.geometry}
+          material={materials["Taxi Color"]}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Circle003_4.geometry}
+          material={materials.Windows}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Circle003_5.geometry}
+          material={materials.Black}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Circle003_6.geometry}
+          material={materials["White Glow"]}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Circle003_7.geometry}
+          material={materials["Metallic Dark"]}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Circle003_8.geometry}
+          material={materials.Red}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Circle003_9.geometry}
+          material={materials.Orange}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Circle003_10.geometry}
+          material={materials.Yellow}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Circle003_11.geometry}
+          material={materials["Orange License Plate"]}
+        />
+      </group>
+      <group
+        position={[11.233, 2.905, 3.868]}
+        rotation={[-0.942, -0.128, 0.047]}
+        scale={0.535}
+      >
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Cone001.geometry}
+          material={materials["Red Umbrella"]}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Cone001_1.geometry}
+          material={materials["Yellow Umbrella"]}
+        />
+      </group>
+      <group
+        position={[11.155, 3.404, 2.712]}
+        rotation={[-0.544, -0.05, -0.03]}
+        scale={[0.013, 0.698, 0.013]}
+      >
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Cylinder016.geometry}
+          material={materials.Black}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Cylinder016_1.geometry}
+          material={materials["Metallic Dark"]}
+        />
+      </group>
+      <mesh
+        // castShadow
+        // receiveShadow
+        geometry={nodes.Cube001.geometry}
+        material={materials.Metallic}
+        position={[-3.74, 0.066, 5.847]}
+        rotation={[1.565, -0.004, -2.386]}
+      />
+      <mesh
+        // castShadow
+        // receiveShadow
+        geometry={nodes.Cube002.geometry}
+        material={materials.Metallic}
+        position={[-1.166, 0.118, 6.752]}
+        rotation={[1.564, 0.034, -2.905]}
+      />
+      <group
+        position={[-21.802, 2.665, -6.18]}
+        rotation={[-1.556, -0.272, -1.374]}
+      >
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Circle005.geometry}
+          material={materials.Metallic}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Circle005_1.geometry}
+          material={materials["Middle Black Car"]}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Circle005_2.geometry}
+          material={materials["Car Black"]}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Circle005_3.geometry}
+          material={materials.White}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Circle005_4.geometry}
+          material={materials.Windows}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Circle005_5.geometry}
+          material={materials.Red}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Circle005_6.geometry}
+          material={materials["White Glow"]}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Circle005_7.geometry}
+          material={materials["Orange.001"]}
+        />
+        <mesh
+          // castShadow
+          // receiveShadow
+          geometry={nodes.Circle005_8.geometry}
+          material={materials.Blue}
+        />
+      </group>
       <mesh
         // castShadow
         // receiveShadow
@@ -365,8 +646,8 @@ export function Model(props) {
         // receiveShadow
         geometry={nodes.Cylinder007.geometry}
         material={materials.Symbiote}
-        position={[63.463, 12.046, 8.833]}
-        rotation={[3.133, 0.596, -3.139]}
+        position={[60.41, 11.105, 60.86]}
+        rotation={[3.129, 0.951, -3.134]}
         scale={-0.739}
       />
       <mesh
@@ -374,9 +655,54 @@ export function Model(props) {
         // receiveShadow
         geometry={nodes.Cylinder008.geometry}
         material={materials.Symbiote}
-        position={[-116.483, 12.046, -7.95]}
+        position={[-107.237, 12.553, 24.453]}
         rotation={[0.007, 0.222, -0.004]}
         scale={-0.739}
+      />
+      <mesh
+        // castShadow
+        // receiveShadow
+        geometry={nodes.Cylinder009.geometry}
+        material={materials.Symbiote}
+        position={[-22.094, 1.866, -10.144]}
+        rotation={[-0.042, -0.478, -0.045]}
+        scale={-0.281}
+      />
+      <mesh
+        // castShadow
+        // receiveShadow
+        geometry={nodes.Cylinder010.geometry}
+        material={materials.Symbiote}
+        position={[-23.039, 4.737, 0.491]}
+        rotation={[-2.891, -0.517, 0.106]}
+        scale={[0.196, 0.302, 0.225]}
+      />
+      <mesh
+        // castShadow
+        // receiveShadow
+        geometry={nodes.Cylinder011.geometry}
+        material={materials.Symbiote}
+        position={[14.117, 2.819, 3.65]}
+        rotation={[3.084, 0.196, 2.711]}
+        scale={-0.281}
+      />
+      <mesh
+        // castShadow
+        // receiveShadow
+        geometry={nodes.Cylinder013.geometry}
+        material={materials.Symbiote}
+        position={[10.724, 4.653, -5.644]}
+        rotation={[-0.416, 1.002, -2.856]}
+        scale={[0.196, 0.302, 0.225]}
+      />
+      <mesh
+        // castShadow
+        // receiveShadow
+        geometry={nodes.Cylinder014.geometry}
+        material={materials.Symbiote}
+        position={[15.932, 4.521, 2.11]}
+        rotation={[0.433, -0.695, -2.369]}
+        scale={[0.196, 0.302, 0.225]}
       />
       <group
         position={[-7.399, 9.262, -22.189]}
@@ -1745,18 +2071,24 @@ export function Model(props) {
         material={materials.Brown}
         position={[0, -0.108, 0]}
       />
+      <mesh
+        // castShadow
+        // receiveShadow
+        geometry={nodes.Plane.geometry}
+        material={materials["Metallic Dark"]}
+      />
       <group position={[-1.739, 0.06, -5.685]} scale={3.08}>
         <mesh
           // castShadow
           // receiveShadow
           geometry={nodes.Plane007_1.geometry}
-          material={materials["Dirty Beige 1"]}
+          material={materials["Dirty Gray 2"]}
         />
         <mesh
           // castShadow
           // receiveShadow
           geometry={nodes.Plane007_2.geometry}
-          material={materials.Yellow}
+          material={materials.Black}
         />
       </group>
       <mesh
@@ -1773,13 +2105,13 @@ export function Model(props) {
           // castShadow
           // receiveShadow
           geometry={nodes.Plane165.geometry}
-          material={materials["Dirty Beige 1"]}
+          material={materials["Dirty Gray 2"]}
         />
         <mesh
           // castShadow
           // receiveShadow
           geometry={nodes.Plane165_1.geometry}
-          material={materials.Yellow}
+          material={materials.Black}
         />
       </group>
       <group
@@ -1791,13 +2123,13 @@ export function Model(props) {
           // castShadow
           // receiveShadow
           geometry={nodes.Plane166.geometry}
-          material={materials["Dirty Beige 1"]}
+          material={materials["Dirty Gray 2"]}
         />
         <mesh
           // castShadow
           // receiveShadow
           geometry={nodes.Plane166_1.geometry}
-          material={materials.Yellow}
+          material={materials.Black}
         />
       </group>
       <mesh
@@ -1826,24 +2158,6 @@ export function Model(props) {
         position={[6.967, 0.758, 7.484]}
         rotation={[0.643, 0.533, 1.427]}
         scale={0.307}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane_1.geometry}
-        material={materials["Field Grass"]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane_2.geometry}
-        material={materials.White}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane_3.geometry}
-        material={materials["Dark Blue"]}
       />
     </group>
   );
