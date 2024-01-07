@@ -31,7 +31,6 @@ function App() {
     cameraControlsRef.current.reset(true);
   };
 
-  // Define the animation variants for Framer Motion
   const overlayVariants = {
     visible: { opacity: 1 },
     hidden: { opacity: 0 },
@@ -105,10 +104,6 @@ function App() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            // background: "linear-gradient(to right, #1D1C40, #10001C)",
-            // background: "white",
-            // transition: "opacity 0.5ss ease-in-out",
-            // opacity: loadingOpaque ? 1.0 : 0.0,
           }}
           dataInterpolation={(p) => `Loading ${p.toFixed(0)}%`}
           initialState={(active) => {

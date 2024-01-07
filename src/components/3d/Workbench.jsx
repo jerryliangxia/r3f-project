@@ -1,8 +1,7 @@
 import { useRef, forwardRef, useState, useEffect } from "react";
-import { useMatcapTexture, Center, Text3D } from "@react-three/drei";
+import { useMatcapTexture } from "@react-three/drei";
 import WorkbenchGrid from "./WorkBenchGrid";
 import RectAreaLightModels from "./RectAreaLightModels";
-import Sketchfab from "./Sketchfab";
 import Crate from "./Crate";
 import gsap from "gsap";
 
@@ -58,14 +57,6 @@ const Workbench = forwardRef((props, ref) => {
         )}
         isActualWorkbenchClicked={props.isActualWorkbenchClicked}
       />
-      <Center
-        position={props.position.map(
-          (value, index) => value + [0, 1.0, -1.0][index]
-        )}
-        rotation={[0, Math.PI / 2 + props.rotationY, 0.0]}
-      >
-        <Sketchfab scale={0.2} />
-      </Center>
       <rectAreaLight
         position={props.position.map(
           (value, index) => value + [0, 1.2, -0.8][index]

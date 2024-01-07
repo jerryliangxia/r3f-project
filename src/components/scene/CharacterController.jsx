@@ -6,6 +6,7 @@ import * as THREE from "three";
 
 const MAX_LINVEL = 2;
 const ROTATION_THRESHOLD = Math.PI;
+const IMPULSE_FACTOR = 2;
 
 function verifyLinvel(body) {
   const linvel = body?.current?.linvel();
@@ -38,7 +39,7 @@ function rotateAndMove(impulse, character, body) {
 }
 
 function getImpulse(delta, inputDirection) {
-  const impulseStrength = 1 * delta;
+  const impulseStrength = IMPULSE_FACTOR * delta;
   return {
     x: inputDirection.x * impulseStrength,
     y: 0,
@@ -60,39 +61,39 @@ export default function CharacterController({
   const [keysPressed, setKeysPressed] = useState(0);
 
   useFrame((state, delta) => {
-    if (!isJumping) {
-      const { forward, backward, leftward, rightward } = getKeys();
-      setKeysPressed(
-        [forward, backward, leftward, rightward].filter(Boolean).length
-      );
-      if (keysPressed <= 2 && verifyLinvel(body)) {
-        const inputDirection = new THREE.Vector3(0, 0, 0);
-        if (forward) {
-          inputDirection.z += 1;
-        }
-        if (rightward) {
-          inputDirection.x -= 1;
-        }
-        if (backward) {
-          inputDirection.z -= 1;
-        }
-        if (leftward) {
-          inputDirection.x += 1;
-        }
-        inputDirection.applyMatrix4(getRotationMatrix(state));
-        const impulse = getImpulse(delta, inputDirection);
-        const isMoving = impulse.x !== 0 || impulse.z !== 0;
-        if (isMoving) {
-          rotateAndMove(impulse, character, body);
+    // if (!isJumping) {
+    const { forward, backward, leftward, rightward } = getKeys();
+    setKeysPressed(
+      [forward, backward, leftward, rightward].filter(Boolean).length
+    );
+    if (keysPressed <= 2 && verifyLinvel(body)) {
+      const inputDirection = new THREE.Vector3(0, 0, 0);
+      if (forward) {
+        inputDirection.z += 1;
+      }
+      if (rightward) {
+        inputDirection.x -= 1;
+      }
+      if (backward) {
+        inputDirection.z -= 1;
+      }
+      if (leftward) {
+        inputDirection.x += 1;
+      }
+      inputDirection.applyMatrix4(getRotationMatrix(state));
+      const impulse = getImpulse(delta, inputDirection);
+      const isMoving = impulse.x !== 0 || impulse.z !== 0;
+      if (isMoving) {
+        rotateAndMove(impulse, character, body);
 
-          if (characterState !== "Run") {
-            setCharacterState("Run");
-          }
-        } else if (characterState !== "Idle") {
-          setCharacterState("Idle");
+        if (characterState !== "Run") {
+          setCharacterState("Run");
         }
+      } else if (characterState !== "Idle") {
+        setCharacterState("Idle");
       }
     }
+    // }
     body?.current?.wakeUp();
   });
 
@@ -103,40 +104,40 @@ export default function CharacterController({
   }, [keysPressed]);
 
   useEffect(() => {
-    if (isJumping) {
-      const action = animations.actions[characterState];
-      action.reset().fadeIn(0.5).play();
-      setTimeout(() => {
-        setIsJumping(false);
-      }, 1500);
-      return () => {
-        action.fadeOut(0.5);
-      };
-    } else {
-      const action = animations.actions[characterState];
-      action.reset().fadeIn(0.5).play();
-      return () => {
-        action.fadeOut(0.5);
-      };
-    }
+    // if (isJumping) {
+    //   const action = animations.actions[characterState];
+    //   action.reset().fadeIn(0.5).play();
+    //   setTimeout(() => {
+    //     setIsJumping(false);
+    //   }, 1500);
+    //   return () => {
+    //     action.fadeOut(0.5);
+    //   };
+    // } else {
+    const action = animations.actions[characterState];
+    action.reset().fadeIn(0.5).play();
+    return () => {
+      action.fadeOut(0.5);
+    };
+    // }
   }, [characterState]);
 
-  const jump = () => {
-    setIsJumping(true);
-    setCharacterState("Jump");
-  };
+  // const jump = () => {
+  //   setIsJumping(true);
+  //   setCharacterState("Jump");
+  // };
 
-  useEffect(() => {
-    const unsubscribeJump = subscribeKeys(
-      (state) => state.jump,
-      (value) => {
-        if (value) jump();
-      }
-    );
-    return () => {
-      unsubscribeJump();
-    };
-  });
+  // useEffect(() => {
+  //   const unsubscribeJump = subscribeKeys(
+  //     (state) => state.jump,
+  //     (value) => {
+  //       if (value) jump();
+  //     }
+  //   );
+  //   return () => {
+  //     unsubscribeJump();
+  //   };
+  // });
 
   return (
     <>

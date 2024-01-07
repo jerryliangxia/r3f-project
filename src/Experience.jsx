@@ -39,6 +39,8 @@ export default function Experience({
   const [isMovableCharacter, setIsMovableCharacter] = useState(false);
   const [mesh, setMesh] = useState(null);
 
+  const CAMERA_MIN_HEIGHT = 0.3;
+
   // All same options as the original "basic" example: https://yomotsu.github.io/camera-controls/examples/basic.html
   const { enabled, verticalDragToForward, dollyToCursor, infinityDolly } =
     useControls({
@@ -165,6 +167,9 @@ export default function Experience({
   const lerpFactor = 0.1;
 
   useFrame((state) => {
+    if (state.camera.position.y < CAMERA_MIN_HEIGHT) {
+      state.camera.position.y = CAMERA_MIN_HEIGHT;
+    }
     const targetPosition = showButtonDiv
       ? isMovableCharacter
         ? body.current.translation()
