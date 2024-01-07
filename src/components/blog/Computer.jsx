@@ -5,29 +5,11 @@ import { useFrame } from "@react-three/fiber";
 import Desk from "./Desk";
 
 const Computer = forwardRef((props, ref) => {
-  const { positionX, positionY, positionZ, deskScale } = useControls("desk", {
-    positionX: {
-      value: 3.17,
-      step: 0.1,
-    },
-    positionY: {
-      value: 0.15,
-      step: 0.1,
-    },
-    positionZ: {
-      value: -2.85,
-      step: 0.1,
-    },
-    deskScale: { value: 0.207 },
-  });
-
   const [showHtml, setShowHtml] = useState(false);
   const [showBasedOnRotation, setShowBasedOnRotation] = useState(false);
 
   useFrame((state) => {
-    setShowBasedOnRotation(
-      state.camera.position.z > -3.07 && state.camera.position.y < 3
-    );
+    setShowBasedOnRotation(state.camera.position.z > props.position[2]);
   });
 
   useEffect(() => {
@@ -50,23 +32,28 @@ const Computer = forwardRef((props, ref) => {
     };
   }, [props.isComputerClicked, props.isActualComputerClicked]);
 
+  const scale = 0.5;
   return (
     <>
       {/* Mesh that will be looked at */}
       <mesh
         ref={ref}
         {...props}
-        position={[3.15, 0.99, -3.07]}
+        position={props.position.map(
+          (value, index) => value + [0.031, 0.913, 0.0][index]
+        )}
         // rotation={[0, -Math.PI / 4, 0]}
         visible={false}
       >
-        <boxGeometry args={[1.1, 0.5, 1.1]} />
+        <boxGeometry args={[0.5 * scale, 0.33 * scale, 0.05 * scale]} />
         <meshStandardMaterial color="#9d4b4b" />
       </mesh>
       {/* Mesh that can be clicked */}
       <mesh
         {...props}
-        position={[3.15, 0.66, -3.07]}
+        position={props.position.map(
+          (value, index) => value + [0.0, 0.4, 0.0][index]
+        )}
         onPointerEnter={() => {
           document.body.style.cursor = props.isComputerClicked
             ? "default"
@@ -82,18 +69,23 @@ const Computer = forwardRef((props, ref) => {
             transform
             wrapperClass="htmlScreen"
             distanceFactor={0.25}
-            position={[-0.305, 0.515, 0]}
-            scale={1.02}
+            position={[-0.305, 0.835, 0.025]}
+            scale={1.05}
             // rotation-x={-0.256}
             style={{ opacity: showBasedOnRotation ? 1 : 0 }}
           >
             <iframe src="https://r3f-blog.vercel.app/" />
           </Html>
         )}
-        <boxGeometry args={[0.55, 0.5, 1.1]} />
+        <boxGeometry args={[1.1, 0.7, 0.6]} />
         <meshStandardMaterial color="#9d4b4b" />
       </mesh>
-      <Desk position={[positionX, positionY, positionZ]} scale={deskScale} />
+      {/* <Desk
+        position={props.position.map(
+          (value, index) => value + [0.02, 0.22, 0.22][index]
+        )}
+        scale={0.207}
+      /> */}
     </>
   );
 });

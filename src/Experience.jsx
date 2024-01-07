@@ -1,4 +1,4 @@
-import { CameraControls, Environment } from "@react-three/drei";
+import { Sky, CameraControls, Environment } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import CharacterController from "./components/scene/CharacterController";
 import { Physics, CuboidCollider } from "@react-three/rapier";
@@ -12,9 +12,7 @@ import { useControls, button, buttonGroup, folder } from "leva";
 import Computer from "./components/blog/Computer";
 import Workbench from "./components/3d/Workbench";
 import LightBridge from "./components/scene/shader/LightBridge";
-import Sky from "./components/scene/shader/Sky";
-import Grass from "./components/scene/Grass";
-import { Leva } from "leva";
+// import Sky from "./components/scene/shader/Sky";
 
 export default function Experience({
   cameraControlsRef,
@@ -191,6 +189,7 @@ export default function Experience({
       />
       <Computer
         ref={computerRef}
+        position={[2.1, 0.0, -4.2]}
         isComputerClicked={isComputerClicked}
         setIsComputerClicked={setIsComputerClicked}
         isActualComputerClicked={isActualComputerClicked}
@@ -229,8 +228,10 @@ export default function Experience({
           }
         }}
       />
-      <Environment preset={isNight ? "night" : "sunset"} />
-      <Sky isNight={isNight} />
+      {/* <Environment preset={isNight ? "night" : "sunset"} />
+      <Sky isNight={isNight} /> */}
+      <Environment preset="sunset" />
+      <Sky azimuth={0} inclination={0} />
 
       {/* CLICKABLE COMPONENTS */}
       <mesh
@@ -246,14 +247,14 @@ export default function Experience({
       >
         <sphereGeometry args={[1]} />
       </mesh>
-      <directionalLight
+      {/* <directionalLight
         castShadow
         color="purple"
         position={[1, 2, 3]}
         intensity={2}
-      />
-      <ambientLight />
-      <LightBridge />
+      /> */}
+      {/* <ambientLight /> */}
+      {/* <LightBridge /> */}
       <Physics>
         <CharacterController
           handleCharacterClick={handleCharacterClick}
@@ -271,7 +272,7 @@ export default function Experience({
           args={[0.55, 0.5, 0.55]}
           position={[-1.8, 0.45, -4.4]}
         />
-        <CuboidCollider args={[0.65, 0.5, 0.3]} position={[3.15, 0.7, -2.9]} />
+        <CuboidCollider args={[0.65, 0.5, 0.3]} position={[2.1, 0.7, -4]} />
       </Physics>
     </>
   );

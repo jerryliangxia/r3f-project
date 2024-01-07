@@ -6,2161 +6,1418 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
 export function Model(props) {
-  const { nodes, materials } = useGLTF("/venom_platform.glb");
+  const { nodes, materials } = useGLTF("/venom_platform3.glb");
   return (
     <group {...props} dispose={null}>
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane003.geometry}
-        material={materials["Field Grass"]}
-        position={[12.67, 4.98, -17.592]}
-        rotation={[Math.PI, -0.43, Math.PI]}
-        scale={1.252}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane004.geometry}
-        material={materials.Brown}
-        position={[12.67, 4.67, -17.592]}
-        rotation={[Math.PI, -0.43, Math.PI]}
-        scale={1.223}
-      />
       <group
-        position={[3.145, 3.215, -7.137]}
-        rotation={[-1.466, 0.271, 3.065]}
-        scale={[0.041, 0.102, 0.102]}
+        position={[-15.798, 8.195, -22.017]}
+        rotation={[0.266, -0.207, -0.287]}
       >
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane008_1.geometry}
-          material={materials["Oscorp Purple"]}
+          geometry={nodes.Cube005.geometry}
+          material={materials["Beige Concrete Shadow"]}
+          position={[0.401, -0.041, 0.116]}
+          scale={[0.135, 0.055, 0.135]}
         />
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane008_2.geometry}
+          geometry={nodes.Cube006.geometry}
+          material={materials["Beige Concrete Shadow"]}
+          position={[0.5, -0.041, 0.116]}
+          scale={[0.135, 0.055, 0.135]}
+        />
+        <mesh
+          geometry={nodes.Cube007.geometry}
+          material={materials["Beige Concrete Shadow"]}
+          position={[0.263, 0.11, 2.116]}
+          rotation={[-Math.PI, 0.365, -Math.PI]}
+          scale={[0.135, 0.055, 0.135]}
+        />
+        <mesh
+          geometry={nodes.CurlyCurve003.geometry}
           material={materials.Black}
+          position={[-0.445, -0.082, -1.505]}
+          rotation={[0, 1.544, 0]}
+          scale={1.606}
         />
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane008_3.geometry}
-          material={materials["Oscorp Gray"]}
+          geometry={nodes.Dirty_Plane004.geometry}
+          material={materials["Dirty Gray"]}
+          position={[1.207, -0.045, 0.033]}
+          rotation={[0.011, -0.666, 0.006]}
+          scale={[0.601, 0.013, 0.601]}
         />
-      </group>
-      <group
-        position={[-10.592, 3.215, -1.996]}
-        rotation={[1.857, 0, -0.914]}
-        scale={[0.237, 0.237, 0.063]}
-      >
+        <group
+          position={[-0.754, 0.276, 1.262]}
+          rotation={[Math.PI / 2, 0, 0.811]}
+          scale={[1.468, 0.87, 0.548]}
+        >
+          <mesh
+            geometry={nodes.Plane193.geometry}
+            material={materials["Brick 1"]}
+          />
+          <mesh
+            geometry={nodes.Plane193_1.geometry}
+            material={materials["Brick 2"]}
+          />
+          <mesh
+            geometry={nodes.Plane193_2.geometry}
+            material={materials["Brick 3"]}
+          />
+          <mesh
+            geometry={nodes.Plane193_3.geometry}
+            material={materials["Brick 4"]}
+          />
+          <mesh
+            geometry={nodes.Plane193_4.geometry}
+            material={materials["Brick 5"]}
+          />
+          <mesh
+            geometry={nodes.Plane193_5.geometry}
+            material={materials["Brick Tops"]}
+          />
+        </group>
+        <group
+          position={[-3.233, 0.501, -0.317]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={[1.834, 1.088, 0.684]}
+        >
+          <mesh
+            geometry={nodes.Plane194.geometry}
+            material={materials["Brick 1"]}
+          />
+          <mesh
+            geometry={nodes.Plane194_1.geometry}
+            material={materials["Brick 2"]}
+          />
+          <mesh
+            geometry={nodes.Plane194_2.geometry}
+            material={materials["Brick 3"]}
+          />
+          <mesh
+            geometry={nodes.Plane194_3.geometry}
+            material={materials["Brick 4"]}
+          />
+          <mesh
+            geometry={nodes.Plane194_4.geometry}
+            material={materials["Brick 5"]}
+          />
+          <mesh
+            geometry={nodes.Plane194_5.geometry}
+            material={materials["Brick Tops"]}
+          />
+        </group>
+        <group
+          position={[2.51, 0.603, -2.238]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={[1.834, 1.088, 0.684]}
+        >
+          <mesh
+            geometry={nodes.Plane174_1.geometry}
+            material={materials["Brick 1"]}
+          />
+          <mesh
+            geometry={nodes.Plane174_2.geometry}
+            material={materials["Brick 2"]}
+          />
+          <mesh
+            geometry={nodes.Plane174_3.geometry}
+            material={materials["Brick 3"]}
+          />
+          <mesh
+            geometry={nodes.Plane174_4.geometry}
+            material={materials["Brick 4"]}
+          />
+          <mesh
+            geometry={nodes.Plane174_5.geometry}
+            material={materials["Brick 5"]}
+          />
+          <mesh
+            geometry={nodes.Plane174_6.geometry}
+            material={materials["Brick Tops"]}
+          />
+        </group>
+        <group
+          position={[-0.667, 0.376, -2.124]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={[1.468, 0.87, 0.548]}
+        >
+          <mesh
+            geometry={nodes.Plane175_1.geometry}
+            material={materials["Brick 1"]}
+          />
+          <mesh
+            geometry={nodes.Plane175_2.geometry}
+            material={materials["Brick 2"]}
+          />
+          <mesh
+            geometry={nodes.Plane175_3.geometry}
+            material={materials["Brick 3"]}
+          />
+          <mesh
+            geometry={nodes.Plane175_4.geometry}
+            material={materials["Brick 4"]}
+          />
+          <mesh
+            geometry={nodes.Plane175_5.geometry}
+            material={materials["Brick 5"]}
+          />
+          <mesh
+            geometry={nodes.Plane175_6.geometry}
+            material={materials["Brick Tops"]}
+          />
+        </group>
+        <group
+          position={[-4.898, 0, 3.05]}
+          rotation={[0, -1.45, 0]}
+          scale={1.689}
+        >
+          <mesh
+            geometry={nodes.Plane170_1.geometry}
+            material={materials["Beige Concrete Base"]}
+          />
+          <mesh
+            geometry={nodes.Plane170_2.geometry}
+            material={materials["Beige Concrete Shadow"]}
+          />
+        </group>
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Cube_1.geometry}
-          material={materials.Black}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Cube_2.geometry}
-          material={materials["White Glow"]}
-        />
-      </group>
-      <group
-        position={[2.147, 3.215, -10.277]}
-        rotation={[1.562, 0.286, 0.689]}
-        scale={[0.237, 0.237, 0.063]}
-      >
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Cube003.geometry}
-          material={materials.Black}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Cube003_1.geometry}
-          material={materials["White Glow"]}
-        />
-      </group>
-      <group
-        position={[6.898, 0.572, 2.434]}
-        rotation={[2.899, -1.049, 2.78]}
-        scale={[1.507, 0.789, 0.12]}
-      >
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane172.geometry}
-          material={materials.Black}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane172_1.geometry}
-          material={materials["White Glow"]}
-        />
-      </group>
-      <group
-        position={[7.317, 0.786, -2.392]}
-        rotation={[1.141, -0.685, 1.054]}
-        scale={[1.507, 0.789, 0.12]}
-      >
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane173.geometry}
-          material={materials.Black}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane173_1.geometry}
-          material={materials["White Glow"]}
-        />
-      </group>
-      <group
-        position={[5.856, 0.216, 3.053]}
-        rotation={[2.807, -1.012, 2.774]}
-        scale={[2.864, 1.699, 1.069]}
-      >
-        <mesh
-          // castShadow
-          // receiveShadow
           geometry={nodes.Plane174.geometry}
-          material={materials["Brick 1"]}
+          material={materials["Brown Steel Grid"]}
+          position={[1.128, -0.034, 0.319]}
+          rotation={[0, 0.003, 0]}
+          scale={[0.02, 0.114, 0.114]}
         />
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane174_1.geometry}
-          material={materials["Brick 2"]}
+          geometry={nodes.Plane175.geometry}
+          material={materials["Brown Steel Grid"]}
+          position={[-0.265, -0.034, 1.441]}
+          rotation={[-Math.PI, 0.037, -Math.PI]}
+          scale={[0.02, 0.114, 0.114]}
         />
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane174_2.geometry}
-          material={materials["Brick 3"]}
+          geometry={nodes.Plane176.geometry}
+          material={materials["Brown Steel Grid"]}
+          position={[-1.727, -0.034, 2.072]}
+          rotation={[Math.PI, -0.14, Math.PI]}
+          scale={[0.02, 0.114, 0.114]}
         />
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane174_3.geometry}
-          material={materials["Brick 4"]}
+          geometry={nodes.Plane177.geometry}
+          material={materials["Brown Steel Grid"]}
+          position={[-0.645, -0.359, 3.815]}
+          rotation={[Math.PI, -0.099, Math.PI]}
+          scale={[0.02, 0.114, 0.114]}
         />
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane174_4.geometry}
-          material={materials["Brick 5"]}
+          geometry={nodes.Plane178.geometry}
+          material={materials["Brown Steel Grid"]}
+          position={[3.832, -0.563, 4.015]}
+          rotation={[Math.PI, -0.099, Math.PI]}
+          scale={[0.02, 0.114, 0.114]}
         />
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane174_5.geometry}
-          material={materials["Dirty Gray"]}
+          geometry={nodes.Plane179.geometry}
+          material={materials["Brown Steel Grid"]}
+          position={[5.678, -0.034, -2.734]}
+          rotation={[0, -1.383, 0]}
+          scale={[0.02, 0.114, 0.114]}
+        />
+      </group>
+      <mesh
+        geometry={nodes.Cube018.geometry}
+        material={materials["Beige Concrete Shadow"]}
+        position={[-1.141, 1.567, 38.81]}
+        rotation={[0.9, 0.873, -1.047]}
+        scale={[0.302, 0.123, 0.302]}
+      />
+      <mesh
+        geometry={nodes.Cube024.geometry}
+        material={materials["Beige Concrete Shadow"]}
+        position={[46.725, 2.957, 11.91]}
+        rotation={[2.58, 0.329, 3.063]}
+        scale={[0.302, 0.123, 0.302]}
+      />
+      <group
+        position={[12.278, 11.853, -22.929]}
+        rotation={[0.324, 0.389, 0.537]}
+      >
+        <mesh
+          geometry={nodes.Cube002.geometry}
+          material={materials["Beige Concrete Shadow"]}
+          position={[-2.799, -0.041, 0.087]}
+          scale={[0.135, 0.055, 0.135]}
+        />
+        <mesh
+          geometry={nodes.Cube008.geometry}
+          material={materials["Beige Concrete Shadow"]}
+          position={[-1.839, -0.133, 3.122]}
+          rotation={[0, 0.778, 0]}
+          scale={[0.207, 0.084, 0.207]}
+        />
+        <group position={[5.117, 0, -1.416]} scale={3.737}>
+          <mesh
+            geometry={nodes.Plane198.geometry}
+            material={materials["Beige Concrete Shadow"]}
+          />
+          <mesh
+            geometry={nodes.Plane198_1.geometry}
+            material={materials["Beige Concrete Base"]}
+          />
+        </group>
+        <group
+          position={[-4.472, 0, -4.98]}
+          rotation={[0, -0.489, 0]}
+          scale={3.737}
+        >
+          <mesh
+            geometry={nodes.Plane199.geometry}
+            material={materials["Beige Concrete Shadow"]}
+          />
+          <mesh
+            geometry={nodes.Plane199_1.geometry}
+            material={materials["Beige Concrete Base"]}
+          />
+        </group>
+        <group
+          position={[0.958, -0.273, 4.022]}
+          rotation={[0.214, -0.25, 0.108]}
+          scale={2.507}
+        >
+          <mesh
+            geometry={nodes.Plane200.geometry}
+            material={materials["Beige Concrete Shadow"]}
+          />
+          <mesh
+            geometry={nodes.Plane200_1.geometry}
+            material={materials["Beige Concrete Base"]}
+          />
+        </group>
+        <group
+          position={[-6.876, -1.024, 3.258]}
+          rotation={[0.234, 0.091, 0.207]}
+          scale={2.693}
+        >
+          <mesh
+            geometry={nodes.Plane201.geometry}
+            material={materials["Beige Concrete Shadow"]}
+          />
+          <mesh
+            geometry={nodes.Plane201_1.geometry}
+            material={materials["Beige Concrete Base"]}
+          />
+        </group>
+        <group
+          position={[-4.283, 0.141, -6.045]}
+          rotation={[0.076, -0.117, -0.007]}
+        >
+          <mesh
+            geometry={nodes.Plane210.geometry}
+            material={materials["Beige Concrete Base"]}
+          />
+          <mesh
+            geometry={nodes.Plane210_1.geometry}
+            material={materials["Beige Concrete Shadow"]}
+          />
+        </group>
+        <group
+          position={[-6.191, 0.527, -4.984]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={[1.834, 1.088, 0.684]}
+        >
+          <mesh
+            geometry={nodes.Plane211.geometry}
+            material={materials["Brick 1"]}
+          />
+          <mesh
+            geometry={nodes.Plane211_1.geometry}
+            material={materials["Brick 2"]}
+          />
+          <mesh
+            geometry={nodes.Plane211_2.geometry}
+            material={materials["Brick 3"]}
+          />
+          <mesh
+            geometry={nodes.Plane211_3.geometry}
+            material={materials["Brick 4"]}
+          />
+          <mesh
+            geometry={nodes.Plane211_4.geometry}
+            material={materials["Brick 5"]}
+          />
+          <mesh
+            geometry={nodes.Plane211_5.geometry}
+            material={materials["Brick Tops"]}
+          />
+        </group>
+        <group
+          position={[6.351, 0.629, -1.239]}
+          rotation={[Math.PI / 2, 0, -0.169]}
+          scale={[1.834, 1.088, 0.684]}
+        >
+          <mesh
+            geometry={nodes.Plane212.geometry}
+            material={materials["Brick 1"]}
+          />
+          <mesh
+            geometry={nodes.Plane212_1.geometry}
+            material={materials["Brick 2"]}
+          />
+          <mesh
+            geometry={nodes.Plane212_2.geometry}
+            material={materials["Brick 3"]}
+          />
+          <mesh
+            geometry={nodes.Plane212_3.geometry}
+            material={materials["Brick 4"]}
+          />
+          <mesh
+            geometry={nodes.Plane212_4.geometry}
+            material={materials["Brick 5"]}
+          />
+          <mesh
+            geometry={nodes.Plane212_5.geometry}
+            material={materials["Brick Tops"]}
+          />
+        </group>
+        <group
+          position={[-1.447, 0.402, -4.289]}
+          rotation={[Math.PI / 2, 0, -0.125]}
+          scale={[1.468, 0.87, 0.548]}
+        >
+          <mesh
+            geometry={nodes.Plane213.geometry}
+            material={materials["Brick 1"]}
+          />
+          <mesh
+            geometry={nodes.Plane213_1.geometry}
+            material={materials["Brick 2"]}
+          />
+          <mesh
+            geometry={nodes.Plane213_2.geometry}
+            material={materials["Brick 3"]}
+          />
+          <mesh
+            geometry={nodes.Plane213_3.geometry}
+            material={materials["Brick 4"]}
+          />
+          <mesh
+            geometry={nodes.Plane213_4.geometry}
+            material={materials["Brick 5"]}
+          />
+          <mesh
+            geometry={nodes.Plane213_5.geometry}
+            material={materials["Brick Tops"]}
+          />
+        </group>
+        <group
+          position={[-0.437, 0.026, 2.518]}
+          rotation={[1.758, 0.105, -0.08]}
+          scale={[1.834, 1.088, 0.684]}
+        >
+          <mesh
+            geometry={nodes.Plane214.geometry}
+            material={materials["Brick 1"]}
+          />
+          <mesh
+            geometry={nodes.Plane214_1.geometry}
+            material={materials["Brick 2"]}
+          />
+          <mesh
+            geometry={nodes.Plane214_2.geometry}
+            material={materials["Brick 3"]}
+          />
+          <mesh
+            geometry={nodes.Plane214_3.geometry}
+            material={materials["Brick 4"]}
+          />
+          <mesh
+            geometry={nodes.Plane214_4.geometry}
+            material={materials["Brick 5"]}
+          />
+          <mesh
+            geometry={nodes.Plane214_5.geometry}
+            material={materials["Brick Tops"]}
+          />
+        </group>
+        <group
+          position={[3.366, -0.283, 4.248]}
+          rotation={[1.758, 0.105, -0.205]}
+          scale={[1.468, 0.87, 0.548]}
+        >
+          <mesh
+            geometry={nodes.Plane215.geometry}
+            material={materials["Brick 1"]}
+          />
+          <mesh
+            geometry={nodes.Plane215_1.geometry}
+            material={materials["Brick 3"]}
+          />
+          <mesh
+            geometry={nodes.Plane215_2.geometry}
+            material={materials["Brick 4"]}
+          />
+          <mesh
+            geometry={nodes.Plane215_3.geometry}
+            material={materials["Brick 5"]}
+          />
+          <mesh
+            geometry={nodes.Plane215_4.geometry}
+            material={materials["Brick Tops"]}
+          />
+        </group>
+        <group
+          position={[-4.906, -0.728, 2.866]}
+          rotation={[1.824, 0.207, -0.306]}
+          scale={[1.468, 0.87, 0.548]}
+        >
+          <mesh
+            geometry={nodes.Plane216.geometry}
+            material={materials["Brick 1"]}
+          />
+          <mesh
+            geometry={nodes.Plane216_1.geometry}
+            material={materials["Brick 3"]}
+          />
+          <mesh
+            geometry={nodes.Plane216_2.geometry}
+            material={materials["Brick 4"]}
+          />
+          <mesh
+            geometry={nodes.Plane216_3.geometry}
+            material={materials["Brick 5"]}
+          />
+          <mesh
+            geometry={nodes.Plane216_4.geometry}
+            material={materials["Brick Tops"]}
+          />
+        </group>
+        <mesh
+          geometry={nodes.Plane166.geometry}
+          material={materials["Brown Steel Grid"]}
+          position={[-3.121, -0.127, 2.182]}
+          rotation={[0, 0.648, 0]}
+          scale={[0.02, 0.114, 0.114]}
+        />
+        <mesh
+          geometry={nodes.Plane167.geometry}
+          material={materials["Brown Steel Grid"]}
+          position={[-0.832, -0.127, 1.301]}
+          rotation={[0, -0.624, 0]}
+          scale={[0.02, 0.114, 0.114]}
+        />
+        <mesh
+          geometry={nodes.Plane168.geometry}
+          material={materials["Brown Steel Grid"]}
+          position={[4.761, -0.083, 0.545]}
+          rotation={[0, 0.092, 0]}
+          scale={[0.02, 0.114, 0.114]}
+        />
+        <mesh
+          geometry={nodes.Plane169.geometry}
+          material={materials["Brown Steel Grid"]}
+          position={[1.72, -0.083, -1.078]}
+          rotation={[0, 0.478, 0]}
+          scale={[0.02, 0.114, 0.114]}
+        />
+        <mesh
+          geometry={nodes.Plane170.geometry}
+          material={materials["Brown Steel Grid"]}
+          position={[6.524, -0.083, -2.026]}
+          rotation={[0, 1.309, 0]}
+          scale={[0.02, 0.114, 0.114]}
+        />
+        <mesh
+          geometry={nodes.Plane171.geometry}
+          material={materials["Brown Steel Grid"]}
+          position={[-7.056, -0.045, -3.028]}
+          rotation={[0, -0.303, 0]}
+          scale={[0.02, 0.114, 0.114]}
+        />
+        <mesh
+          geometry={nodes.Plane172.geometry}
+          material={materials["Brown Steel Grid"]}
+          position={[-4.779, -0.117, -0.318]}
+          rotation={[-Math.PI, 0.469, -Math.PI]}
+          scale={[0.02, 0.114, 0.114]}
+        />
+        <mesh
+          geometry={nodes.Plane173.geometry}
+          material={materials["Brown Steel Grid"]}
+          position={[-7.593, -0.117, -1.911]}
+          rotation={[-Math.PI, 0.599, -Math.PI]}
+          scale={[0.02, 0.114, 0.114]}
         />
       </group>
       <group
-        position={[7.472, 0.462, 0.765]}
-        rotation={[0.927, -1.242, 0.93]}
-        scale={[2.864, 1.699, 1.069]}
+        position={[38.309, 12.801, 14.847]}
+        rotation={[2.966, 0.409, 2.057]}
+        scale={[1.834, 1.088, 0.684]}
       >
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane175.geometry}
+          geometry={nodes.Plane259.geometry}
           material={materials["Brick 1"]}
         />
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane175_1.geometry}
+          geometry={nodes.Plane259_1.geometry}
           material={materials["Brick 2"]}
         />
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane175_2.geometry}
+          geometry={nodes.Plane259_2.geometry}
           material={materials["Brick 3"]}
         />
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane175_3.geometry}
+          geometry={nodes.Plane259_3.geometry}
           material={materials["Brick 4"]}
         />
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane175_4.geometry}
+          geometry={nodes.Plane259_4.geometry}
           material={materials["Brick 5"]}
         />
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane175_5.geometry}
-          material={materials["Dirty Gray"]}
+          geometry={nodes.Plane259_5.geometry}
+          material={materials["Brick Tops"]}
         />
       </group>
       <mesh
-        // castShadow
-        // receiveShadow
+        geometry={nodes.Cube004.geometry}
+        material={materials["Beige Concrete Shadow"]}
+        position={[0, -0.04, 0]}
+        scale={[0.135, 0.055, 0.135]}
+      />
+      <mesh
+        geometry={nodes.CurlyCurve001.geometry}
+        material={materials.Black}
+        position={[3.757, -0.067, -1.035]}
+        scale={1.755}
+      />
+      <mesh
+        geometry={nodes.CurlyCurve002.geometry}
+        material={materials.Black}
+        position={[-3.491, -0.08, 0.803]}
+        rotation={[-Math.PI, 0.258, -Math.PI]}
+        scale={1.755}
+      />
+      <group position={[0.018, -0.003, 0.014]}>
+        <mesh
+          geometry={nodes.Plane_1.geometry}
+          material={materials["Beige Concrete Base"]}
+        />
+        <mesh
+          geometry={nodes.Plane_2.geometry}
+          material={materials["Beige Concrete Shadow"]}
+        />
+      </group>
+      <mesh
         geometry={nodes.Dirty_Plane.geometry}
-        material={materials["Dirty Gray"]}
-        position={[5.855, 0.05, 1.187]}
-        rotation={[0.009, -0.015, -0.001]}
-        scale={1.356}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Dirty_Plane001.geometry}
         material={materials["Dirty Beige"]}
-        position={[4.255, 0.114, 6.604]}
-        rotation={[0.041, -1.357, 0.039]}
-        scale={1.356}
+        position={[1.76, -0.13, -1.61]}
+        rotation={[0.011, -0.666, 0.006]}
+        scale={[1.356, 0.233, 1.356]}
       />
       <mesh
-        // castShadow
-        // receiveShadow
         geometry={nodes.Dirty_Plane002.geometry}
-        material={materials["Dirty Gray 2"]}
-        position={[-6.682, 0.077, -0.398]}
-        rotation={[-3.127, -0.28, 3.137]}
-        scale={1.356}
+        material={materials["Dirty Beige"]}
+        position={[1.568, -0.106, 5.187]}
+        rotation={[-3.009, -1.464, -3.018]}
+        scale={[1.088, 0.52, 1.088]}
       />
       <mesh
-        // castShadow
-        // receiveShadow
         geometry={nodes.Dirty_Plane003.geometry}
         material={materials["Dirty Beige"]}
-        position={[-5.984, 0.099, -2.269]}
-        rotation={[0.03, -0.548, 0.003]}
-        scale={1.356}
+        position={[-3.056, -0.115, 1.425]}
+        rotation={[0.006, -0.544, 0.004]}
+        scale={[1.392, 0.031, 1.391]}
       />
-      <group
-        position={[61.874, -47.606, 57.952]}
-        rotation={[-Math.PI, 0.355, -Math.PI]}
-        scale={22.743}
-      >
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Venommesh002_1.geometry}
-          material={materials.Symbiote}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Venommesh002_2.geometry}
-          material={materials["White Glow"]}
-        />
-      </group>
-      <group
-        position={[-104.775, -42.254, 25.819]}
-        rotation={[0, 0.818, 0]}
-        scale={20.989}
-      >
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Venommesh003.geometry}
-          material={materials.Symbiote}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Venommesh003_1.geometry}
-          material={materials["White Glow"]}
-        />
-      </group>
       <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Venommesh004.geometry}
-        material={materials.Symbiote}
-        position={[-102.56, -41.97, 25.446]}
-        rotation={[0, 0.773, 0]}
-        scale={20.563}
+        geometry={nodes.Plane180.geometry}
+        material={materials["Brown Steel Grid"]}
+        position={[-2.586, -0.042, -1.971]}
+        rotation={[-0.137, 1.365, 0.138]}
+        scale={[0.02, 0.114, 0.114]}
       />
-      <group
-        position={[12.054, 1.98, -0.094]}
-        rotation={[2.416, -1.489, 2.656]}
-      >
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Circle002.geometry}
-          material={materials.Metallic}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Circle002_1.geometry}
-          material={materials["Middle Black Car"]}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Circle002_2.geometry}
-          material={materials["Car Black"]}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Circle002_3.geometry}
-          material={materials.White}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Circle002_4.geometry}
-          material={materials.Windows}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Circle002_5.geometry}
-          material={materials.Red}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Circle002_6.geometry}
-          material={materials["White Glow"]}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Circle002_7.geometry}
-          material={materials.Orange}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Circle002_8.geometry}
-          material={materials.Blue}
-        />
-      </group>
-      <group position={[-7.124, 0.07, -0.865]} rotation={[1.57, -1.385, 1.43]}>
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Cylinder.geometry}
-          material={materials.Black}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Cylinder_1.geometry}
-          material={materials.Red}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Cylinder_2.geometry}
-          material={materials["Oscorp Gray"]}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Cylinder_3.geometry}
-          material={materials["Dirty Gray 2"]}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Cylinder_4.geometry}
-          material={materials.Orange}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Cylinder_5.geometry}
-          material={materials.Green}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Cylinder_6.geometry}
-          material={materials["White Glow"]}
-        />
-      </group>
       <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Cube.geometry}
-        material={materials.Metallic}
-        position={[-5.72, 0.034, 3.951]}
-        rotation={[Math.PI / 2, 0, -2.021]}
+        geometry={nodes.Plane181.geometry}
+        material={materials["Brown Steel Grid"]}
+        position={[-5.834, -0.086, 1.889]}
+        rotation={[0, -0.048, 0]}
+        scale={[0.02, 0.114, 0.114]}
+      />
+      <mesh
+        geometry={nodes.Plane182.geometry}
+        material={materials["Brown Steel Grid"]}
+        position={[4.301, -0.042, 4.947]}
+        rotation={[-0.137, 1.365, 0.138]}
+        scale={[0.02, 0.114, 0.114]}
+      />
+      <mesh
+        geometry={nodes.Plane183.geometry}
+        material={materials["Brown Steel Grid"]}
+        position={[-6.203, -0.008, 4.477]}
+        rotation={[2.029, 0.838, -2.13]}
+        scale={[0.02, 0.114, 0.114]}
+      />
+      <mesh
+        geometry={nodes.Plane184.geometry}
+        material={materials["Brown Steel Grid"]}
+        position={[-1.207, -0.066, 5.64]}
+        rotation={[2.425, 0.223, -2.947]}
+        scale={[0.018, 0.107, 0.107]}
+      />
+      <mesh
+        geometry={nodes.Plane185.geometry}
+        material={materials["Brown Steel Grid"]}
+        position={[0.985, -0.029, -2.246]}
+        rotation={[0, -0.345, 0]}
+        scale={[0.02, 0.114, 0.114]}
+      />
+      <mesh
+        geometry={nodes.Plane186.geometry}
+        material={materials["Brown Steel Grid"]}
+        position={[0.189, -0.081, 5.151]}
+        rotation={[0, -0.038, 0]}
+        scale={[0.02, 0.114, 0.114]}
+      />
+      <mesh
+        geometry={nodes.Plane187.geometry}
+        material={materials["Brown Steel Grid"]}
+        position={[0.305, -0.086, -1.525]}
+        rotation={[0, -0.502, 0]}
+        scale={[0.02, 0.114, 0.114]}
+      />
+      <mesh
+        geometry={nodes.CurlyCurve004.geometry}
+        material={materials.Black}
+        position={[0.291, -0.067, -1.357]}
+        rotation={[0, -0.189, 0]}
+        scale={1.755}
+      />
+      <mesh
+        geometry={nodes.CurlyCurve005.geometry}
+        material={materials.Black}
+        position={[-0.836, -0.067, -1.098]}
+        rotation={[0, -0.408, 0]}
+        scale={1.755}
+      />
+      <mesh
+        geometry={nodes.CurlyCurve006.geometry}
+        material={materials.Black}
+        position={[-1.121, -0.067, -1.059]}
+        rotation={[0, -0.408, 0]}
+        scale={1.755}
+      />
+      <mesh
+        geometry={nodes.CurlyCurve007.geometry}
+        material={materials.Black}
+        position={[-1.759, -0.067, -0.388]}
+        rotation={[0, 0.064, 0]}
+        scale={1.755}
+      />
+      <mesh
+        geometry={nodes.CurlyCurve008.geometry}
+        material={materials.Black}
+        position={[-2.786, -0.067, 0.145]}
+        rotation={[0, -0.155, 0]}
+        scale={1.755}
+      />
+      <mesh
+        geometry={nodes.CurlyCurve009.geometry}
+        material={materials.Black}
+        position={[-3.052, -0.067, 0.254]}
+        rotation={[0, -0.155, 0]}
+        scale={1.755}
+      />
+      <mesh
+        geometry={nodes.CurlyCurve010.geometry}
+        material={materials.Black}
+        position={[-4.394, -0.067, -2.212]}
+        rotation={[0, -0.977, 0]}
+        scale={1.755}
       />
       <group
-        position={[-23.123, 5.374, -4.726]}
-        rotation={[0.992, 0.148, 0.046]}
-      >
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Circle003.geometry}
-          material={materials.Metallic}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Circle003_1.geometry}
-          material={materials["Middle Black Car"]}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Circle003_2.geometry}
-          material={materials["Taxi Color"]}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Circle003_3.geometry}
-          material={materials["Taxi Color"]}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Circle003_4.geometry}
-          material={materials.Windows}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Circle003_5.geometry}
-          material={materials.Black}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Circle003_6.geometry}
-          material={materials["White Glow"]}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Circle003_7.geometry}
-          material={materials["Metallic Dark"]}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Circle003_8.geometry}
-          material={materials.Red}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Circle003_9.geometry}
-          material={materials.Orange}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Circle003_10.geometry}
-          material={materials.Yellow}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Circle003_11.geometry}
-          material={materials["Orange License Plate"]}
-        />
-      </group>
-      <group
-        position={[11.233, 2.905, 3.868]}
-        rotation={[-0.942, -0.128, 0.047]}
-        scale={0.535}
-      >
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Cone001.geometry}
-          material={materials["Red Umbrella"]}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Cone001_1.geometry}
-          material={materials["Yellow Umbrella"]}
-        />
-      </group>
-      <group
-        position={[11.155, 3.404, 2.712]}
+        position={[-24.018, 2.27, 17.372]}
         rotation={[-0.544, -0.05, -0.03]}
         scale={[0.013, 0.698, 0.013]}
       >
         <mesh
-          // castShadow
-          // receiveShadow
           geometry={nodes.Cylinder016.geometry}
           material={materials.Black}
         />
         <mesh
-          // castShadow
-          // receiveShadow
           geometry={nodes.Cylinder016_1.geometry}
           material={materials["Metallic Dark"]}
         />
       </group>
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Cube001.geometry}
-        material={materials.Metallic}
-        position={[-3.74, 0.066, 5.847]}
-        rotation={[1.565, -0.004, -2.386]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Cube002.geometry}
-        material={materials.Metallic}
-        position={[-1.166, 0.118, 6.752]}
-        rotation={[1.564, 0.034, -2.905]}
-      />
       <group
-        position={[-21.802, 2.665, -6.18]}
-        rotation={[-1.556, -0.272, -1.374]}
+        position={[-23.914, 1.771, 18.557]}
+        rotation={[-0.942, -0.128, 0.047]}
+        scale={0.535}
       >
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Circle005.geometry}
+          geometry={nodes.Cone001.geometry}
+          material={materials["Red Umbrella"]}
+        />
+        <mesh
+          geometry={nodes.Cone001_1.geometry}
+          material={materials["White Table Top"]}
+        />
+      </group>
+      <group
+        position={[38.403, 13.958, 11.906]}
+        rotation={[1.777, -0.516, 1.545]}
+      >
+        <mesh
+          geometry={nodes.Circle002.geometry}
           material={materials.Metallic}
         />
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Circle005_1.geometry}
+          geometry={nodes.Circle002_1.geometry}
           material={materials["Middle Black Car"]}
         />
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Circle005_2.geometry}
+          geometry={nodes.Circle002_2.geometry}
           material={materials["Car Black"]}
         />
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Circle005_3.geometry}
+          geometry={nodes.Circle002_3.geometry}
           material={materials.White}
         />
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Circle005_4.geometry}
+          geometry={nodes.Circle002_4.geometry}
           material={materials.Windows}
         />
+        <mesh geometry={nodes.Circle002_5.geometry} material={materials.Red} />
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Circle005_5.geometry}
-          material={materials.Red}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Circle005_6.geometry}
+          geometry={nodes.Circle002_6.geometry}
           material={materials["White Glow"]}
         />
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Circle005_7.geometry}
+          geometry={nodes.Circle002_7.geometry}
           material={materials["Orange.001"]}
         />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Circle005_8.geometry}
-          material={materials.Blue}
-        />
+        <mesh geometry={nodes.Circle002_8.geometry} material={materials.Blue} />
       </group>
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Cylinder030.geometry}
-        material={materials.Symbiote}
-        position={[-12.021, 10.022, -5.791]}
-        rotation={[2.92, -0.376, -0.176]}
-        scale={[0.453, 0.696, 0.519]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Cylinder047.geometry}
-        material={materials.Symbiote}
-        position={[3.83, 2.235, 9.039]}
-        rotation={[3.116, -1.296, 3.115]}
-        scale={-0.281}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Cylinder058.geometry}
-        material={materials.Symbiote}
-        position={[-8.136, 3.312, 5.743]}
-        rotation={[0.364, 0.499, -0.279]}
-        scale={0.26}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Cylinder004.geometry}
-        material={materials.Symbiote}
-        position={[-5.249, -0.039, -10.78]}
-        rotation={[-2.053, 0.769, 1.071]}
-        scale={-0.272}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Cylinder005.geometry}
-        material={materials.Symbiote}
-        position={[11.219, 2.235, -7.656]}
-        rotation={[3.116, -1.296, 3.115]}
-        scale={-0.281}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Cylinder006.geometry}
-        material={materials.Symbiote}
-        position={[0.516, 4.768, -6.528]}
-        rotation={[-2.824, 0.8, -0.303]}
-        scale={[0.196, 0.302, 0.225]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Cylinder007.geometry}
-        material={materials.Symbiote}
-        position={[60.41, 11.105, 60.86]}
-        rotation={[3.129, 0.951, -3.134]}
-        scale={-0.739}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Cylinder008.geometry}
-        material={materials.Symbiote}
-        position={[-107.237, 12.553, 24.453]}
-        rotation={[0.007, 0.222, -0.004]}
-        scale={-0.739}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Cylinder009.geometry}
-        material={materials.Symbiote}
-        position={[-22.094, 1.866, -10.144]}
-        rotation={[-0.042, -0.478, -0.045]}
-        scale={-0.281}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Cylinder010.geometry}
-        material={materials.Symbiote}
-        position={[-23.039, 4.737, 0.491]}
-        rotation={[-2.891, -0.517, 0.106]}
-        scale={[0.196, 0.302, 0.225]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Cylinder011.geometry}
-        material={materials.Symbiote}
-        position={[14.117, 2.819, 3.65]}
-        rotation={[3.084, 0.196, 2.711]}
-        scale={-0.281}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Cylinder013.geometry}
-        material={materials.Symbiote}
-        position={[10.724, 4.653, -5.644]}
-        rotation={[-0.416, 1.002, -2.856]}
-        scale={[0.196, 0.302, 0.225]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Cylinder014.geometry}
-        material={materials.Symbiote}
-        position={[15.932, 4.521, 2.11]}
-        rotation={[0.433, -0.695, -2.369]}
-        scale={[0.196, 0.302, 0.225]}
-      />
       <group
-        position={[-7.399, 9.262, -22.189]}
-        rotation={[-0.118, 0.111, 0.254]}
-        scale={2.379}
+        position={[4.074, 9.886, 26.675]}
+        rotation={[2.493, 0.096, -3.129]}
       >
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane011_1.geometry}
-          material={materials.Green}
+          geometry={nodes.Circle003.geometry}
+          material={materials.Metallic}
         />
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane011_2.geometry}
-          material={materials.White}
+          geometry={nodes.Circle003_1.geometry}
+          material={materials["Middle Black Car"]}
+        />
+        <mesh
+          geometry={nodes.Circle003_2.geometry}
+          material={materials["Taxi Color"]}
+        />
+        <mesh
+          geometry={nodes.Circle003_3.geometry}
+          material={materials["Taxi Color"]}
+        />
+        <mesh
+          geometry={nodes.Circle003_4.geometry}
+          material={materials.Windows}
+        />
+        <mesh
+          geometry={nodes.Circle003_5.geometry}
+          material={materials.Black}
+        />
+        <mesh
+          geometry={nodes.Circle003_6.geometry}
+          material={materials["White Glow"]}
+        />
+        <mesh
+          geometry={nodes.Circle003_7.geometry}
+          material={materials["Metallic Dark"]}
+        />
+        <mesh geometry={nodes.Circle003_8.geometry} material={materials.Red} />
+        <mesh
+          geometry={nodes.Circle003_9.geometry}
+          material={materials.Orange}
+        />
+        <mesh
+          geometry={nodes.Circle003_10.geometry}
+          material={materials.Yellow}
+        />
+        <mesh
+          geometry={nodes.Circle003_11.geometry}
+          material={materials["Orange License Plate"]}
         />
       </group>
       <mesh
-        // castShadow
-        // receiveShadow
+        geometry={nodes.Cube003.geometry}
+        material={materials.Black}
+        position={[0, -1.223, 0]}
+      />
+      <mesh
+        geometry={nodes.Cube.geometry}
+        material={materials.Cardboard}
+        position={[2.132, 0.076, -4.218]}
+        scale={[0.171, 0.071, 0.119]}
+      />
+      <mesh
+        geometry={nodes.Cube001.geometry}
+        material={materials.Cardboard}
+        position={[2.518, 0.087, -4.218]}
+        rotation={[0, -0.183, 0]}
+        scale={[0.136, 0.08, 0.134]}
+      />
+      <group position={[1.721, -0.085, -4.233]} scale={[0.079, 0.477, 0.184]}>
+        <mesh
+          geometry={nodes.Cube031.geometry}
+          material={materials["Gray Box 1"]}
+        />
+        <mesh
+          geometry={nodes.Cube031_1.geometry}
+          material={materials["Gray Box 2"]}
+        />
+      </group>
+      <group
+        position={[2.404, -0.205, -4.218]}
+        rotation={[0, -0.191, 0]}
+        scale={0.364}
+      >
+        <mesh
+          geometry={nodes.Cube032.geometry}
+          material={materials["Gray Box 1"]}
+        />
+        <mesh
+          geometry={nodes.Cube032_1.geometry}
+          material={materials["Gray Box 2"]}
+        />
+        <mesh
+          geometry={nodes.Cube032_2.geometry}
+          material={materials["Gray Box 3"]}
+        />
+        <mesh
+          geometry={nodes.Cube032_3.geometry}
+          material={materials["Gray Box 4"]}
+        />
+        <mesh
+          geometry={nodes.Cube032_4.geometry}
+          material={materials["Gray Box 5"]}
+        />
+      </group>
+      <mesh
+        geometry={nodes.Cube011.geometry}
+        material={materials["White Box"]}
+        position={[1.999, 0.273, -4.218]}
+        scale={[0.098, 0.058, 0.097]}
+      />
+      <group
+        position={[2.382, 0.484, -4.218]}
+        rotation={[0, -0.265, 0]}
+        scale={[0.174, 0.041, 0.122]}
+      >
+        <mesh
+          geometry={nodes.Cube034.geometry}
+          material={materials["White Box"]}
+        />
+        <mesh
+          geometry={nodes.Cube034_1.geometry}
+          material={materials["Green Bin"]}
+        />
+      </group>
+      <mesh
+        geometry={nodes.Cube013.geometry}
+        material={materials.Black}
+        position={[1.748, 0.065, -4.218]}
+        scale={[0.142, 0.051, 0.146]}
+      />
+      <group position={[2.132, 0.006, -4.218]} scale={0.284}>
+        <mesh
+          geometry={nodes.Cube021_1.geometry}
+          material={materials["Table Red"]}
+        />
+        <mesh
+          geometry={nodes.Cube021_2.geometry}
+          material={materials["White Table Top"]}
+        />
+      </group>
+      <mesh
         geometry={nodes.Plane011.geometry}
-        material={materials["Oscorp Gray"]}
-        position={[-4.525, 2.056, -14.41]}
-        rotation={[-0.118, 0.111, 0.254]}
-        scale={2.379}
+        material={materials["Green Bin"]}
+        position={[1.751, 0.006, -4.218]}
+        scale={0.317}
+      />
+      <group
+        position={[2.552, 0.376, -4.015]}
+        rotation={[Math.PI / 2, 0, 0.191]}
+        scale={[0.015, 0.015, 0.025]}
+      >
+        <mesh
+          geometry={nodes.Plane247.geometry}
+          material={materials["Gray Box 3"]}
+        />
+        <mesh
+          geometry={nodes.Plane247_1.geometry}
+          material={materials["Gray Box 4"]}
+        />
+      </group>
+      <group
+        position={[2.181, 0.375, -4.088]}
+        rotation={[Math.PI / 2, 0, 0.191]}
+        scale={[0.015, 0.015, 0.025]}
+      >
+        <mesh
+          geometry={nodes.Plane248.geometry}
+          material={materials["Gray Box 3"]}
+        />
+        <mesh
+          geometry={nodes.Plane248_1.geometry}
+          material={materials["Gray Box 4"]}
+        />
+      </group>
+      <group
+        position={[2.519, 0.659, -4.154]}
+        rotation={[Math.PI, -1.161, Math.PI]}
+        scale={0.035}
+      >
+        <mesh geometry={nodes.Cube036.geometry} material={materials.Black} />
+        <mesh
+          geometry={nodes.Cube036_1.geometry}
+          material={materials["Red Screwdriver"]}
+        />
+      </group>
+      <group
+        position={[1.835, 0.235, -3.989]}
+        rotation={[Math.PI / 2, 0, 1.772]}
+        scale={0.013}
+      >
+        <mesh
+          geometry={nodes.Cylinder001_1.geometry}
+          material={materials.Yellow}
+        />
+        <mesh
+          geometry={nodes.Cylinder001_2.geometry}
+          material={materials.Black}
+        />
+        <mesh
+          geometry={nodes.Cylinder001_3.geometry}
+          material={materials.Silver}
+        />
+        <mesh
+          geometry={nodes.Cylinder001_4.geometry}
+          material={materials.Bronze}
+        />
+      </group>
+      <group
+        position={[1.804, 0.235, -3.958]}
+        rotation={[Math.PI / 2, 0, 1.999]}
+        scale={0.013}
+      >
+        <mesh
+          geometry={nodes.Cylinder002_1.geometry}
+          material={materials["Blue Screwdriver"]}
+        />
+        <mesh
+          geometry={nodes.Cylinder002_2.geometry}
+          material={materials.Black}
+        />
+        <mesh
+          geometry={nodes.Cylinder002_3.geometry}
+          material={materials.Silver}
+        />
+        <mesh
+          geometry={nodes.Cylinder002_4.geometry}
+          material={materials.Bronze}
+        />
+      </group>
+      <group
+        position={[2.575, 0.662, -3.976]}
+        rotation={[Math.PI / 2, 0, 2.084]}
+        scale={0.013}
+      >
+        <mesh
+          geometry={nodes.Cylinder003_1.geometry}
+          material={materials["Table Red"]}
+        />
+        <mesh
+          geometry={nodes.Cylinder003_2.geometry}
+          material={materials.Black}
+        />
+        <mesh
+          geometry={nodes.Cylinder003_3.geometry}
+          material={materials.Silver}
+        />
+        <mesh
+          geometry={nodes.Cylinder003_4.geometry}
+          material={materials.Bronze}
+        />
+      </group>
+      <group
+        position={[2.598, 0.662, -4.025]}
+        rotation={[Math.PI / 2, 0, 1.915]}
+        scale={0.013}
+      >
+        <mesh
+          geometry={nodes.Cylinder004_1.geometry}
+          material={materials.Yellow}
+        />
+        <mesh
+          geometry={nodes.Cylinder004_2.geometry}
+          material={materials.Black}
+        />
+        <mesh
+          geometry={nodes.Cylinder004_3.geometry}
+          material={materials.Silver}
+        />
+        <mesh
+          geometry={nodes.Cylinder004_4.geometry}
+          material={materials.Bronze}
+        />
+      </group>
+      <group
+        position={[2.48, 0.693, -4.459]}
+        rotation={[0, -0.581, 0]}
+        scale={[0.02, 0.01, 0.008]}
+      >
+        <mesh geometry={nodes.Cube038.geometry} material={materials.White} />
+        <mesh
+          geometry={nodes.Cube038_1.geometry}
+          material={materials["White Glow"]}
+        />
+      </group>
+      <group position={[1.77, 0.829, -4.458]} scale={[0.19, 0.19, 0.072]}>
+        <mesh
+          geometry={nodes.Cube040.geometry}
+          material={materials["Gray Box 1"]}
+        />
+        <mesh
+          geometry={nodes.Cube040_1.geometry}
+          material={materials["Red Box 2"]}
+        />
+        <mesh
+          geometry={nodes.Cube040_2.geometry}
+          material={materials["Gray Box 3"]}
+        />
+        <mesh
+          geometry={nodes.Cube040_3.geometry}
+          material={materials["Red Box"]}
+        />
+      </group>
+      <group
+        position={[2.021, 0.852, -4.366]}
+        rotation={[0, 0.045, 0]}
+        scale={0.006}
+      >
+        <mesh
+          geometry={nodes.Cube044.geometry}
+          material={materials["Gray Box 5"]}
+        />
+        <mesh geometry={nodes.Cube044_1.geometry} material={materials.Black} />
+        <mesh
+          geometry={nodes.Cube044_2.geometry}
+          material={materials["Gray Box 4"]}
+        />
+        <mesh
+          geometry={nodes.Cube044_3.geometry}
+          material={materials["Gray Box 1"]}
+        />
+      </group>
+      <mesh
+        geometry={nodes.Plane010.geometry}
+        material={materials["Dirty Gray"]}
+        position={[1.695, 0.652, -4.116]}
+        rotation={[0, -0.22, 0]}
+        scale={[0.072, 0.072, 0.039]}
+      />
+      <group
+        position={[1.656, 0.66, -4.096]}
+        rotation={[Math.PI / 2, 0, -1.35]}
+        scale={[0.006, 0.038, 0.006]}
+      >
+        <mesh
+          geometry={nodes.Cylinder014.geometry}
+          material={materials["Red Screwdriver"]}
+        />
+        <mesh
+          geometry={nodes.Cylinder014_1.geometry}
+          material={materials.Steel}
+        />
+        <mesh
+          geometry={nodes.Cylinder014_2.geometry}
+          material={materials.Metallic}
+        />
+        <mesh
+          geometry={nodes.Cylinder014_3.geometry}
+          material={materials["Blue Screwdriver"]}
+        />
+        <mesh
+          geometry={nodes.Cylinder014_4.geometry}
+          material={materials.Black}
+        />
+        <mesh
+          geometry={nodes.Cylinder014_5.geometry}
+          material={materials["Orange Screwdriver"]}
+        />
+        <mesh
+          geometry={nodes.Cylinder014_6.geometry}
+          material={materials["Green Bin"]}
+        />
+      </group>
+      <group
+        position={[1.672, 0.655, -3.962]}
+        rotation={[Math.PI, -1.385, Math.PI]}
+        scale={[0.008, 0.028, 0.028]}
+      >
+        <mesh
+          geometry={nodes.Plane252.geometry}
+          material={materials.Metallic}
+        />
+        <mesh
+          geometry={nodes.Plane252_1.geometry}
+          material={materials["Red Scissors"]}
+        />
+        <mesh
+          geometry={nodes.Plane252_2.geometry}
+          material={materials["Gray Box 5"]}
+        />
+        <mesh geometry={nodes.Plane252_3.geometry} material={materials.Black} />
+        <mesh
+          geometry={nodes.Plane252_4.geometry}
+          material={materials.Yellow}
+        />
+        <mesh
+          geometry={nodes.Plane252_5.geometry}
+          material={materials["Metallic Darker"]}
+        />
+      </group>
+      <mesh
+        geometry={nodes.Cylinder005.geometry}
+        material={materials["Metallic Darker"]}
+        position={[2.45, 0.655, -4.002]}
+        rotation={[1.636, -0.1, -0.998]}
+        scale={[-0.003, -0.016, -0.003]}
+      />
+      <group
+        position={[1.729, 1.021, -4.453]}
+        rotation={[-0.007, -0.215, 1.539]}
+        scale={[0.006, 0.079, 0.011]}
+      >
+        <mesh
+          geometry={nodes.Cube048.geometry}
+          material={materials["Red Scissors"]}
+        />
+        <mesh geometry={nodes.Cube048_1.geometry} material={materials.Black} />
+        <mesh
+          geometry={nodes.Cube048_2.geometry}
+          material={materials["Metallic Dark"]}
+        />
+      </group>
+      <group
+        position={[1.777, 0.635, -4.293]}
+        rotation={[0, 0.353, 0]}
+        scale={0.046}
+      >
+        <mesh
+          geometry={nodes.Cylinder019.geometry}
+          material={materials.Black}
+        />
+        <mesh
+          geometry={nodes.Cylinder019_1.geometry}
+          material={materials["Brown Folder"]}
+        />
+        <mesh
+          geometry={nodes.Cylinder019_2.geometry}
+          material={materials.Paper}
+        />
+        <mesh
+          geometry={nodes.Cylinder019_3.geometry}
+          material={materials["Paper 2"]}
+        />
+        <mesh
+          geometry={nodes.Cylinder019_4.geometry}
+          material={materials["Paper 3"]}
+        />
+        <mesh
+          geometry={nodes.Cylinder019_5.geometry}
+          material={materials["Paper 4"]}
+        />
+        <mesh
+          geometry={nodes.Cylinder019_6.geometry}
+          material={materials["Paper 5"]}
+        />
+      </group>
+      <group
+        position={[1.668, 0.653, -4.023]}
+        rotation={[0, 0.249, 0]}
+        scale={0.024}
+      >
+        <mesh geometry={nodes.Circle001.geometry} material={materials.Black} />
+        <mesh
+          geometry={nodes.Circle001_1.geometry}
+          material={materials["Brown Folder"]}
+        />
+        <mesh
+          geometry={nodes.Circle001_2.geometry}
+          material={materials["Gray Box 5"]}
+        />
+        <mesh
+          geometry={nodes.Circle001_3.geometry}
+          material={materials["Gray Box 4"]}
+        />
+      </group>
+      <mesh
+        geometry={nodes.Cube022.geometry}
+        material={materials["Black.002"]}
+        position={[2.138, 0.243, -4.001]}
+        scale={[0.163, 0.179, 0.179]}
       />
       <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Circle.geometry}
-        material={materials["White Glow"]}
-        position={[-1.322, 1.657, 7.782]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.107}
+        geometry={nodes.Cube023.geometry}
+        material={materials["Black.002"]}
+        position={[2.138, 0.243, -4.001]}
+        scale={[0.163, 0.179, 0.179]}
       />
       <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane012.geometry}
-        material={materials.Red}
-        position={[-1.952, 1.872, 7.43]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.055}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane013.geometry}
-        material={materials.Red}
-        position={[-2.867, -0.655, 7.108]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane014.geometry}
-        material={materials.Red}
-        position={[-2.867, -0.655, 7.108]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane015.geometry}
-        material={materials.Red}
-        position={[-2.47, -0.718, 7.283]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane016.geometry}
-        material={materials.Red}
-        position={[-2.523, -1.111, 7.272]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane017.geometry}
-        material={materials.Red}
-        position={[-1.84, 2.675, 7.455]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.055}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane018.geometry}
-        material={materials.Red}
-        position={[-1.903, 2.269, 7.44]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.055}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
         geometry={nodes.Plane019.geometry}
-        material={materials.Red}
-        position={[-2.526, 1.956, 7.177]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.055}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane020.geometry}
-        material={materials.Red}
-        position={[-3.442, -0.571, 6.854]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane021.geometry}
-        material={materials.Red}
-        position={[-3.442, -0.571, 6.854]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane022.geometry}
-        material={materials.Red}
-        position={[-3.044, -0.634, 7.03]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane023.geometry}
-        material={materials.Red}
-        position={[-3.098, -1.027, 7.018]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane024.geometry}
-        material={materials.Red}
-        position={[-2.414, 2.759, 7.201]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.055}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane025.geometry}
-        material={materials.Red}
-        position={[-2.477, 2.353, 7.186]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.055}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane026.geometry}
-        material={materials.Red}
-        position={[-3.256, 2.07, 6.855]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.055}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane027.geometry}
-        material={materials.Red}
-        position={[-4.172, -0.457, 6.532]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane028.geometry}
-        material={materials.Red}
-        position={[-4.172, -0.457, 6.532]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane029.geometry}
-        material={materials.Red}
-        position={[-3.774, -0.519, 6.707]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane030.geometry}
-        material={materials.Red}
-        position={[-3.828, -0.913, 6.696]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane031.geometry}
-        material={materials.Red}
-        position={[-3.144, 2.873, 6.879]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.055}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane032.geometry}
-        material={materials.Red}
-        position={[-3.207, 2.467, 6.864]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.055}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane033.geometry}
-        material={materials.Red}
-        position={[-3.83, 2.16, 6.602]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.055}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane034.geometry}
-        material={materials.Red}
-        position={[-4.745, -0.367, 6.279]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane035.geometry}
-        material={materials.Red}
-        position={[-4.745, -0.367, 6.279]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane036.geometry}
-        material={materials.Red}
-        position={[-4.348, -0.429, 6.454]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane037.geometry}
-        material={materials.Red}
-        position={[-4.401, -0.823, 6.443]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane038.geometry}
-        material={materials.Red}
-        position={[-3.718, 2.963, 6.626]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.055}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane039.geometry}
-        material={materials.Red}
-        position={[-3.781, 2.557, 6.611]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.055}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane040.geometry}
-        material={materials.Red}
-        position={[-5.196, 2.299, 6.001]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.055}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane041.geometry}
-        material={materials.Red}
-        position={[-6.112, -0.229, 5.678]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane042.geometry}
-        material={materials.Red}
-        position={[-6.112, -0.229, 5.678]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane043.geometry}
-        material={materials.Red}
-        position={[-5.714, -0.291, 5.854]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane044.geometry}
-        material={materials.Red}
-        position={[-5.768, -0.684, 5.842]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane045.geometry}
-        material={materials.Red}
-        position={[-5.084, 3.101, 6.025]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.055}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane046.geometry}
-        material={materials.Red}
-        position={[-5.147, 2.695, 6.01]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.055}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane047.geometry}
-        material={materials.Red}
-        position={[-5.76, 2.381, 5.752]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.055}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane048.geometry}
-        material={materials.Red}
-        position={[-6.676, -0.146, 5.429]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane049.geometry}
-        material={materials.Red}
-        position={[-6.676, -0.146, 5.429]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane050.geometry}
-        material={materials.Red}
-        position={[-6.279, -0.209, 5.605]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane051.geometry}
-        material={materials.Red}
-        position={[-6.332, -0.602, 5.593]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane052.geometry}
-        material={materials.Red}
-        position={[-5.648, 3.184, 5.777]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.055}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane053.geometry}
-        material={materials.Red}
-        position={[-5.711, 2.778, 5.761]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.055}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane054.geometry}
-        material={materials.Red}
-        position={[-5.507, 0.692, 5.914]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.052}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane055.geometry}
-        material={materials.Red}
-        position={[-6.369, -1.688, 5.61]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.942}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane056.geometry}
-        material={materials.Red}
-        position={[-6.369, -1.688, 5.61]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.942}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane057.geometry}
-        material={materials.Red}
-        position={[-5.995, -1.746, 5.775]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.942}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane058.geometry}
-        material={materials.Red}
-        position={[-6.046, -2.117, 5.765]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.942}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane059.geometry}
-        material={materials.Red}
-        position={[-5.402, 1.448, 5.937]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.052}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane060.geometry}
-        material={materials.Red}
-        position={[-5.461, 1.066, 5.923]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.052}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane061.geometry}
-        material={materials.Red}
-        position={[-6.038, 0.77, 5.68]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.052}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane062.geometry}
-        material={materials.Red}
-        position={[-6.9, -1.61, 5.376]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.942}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane063.geometry}
-        material={materials.Red}
-        position={[-6.9, -1.61, 5.376]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.942}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane064.geometry}
-        material={materials.Red}
-        position={[-6.526, -1.669, 5.541]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.942}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane065.geometry}
-        material={materials.Red}
-        position={[-6.577, -2.039, 5.53]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.942}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane066.geometry}
-        material={materials.Red}
-        position={[-5.933, 1.525, 5.703]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.052}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane067.geometry}
-        material={materials.Red}
-        position={[-5.992, 1.143, 5.689]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.052}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane068.geometry}
-        material={materials.Red}
-        position={[-0.504, -0.081, 8.122]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.052}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane069.geometry}
-        material={materials.Red}
-        position={[-1.366, -2.461, 7.818]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.942}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane070.geometry}
-        material={materials.Red}
-        position={[-1.366, -2.461, 7.818]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.942}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane071.geometry}
-        material={materials.Red}
-        position={[-0.992, -2.52, 7.983]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.942}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane072.geometry}
-        material={materials.Red}
-        position={[-1.043, -2.89, 7.972]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.942}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane073.geometry}
-        material={materials.Red}
-        position={[-0.399, 0.675, 8.145]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.052}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane074.geometry}
-        material={materials.Red}
-        position={[-0.458, 0.292, 8.13]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.052}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane075.geometry}
-        material={materials.Red}
-        position={[0.019, 1.462, 8.303]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.055}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane076.geometry}
-        material={materials.Red}
-        position={[-0.897, -1.066, 7.98]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane077.geometry}
-        material={materials.Red}
-        position={[-0.897, -1.066, 7.98]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane078.geometry}
-        material={materials.Red}
-        position={[-0.499, -1.128, 8.156]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane079.geometry}
-        material={materials.Red}
-        position={[-0.553, -1.521, 8.144]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane080.geometry}
-        material={materials.Red}
-        position={[0.131, 2.265, 8.327]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.055}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane081.geometry}
-        material={materials.Red}
-        position={[0.068, 1.859, 8.312]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.055}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane082.geometry}
-        material={materials.Red}
-        position={[-0.545, 1.544, 8.054]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.055}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane083.geometry}
-        material={materials.Red}
-        position={[-1.461, -0.983, 7.732]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane084.geometry}
-        material={materials.Red}
-        position={[-1.461, -0.983, 7.732]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane085.geometry}
-        material={materials.Red}
-        position={[-1.064, -1.045, 7.907]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane086.geometry}
-        material={materials.Red}
-        position={[-1.117, -1.439, 7.895]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane087.geometry}
-        material={materials.Red}
-        position={[-0.433, 2.347, 8.079]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.055}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane088.geometry}
-        material={materials.Red}
-        position={[-0.496, 1.941, 8.064]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.055}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane089.geometry}
-        material={materials.Red}
-        position={[-1.827, 0.046, 7.54]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.028}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane090.geometry}
-        material={materials.Red}
-        position={[-2.298, -1.256, 7.374]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.515}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane091.geometry}
-        material={materials.Red}
-        position={[-2.298, -1.256, 7.374]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.515}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane092.geometry}
-        material={materials.Red}
-        position={[-2.094, -1.288, 7.465]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.515}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane093.geometry}
-        material={materials.Red}
-        position={[-2.121, -1.49, 7.459]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.515}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane094.geometry}
-        material={materials.Red}
-        position={[-1.769, 0.459, 7.553]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.028}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane095.geometry}
-        material={materials.Red}
-        position={[-1.802, 0.25, 7.545]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.028}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane096.geometry}
-        material={materials.Red}
-        position={[-4.461, 0.453, 6.378]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.028}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane097.geometry}
-        material={materials.Red}
-        position={[-4.933, -0.848, 6.212]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.515}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane098.geometry}
-        material={materials.Red}
-        position={[-4.933, -0.848, 6.212]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.515}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane099.geometry}
-        material={materials.Red}
-        position={[-4.728, -0.88, 6.302]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.515}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane100.geometry}
-        material={materials.Red}
-        position={[-4.756, -1.083, 6.296]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.515}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane101.geometry}
-        material={materials.Red}
-        position={[-4.404, 0.867, 6.391]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.028}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane102.geometry}
-        material={materials.Red}
-        position={[-4.436, 0.658, 6.383]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.028}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane103.geometry}
-        material={materials.Red}
-        position={[-3.117, 0.304, 6.969]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.052}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane104.geometry}
-        material={materials.Red}
-        position={[-3.978, -2.074, 6.666]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.941}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane105.geometry}
-        material={materials.Red}
-        position={[-3.978, -2.074, 6.666]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.941}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane106.geometry}
-        material={materials.Red}
-        position={[-3.604, -2.132, 6.831]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.941}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane107.geometry}
-        material={materials.Red}
-        position={[-3.655, -2.502, 6.82]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.941}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane108.geometry}
-        material={materials.Red}
-        position={[-3.012, 1.059, 6.992]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.052}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane109.geometry}
-        material={materials.Red}
-        position={[-3.071, 0.677, 6.978]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.052}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane110.geometry}
-        material={materials.White}
-        position={[0.292, 2.774, 8.395]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.017}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane111.geometry}
-        material={materials.White}
-        position={[0.035, 2.812, 8.281]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.929}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane112.geometry}
-        material={materials.White}
-        position={[-0.255, 2.84, 8.154]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.055}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane113.geometry}
-        material={materials.White}
-        position={[-0.609, 2.909, 7.997]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.055}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane114.geometry}
-        material={materials.White}
-        position={[-4.451, 3.504, 6.302]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane115.geometry}
-        material={materials.White}
-        position={[-4.767, 3.572, 6.162]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.055}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane116.geometry}
-        material={materials.White}
-        position={[-4.945, 3.602, 6.083]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.055}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane117.geometry}
-        material={materials.White}
-        position={[-5.138, 3.63, 5.998]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.055}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane118.geometry}
-        material={materials.White}
-        position={[-5.347, 3.663, 5.906]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.055}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane119.geometry}
-        material={materials.White}
-        position={[-5.496, 3.682, 5.84]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.929}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane120.geometry}
-        material={materials.White}
-        position={[-5.781, 3.732, 5.715]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.055}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane121.geometry}
-        material={materials.White}
-        position={[-6.106, 3.783, 5.571]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.055}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane122.geometry}
-        material={materials.White}
-        position={[-5.463, 1.797, 5.912]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.024}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane123.geometry}
-        material={materials.White}
-        position={[-4.319, 1.076, 6.433]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.024}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane124.geometry}
-        material={materials.White}
-        position={[-3.133, 1.429, 6.941]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.026}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane125.geometry}
-        material={materials.White}
-        position={[-1.688, 0.669, 7.594]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.024}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane126.geometry}
-        material={materials.White}
-        position={[-5.53, 1.808, 5.883]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.436}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane127.geometry}
-        material={materials.White}
-        position={[-5.812, 1.853, 5.758]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.436}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane128.geometry}
-        material={materials.White}
-        position={[-4.379, 1.086, 6.407]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.436}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane129.geometry}
-        material={materials.White}
-        position={[-1.75, 0.677, 7.567]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.436}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane130.geometry}
-        material={materials.White}
-        position={[-0.245, 0.983, 8.215]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.436}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane131.geometry}
-        material={materials.White}
-        position={[-0.141, 0.966, 8.261]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.436}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane132.geometry}
-        material={materials.White}
-        position={[-0.376, 1.006, 8.157]}
-        rotation={[-1.538, 0.144, -0.416]}
-        scale={0.025}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane133.geometry}
-        material={materials.White}
-        position={[-0.539, 1.019, 8.085]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.025}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane134.geometry}
-        material={materials.White}
-        position={[-0.686, 1.05, 8.02]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.025}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane135.geometry}
-        material={materials.White}
-        position={[-1.881, 0.697, 7.509]}
-        rotation={[-1.539, 0.142, 2.726]}
-        scale={0.024}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane136.geometry}
-        material={materials.White}
-        position={[-5.708, 1.836, 5.804]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.436}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane137.geometry}
-        material={materials.White}
-        position={[-4.51, 1.105, 6.349]}
-        rotation={[-1.539, 0.142, 2.726]}
-        scale={0.024}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane138.geometry}
-        material={materials.White}
-        position={[-3.223, 1.443, 6.901]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.026}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane139.geometry}
-        material={materials.White}
-        position={[-2.982, 1.404, 7.007]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.026}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane140.geometry}
-        material={materials.White}
-        position={[-2.837, 1.391, 7.071]}
-        rotation={[-0.03, -0.411, 2.987]}
-        scale={0.47}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane141.geometry}
-        material={materials.White}
-        position={[-2.605, 1.346, 7.173]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.436}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane142.geometry}
-        material={materials.White}
-        position={[-2.716, 1.362, 7.124]}
-        rotation={[3.111, 0.411, -2.987]}
-        scale={0.436}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane143.geometry}
-        material={materials.White}
-        position={[-3.338, 1.461, 6.85]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.026}
+        material={materials["Black.004"]}
+        position={[2.131, 0.277, -4.015]}
+        scale={0.167}
       />
       <group
-        position={[-2.844, 2.419, 7.098]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={[1.448, 0.7, 0.7]}
+        position={[40.307, 14.729, 6.491]}
+        rotation={[1.621, -0.652, 1.604]}
       >
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane149_1.geometry}
-          material={materials.Black}
+          geometry={nodes.Cube019.geometry}
+          material={materials["Beige Concrete Shadow"]}
+          position={[0.387, -0.04, -0.894]}
+          scale={[0.135, 0.055, 0.135]}
         />
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane149_2.geometry}
-          material={materials.White}
+          geometry={nodes.Dirty_Plane001.geometry}
+          material={materials["Dirty Beige"]}
+          position={[-0.697, -0.073, 1.377]}
+          rotation={[-3.009, -1.464, -3.018]}
+          scale={[0.852, 0.407, 0.852]}
+        />
+        <group position={[0.599, 0, -1.493]} scale={2.812}>
+          <mesh
+            geometry={nodes.Plane254.geometry}
+            material={materials["Beige Concrete Shadow"]}
+          />
+          <mesh
+            geometry={nodes.Plane254_1.geometry}
+            material={materials["Beige Concrete Base"]}
+          />
+        </group>
+        <mesh
+          geometry={nodes.Plane014.geometry}
+          material={materials["Brown Steel Grid"]}
+          position={[0.26, -0.042, 1.904]}
+          rotation={[-0.137, 1.365, 0.138]}
+          scale={[0.02, 0.114, 0.114]}
+        />
+        <group position={[-0.454, -0.003, -0.593]}>
+          <mesh
+            geometry={nodes.Plane256.geometry}
+            material={materials["Beige Concrete Base"]}
+          />
+          <mesh
+            geometry={nodes.Plane256_1.geometry}
+            material={materials["Beige Concrete Shadow"]}
+          />
+        </group>
+        <mesh
+          geometry={nodes.Plane016.geometry}
+          material={materials["Brown Steel Grid"]}
+          position={[-2.411, 0.369, 2.767]}
+          rotation={[-0.53, -0.33, -0.137]}
+          scale={[0.02, 0.114, 0.114]}
+        />
+      </group>
+      <group position={[-0.748, -2.756, 0.038]} scale={[0.928, 0.344, 0.61]}>
+        <mesh
+          geometry={nodes.Cube055.geometry}
+          material={materials["Gray Box 5"]}
+        />
+        <mesh
+          geometry={nodes.Cube055_1.geometry}
+          material={materials["Gray Box 1"]}
+        />
+        <mesh
+          geometry={nodes.Cube055_2.geometry}
+          material={materials["Gray Box 2"]}
+        />
+        <mesh geometry={nodes.Cube055_3.geometry} material={materials.Green} />
+        <mesh geometry={nodes.Cube055_4.geometry} material={materials.Black} />
+        <mesh
+          geometry={nodes.Cube055_5.geometry}
+          material={materials["White Glow"]}
+        />
+        <mesh geometry={nodes.Cube055_6.geometry} material={materials.White} />
+        <mesh geometry={nodes.Cube055_7.geometry} material={materials.Bronze} />
+        <mesh
+          geometry={nodes.Cube055_8.geometry}
+          material={materials["Dark Bronze"]}
         />
       </group>
       <group
-        position={[-0.284, 1.915, 8.231]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={[0.802, 0.616, 0.616]}
+        position={[-1.156, 0.03, -8.422]}
+        rotation={[-0.167, -0.001, -0.027]}
+        scale={[0.313, 0.116, 0.206]}
       >
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane153_1.geometry}
-          material={materials.Black}
+          geometry={nodes.Cube062.geometry}
+          material={materials["Gray Box 5"]}
         />
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane153_2.geometry}
-          material={materials.White}
+          geometry={nodes.Cube062_1.geometry}
+          material={materials["Gray Box 1"]}
+        />
+        <mesh
+          geometry={nodes.Cube062_2.geometry}
+          material={materials["Gray Box 2"]}
+        />
+        <mesh geometry={nodes.Cube062_3.geometry} material={materials.Green} />
+        <mesh geometry={nodes.Cube062_4.geometry} material={materials.Black} />
+        <mesh
+          geometry={nodes.Cube062_5.geometry}
+          material={materials["White Glow"]}
+        />
+        <mesh geometry={nodes.Cube062_6.geometry} material={materials.White} />
+        <mesh geometry={nodes.Cube062_7.geometry} material={materials.Bronze} />
+        <mesh
+          geometry={nodes.Cube062_8.geometry}
+          material={materials["Dark Bronze"]}
         />
       </group>
       <group
-        position={[-5.459, 2.725, 5.947]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={[0.802, 0.616, 0.616]}
+        position={[-4.629, -0.151, -6.881]}
+        rotation={[-0.2, 0.307, 0.083]}
+        scale={[0.313, 0.116, 0.206]}
       >
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane154_1.geometry}
-          material={materials.Black}
+          geometry={nodes.Cube065.geometry}
+          material={materials["Gray Box 5"]}
         />
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane154_2.geometry}
-          material={materials.White}
+          geometry={nodes.Cube065_1.geometry}
+          material={materials["Gray Box 1"]}
+        />
+        <mesh
+          geometry={nodes.Cube065_2.geometry}
+          material={materials["Gray Box 2"]}
+        />
+        <mesh geometry={nodes.Cube065_3.geometry} material={materials.Green} />
+        <mesh geometry={nodes.Cube065_4.geometry} material={materials.Black} />
+        <mesh
+          geometry={nodes.Cube065_5.geometry}
+          material={materials["White Glow"]}
+        />
+        <mesh geometry={nodes.Cube065_6.geometry} material={materials.White} />
+        <mesh geometry={nodes.Cube065_7.geometry} material={materials.Bronze} />
+        <mesh
+          geometry={nodes.Cube065_8.geometry}
+          material={materials["Dark Bronze"]}
         />
       </group>
-      <group
-        position={[-0.513, 0.311, 8.18]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={[0.689, 0.529, 0.529]}
-      >
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane155_1.geometry}
-          material={materials.Black}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane155_2.geometry}
-          material={materials.White}
-        />
-      </group>
-      <group
-        position={[-5.734, 1.128, 5.876]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={[0.689, 0.529, 0.529]}
-      >
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane156_1.geometry}
-          material={materials.Black}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane156_2.geometry}
-          material={materials.White}
-        />
-      </group>
-      <group
-        position={[-3.117, 0.701, 7.031]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={[0.701, 0.539, 0.539]}
-      >
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane157_1.geometry}
-          material={materials.Black}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane157_2.geometry}
-          material={materials.White}
-        />
-      </group>
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane150.geometry}
-        material={materials.Black}
-        position={[-4.47, 0.667, 6.441]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.288}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane151.geometry}
-        material={materials.Black}
-        position={[-1.835, 0.254, 7.604]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.288}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane152.geometry}
-        material={materials.Black}
-        position={[-1.325, 1.655, 7.784]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.129}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane153.geometry}
-        material={materials.Black}
-        position={[-4.52, 2.155, 6.374]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={0.129}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane154.geometry}
-        material={materials["Oscorp Gray"]}
-        position={[-2.891, 2.096, 7.105]}
-        rotation={[1.603, -0.142, -2.726]}
-        scale={[3.935, 1, 2.188]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane155.geometry}
-        material={materials.Red}
-        position={[-3.574, -0.325, 6.789]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane156.geometry}
-        material={materials.Red}
-        position={[-3.603, -0.528, 6.783]}
-        rotation={[3.111, 0.411, -2.987]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane002.geometry}
-        material={materials.Brown}
-        position={[0, -0.108, 0]}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane.geometry}
-        material={materials["Metallic Dark"]}
-      />
-      <group position={[-1.739, 0.06, -5.685]} scale={3.08}>
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane007_1.geometry}
-          material={materials["Dirty Gray 2"]}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane007_2.geometry}
-          material={materials.Black}
-        />
-      </group>
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Plane006.geometry}
-        material={materials["Dirty Beige 1"]}
-        position={[-1.739, 0.145, -6.351]}
-        rotation={[0.24, 0.414, -0.04]}
-        scale={3.08}
-      />
-      <group position={[-1.726, 0.137, -5.547]} scale={2.58}>
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane165.geometry}
-          material={materials["Dirty Gray 2"]}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane165_1.geometry}
-          material={materials.Black}
-        />
-      </group>
-      <group
-        position={[5.508, 0.046, -4.378]}
-        rotation={[0, -0.588, 0]}
-        scale={2.58}
-      >
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane166.geometry}
-          material={materials["Dirty Gray 2"]}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.Plane166_1.geometry}
-          material={materials.Black}
-        />
-      </group>
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Cylinder001.geometry}
-        material={materials.Symbiote}
-        position={[-9.151, 0.278, 2.671]}
-        rotation={[0.324, 1.191, -2.107]}
-        scale={0.201}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Cylinder002.geometry}
-        material={materials.Symbiote}
-        position={[3.424, 0.961, -7.817]}
-        rotation={[-1.546, 0.736, 0.704]}
-        scale={-0.368}
-      />
-      <mesh
-        // castShadow
-        // receiveShadow
-        geometry={nodes.Cylinder003.geometry}
-        material={materials.Symbiote}
-        position={[6.967, 0.758, 7.484]}
-        rotation={[0.643, 0.533, 1.427]}
-        scale={0.307}
-      />
     </group>
   );
 }
 
-useGLTF.preload("/venom_platform.glb");
+useGLTF.preload("/venom_platform3.glb");

@@ -9,25 +9,25 @@ export default function Desk(props) {
   const { nodes, materials } = useGLTF("/desk.glb");
   return (
     <group {...props} dispose={null}>
-      <mesh
+      {/* <mesh
         castShadow
         receiveShadow
         geometry={nodes.Cube.geometry}
         material={materials.Gray}
-      />
-      <mesh
+      /> */}
+      {/* <mesh
         castShadow
         receiveShadow
         geometry={nodes.Cube001.geometry}
         material={materials.Black}
-      />
-      <mesh
+      /> */}
+      {/* <mesh
         castShadow
         receiveShadow
         geometry={nodes.Cube002.geometry}
         material={materials.Gray}
         position={[0, 2.175, -0.256]}
-      />
+      /> */}
       <mesh
         castShadow
         receiveShadow
@@ -46,13 +46,13 @@ export default function Desk(props) {
         geometry={nodes.Plane.geometry}
         material={materials.Black}
       />
-      <mesh
+      {/* <mesh
         castShadow
         receiveShadow
         geometry={nodes.Cube005.geometry}
         material={materials.Black}
         position={[0, 2.175, -0.256]}
-      />
+      /> */}
     </group>
   );
 }
