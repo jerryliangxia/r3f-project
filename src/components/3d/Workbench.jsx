@@ -1,7 +1,7 @@
 import { useRef, forwardRef, useState, useEffect } from "react";
 import { useMatcapTexture } from "@react-three/drei";
 import WorkbenchGrid from "./WorkBenchGrid";
-import RectAreaLightModels from "./RectAreaLightModels";
+// import RectAreaLightModels from "./RectAreaLightModels";
 import Crate from "./Crate";
 import gsap from "gsap";
 

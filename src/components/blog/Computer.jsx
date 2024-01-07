@@ -1,6 +1,5 @@
-import { Html, useGLTF } from "@react-three/drei";
+import { Html } from "@react-three/drei";
 import { forwardRef, useState, useEffect } from "react";
-import { useControls } from "leva";
 import { useFrame } from "@react-three/fiber";
 
 const Computer = forwardRef((props, ref) => {
@@ -43,7 +42,6 @@ const Computer = forwardRef((props, ref) => {
         position={props.position.map(
           (value, index) => value + [0.031, 0.913, 0.0][index]
         )}
-        // rotation={[0, -Math.PI / 4, 0]}
         visible={false}
       >
         <boxGeometry args={[0.5 * scale, 0.33 * scale, 0.05 * scale]} />
@@ -73,7 +71,8 @@ const Computer = forwardRef((props, ref) => {
             position={[-0.305, 0.835, 0.015]}
             scale={1.05}
             style={{
-              transition: "opacity 1s ease-in", // Add this line for CSS transition
+              pointerEvents: showHtml ? "auto" : "none",
+              transition: "opacity 0.5s ease-in",
               opacity:
                 meshFirstRendered && showHtml && showBasedOnRotation ? 1 : 0,
             }}
@@ -84,12 +83,6 @@ const Computer = forwardRef((props, ref) => {
         <boxGeometry args={[1.1, 0.7, 0.6]} />
         <meshStandardMaterial color="#9d4b4b" />
       </mesh>
-      {/* <Desk
-        position={props.position.map(
-          (value, index) => value + [0.02, 0.22, 0.22][index]
-        )}
-        scale={0.207}
-      /> */}
     </>
   );
 });
