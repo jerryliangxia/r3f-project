@@ -218,6 +218,7 @@ export default function Experience({
         setShowDiv={setShowDiv}
         onClick={(event) => {
           if (!isComputerClicked) {
+            event.stopPropagation();
             handleMajorMeshClick(
               1.0,
               5.0,

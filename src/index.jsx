@@ -7,6 +7,7 @@ import "@radix-ui/themes/styles.css";
 import { Theme, Button, Card, Text } from "@radix-ui/themes";
 import Interface from "./Interface.jsx";
 import React, { useState, useRef } from "react";
+import { motion } from "framer-motion";
 
 function App() {
   const [showDiv, setShowDiv] = useState(false);
@@ -30,6 +31,12 @@ function App() {
     cameraControlsRef.current.reset(true);
   };
 
+  // Define the animation variants for Framer Motion
+  const overlayVariants = {
+    visible: { opacity: 1 },
+    hidden: { opacity: 0 },
+  };
+
   return (
     <Theme>
       <KeyboardControls
@@ -41,35 +48,52 @@ function App() {
           { name: "jump", keys: ["Space"] },
         ]}
       >
-        <Canvas
-          shadows
-          camera={{
-            fov: 45,
-            near: 0.1,
-            far: 200,
-            position: [-4, 3, 6],
+        <div
+          style={{
+            position: "fixed",
+            width: "100%",
+            height: "100%",
+            backgroundColor: "#000",
           }}
-          style={{ position: "fixed" }}
         >
-          <fog attach="fog" args={["#181818", 0, 130]} />
-          <Experience
-            cameraControlsRef={cameraControlsRef}
-            setHtmlComponent={setHtmlComponent}
-            setShowDiv={setShowDiv}
-            showButtonDiv={showButtonDiv}
-            setShowButtonDiv={setShowButtonDiv}
-            isComputerClicked={isComputerClicked}
-            setIsComputerClicked={setIsComputerClicked}
-            isActualComputerClicked={isActualComputerClicked}
-            setIsActualComputerClicked={setIsActualComputerClicked}
-            isActualWorkbenchClicked={isActualWorkbenchClicked}
-            setIsActualWorkbenchClicked={setIsActualWorkbenchClicked}
-            minDistance={minDistance}
-            setMinDistance={setMinDistance}
-            maxDistance={maxDistance}
-            setMaxDistance={setMaxDistance}
+          <motion.div
+            initial="visible"
+            animate={loadingOpaque ? "hidden" : "visible"}
+            variants={overlayVariants}
+            transition={{ duration: 1.5 }} // Customize the transition as needed
+            style={{ width: "100%", height: "100%", position: "absolute" }}
           />
-        </Canvas>
+          <Canvas
+            shadows
+            camera={{
+              fov: 45,
+              near: 0.1,
+              far: 200,
+              position: [-4, 3, 6],
+            }}
+            style={{ position: "fixed" }}
+          >
+            <fog attach="fog" args={["#181818", 0, 130]} />
+            <Experience
+              cameraControlsRef={cameraControlsRef}
+              setHtmlComponent={setHtmlComponent}
+              setShowDiv={setShowDiv}
+              showButtonDiv={showButtonDiv}
+              setShowButtonDiv={setShowButtonDiv}
+              isComputerClicked={isComputerClicked}
+              setIsComputerClicked={setIsComputerClicked}
+              isActualComputerClicked={isActualComputerClicked}
+              setIsActualComputerClicked={setIsActualComputerClicked}
+              isActualWorkbenchClicked={isActualWorkbenchClicked}
+              setIsActualWorkbenchClicked={setIsActualWorkbenchClicked}
+              minDistance={minDistance}
+              setMinDistance={setMinDistance}
+              maxDistance={maxDistance}
+              setMaxDistance={setMaxDistance}
+            />
+          </Canvas>
+        </div>
+
         <Loader
           className="loader-container"
           containerStyles={{
@@ -81,9 +105,10 @@ function App() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            background: "linear-gradient(to right, #1D1C40, #10001C)",
-            transition: "opacity 0.5ss ease-in-out",
-            opacity: loadingOpaque ? 1.0 : 0.0,
+            // background: "linear-gradient(to right, #1D1C40, #10001C)",
+            // background: "white",
+            // transition: "opacity 0.5ss ease-in-out",
+            // opacity: loadingOpaque ? 1.0 : 0.0,
           }}
           dataInterpolation={(p) => `Loading ${p.toFixed(0)}%`}
           initialState={(active) => {

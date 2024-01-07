@@ -77,7 +77,7 @@ const WorkbenchGrid = forwardRef((props, ref) => {
             position={positions[i]}
             rotationY={rotationY}
             scale={scale}
-            // {...props}
+            {...props}
           />
         ))}
       </Selection>
