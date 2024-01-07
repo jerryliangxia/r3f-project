@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import SymbHead from "./3d-jsx/SymbHead";
 import MiniSymb from "./3d-jsx/MiniSymb";
 import Venom from "./3d-jsx/Venom";
@@ -23,13 +23,13 @@ const Row = ({ Component, position, rotationY, scale, ...props }) => (
   />
 );
 
-const WorkbenchGrid = ({
-  centerPosition,
-  offset,
-  rotationY,
-  scale,
-  ...props
-}) => {
+// forwardRef((props, ref) => {
+const WorkbenchGrid = forwardRef((props, ref) => {
+  const offset = props.offset;
+  const rotationY = props.rotationY;
+  const scale = props.scale;
+  const centerPosition = props.centerPosition;
+
   const positions = [
     [-offset, 0, offset],
     [-offset, 0, 0],
@@ -59,7 +59,7 @@ const WorkbenchGrid = ({
   ];
 
   return (
-    <group>
+    <group ref={ref}>
       <Selection>
         <EffectComposer blur multisampling={16} autoClear={false}>
           <Outline
@@ -77,12 +77,12 @@ const WorkbenchGrid = ({
             position={positions[i]}
             rotationY={rotationY}
             scale={scale}
-            {...props}
+            // {...props}
           />
         ))}
       </Selection>
     </group>
   );
-};
+});
 
 export default WorkbenchGrid;

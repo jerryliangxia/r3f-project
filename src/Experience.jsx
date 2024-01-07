@@ -263,11 +263,11 @@ export default function Experience({
         />
         {/* <Grass /> */}
         <Model onPointerEnter={(event) => event.stopPropagation()} scale={1} />
-        <CuboidCollider args={[5.5, 0.1, 5.5]} position={[0, 0.1, 0]} />
-        <CuboidCollider args={[0.1, 0.1, 5.5]} position={[5.5, 1, 0]} />
-        <CuboidCollider args={[0.1, 0.1, 5.5]} position={[-5.5, 1, 0]} />
-        <CuboidCollider args={[5.5, 0.1, 0.1]} position={[0, 1, -5.5]} />
-        <CuboidCollider args={[5.5, 0.1, 0.1]} position={[0, 1, 5.5]} />
+        <CuboidCollider args={[5.5, 0.1, 5.5]} position={[0, -0.05, 0]} />
+        <CuboidCollider args={[0.1, 0.1, 5.5]} position={[5.5, 0.5, 0]} />
+        <CuboidCollider args={[0.1, 0.1, 5.5]} position={[-5.5, 0.5, 0]} />
+        <CuboidCollider args={[5.5, 0.1, 0.1]} position={[0, 0.5, -5.5]} />
+        <CuboidCollider args={[5.5, 0.1, 0.1]} position={[0, 0.5, 5.5]} />
         <CuboidCollider
           args={[0.55, 0.5, 0.55]}
           position={[-1.8, 0.45, -4.4]}

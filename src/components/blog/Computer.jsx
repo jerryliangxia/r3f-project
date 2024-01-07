@@ -69,7 +69,7 @@ const Computer = forwardRef((props, ref) => {
             transform
             wrapperClass="htmlScreen"
             distanceFactor={0.25}
-            position={[-0.305, 0.835, 0.025]}
+            position={[-0.305, 0.835, 0.015]}
             scale={1.05}
             // rotation-x={-0.256}
             style={{ opacity: showBasedOnRotation ? 1 : 0 }}
