@@ -28,11 +28,11 @@ const Workbench = forwardRef((props, ref) => {
       y: targetY + 0.7,
       duration: duration,
     });
-  }, [props.isActualWorkbenchClicked]);
+  }, [props.isActualWorkbenchClicked, props.isWorkbenchClicked]);
 
   useEffect(() => {
     let timeoutId;
-    if (props.isComputerClicked) {
+    if (props.isWorkbenchClicked) {
       props.setIsActualWorkbenchClicked(true);
     } else {
       setShowHtml(false);
@@ -46,7 +46,7 @@ const Workbench = forwardRef((props, ref) => {
         clearTimeout(timeoutId);
       }
     };
-  }, [props.isComputerClicked, props.isActualWorkbenchClicked]);
+  }, [props.isWorkbenchClicked, props.isActualWorkbenchClicked]);
 
   return (
     <>

@@ -14,6 +14,7 @@ function App() {
   const [showButtonDiv, setShowButtonDiv] = useState(false);
   const [htmlComponent, setHtmlComponent] = useState(null);
   const [isComputerClicked, setIsComputerClicked] = useState(false);
+  const [isWorkbenchClicked, setIsWorkbenchClicked] = useState(false);
   const [isActualComputerClicked, setIsActualComputerClicked] = useState(false);
   const [isActualWorkbenchClicked, setIsActualWorkbenchClicked] =
     useState(false);
@@ -28,6 +29,7 @@ function App() {
     setMinDistance(5.0);
     setMaxDistance(7.8);
     setIsComputerClicked(false);
+    setIsWorkbenchClicked(false);
     cameraControlsRef.current.reset(true);
   };
 
@@ -81,6 +83,8 @@ function App() {
               setShowButtonDiv={setShowButtonDiv}
               isComputerClicked={isComputerClicked}
               setIsComputerClicked={setIsComputerClicked}
+              isWorkbenchClicked={isWorkbenchClicked}
+              setIsWorkbenchClicked={setIsWorkbenchClicked}
               isActualComputerClicked={isActualComputerClicked}
               setIsActualComputerClicked={setIsActualComputerClicked}
               isActualWorkbenchClicked={isActualWorkbenchClicked}

@@ -2,7 +2,6 @@ import { Html, useGLTF } from "@react-three/drei";
 import { forwardRef, useState, useEffect } from "react";
 import { useControls } from "leva";
 import { useFrame } from "@react-three/fiber";
-import Desk from "./Desk";
 
 const Computer = forwardRef((props, ref) => {
   const [showHtml, setShowHtml] = useState(false);
@@ -17,7 +16,7 @@ const Computer = forwardRef((props, ref) => {
     if (props.isComputerClicked) {
       timeoutId = setTimeout(() => {
         setShowHtml(true);
-      }, 1000);
+      }, 100);
     } else {
       setShowHtml(false);
       props.setIsActualComputerClicked(false);
@@ -72,7 +71,10 @@ const Computer = forwardRef((props, ref) => {
             position={[-0.305, 0.835, 0.015]}
             scale={1.05}
             // rotation-x={-0.256}
-            style={{ opacity: showBasedOnRotation ? 1 : 0 }}
+            style={{
+              transition: "opacity 1s ease-in", // Add this line for CSS transition
+              opacity: showBasedOnRotation ? 1 : 0,
+            }}
           >
             <iframe src="https://r3f-blog.vercel.app/" />
           </Html>

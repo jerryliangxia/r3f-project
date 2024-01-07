@@ -50,6 +50,7 @@ function getImpulse(delta, inputDirection) {
 export default function CharacterController({
   handleCharacterClick,
   isComputerClicked,
+  isWorkbenchClicked,
   setIsComputerClicked,
 }) {
   const body = useRef();
@@ -57,7 +58,7 @@ export default function CharacterController({
   const animations = useAnimations(character.animations, character.scene);
   const [characterState, setCharacterState] = useState("Idle");
   const [subscribeKeys, getKeys] = useKeyboardControls();
-  const [isJumping, setIsJumping] = useState(false);
+  // const [isJumping, setIsJumping] = useState(false);
   const [keysPressed, setKeysPressed] = useState(0);
 
   useFrame((state, delta) => {
@@ -115,7 +116,7 @@ export default function CharacterController({
     //   };
     // } else {
     const action = animations.actions[characterState];
-    action.reset().fadeIn(0.5).play();
+    action.reset().fadeIn(0.2).play();
     return () => {
       action.fadeOut(0.5);
     };
@@ -154,15 +155,14 @@ export default function CharacterController({
         {/* Mesh for click events */}
         <mesh
           onPointerEnter={() => {
-            document.body.style.cursor = isComputerClicked
-              ? "default"
-              : "pointer";
+            document.body.style.cursor =
+              isComputerClicked || isWorkbenchClicked ? "default" : "pointer";
           }}
           onPointerLeave={() => {
             document.body.style.cursor = "default";
           }}
           onClick={(event) => {
-            if (!isComputerClicked) {
+            if (!isComputerClicked && !isWorkbenchClicked) {
               event.stopPropagation();
               setIsComputerClicked(true);
               handleCharacterClick(body);

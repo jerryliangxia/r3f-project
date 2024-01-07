@@ -22,6 +22,8 @@ export default function Experience({
   setShowButtonDiv,
   isComputerClicked,
   setIsComputerClicked,
+  isWorkbenchClicked,
+  setIsWorkbenchClicked,
   isActualComputerClicked,
   setIsActualComputerClicked,
   isActualWorkbenchClicked,
@@ -39,7 +41,7 @@ export default function Experience({
   const [isMovableCharacter, setIsMovableCharacter] = useState(false);
   const [mesh, setMesh] = useState(null);
 
-  const CAMERA_MIN_HEIGHT = 0.3;
+  const CAMERA_MIN_HEIGHT = 0.4;
 
   // All same options as the original "basic" example: https://yomotsu.github.io/camera-controls/examples/basic.html
   const { enabled, verticalDragToForward, dollyToCursor, infinityDolly } =
@@ -143,13 +145,15 @@ export default function Experience({
   };
 
   const handleMajorMeshClick = (
+    isWorkbench,
     custMinDistance,
     custMaxDistance,
     objectPosition,
     meshObjectRef,
     initialZoom
   ) => {
-    setIsComputerClicked(true);
+    if (isWorkbench) setIsWorkbenchClicked(true);
+    else setIsComputerClicked(true);
     setMinDistance(custMinDistance);
     setMaxDistance(custMaxDistance);
     setMesh(objectPosition);
@@ -203,6 +207,7 @@ export default function Experience({
           if (!isComputerClicked) {
             setIsActualComputerClicked(true);
             handleMajorMeshClick(
+              false,
               0.5,
               1.0,
               event.object.position,
@@ -216,15 +221,16 @@ export default function Experience({
         ref={workbenchRef}
         position={[-1.8, 0.7, -4.4]}
         rotationY={-Math.PI / 2}
-        isComputerClicked={isComputerClicked}
+        isWorkbenchClicked={isWorkbenchClicked}
         isActualWorkbenchClicked={isActualWorkbenchClicked}
         setIsActualWorkbenchClicked={setIsActualWorkbenchClicked}
         setHtmlComponent={setHtmlComponent}
         setShowDiv={setShowDiv}
         onClick={(event) => {
-          if (!isComputerClicked) {
+          if (!isComputerClicked && !isWorkbenchClicked) {
             event.stopPropagation();
             handleMajorMeshClick(
+              true,
               1.0,
               5.0,
               event.object.position,
@@ -265,6 +271,7 @@ export default function Experience({
         <CharacterController
           handleCharacterClick={handleCharacterClick}
           isComputerClicked={isComputerClicked}
+          isWorkbenchClicked={isWorkbenchClicked}
           setIsComputerClicked={setIsComputerClicked}
         />
         {/* <Grass /> */}
