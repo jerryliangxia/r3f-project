@@ -4,6 +4,7 @@ import { useControls } from "leva";
 import { useFrame } from "@react-three/fiber";
 
 const Computer = forwardRef((props, ref) => {
+  const [meshFirstRendered, setMeshFirstRendered] = useState(false);
   const [showHtml, setShowHtml] = useState(false);
   const [showBasedOnRotation, setShowBasedOnRotation] = useState(false);
 
@@ -15,6 +16,7 @@ const Computer = forwardRef((props, ref) => {
     let timeoutId;
     if (props.isComputerClicked) {
       timeoutId = setTimeout(() => {
+        if (!meshFirstRendered) setMeshFirstRendered(true);
         setShowHtml(true);
       }, 100);
     } else {
@@ -63,17 +65,17 @@ const Computer = forwardRef((props, ref) => {
         }}
         visible={false}
       >
-        {showHtml && props.isActualComputerClicked && (
+        {meshFirstRendered && (
           <Html
             transform
             wrapperClass="htmlScreen"
             distanceFactor={0.25}
             position={[-0.305, 0.835, 0.015]}
             scale={1.05}
-            // rotation-x={-0.256}
             style={{
               transition: "opacity 1s ease-in", // Add this line for CSS transition
-              opacity: showBasedOnRotation ? 1 : 0,
+              opacity:
+                meshFirstRendered && showHtml && showBasedOnRotation ? 1 : 0,
             }}
           >
             <iframe src="https://r3f-blog.vercel.app/" />
