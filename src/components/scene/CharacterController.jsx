@@ -54,6 +54,7 @@ export default function CharacterController({
   setIsComputerClicked,
 }) {
   const body = useRef();
+  // const character = useGLTF("./spid.glb");
   const character = useGLTF("./animated_spiderman_ps5.glb");
   const animations = useAnimations(character.animations, character.scene);
   const [characterState, setCharacterState] = useState("Idle");
