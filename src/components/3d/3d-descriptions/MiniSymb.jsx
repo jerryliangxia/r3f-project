@@ -7,7 +7,7 @@ export default function Symbiote() {
     <>
       <Image src="images/3d/symbiote/135.png" />
       <Image src="images/3d/symbiote/315.png" />
-      <WhiteText text={ThreeD.symbioteSuit} />
+      <WhiteText>{ThreeD.symbioteSuit}</WhiteText>
     </>
   );
 }

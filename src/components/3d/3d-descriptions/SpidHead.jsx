@@ -6,9 +6,9 @@ export default function SpidHead() {
   return (
     <>
       <Image src="images/3d/mask/mask.png" />
-      <WhiteText text={ThreeD.mask} />
+      <WhiteText>{ThreeD.mask}</WhiteText>
       <Image src="images/3d/mask/mask_mat.png" />
-      <WhiteText text={ThreeD.maskShaderEditor} />
+      <WhiteText>{ThreeD.maskShaderEditor}</WhiteText>
     </>
   );
 }

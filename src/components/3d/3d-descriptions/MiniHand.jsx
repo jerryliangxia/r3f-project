@@ -6,7 +6,7 @@ export default function MiniHand() {
   return (
     <>
       <Image src="images/3d/hand/hand.png" />
-      <WhiteText text={ThreeD.hand} />
+      <WhiteText>{ThreeD.hand}</WhiteText>
     </>
   );
 }

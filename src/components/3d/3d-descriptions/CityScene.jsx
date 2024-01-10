@@ -6,7 +6,7 @@ export default function CityScene() {
   return (
     <>
       <Image src="images/3d/animation/0.gif" />
-      <WhiteText text={ThreeD.animation} />
+      <WhiteText>{ThreeD.animation}</WhiteText>
     </>
   );
 }

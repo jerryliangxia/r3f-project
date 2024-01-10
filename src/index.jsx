@@ -13,6 +13,7 @@ function App() {
   const isMobile = window.innerWidth <= 768;
 
   const [showDiv, setShowDiv] = useState(false);
+  const [isAboutPage, setIsAboutPage] = useState(false);
   const [showButtonDiv, setShowButtonDiv] = useState(false);
   const [htmlComponent, setHtmlComponent] = useState(null);
   const [isComputerClicked, setIsComputerClicked] = useState(false);
@@ -28,11 +29,15 @@ function App() {
   const Reset = () => {
     setShowDiv(false);
     setShowButtonDiv(false);
-    setMinDistance(5.0);
-    setMaxDistance(7.8);
-    setIsComputerClicked(false);
-    setIsWorkbenchClicked(false);
-    cameraControlsRef.current.reset(true);
+    if (!isAboutPage) {
+      setMinDistance(5.0);
+      setMaxDistance(7.8);
+      setIsComputerClicked(false);
+      setIsWorkbenchClicked(false);
+      cameraControlsRef.current.reset(true);
+    } else {
+      setIsAboutPage(false);
+    }
   };
 
   const overlayVariants = {
@@ -95,6 +100,8 @@ function App() {
               setMinDistance={setMinDistance}
               maxDistance={maxDistance}
               setMaxDistance={setMaxDistance}
+              isAboutPage={isAboutPage}
+              setIsAboutPage={setIsAboutPage}
             />
           </Canvas>
         </div>
@@ -152,11 +159,12 @@ function App() {
               transition: "bottom 0.5s ease-in-out, opacity 0.5s ease-in-out",
               opacity: showButtonDiv ? 1 : 0,
             }}
-            onClick={() => {
-              showDiv ? setShowDiv(false) : Reset();
+            onClick={(event) => {
+              event.stopPropagation();
+              showDiv && !isAboutPage ? setShowDiv(false) : Reset();
             }}
           >
-            {showDiv ? <>Back</> : <>Normal View</>}
+            {showDiv && !isAboutPage ? <>Back</> : <>Normal View</>}
           </Button>
         </div>
       </KeyboardControls>

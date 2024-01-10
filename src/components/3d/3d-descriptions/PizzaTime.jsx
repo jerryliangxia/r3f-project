@@ -6,9 +6,9 @@ export default function PizzaTime() {
   return (
     <>
       <Image src="images/3d/unmasked/sample.png" />
-      <WhiteText text={ThreeD.parkerHead} />
+      <WhiteText>{ThreeD.parkerHead}</WhiteText>
       <Image src="images/3d/unmasked/onbody.png" />
-      <WhiteText text={ThreeD.parkerHead2} />
+      <WhiteText>{ThreeD.parkerHead2}</WhiteText>
     </>
   );
 }

@@ -42,11 +42,59 @@ body,
   scrollbar-width: none; /* Firefox */
 }
 
-.imageClass {
+/* below image classes for about page (TODO - clean up) */
+.image-class {
   transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
   transform: scale(0.95);
 }
 
-.imageClass:hover {
+.image-class:hover {
   transform: scale(1);
+}
+
+.image-class-subtle {
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+  transform: scale(0.98);
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2)); /* Darker initial shadow */
+}
+
+.image-class-subtle:hover {
+  transform: scale(1);
+  filter: drop-shadow(
+    0 0 20px rgba(0, 0, 0, 0.3)
+  ); /* Even darker shadow on hover */
+}
+
+/* 3d logos / about page */
+.image-class-quick {
+  transition: transform 0.05s ease-in-out, filter 0.1s ease-in-out;
+  transform: scale(0.95);
+}
+
+.image-class-quick:hover {
+  transform: scale(1);
+}
+
+/* reel for about page */
+.reel {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+/* Project arrows / about page */
+.arrow-icon {
+  transform: translateX(0);
+}
+
+.arrow-icon:hover {
+  transform: translateX(5px);
+}
+
+p:hover .arrow-icon {
+  transform: translateX(3px);
+}
+
+/* SpecialContactItem */
+.post-div:hover {
+  transform: translateX(3px);
 }

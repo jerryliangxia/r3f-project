@@ -53,6 +53,7 @@ export default function CharacterController({
   isWorkbenchClicked,
   setIsComputerClicked,
   characterPosition,
+  isAboutPage,
 }) {
   const isMobile = window.innerWidth <= 768;
   const MOVEMENT_SPEED_MOBILE = 3;
@@ -69,7 +70,7 @@ export default function CharacterController({
   useFrame((state, delta) => {
     // if (!isJumping) {
     body?.current?.wakeUp();
-    if (isMobile) return;
+    if (isMobile || isAboutPage) return;
     const { forward, backward, leftward, rightward } = getKeys();
     setKeysPressed(
       [forward, backward, leftward, rightward].filter(Boolean).length
@@ -111,7 +112,7 @@ export default function CharacterController({
   }, [keysPressed]);
 
   useFrame((state, delta) => {
-    if (!isMobile) return;
+    if (!isMobile || isAboutPage) return;
     if (character.scene.position.distanceTo(characterPosition) > 0.05) {
       const direction = character.scene.position
         .clone()
@@ -173,7 +174,12 @@ export default function CharacterController({
         angularDamping={0.5}
         enabledRotations={[false, false, false]}
       >
-        <primitive object={character.scene} scale={1} position={[0, 0, 0]} />
+        <primitive
+          object={character.scene}
+          scale={1}
+          position={[0, 0, 0]}
+          enabledRotations={[false, false, false]}
+        />
         {/* Mesh for click events */}
         <mesh
           onPointerEnter={() => {

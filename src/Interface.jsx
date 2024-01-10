@@ -19,6 +19,7 @@ export default function Interface({ htmlComponent, setShowDiv }) {
         overflow: "auto",
         backgroundColor: setShowDiv ? "rgba(0, 0, 0, 0.8)" : "rgba(0, 0, 0, 0)",
         pointerEvents: setShowDiv ? "" : "none",
+        borderRadius: "20px",
       }}
     >
       <div

@@ -6,9 +6,9 @@ export default function SymbHead() {
   return (
     <>
       <Image src="images/3d/symbiote/symbiote_mask.png" />
-      <WhiteText text={ThreeD.symbiote} />
+      <WhiteText>{ThreeD.symbiote}</WhiteText>
       <Image src="images/3d/symbiote/symbiote_mask_mat.png" />
-      <WhiteText text={ThreeD.symbioteShaderEditor} />
+      <WhiteText>{ThreeD.symbioteShaderEditor}</WhiteText>
     </>
   );
 }

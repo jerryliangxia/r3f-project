@@ -6,9 +6,9 @@ export default function Webshooter() {
   return (
     <>
       <Image src="images/3d/webshooter/0.png" />
-      <WhiteText text={ThreeD.webshooterInit} />
+      <WhiteText>{ThreeD.webshooterInit}</WhiteText>
       <Image src="images/3d/webshooter/rubber_mat.png" />
-      <WhiteText text={ThreeD.webshooter} />
+      <WhiteText>{ThreeD.webshooter}</WhiteText>
     </>
   );
 }

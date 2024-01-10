@@ -32,6 +32,8 @@ export default function Experience({
   setMinDistance,
   maxDistance,
   setMaxDistance,
+  isAboutPage,
+  setIsAboutPage,
 }) {
   const isMobile = window.innerWidth <= 768;
 
@@ -137,6 +139,12 @@ export default function Experience({
   const handleMeshClick = (Component) => {
     setHtmlComponent(<Component />);
     setShowDiv(true);
+    setIsAboutPage(true);
+    if (!showButtonDiv) {
+      setShowButtonDiv(true);
+    } else {
+      setShowButtonDiv(false);
+    }
   };
 
   const handleCharacterClick = (object) => {
@@ -181,11 +189,13 @@ export default function Experience({
     if (state.camera.position.y < CAMERA_MIN_HEIGHT) {
       state.camera.position.y = CAMERA_MIN_HEIGHT;
     }
-    const targetPosition = showButtonDiv
-      ? isMovableCharacter
-        ? body.current.translation()
-        : mesh
-      : new THREE.Vector3(0, 1, 0);
+    // if (isAboutPage) return;
+    const targetPosition =
+      showButtonDiv && !isAboutPage
+        ? isMovableCharacter
+          ? body.current.translation()
+          : mesh
+        : new THREE.Vector3(0, 1, 0);
 
     smoothedCameraTarget.lerp(targetPosition, lerpFactor);
     state.camera.lookAt(smoothedCameraTarget.x, 1.0, smoothedCameraTarget.z);
@@ -282,8 +292,8 @@ export default function Experience({
           isWorkbenchClicked={isWorkbenchClicked}
           setIsComputerClicked={setIsComputerClicked}
           characterPosition={characterPosition}
+          isAboutPage={isAboutPage}
         />
-        {/* <Grass /> */}
         <Model onPointerEnter={(event) => event.stopPropagation()} scale={1} />
         {/* Clickable mesh for mobile click events */}
         {isMobile && (

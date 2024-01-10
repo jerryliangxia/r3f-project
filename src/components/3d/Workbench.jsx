@@ -82,7 +82,6 @@ const Workbench = forwardRef((props, ref) => {
         visible={false}
       >
         <boxGeometry args={[1.1, 0.5, 1.1]} />
-        {/* <meshStandardMaterial color="#9d4a4a" /> */}
         <meshStandardMaterial color="white" />
       </mesh>
       <WorkbenchGrid
