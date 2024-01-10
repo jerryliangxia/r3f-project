@@ -282,18 +282,13 @@ export default function Experience({
           isWorkbenchClicked={isWorkbenchClicked}
           setIsComputerClicked={setIsComputerClicked}
           characterPosition={characterPosition}
-          setCharacterPosition={setCharacterPosition}
         />
         {/* <Grass /> */}
-        <Model
-          onPointerEnter={(event) => event.stopPropagation()}
-          scale={1}
-          setCharacterPosition={setCharacterPosition}
-        />
+        <Model onPointerEnter={(event) => event.stopPropagation()} scale={1} />
         {/* Clickable mesh for mobile click events */}
         {isMobile && (
           <mesh
-            position={[0, -0.05, 0]}
+            position={[0, -0.05, 1]}
             onClick={(e) => {
               setCharacterPosition(
                 new THREE.Vector3(e.point.x, e.point.y, e.point.z)
@@ -301,7 +296,7 @@ export default function Experience({
             }}
             visible={false}
           >
-            <boxGeometry args={[11, 0.1, 11]} />
+            <boxGeometry args={[11, 0.1, 9]} />
             <meshStandardMaterial />
           </mesh>
         )}

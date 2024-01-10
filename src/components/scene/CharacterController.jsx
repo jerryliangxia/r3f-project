@@ -53,10 +53,9 @@ export default function CharacterController({
   isWorkbenchClicked,
   setIsComputerClicked,
   characterPosition,
-  setCharacterPosition,
 }) {
   const isMobile = window.innerWidth <= 768;
-  const MOVEMENT_SPEED_MOBILE = 0.032;
+  const MOVEMENT_SPEED_MOBILE = 3;
 
   const body = useRef();
   const character = useGLTF("./animated_spiderman2.glb");
@@ -69,6 +68,8 @@ export default function CharacterController({
 
   useFrame((state, delta) => {
     // if (!isJumping) {
+    body?.current?.wakeUp();
+    if (isMobile) return;
     const { forward, backward, leftward, rightward } = getKeys();
     setKeysPressed(
       [forward, backward, leftward, rightward].filter(Boolean).length
@@ -101,30 +102,28 @@ export default function CharacterController({
       }
     }
     // }
-    body?.current?.wakeUp();
   });
 
   useEffect(() => {
-    if (keysPressed > 2) {
+    if (!isMobile && keysPressed > 2) {
       setCharacterState("Idle");
     }
   }, [keysPressed]);
 
   useFrame((state, delta) => {
     if (!isMobile) return;
-    if (character.scene.position.distanceTo(characterPosition) > 0.1) {
+    if (character.scene.position.distanceTo(characterPosition) > 0.05) {
       const direction = character.scene.position
         .clone()
         .sub(characterPosition)
         .normalize()
-        .multiplyScalar(MOVEMENT_SPEED_MOBILE);
+        .multiplyScalar(MOVEMENT_SPEED_MOBILE * delta);
       character.scene.position.sub(direction);
       character.scene.lookAt(characterPosition);
       setCharacterState("Run");
     } else {
       setCharacterState("Idle");
     }
-    // console.log(characterPosition);
   });
 
   useEffect(() => {
