@@ -53,6 +53,8 @@ export default function CharacterController({
   isWorkbenchClicked,
   setIsComputerClicked,
 }) {
+  const isMobile = window.innerWidth <= 768;
+
   const body = useRef();
   const character = useGLTF("./animated_spiderman2.glb");
   // const character = useGLTF("./animated_spiderman_ps5.glb");
@@ -163,7 +165,7 @@ export default function CharacterController({
             document.body.style.cursor = "default";
           }}
           onClick={(event) => {
-            if (!isComputerClicked && !isWorkbenchClicked) {
+            if (!isComputerClicked && !isWorkbenchClicked && !isMobile) {
               event.stopPropagation();
               setIsComputerClicked(true);
               handleCharacterClick(body);

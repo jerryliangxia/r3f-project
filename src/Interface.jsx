@@ -3,6 +3,8 @@ import { Flex } from "@radix-ui/themes";
 import { motion } from "framer-motion";
 
 export default function Interface({ htmlComponent, setShowDiv }) {
+  const isMobile = window.innerWidth <= 768;
+
   return (
     <div
       className="example"
@@ -23,7 +25,7 @@ export default function Interface({ htmlComponent, setShowDiv }) {
         style={{
           width: "70%",
           marginTop: "5vh",
-          marginBottom: "5vh",
+          marginBottom: isMobile ? "15vh" : "5vh",
         }}
       >
         <motion.div
@@ -33,7 +35,11 @@ export default function Interface({ htmlComponent, setShowDiv }) {
         >
           <Flex gap="6" direction="column" align="left">
             {cloneElement(htmlComponent, { setShowDiv })}
-            <div></div>
+            <div
+              style={{
+                marginBottom: isMobile ? "10vh" : "0vh",
+              }}
+            ></div>
           </Flex>
         </motion.div>
       </div>

@@ -33,6 +33,8 @@ export default function Experience({
   maxDistance,
   setMaxDistance,
 }) {
+  const isMobile = window.innerWidth <= 768;
+
   const isNight = true;
   const computerRef = useRef();
   const workbenchRef = useRef();
@@ -186,7 +188,7 @@ export default function Experience({
 
   return (
     <>
-      <Perf position="top-left" />
+      {!isMobile && <Perf position="top-left" />}
       <CameraControls
         ref={cameraControlsRef}
         minDistance={minDistance}
@@ -199,6 +201,7 @@ export default function Experience({
       <Computer
         ref={computerRef}
         position={[2.1, 0.0, -4.2]}
+        setHtmlComponent={setHtmlComponent}
         isComputerClicked={isComputerClicked}
         setIsComputerClicked={setIsComputerClicked}
         isActualComputerClicked={isActualComputerClicked}

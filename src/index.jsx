@@ -10,6 +10,8 @@ import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 
 function App() {
+  const isMobile = window.innerWidth <= 768;
+
   const [showDiv, setShowDiv] = useState(false);
   const [showButtonDiv, setShowButtonDiv] = useState(false);
   const [htmlComponent, setHtmlComponent] = useState(null);
@@ -143,7 +145,7 @@ function App() {
           <Button
             style={{
               position: "absolute",
-              bottom: showButtonDiv ? 0 : "-120px",
+              bottom: showButtonDiv ? (isMobile ? "60px" : 0) : "-120px",
               left: "50%",
               transform: "translateX(-50%)",
               zIndex: 1,
