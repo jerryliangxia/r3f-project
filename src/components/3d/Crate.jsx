@@ -29,18 +29,50 @@ export default function Crate(props) {
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
-        <mesh
-          name="Box1"
-          geometry={nodes.Box1.geometry}
-          material={materials["Dark Blue"]}
-          scale={[1.263, 0.839, 1.115]}
-        />
-        <mesh
-          name="Box2"
-          geometry={nodes.Box2.geometry}
-          material={materials["Dark Blue"]}
-          scale={[1.263, 0.839, 1.115]}
-        />
+        <group name="Box1">
+          <mesh
+            name="Box1_1"
+            geometry={nodes.Box1_1.geometry}
+            material={materials["Dark Green"]}
+          />
+          <mesh
+            name="Box1_2"
+            geometry={nodes.Box1_2.geometry}
+            material={materials["Yellow Glow"]}
+          />
+          <mesh
+            name="Box1_3"
+            geometry={nodes.Box1_3.geometry}
+            material={materials.Black}
+          />
+          <mesh
+            name="Box1_4"
+            geometry={nodes.Box1_4.geometry}
+            material={materials["Dark Gray"]}
+          />
+        </group>
+        <group name="Box2">
+          <mesh
+            name="Box2_1"
+            geometry={nodes.Box2_1.geometry}
+            material={materials["Dark Green"]}
+          />
+          <mesh
+            name="Box2_2"
+            geometry={nodes.Box2_2.geometry}
+            material={materials["Yellow Glow"]}
+          />
+          <mesh
+            name="Box2_3"
+            geometry={nodes.Box2_3.geometry}
+            material={materials.Black}
+          />
+          <mesh
+            name="Box2_4"
+            geometry={nodes.Box2_4.geometry}
+            material={materials["Dark Gray"]}
+          />
+        </group>
       </group>
     </group>
   );

@@ -97,8 +97,13 @@ const Workbench = forwardRef((props, ref) => {
         setHtmlComponent={props.setHtmlComponent}
         setShowDiv={props.setShowDiv}
       />
-      <mesh ref={meshRef} position={props.position}>
-        <boxGeometry args={[1.25, 0.5, 1.05]} />
+      <mesh
+        ref={meshRef}
+        position={props.position.map(
+          (value, index) => value + [0, 0, 0][index]
+        )}
+      >
+        <boxGeometry args={[1.22, 0.5, 1.05]} />
         <meshStandardMaterial color="black" />
       </mesh>
     </>
