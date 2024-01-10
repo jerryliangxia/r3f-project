@@ -43,6 +43,11 @@ export default function Experience({
   const [isMovableCharacter, setIsMovableCharacter] = useState(false);
   const [mesh, setMesh] = useState(null);
 
+  // mobile character movements
+  const [characterPosition, setCharacterPosition] = useState(
+    new THREE.Vector3()
+  );
+
   const CAMERA_MIN_HEIGHT = 0.4;
 
   // All same options as the original "basic" example: https://yomotsu.github.io/camera-controls/examples/basic.html
@@ -276,9 +281,30 @@ export default function Experience({
           isComputerClicked={isComputerClicked}
           isWorkbenchClicked={isWorkbenchClicked}
           setIsComputerClicked={setIsComputerClicked}
+          characterPosition={characterPosition}
+          setCharacterPosition={setCharacterPosition}
         />
         {/* <Grass /> */}
-        <Model onPointerEnter={(event) => event.stopPropagation()} scale={1} />
+        <Model
+          onPointerEnter={(event) => event.stopPropagation()}
+          scale={1}
+          setCharacterPosition={setCharacterPosition}
+        />
+        {/* Clickable mesh for mobile click events */}
+        {isMobile && (
+          <mesh
+            position={[0, -0.05, 0]}
+            onClick={(e) => {
+              setCharacterPosition(
+                new THREE.Vector3(e.point.x, e.point.y, e.point.z)
+              );
+            }}
+            visible={false}
+          >
+            <boxGeometry args={[11, 0.1, 11]} />
+            <meshStandardMaterial />
+          </mesh>
+        )}
         <CuboidCollider args={[5.5, 0.1, 5.5]} position={[0, -0.05, 0]} />
         <CuboidCollider args={[0.1, 0.1, 5.5]} position={[5.5, 0.5, 0]} />
         <CuboidCollider args={[0.1, 0.1, 5.5]} position={[-5.5, 0.5, 0]} />

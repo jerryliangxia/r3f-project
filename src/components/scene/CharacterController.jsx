@@ -52,8 +52,11 @@ export default function CharacterController({
   isComputerClicked,
   isWorkbenchClicked,
   setIsComputerClicked,
+  characterPosition,
+  setCharacterPosition,
 }) {
   const isMobile = window.innerWidth <= 768;
+  const MOVEMENT_SPEED_MOBILE = 0.032;
 
   const body = useRef();
   const character = useGLTF("./animated_spiderman2.glb");
@@ -107,6 +110,23 @@ export default function CharacterController({
     }
   }, [keysPressed]);
 
+  useFrame((state, delta) => {
+    if (!isMobile) return;
+    if (character.scene.position.distanceTo(characterPosition) > 0.1) {
+      const direction = character.scene.position
+        .clone()
+        .sub(characterPosition)
+        .normalize()
+        .multiplyScalar(MOVEMENT_SPEED_MOBILE);
+      character.scene.position.sub(direction);
+      character.scene.lookAt(characterPosition);
+      setCharacterState("Run");
+    } else {
+      setCharacterState("Idle");
+    }
+    // console.log(characterPosition);
+  });
+
   useEffect(() => {
     // if (isJumping) {
     //   const action = animations.actions[characterState];
@@ -148,7 +168,7 @@ export default function CharacterController({
       <RigidBody
         ref={body}
         colliders={false}
-        position={[0, 1, -0.25]}
+        position={[0, 0.5, 0]}
         scale={[0.5, 0.5, 0.5]}
         linearDamping={1}
         angularDamping={0.5}
