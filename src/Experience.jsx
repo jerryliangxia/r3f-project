@@ -237,7 +237,7 @@ export default function Experience({
       />
       <Workbench
         ref={workbenchRef}
-        position={[-1.8, 0.7, -4.4]}
+        position={[-1.8, 0.85, -4.4]}
         rotationY={-Math.PI / 2}
         isWorkbenchClicked={isWorkbenchClicked}
         isActualWorkbenchClicked={isActualWorkbenchClicked}

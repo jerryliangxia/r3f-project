@@ -46,7 +46,7 @@ function App() {
   };
 
   return (
-    <Theme>
+    <Theme accentColor="gold">
       <KeyboardControls
         map={[
           { name: "forward", keys: ["ArrowUp", "KeyW"] },

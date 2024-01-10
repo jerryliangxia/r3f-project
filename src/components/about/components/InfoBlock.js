@@ -54,9 +54,13 @@ function InfoBlock({
             ) : (
               <WhiteText as="p">{rightTitle}</WhiteText>
             )}
-            <WhiteText as="p">{rightSubtitle}</WhiteText>
+            <WhiteText as="p" color="gray">
+              {rightSubtitle}
+            </WhiteText>
           </Flex>
-          <WhiteText as="p">{rightText}</WhiteText>
+          <WhiteText as="p" color="gray">
+            {rightText}
+          </WhiteText>
         </Flex>
       </Flex>
     </>

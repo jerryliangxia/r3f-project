@@ -25,7 +25,7 @@ const Workbench = forwardRef((props, ref) => {
 
     // Animate the mesh
     gsap.to(meshRef.current.position, {
-      y: targetY + 0.7,
+      y: targetY + 0.85,
       duration: duration,
     });
   }, [props.isActualWorkbenchClicked, props.isWorkbenchClicked]);

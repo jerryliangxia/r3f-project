@@ -1,4 +1,4 @@
-import { Text } from "@radix-ui/themes";
+import { Text, Theme } from "@radix-ui/themes";
 
 export function WhiteText({
   children,
@@ -10,11 +10,11 @@ export function WhiteText({
 }) {
   return (
     <Text
-      color={color}
       size={size}
-      style={style}
+      style={{ ...style, color: color }}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
+      highContrast
     >
       {children}
     </Text>

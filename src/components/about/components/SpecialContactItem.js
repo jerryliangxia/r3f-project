@@ -16,7 +16,7 @@ function SpecialContactItem({ href, src, title }) {
     >
       <Flex gap="2" align="center" direction="row">
         <img src={src} style={{ width: "20%", objectFit: "contain" }} alt="" />
-        <WhiteText>{title}</WhiteText>
+        <WhiteText color="gray">{title}</WhiteText>
       </Flex>
     </RadixLink>
   );

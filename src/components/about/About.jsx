@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex, Heading } from "@radix-ui/themes";
+import { Flex, Heading, Text } from "@radix-ui/themes";
 import InfoBlock from "./components/InfoBlock";
 import Contact from "./components/Contact";
 import SpecialContact from "./components/SpecialContact";
@@ -10,11 +10,13 @@ import { WhiteText } from "../3d/3d-descriptions/components/WhiteText";
 export default function About({ setShowDiv }) {
   return (
     <Flex gap="6" direction="column">
-      <Heading color="white">Jerry Xia</Heading>
+      <Heading style={{ color: "white" }}>Jerry Xia</Heading>
       <section>
         <Flex gap="1" direction="column">
-          <WhiteText color="white">About</WhiteText>
-          <WhiteText color="white">
+          <WhiteText size={2} color="white">
+            About
+          </WhiteText>
+          <WhiteText color="gray">
             Hi! I'm a SWE student at McGill, passionate about games. Read about
             my journey with Hierarchical Task Networks in my latest blog!
           </WhiteText>
@@ -80,7 +82,7 @@ export default function About({ setShowDiv }) {
           direction="column"
         >
           <WhiteText>Technical Skills</WhiteText>
-          <WhiteText color="white">{basicData.technicalSkills}</WhiteText>
+          <WhiteText color="gray">{basicData.technicalSkills}</WhiteText>
         </Flex>
       </section>
       <section>

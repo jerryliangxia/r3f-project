@@ -5,7 +5,7 @@ import { WhiteText } from "../../3d/3d-descriptions/components/WhiteText";
 function ContactInfo({ site, username, href }) {
   return (
     <Flex gap="3" direction="row">
-      <WhiteText color="white" style={{ width: "30%" }}>
+      <WhiteText color="gray" style={{ width: "30%" }}>
         {site}
       </WhiteText>
       <WhiteText color="white" style={{ width: "70%" }}>
