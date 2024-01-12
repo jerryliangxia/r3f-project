@@ -12,10 +12,10 @@ export default function Interface({ htmlComponent, setShowDiv }) {
         display: "flex",
         justifyContent: "center",
         position: "absolute",
-        top: "10vh",
-        left: "10vw",
-        width: "80vw",
-        height: "80vh",
+        top: isMobile ? "5vh" : "10vh",
+        left: isMobile ? "5vw" : "10vw",
+        width: isMobile ? "90vw" : "80vw",
+        height: isMobile ? "90vh" : "80vh",
         overflow: "auto",
         backgroundColor: setShowDiv ? "rgba(0, 0, 0, 0.8)" : "rgba(0, 0, 0, 0)",
         pointerEvents: setShowDiv ? "" : "none",
@@ -24,9 +24,9 @@ export default function Interface({ htmlComponent, setShowDiv }) {
     >
       <div
         style={{
-          width: "70%",
+          width: isMobile ? "90%" : "70%",
           marginTop: "5vh",
-          marginBottom: isMobile ? "15vh" : "5vh",
+          marginBottom: isMobile ? "20vh" : "5vh",
         }}
       >
         <motion.div
