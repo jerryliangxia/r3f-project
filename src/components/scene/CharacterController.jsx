@@ -44,7 +44,12 @@ function rotateAndMove(impulse, character, body, delta = 1) {
 function getRotation(impulse, delta, character) {
   const targetAngle = Math.atan2(impulse.x, impulse.z);
   const currentAngle = character.scene.rotation.y;
-  const newAngle = THREE.MathUtils.lerp(currentAngle, targetAngle, 0.1) * delta;
+  const newAngle = THREE.MathUtils.lerp(
+    currentAngle,
+    targetAngle,
+    0.1 * delta * 100
+  );
+  const angleDifference = Math.abs(newAngle - targetAngle);
   return angleDifference <= ROTATION_THRESHOLD ? newAngle : targetAngle;
 }
 
@@ -122,7 +127,7 @@ export default function CharacterController({
     if (!isMobile || isAboutPage) return;
 
     const direction = new THREE.Vector3()
-      .subVectors(characterPosition, body.current.translation())
+      .subVectors(characterPosition, body?.current?.translation())
       .normalize();
 
     const bodyTranslation = new THREE.Vector3(
