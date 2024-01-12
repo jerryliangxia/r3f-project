@@ -105,7 +105,8 @@ export default function CharacterController({
       const impulse = getImpulse(delta, inputDirection);
       const isMoving = impulse.x !== 0 || impulse.z !== 0;
       if (isMoving) {
-        rotateAndMove(impulse, character, body);
+        character.scene.rotation.y = getRotation(impulse, delta, character);
+        if (verifyLinvel(body)) body.current.applyImpulse(impulse);
 
         if (characterState !== "Run") {
           setCharacterState("Run");
