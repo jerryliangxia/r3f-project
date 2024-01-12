@@ -59,17 +59,8 @@ const WorkbenchGrid = forwardRef((props, ref) => {
   ];
 
   return (
-    <group ref={ref}>
-      <Selection>
-        <EffectComposer blur multisampling={16} autoClear={false}>
-          <Outline
-            blur
-            visibleEdgeColor="white"
-            edgeStrength={3}
-            width={1500}
-          />
-        </EffectComposer>
-
+    <>
+      <group ref={ref}>
         {components.map((Component, i) => (
           <Row
             key={i}
@@ -80,8 +71,17 @@ const WorkbenchGrid = forwardRef((props, ref) => {
             {...props}
           />
         ))}
-      </Selection>
-    </group>
+      </group>
+      <mesh
+        ref={props.meshRef}
+        position={props.centerPosition.map(
+          (value, index) => value + [0, -0.08, 0][index]
+        )}
+      >
+        <boxGeometry args={[1.22, 0.5, 1.05]} />
+        <meshStandardMaterial color="black" />
+      </mesh>
+    </>
   );
 });
 

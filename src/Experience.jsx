@@ -16,6 +16,12 @@ import { useThree } from "@react-three/fiber";
 import { useControls, button, buttonGroup, folder } from "leva";
 import Computer from "./components/blog/Computer";
 import Workbench from "./components/3d/Workbench";
+import {
+  Selection,
+  EffectComposer,
+  Outline,
+} from "@react-three/postprocessing";
+import { work } from "./Info";
 // import LightBridge from "./components/scene/shader/LightBridge";
 // import Sky from "./components/scene/shader/Sky";
 
@@ -243,51 +249,50 @@ export default function Experience({
         dollyToCursor={dollyToCursor}
         infinityDolly={infinityDolly}
       />
-      <Computer
-        ref={computerRef}
-        position={[2.1, 0.0, -4.2]}
-        setHtmlComponent={setHtmlComponent}
-        isComputerClicked={isComputerClicked}
-        setIsComputerClicked={setIsComputerClicked}
-        isActualComputerClicked={isActualComputerClicked}
-        setIsActualComputerClicked={setIsActualComputerClicked}
-        onClick={(event) => {
-          if (!isComputerClicked) {
-            setIsActualComputerClicked(true);
-            handleMajorMeshClick(
-              false,
-              0.5,
-              1.0,
-              event.object.position,
-              computerRef.current,
-              1.5
-            );
-          }
-        }}
-      />
-      <Workbench
-        ref={workbenchRef}
-        position={[-1.8, 0.85, -4.4]}
-        rotationY={-Math.PI / 2}
-        isWorkbenchClicked={isWorkbenchClicked}
-        isActualWorkbenchClicked={isActualWorkbenchClicked}
-        setIsActualWorkbenchClicked={setIsActualWorkbenchClicked}
-        setHtmlComponent={setHtmlComponent}
-        setShowDiv={setShowDiv}
-        onClick={(event) => {
-          if (!isComputerClicked && !isWorkbenchClicked) {
-            event.stopPropagation();
-            handleMajorMeshClick(
-              true,
-              1.0,
-              5.0,
-              event.object.position,
-              workbenchRef.current,
-              3.0
-            );
-          }
-        }}
-      />
+      <Selection>
+        <EffectComposer blur multisampling={16} autoClear={false}>
+          <Outline
+            blur
+            visibleEdgeColor="white"
+            edgeStrength={30}
+            width={1500}
+          />
+        </EffectComposer>
+        <Computer
+          ref={computerRef}
+          position={[2.1, 0.0, -4.2]}
+          setHtmlComponent={setHtmlComponent}
+          isComputerClicked={isComputerClicked}
+          setIsComputerClicked={setIsComputerClicked}
+          isActualComputerClicked={isActualComputerClicked}
+          setIsActualComputerClicked={setIsActualComputerClicked}
+          onClick={(event) => {
+            if (!isComputerClicked) {
+              setIsActualComputerClicked(true);
+              handleMajorMeshClick(
+                false,
+                0.5,
+                1.0,
+                event.object.position,
+                computerRef.current,
+                1.5
+              );
+            }
+          }}
+        />
+        <Workbench
+          ref={workbenchRef}
+          position={[-1.8, 0.85, -4.4]}
+          rotationY={-Math.PI / 2}
+          isComputerClicked={isComputerClicked}
+          handleMajorMeshClick={handleMajorMeshClick}
+          isWorkbenchClicked={isWorkbenchClicked}
+          isActualWorkbenchClicked={isActualWorkbenchClicked}
+          setIsActualWorkbenchClicked={setIsActualWorkbenchClicked}
+          setHtmlComponent={setHtmlComponent}
+          setShowDiv={setShowDiv}
+        />
+      </Selection>
       {/* <Environment preset={isNight ? "night" : "sunset"} />
       <Sky isNight={isNight} /> */}
       <Environment preset="sunset" />

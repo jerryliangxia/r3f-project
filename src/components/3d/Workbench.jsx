@@ -108,6 +108,8 @@ const Workbench = forwardRef((props, ref) => {
   return (
     <>
       <Crate
+        ref={ref}
+        {...props}
         scale={0.5}
         position={props.position.map(
           (value, index) => value + [0, -0.41, 0][index]
@@ -139,25 +141,9 @@ const Workbench = forwardRef((props, ref) => {
         intensity={3.0}
         color="pink"
       />
-      <mesh
-        ref={ref}
-        {...props}
-        position={props.position}
-        onPointerEnter={() => {
-          document.body.style.cursor = props.isComputerClicked
-            ? "default"
-            : "pointer";
-        }}
-        onPointerLeave={() => {
-          document.body.style.cursor = "default";
-        }}
-        visible={false}
-      >
-        <boxGeometry args={[1.1, 0.5, 1.1]} />
-        <meshStandardMaterial color="white" />
-      </mesh>
       <WorkbenchGrid
         ref={workbenchGridRef}
+        meshRef={meshRef}
         centerPosition={props.position.map(
           (value, index) => value + [0, 0.28, -0.02][index]
         )}
@@ -168,15 +154,6 @@ const Workbench = forwardRef((props, ref) => {
         setHtmlComponent={props.setHtmlComponent}
         setShowDiv={props.setShowDiv}
       />
-      <mesh
-        ref={meshRef}
-        position={props.position.map(
-          (value, index) => value + [0, 0, 0][index]
-        )}
-      >
-        <boxGeometry args={[1.22, 0.5, 1.05]} />
-        <meshStandardMaterial color="black" />
-      </mesh>
     </>
   );
 });
