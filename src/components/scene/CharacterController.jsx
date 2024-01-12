@@ -30,14 +30,22 @@ function getRotationMatrix(state) {
   return rotationMatrix;
 }
 
-function rotateAndMove(impulse, character, body) {
+function rotateAndMove(impulse, character, body, delta = 1) {
   const targetAngle = Math.atan2(impulse.x, impulse.z);
   const currentAngle = character.scene.rotation.y;
-  const newAngle = THREE.MathUtils.lerp(currentAngle, targetAngle, 0.1);
+  const newAngle = THREE.MathUtils.lerp(currentAngle, targetAngle, 0.1) * delta;
+  // const newAngle = THREE.MathUtils.lerp(currentAngle, targetAngle, 0.1);
   const angleDifference = Math.abs(newAngle - targetAngle);
   body.current.applyImpulse(impulse);
   character.scene.rotation.y =
     angleDifference <= ROTATION_THRESHOLD ? newAngle : targetAngle;
+}
+
+function getRotation(impulse, delta, character) {
+  const targetAngle = Math.atan2(impulse.x, impulse.z);
+  const currentAngle = character.scene.rotation.y;
+  const newAngle = THREE.MathUtils.lerp(currentAngle, targetAngle, 0.1) * delta;
+  return angleDifference <= ROTATION_THRESHOLD ? newAngle : targetAngle;
 }
 
 function getImpulse(delta, inputDirection) {
@@ -124,7 +132,8 @@ export default function CharacterController({
     );
     if (bodyTranslation.distanceTo(characterPosition) > 0.2) {
       const impulse = getImpulse(delta, direction);
-      if (verifyLinvel(body)) rotateAndMove(impulse, character, body);
+      character.scene.rotation.y = getRotation(impulse, delta, character);
+      if (verifyLinvel(body)) body.current.applyImpulse(impulse);
       setCharacterState("Run");
     } else {
       setCharacterState("Idle");
