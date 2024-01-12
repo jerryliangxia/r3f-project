@@ -16,6 +16,7 @@ const Crate = forwardRef((props, ref) => {
 
   const handlePointerOver = (event) => {
     event.stopPropagation();
+    if (props.isActualWorkbenchClicked) return;
     if (timeoutId) {
       clearTimeout(timeoutId);
     }

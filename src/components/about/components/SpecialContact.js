@@ -2,7 +2,7 @@ import React from "react";
 import { Flex, Link as RadixLink } from "@radix-ui/themes";
 import { flexGaps } from "../../../Info";
 import SpecialContactItem from "./SpecialContactItem";
-import { WhiteText } from "../../3d/3d-descriptions/components/WhiteText";
+import { WhiteText } from "../../general/WhiteText";
 
 const iconSizeMobile = "80%";
 const SpecialContactMobile = () => {

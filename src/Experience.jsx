@@ -254,8 +254,8 @@ export default function Experience({
           <Outline
             blur
             visibleEdgeColor="white"
-            edgeStrength={30}
-            width={1500}
+            edgeStrength={1}
+            width={1000}
           />
         </EffectComposer>
         <Computer
@@ -266,19 +266,7 @@ export default function Experience({
           setIsComputerClicked={setIsComputerClicked}
           isActualComputerClicked={isActualComputerClicked}
           setIsActualComputerClicked={setIsActualComputerClicked}
-          onClick={(event) => {
-            if (!isComputerClicked) {
-              setIsActualComputerClicked(true);
-              handleMajorMeshClick(
-                false,
-                0.5,
-                1.0,
-                event.object.position,
-                computerRef.current,
-                1.5
-              );
-            }
-          }}
+          handleMajorMeshClick={handleMajorMeshClick}
         />
         <Workbench
           ref={workbenchRef}

@@ -1,8 +1,7 @@
 import { Html } from "@react-three/drei";
 import { forwardRef, useState, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
-import Image from "../3d/3d-descriptions/components/Image";
-import { WhiteText } from "../3d/3d-descriptions/components/WhiteText";
+import Desk from "./Desk";
 
 const Computer = forwardRef((props, ref) => {
   const [meshFirstRendered, setMeshFirstRendered] = useState(false);
@@ -35,22 +34,17 @@ const Computer = forwardRef((props, ref) => {
     };
   }, [props.isComputerClicked, props.isActualComputerClicked]);
 
-  const scale = 0.5;
   return (
     <>
-      {/* Mesh that will be looked at */}
-      <mesh
+      {/* Mesh that can be clicked */}
+      <Desk
         ref={ref}
         {...props}
         position={props.position.map(
-          (value, index) => value + [0.031, 0.913, 0.0][index]
+          (value, index) => value + [0.01, 0.01, 0.03][index]
         )}
-        visible={false}
-      >
-        <boxGeometry args={[0.5 * scale, 0.33 * scale, 0.05 * scale]} />
-        <meshStandardMaterial color="#9d4b4b" />
-      </mesh>
-      {/* Mesh that can be clicked */}
+      />
+      {/* HTML */}
       <mesh
         {...props}
         position={props.position.map(

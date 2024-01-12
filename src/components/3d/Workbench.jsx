@@ -114,7 +114,6 @@ const Workbench = forwardRef((props, ref) => {
         position={props.position.map(
           (value, index) => value + [0, -0.41, 0][index]
         )}
-        isActualWorkbenchClicked={props.isActualWorkbenchClicked}
       />
       {/* <mesh
         ref={lightRef}

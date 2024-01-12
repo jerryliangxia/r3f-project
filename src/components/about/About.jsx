@@ -5,7 +5,7 @@ import Contact from "./components/Contact";
 import SpecialContact from "./components/SpecialContact";
 import { basicData, jobExperience, work, flexGaps } from "../../Info";
 import ImagePopup from "./components/ImagePopup";
-import { WhiteText } from "../3d/3d-descriptions/components/WhiteText";
+import { WhiteText } from "../general/WhiteText";
 
 export default function About({ setShowDiv }) {
   return (

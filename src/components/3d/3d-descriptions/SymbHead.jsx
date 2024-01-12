@@ -1,6 +1,6 @@
-import { WhiteText } from "./components/WhiteText";
+import { WhiteText } from "../../general/WhiteText";
 import { ThreeD } from "../../../Info";
-import Image from "./components/Image";
+import Image from "../../general/Image";
 
 export default function SymbHead() {
   return (

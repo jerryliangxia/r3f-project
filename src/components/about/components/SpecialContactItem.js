@@ -1,6 +1,6 @@
 import React from "react";
 import { Flex, Link as RadixLink } from "@radix-ui/themes";
-import { WhiteText } from "../../3d/3d-descriptions/components/WhiteText";
+import { WhiteText } from "../../general/WhiteText";
 
 function SpecialContactItem({ href, src, title }) {
   return (
