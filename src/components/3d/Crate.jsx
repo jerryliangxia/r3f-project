@@ -71,8 +71,6 @@ const Crate = forwardRef((props, ref) => {
           onPointerOut={handlePointerOut}
           onClick={(event) => {
             if (!props.isComputerClicked && !props.isWorkbenchClicked) {
-              console.log(ref);
-              console.log(event.object.position);
               event.stopPropagation();
               props.handleMajorMeshClick(
                 true,

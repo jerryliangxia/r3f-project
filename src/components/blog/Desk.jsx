@@ -32,8 +32,6 @@ const Desk = forwardRef((props, ref) => {
     }, 10); // delay in milliseconds
   };
 
-  console.log(props.isActualComputerClicked);
-
   return (
     <Select enabled={enabled && !props.isActualComputerClicked}>
       {/* Mesh that will be looked at */}
