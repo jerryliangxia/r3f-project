@@ -22,6 +22,7 @@ import {
   Outline,
 } from "@react-three/postprocessing";
 import { work } from "./Info";
+import QuestionMark from "./components/about/QuestionMark";
 // import LightBridge from "./components/scene/shader/LightBridge";
 // import Sky from "./components/scene/shader/Sky";
 
@@ -280,6 +281,13 @@ export default function Experience({
           setHtmlComponent={setHtmlComponent}
           setShowDiv={setShowDiv}
         />
+        <QuestionMark
+          position={[3.05, 1, 3.15]}
+          scale={0.2}
+          isActualComputerClicked={isActualComputerClicked}
+          isActualWorkbenchClicked={isActualWorkbenchClicked}
+          onClick={() => handleMeshClick(About)}
+        />
       </Selection>
       {/* <Environment preset={isNight ? "night" : "sunset"} />
       <Sky isNight={isNight} /> */}
@@ -288,7 +296,7 @@ export default function Experience({
       {/* <ContactShadows position-y={0} frames={2} /> */}
 
       {/* CLICKABLE COMPONENTS */}
-      <mesh
+      {/* <mesh
         position={[3.05, 1, 3.15]}
         scale={0.2}
         onPointerEnter={() => {
@@ -300,7 +308,7 @@ export default function Experience({
         onClick={() => handleMeshClick(About)}
       >
         <sphereGeometry args={[1]} />
-      </mesh>
+      </mesh> */}
       {/* <directionalLight
         castShadow
         color="purple"

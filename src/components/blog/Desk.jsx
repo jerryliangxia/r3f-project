@@ -51,7 +51,7 @@ const Desk = forwardRef((props, ref) => {
         dispose={null}
         onPointerOver={handlePointerOver}
         onPointerOut={handlePointerOut}
-        onClick={(event) => {
+        onClick={() => {
           if (!props.isComputerClicked) {
             props.setIsActualComputerClicked(true);
             props.handleMajorMeshClick(
