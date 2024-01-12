@@ -1,17 +1,22 @@
-import { Sky, CameraControls, Environment } from "@react-three/drei";
+import {
+  Sky,
+  CameraControls,
+  Environment,
+  ContactShadows,
+} from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import CharacterController from "./components/scene/CharacterController";
 import { Physics, CuboidCollider } from "@react-three/rapier";
 import { Model } from "./components/scene/Platform";
 import * as THREE from "three";
-import { useFrame } from "@react-three/fiber";
-import { useRef, useState } from "react";
+import { useLoader, useFrame } from "@react-three/fiber";
+import { useRef, useState, useEffect } from "react";
 import About from "./components/about/About";
 import { useThree } from "@react-three/fiber";
 import { useControls, button, buttonGroup, folder } from "leva";
 import Computer from "./components/blog/Computer";
 import Workbench from "./components/3d/Workbench";
-import LightBridge from "./components/scene/shader/LightBridge";
+// import LightBridge from "./components/scene/shader/LightBridge";
 // import Sky from "./components/scene/shader/Sky";
 
 export default function Experience({
@@ -37,6 +42,11 @@ export default function Experience({
 }) {
   const isMobile = window.innerWidth <= 768;
 
+  const simpleShadow = useLoader(
+    THREE.TextureLoader,
+    "/images/scene/simpleShadow.jpg"
+  );
+
   const isNight = true;
   const computerRef = useRef();
   const workbenchRef = useRef();
@@ -44,11 +54,31 @@ export default function Experience({
   const [body, setBody] = useState(null);
   const [isMovableCharacter, setIsMovableCharacter] = useState(false);
   const [mesh, setMesh] = useState(null);
+  const [mobileTapTimeOut, setMobileTapTimeOut] = useState(0.0);
 
   // mobile character movements
   const [characterPosition, setCharacterPosition] = useState(
     new THREE.Vector3()
   );
+
+  useEffect(() => {
+    // Set mobileTapTimeOut to 1 when characterPosition changes
+    setMobileTapTimeOut(1);
+
+    // Calculate the decrement amount for each interval step
+    const decrementAmount = 0.05; // 10 steps to go from 1 to 0
+    const intervalTime = 20; // 100ms interval time
+
+    // Set interval to decrease mobileTapTimeOut gradually over 1 second
+    const intervalId = setInterval(() => {
+      setMobileTapTimeOut((prevTimeout) =>
+        Math.max(prevTimeout - decrementAmount, 0)
+      );
+    }, intervalTime);
+
+    // Clear the interval when the component unmounts or characterPosition changes
+    return () => clearInterval(intervalId);
+  }, [characterPosition]);
 
   const CAMERA_MIN_HEIGHT = 0.4;
 
@@ -262,6 +292,7 @@ export default function Experience({
       <Sky isNight={isNight} /> */}
       <Environment preset="sunset" />
       <Sky azimuth={0} inclination={0} />
+      {/* <ContactShadows position-y={0} frames={2} /> */}
 
       {/* CLICKABLE COMPONENTS */}
       <mesh
@@ -297,18 +328,29 @@ export default function Experience({
         <Model onPointerEnter={(event) => event.stopPropagation()} scale={1} />
         {/* Clickable mesh for mobile click events */}
         {isMobile && (
-          <mesh
-            position={[0, -0.05, 1]}
-            onClick={(e) => {
-              setCharacterPosition(
-                new THREE.Vector3(e.point.x, e.point.y, e.point.z)
-              );
-            }}
-            visible={false}
-          >
-            <boxGeometry args={[11, 0.1, 9]} />
-            <meshStandardMaterial />
-          </mesh>
+          <>
+            <mesh
+              position={[0, -0.05, 1]}
+              onClick={(e) => {
+                setCharacterPosition(
+                  new THREE.Vector3(e.point.x, e.point.y, e.point.z)
+                );
+              }}
+              visible={false}
+            >
+              <boxGeometry args={[11, 0.1, 9]} />
+              <meshStandardMaterial />
+            </mesh>
+            <mesh position={characterPosition} rotation-x={-Math.PI / 2}>
+              <planeGeometry args={[1, 1]} />
+              <meshBasicMaterial
+                color="#978365"
+                transparent
+                opacity={mobileTapTimeOut}
+                alphaMap={simpleShadow}
+              />
+            </mesh>
+          </>
         )}
         <CuboidCollider args={[5.5, 0.1, 5.5]} position={[0, -0.05, 0]} />
         <CuboidCollider args={[0.1, 0.1, 5.5]} position={[5.5, 0.5, 0]} />

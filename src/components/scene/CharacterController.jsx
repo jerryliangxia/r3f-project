@@ -8,6 +8,8 @@ const MAX_LINVEL = 2;
 const ROTATION_THRESHOLD = Math.PI;
 const IMPULSE_FACTOR = 2;
 
+const isMobile = window.innerWidth <= 768;
+
 function verifyLinvel(body) {
   const linvel = body?.current?.linvel();
   const linvelMagnitude = Math.sqrt(linvel?.x ** 2 + linvel?.z ** 2);
@@ -55,9 +57,6 @@ export default function CharacterController({
   characterPosition,
   isAboutPage,
 }) {
-  const isMobile = window.innerWidth <= 768;
-  const MOVEMENT_SPEED_MOBILE = 3;
-
   const body = useRef();
   const character = useGLTF("./animated_spiderman2.glb");
   // const character = useGLTF("./animated_spiderman_ps5.glb");
@@ -113,14 +112,19 @@ export default function CharacterController({
 
   useFrame((state, delta) => {
     if (!isMobile || isAboutPage) return;
-    if (character.scene.position.distanceTo(characterPosition) > 0.05) {
-      const direction = character.scene.position
-        .clone()
-        .sub(characterPosition)
-        .normalize()
-        .multiplyScalar(MOVEMENT_SPEED_MOBILE * delta);
-      character.scene.position.sub(direction);
-      character.scene.lookAt(characterPosition);
+
+    const direction = new THREE.Vector3()
+      .subVectors(characterPosition, body.current.translation())
+      .normalize();
+
+    const bodyTranslation = new THREE.Vector3(
+      body.current.translation().x,
+      body.current.translation().y,
+      body.current.translation().z
+    );
+    if (bodyTranslation.distanceTo(characterPosition) > 0.2) {
+      const impulse = getImpulse(delta, direction);
+      if (verifyLinvel(body)) rotateAndMove(impulse, character, body);
       setCharacterState("Run");
     } else {
       setCharacterState("Idle");
@@ -174,12 +178,7 @@ export default function CharacterController({
         angularDamping={0.5}
         enabledRotations={[false, false, false]}
       >
-        <primitive
-          object={character.scene}
-          scale={1}
-          position={[0, 0, 0]}
-          enabledRotations={[false, false, false]}
-        />
+        <primitive object={character.scene} scale={1} position={[0, 0, 0]} />
         {/* Mesh for click events */}
         <mesh
           onPointerEnter={() => {
