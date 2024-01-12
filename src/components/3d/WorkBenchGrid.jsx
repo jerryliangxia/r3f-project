@@ -8,11 +8,6 @@ import PizzaTime from "./3d-jsx/PizzaTime";
 import Webshooter from "./3d-jsx/Webshooter";
 import SpidHead from "./3d-jsx/SpidHead";
 import MiniHand from "./3d-jsx/MiniHand";
-import {
-  Selection,
-  EffectComposer,
-  Outline,
-} from "@react-three/postprocessing";
 
 const Row = ({ Component, position, rotationY, scale, ...props }) => (
   <Component
@@ -23,7 +18,6 @@ const Row = ({ Component, position, rotationY, scale, ...props }) => (
   />
 );
 
-// forwardRef((props, ref) => {
 const WorkbenchGrid = forwardRef((props, ref) => {
   const offset = props.offset;
   const rotationY = props.rotationY;

@@ -1,10 +1,4 @@
-import {
-  Sky,
-  CameraControls,
-  Environment,
-  ContactShadows,
-} from "@react-three/drei";
-import { Perf } from "r3f-perf";
+import { Sky, CameraControls, Environment } from "@react-three/drei";
 import CharacterController from "./components/scene/CharacterController";
 import { Physics, CuboidCollider } from "@react-three/rapier";
 import { Model } from "./components/scene/Platform";
@@ -12,8 +6,6 @@ import * as THREE from "three";
 import { useLoader, useFrame } from "@react-three/fiber";
 import { useRef, useState, useEffect } from "react";
 import About from "./components/about/About";
-import { useThree } from "@react-three/fiber";
-import { useControls, button, buttonGroup, folder } from "leva";
 import Computer from "./components/blog/Computer";
 import Workbench from "./components/3d/Workbench";
 import {
@@ -21,10 +13,9 @@ import {
   EffectComposer,
   Outline,
 } from "@react-three/postprocessing";
-import { work } from "./Info";
 import QuestionMark from "./components/about/QuestionMark";
-// import LightBridge from "./components/scene/shader/LightBridge";
-// import Sky from "./components/scene/shader/Sky";
+// import { useControls, button, buttonGroup, folder } from "leva";
+// import { Perf } from "r3f-perf";
 
 export default function Experience({
   cameraControlsRef,
@@ -54,124 +45,116 @@ export default function Experience({
     "/images/scene/simpleShadow.jpg"
   );
 
-  const isNight = true;
   const computerRef = useRef();
   const workbenchRef = useRef();
-  const { camera } = useThree();
   const [body, setBody] = useState(null);
   const [isMovableCharacter, setIsMovableCharacter] = useState(false);
   const [mesh, setMesh] = useState(null);
   const [mobileTapTimeOut, setMobileTapTimeOut] = useState(0.0);
 
-  // mobile character movements
+  // Mobile character movements
   const [characterPosition, setCharacterPosition] = useState(
     new THREE.Vector3()
   );
 
   useEffect(() => {
-    // Set mobileTapTimeOut to 1 when characterPosition changes
     setMobileTapTimeOut(1);
+    const decrementAmount = 0.05;
+    const intervalTime = 20;
 
-    // Calculate the decrement amount for each interval step
-    const decrementAmount = 0.05; // 10 steps to go from 1 to 0
-    const intervalTime = 20; // 100ms interval time
-
-    // Set interval to decrease mobileTapTimeOut gradually over 1 second
     const intervalId = setInterval(() => {
       setMobileTapTimeOut((prevTimeout) =>
         Math.max(prevTimeout - decrementAmount, 0)
       );
     }, intervalTime);
-
-    // Clear the interval when the component unmounts or characterPosition changes
     return () => clearInterval(intervalId);
   }, [characterPosition]);
 
   const CAMERA_MIN_HEIGHT = 0.4;
 
-  // All same options as the original "basic" example: https://yomotsu.github.io/camera-controls/examples/basic.html
-  const { enabled, verticalDragToForward, dollyToCursor, infinityDolly } =
-    useControls({
-      zoomGrp: buttonGroup({
-        label: "zoom",
-        opts: {
-          "/2": () => cameraControlsRef.current?.zoom(camera.zoom / 2, true),
-          "/-2": () => cameraControlsRef.current?.zoom(-camera.zoom / 2, true),
-        },
-      }),
-      moveTo: folder(
-        {
-          vec1: { value: [3, 5, 2], label: "vec" },
-          "moveTo(…vec)": button((get) =>
-            cameraControlsRef.current?.moveTo(...get("moveTo.vec1"), true)
-          ),
-        },
-        { collapsed: true }
-      ),
-      "fitToBox(mesh)": button(() =>
-        cameraControlsRef.current?.fitToBox(computerRef.current, true)
-      ),
-      setPosition: folder(
-        {
-          vec2: { value: [-5, 2, 1], label: "vec" },
-          "setPosition(…vec)": button((get) => {
-            cameraControlsRef.current?.setPosition(
-              ...get("setPosition.vec2"),
-              true
-            );
-          }),
-        },
-        { collapsed: true }
-      ),
-      setTarget: folder(
-        {
-          vec3: { value: [3, 0, -3], label: "vec" },
-          "setTarget(…vec)": button((get) => {
-            cameraControlsRef.current?.setTarget(
-              ...get("setTarget.vec3"),
-              true
-            );
-          }),
-        },
-        { collapsed: true }
-      ),
-      setLookAt: folder(
-        {
-          vec4: { value: [1, 2, 3], label: "position" },
-          vec5: { value: [1, 1, 0], label: "target" },
-          "setLookAt(…position, …target)": button((get) =>
-            cameraControlsRef.current?.setLookAt(
-              ...get("setLookAt.vec4"),
-              ...get("setLookAt.vec5"),
-              true
-            )
-          ),
-        },
-        { collapsed: true }
-      ),
-      lerpLookAt: folder(
-        {
-          vec6: { value: [-2, 0, 0], label: "posA" },
-          vec7: { value: [1, 1, 0], label: "tgtA" },
-          vec8: { value: [0, 2, 5], label: "posB" },
-          vec9: { value: [-1, 0, 0], label: "tgtB" },
-          t: { value: Math.random(), label: "t", min: 0, max: 1 },
-          "f(…posA,…tgtA,…posB,…tgtB,t)": button((get) => {
-            return cameraControlsRef.current?.lerpLookAt(
-              ...get("lerpLookAt.vec6"),
-              ...get("lerpLookAt.vec7"),
-              ...get("lerpLookAt.vec8"),
-              ...get("lerpLookAt.vec9"),
-              get("lerpLookAt.t"),
-              true
-            );
-          }),
-        },
-        { collapsed: true }
-      ),
-      reset: button(() => cameraControlsRef.current?.reset(true)),
-      enabled: { value: true, label: "controls on" },
-    });
+  // // All same options as the original "basic" example: https://yomotsu.github.io/camera-controls/examples/basic.html
+  // const { enabled, verticalDragToForward, dollyToCursor, infinityDolly } =
+  //   useControls({
+  //     zoomGrp: buttonGroup({
+  //       label: "zoom",
+  //       opts: {
+  //         "/2": () => cameraControlsRef.current?.zoom(camera.zoom / 2, true),
+  //         "/-2": () => cameraControlsRef.current?.zoom(-camera.zoom / 2, true),
+  //       },
+  //     }),
+  //     moveTo: folder(
+  //       {
+  //         vec1: { value: [3, 5, 2], label: "vec" },
+  //         "moveTo(…vec)": button((get) =>
+  //           cameraControlsRef.current?.moveTo(...get("moveTo.vec1"), true)
+  //         ),
+  //       },
+  //       { collapsed: true }
+  //     ),
+  //     "fitToBox(mesh)": button(() =>
+  //       cameraControlsRef.current?.fitToBox(computerRef.current, true)
+  //     ),
+  //     setPosition: folder(
+  //       {
+  //         vec2: { value: [-5, 2, 1], label: "vec" },
+  //         "setPosition(…vec)": button((get) => {
+  //           cameraControlsRef.current?.setPosition(
+  //             ...get("setPosition.vec2"),
+  //             true
+  //           );
+  //         }),
+  //       },
+  //       { collapsed: true }
+  //     ),
+  //     setTarget: folder(
+  //       {
+  //         vec3: { value: [3, 0, -3], label: "vec" },
+  //         "setTarget(…vec)": button((get) => {
+  //           cameraControlsRef.current?.setTarget(
+  //             ...get("setTarget.vec3"),
+  //             true
+  //           );
+  //         }),
+  //       },
+  //       { collapsed: true }
+  //     ),
+  //     setLookAt: folder(
+  //       {
+  //         vec4: { value: [1, 2, 3], label: "position" },
+  //         vec5: { value: [1, 1, 0], label: "target" },
+  //         "setLookAt(…position, …target)": button((get) =>
+  //           cameraControlsRef.current?.setLookAt(
+  //             ...get("setLookAt.vec4"),
+  //             ...get("setLookAt.vec5"),
+  //             true
+  //           )
+  //         ),
+  //       },
+  //       { collapsed: true }
+  //     ),
+  //     lerpLookAt: folder(
+  //       {
+  //         vec6: { value: [-2, 0, 0], label: "posA" },
+  //         vec7: { value: [1, 1, 0], label: "tgtA" },
+  //         vec8: { value: [0, 2, 5], label: "posB" },
+  //         vec9: { value: [-1, 0, 0], label: "tgtB" },
+  //         t: { value: Math.random(), label: "t", min: 0, max: 1 },
+  //         "f(…posA,…tgtA,…posB,…tgtB,t)": button((get) => {
+  //           return cameraControlsRef.current?.lerpLookAt(
+  //             ...get("lerpLookAt.vec6"),
+  //             ...get("lerpLookAt.vec7"),
+  //             ...get("lerpLookAt.vec8"),
+  //             ...get("lerpLookAt.vec9"),
+  //             get("lerpLookAt.t"),
+  //             true
+  //           );
+  //         }),
+  //       },
+  //       { collapsed: true }
+  //     ),
+  //     reset: button(() => cameraControlsRef.current?.reset(true)),
+  //     enabled: { value: true, label: "controls on" },
+  //   });
 
   const handleMeshClick = (Component) => {
     setHtmlComponent(<Component />);
@@ -226,7 +209,6 @@ export default function Experience({
     if (state.camera.position.y < CAMERA_MIN_HEIGHT) {
       state.camera.position.y = CAMERA_MIN_HEIGHT;
     }
-    // if (isAboutPage) return;
     const targetPosition =
       showButtonDiv && !isAboutPage
         ? isMovableCharacter
@@ -240,15 +222,15 @@ export default function Experience({
 
   return (
     <>
-      {!isMobile && <Perf position="top-left" />}
+      {/* {!isMobile && <Perf position="top-left" />} */}
       <CameraControls
         ref={cameraControlsRef}
         minDistance={minDistance}
         maxDistance={maxDistance}
-        enabled={enabled}
-        verticalDragToForward={verticalDragToForward}
-        dollyToCursor={dollyToCursor}
-        infinityDolly={infinityDolly}
+        // enabled={enabled}
+        // verticalDragToForward={verticalDragToForward}
+        // dollyToCursor={dollyToCursor}
+        // infinityDolly={infinityDolly}
       />
       <Selection>
         <EffectComposer blur multisampling={16} autoClear={false}>
@@ -293,30 +275,6 @@ export default function Experience({
       <Sky isNight={isNight} /> */}
       <Environment preset="sunset" />
       <Sky azimuth={0} inclination={0} />
-      {/* <ContactShadows position-y={0} frames={2} /> */}
-
-      {/* CLICKABLE COMPONENTS */}
-      {/* <mesh
-        position={[3.05, 1, 3.15]}
-        scale={0.2}
-        onPointerEnter={() => {
-          document.body.style.cursor = "pointer";
-        }}
-        onPointerLeave={() => {
-          document.body.style.cursor = "default";
-        }}
-        onClick={() => handleMeshClick(About)}
-      >
-        <sphereGeometry args={[1]} />
-      </mesh> */}
-      {/* <directionalLight
-        castShadow
-        color="purple"
-        position={[1, 2, 3]}
-        intensity={2}
-      /> */}
-      {/* <ambientLight /> */}
-      {/* <LightBridge /> */}
       <Physics>
         <CharacterController
           handleCharacterClick={handleCharacterClick}
@@ -327,7 +285,7 @@ export default function Experience({
           isAboutPage={isAboutPage}
         />
         <Model onPointerEnter={(event) => event.stopPropagation()} scale={1} />
-        {/* Clickable mesh for mobile click events */}
+        {/* Interactive mesh for mobile tap events */}
         {isMobile && (
           <>
             <mesh

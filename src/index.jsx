@@ -4,7 +4,7 @@ import { Canvas } from "@react-three/fiber";
 import Experience from "./Experience.jsx";
 import { KeyboardControls, Loader } from "@react-three/drei";
 import "@radix-ui/themes/styles.css";
-import { Theme, Button, Card, Text } from "@radix-ui/themes";
+import { Theme, Button } from "@radix-ui/themes";
 import Interface from "./Interface.jsx";
 import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
@@ -34,6 +34,7 @@ function App() {
       setMaxDistance(7.8);
       setIsComputerClicked(false);
       setIsWorkbenchClicked(false);
+      setIsActualComputerClicked(false);
       cameraControlsRef.current.reset(true);
     } else {
       setIsAboutPage(false);
@@ -68,7 +69,7 @@ function App() {
             initial="visible"
             animate={loadingOpaque ? "hidden" : "visible"}
             variants={overlayVariants}
-            transition={{ duration: 1.5 }} // Customize the transition as needed
+            transition={{ duration: 1.5 }}
             style={{ width: "100%", height: "100%", position: "absolute" }}
           />
           <Canvas

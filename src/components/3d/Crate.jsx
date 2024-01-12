@@ -7,6 +7,7 @@ import { useGLTF, useAnimations } from "@react-three/drei";
 import { Select } from "@react-three/postprocessing";
 
 const Crate = forwardRef((props, ref) => {
+  const isMobile = window.innerWidth <= 768;
   const group = useRef();
   const { nodes, materials, animations } = useGLTF("/crate.glb");
   const { actions } = useAnimations(animations, group);
@@ -31,7 +32,7 @@ const Crate = forwardRef((props, ref) => {
     timeoutId = setTimeout(() => {
       document.body.style.cursor = "default";
       setHoverEnabled(false);
-    }, 10); // delay in milliseconds
+    }, 10);
   };
 
   useEffect(() => {
@@ -78,7 +79,7 @@ const Crate = forwardRef((props, ref) => {
                 5.0,
                 ref.current.position,
                 ref.current,
-                2.0
+                isMobile ? 3.0 : 2.0
               );
             }
           }}

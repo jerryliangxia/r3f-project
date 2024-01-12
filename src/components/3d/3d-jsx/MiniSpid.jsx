@@ -52,26 +52,18 @@ export default function MiniSpid(props) {
         </mesh>
         <group rotation={[Math.PI / 2, 0, 0]}>
           <mesh
-            // castShadow
-            // receiveShadow
             geometry={nodes["Spider-Man_Redmesh"].geometry}
             material={materials.Red}
           />
           <mesh
-            // castShadow
-            // receiveShadow
             geometry={nodes["Spider-Man_Redmesh_1"].geometry}
             material={materials.Blue}
           />
           <mesh
-            // castShadow
-            // receiveShadow
             geometry={nodes["Spider-Man_Redmesh_2"].geometry}
             material={materials.Black}
           />
           <mesh
-            // castShadow
-            // receiveShadow
             geometry={nodes["Spider-Man_Redmesh_3"].geometry}
             material={materials.White}
           />

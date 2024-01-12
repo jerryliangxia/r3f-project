@@ -30,17 +30,6 @@ function getRotationMatrix(state) {
   return rotationMatrix;
 }
 
-function rotateAndMove(impulse, character, body, delta = 1) {
-  const targetAngle = Math.atan2(impulse.x, impulse.z);
-  const currentAngle = character.scene.rotation.y;
-  const newAngle = THREE.MathUtils.lerp(currentAngle, targetAngle, 0.1) * delta;
-  // const newAngle = THREE.MathUtils.lerp(currentAngle, targetAngle, 0.1);
-  const angleDifference = Math.abs(newAngle - targetAngle);
-  body.current.applyImpulse(impulse);
-  character.scene.rotation.y =
-    angleDifference <= ROTATION_THRESHOLD ? newAngle : targetAngle;
-}
-
 function getRotation(impulse, delta, character) {
   const targetAngle = Math.atan2(impulse.x, impulse.z);
   const currentAngle = character.scene.rotation.y;
@@ -187,13 +176,13 @@ export default function CharacterController({
       <RigidBody
         ref={body}
         colliders={false}
-        position={[0, 0.5, 0]}
+        position={[0, 0, 0]}
         scale={[0.5, 0.5, 0.5]}
         linearDamping={1}
         angularDamping={0.5}
         enabledRotations={[false, false, false]}
       >
-        <primitive object={character.scene} scale={1} position={[0, 0, 0]} />
+        <primitive object={character.scene} />
         {/* Mesh for click events */}
         <mesh
           onPointerEnter={() => {
@@ -206,7 +195,6 @@ export default function CharacterController({
           onClick={(event) => {
             if (!isComputerClicked && !isWorkbenchClicked && !isMobile) {
               event.stopPropagation();
-              setIsComputerClicked(true);
               handleCharacterClick(body);
             }
           }}

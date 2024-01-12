@@ -29,7 +29,7 @@ const Desk = forwardRef((props, ref) => {
     timeoutId = setTimeout(() => {
       document.body.style.cursor = "default";
       setHoverEnabled(false);
-    }, 10); // delay in milliseconds
+    }, 10);
   };
 
   return (

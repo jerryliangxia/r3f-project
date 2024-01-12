@@ -102,43 +102,22 @@ export default function Venom(props) {
         }}
       >
         <mesh
-          castShadow
-          receiveShadow
           geometry={nodes.Rock.geometry}
           material={materials.Gray}
           position={[0.849, 0.138, 1.211]}
           scale={0.435}
         />
+        <mesh geometry={nodes.Venommesh.geometry} material={materials.Black} />
         <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Venommesh.geometry}
-          material={materials.Black}
-        />
-        <mesh
-          castShadow
-          receiveShadow
           geometry={nodes.Venommesh_1.geometry}
           material={materials.White}
         />
+        <mesh geometry={nodes.Venommesh_2.geometry} material={materials.Red} />
         <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Venommesh_2.geometry}
-          material={materials.Red}
-        />
-        <mesh
-          castShadow
-          receiveShadow
           geometry={nodes.Venommesh001.geometry}
           material={materials.White}
         />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Venommesh001_1.geometry}
-          material={material}
-        />
+        <mesh geometry={nodes.Venommesh001_1.geometry} material={material} />
       </group>
     </Select>
   );

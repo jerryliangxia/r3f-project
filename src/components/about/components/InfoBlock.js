@@ -36,9 +36,9 @@ function InfoBlock({
                       height="16"
                       style={{
                         marginLeft: "1px",
-                        transition: "transform 0.3s ease-in-out", // Add transition here
-                        position: "relative", // Add position here
-                        top: "0px", // Adjust vertical position here
+                        transition: "transform 0.3s ease-in-out",
+                        position: "relative",
+                        top: "0px",
                         transform: isHovered ? "translateX(3px)" : "none",
                       }}
                       className="arrow-icon"

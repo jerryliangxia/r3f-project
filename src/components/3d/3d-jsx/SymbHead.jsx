@@ -49,21 +49,12 @@ export default function SymbHead(props) {
           props.setShowDiv(true);
         }}
       >
+        <mesh geometry={nodes.EYES_SYMB.geometry} material={materials.EYES} />
         <mesh
-          // castShadow
-          // receiveShadow
-          geometry={nodes.EYES_SYMB.geometry}
-          material={materials.EYES}
-        />
-        <mesh
-          // castShadow
-          // receiveShadow
           geometry={nodes.OUT_HEAD.geometry}
           material={materials["Material.001"]}
         />
         <mesh
-          // castShadow
-          // receiveShadow
           geometry={nodes.Plane001.geometry}
           material={materials["Material.002"]}
           position={[0, 0.017, 0]}

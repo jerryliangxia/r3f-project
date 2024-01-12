@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex, Heading, Text } from "@radix-ui/themes";
+import { Flex, Heading } from "@radix-ui/themes";
 import InfoBlock from "./components/InfoBlock";
 import Contact from "./components/Contact";
 import SpecialContact from "./components/SpecialContact";
@@ -7,7 +7,7 @@ import { basicData, jobExperience, work, flexGaps } from "../../Info";
 import ImagePopup from "./components/ImagePopup";
 import { WhiteText } from "../general/WhiteText";
 
-export default function About({ setShowDiv }) {
+export default function About() {
   return (
     <Flex gap="6" direction="column">
       <Heading style={{ color: "white" }}>Jerry Xia</Heading>

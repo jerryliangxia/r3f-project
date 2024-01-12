@@ -24,7 +24,7 @@ export default function Interface({ htmlComponent, setShowDiv }) {
     >
       <div
         style={{
-          width: isMobile ? "90%" : "70%",
+          width: isMobile ? "80%" : "70%",
           marginTop: "5vh",
           marginBottom: isMobile ? "20vh" : "5vh",
         }}

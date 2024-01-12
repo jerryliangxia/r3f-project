@@ -1,4 +1,4 @@
-import { Text, Theme } from "@radix-ui/themes";
+import { Text } from "@radix-ui/themes";
 
 export function WhiteText({
   children,

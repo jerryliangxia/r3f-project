@@ -87,14 +87,6 @@ export default function RectAreaLightModels(props) {
         intensity={7.5}
         color="pink"
       />
-      {/* <RectArealightWithHelper
-        position={[-2.2, 1.0, 3.27]}
-        rotation={[-Math.PI / 2, -4.0, 0.0]}
-        width={0.6}
-        height={1.0}
-        intensity={1.0}
-        color="pink"
-      /> */}
     </>
   );
 }

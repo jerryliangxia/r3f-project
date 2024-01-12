@@ -32,7 +32,7 @@ const Computer = forwardRef((props, ref) => {
         clearTimeout(timeoutId);
       }
     };
-  }, [props.isComputerClicked, props.isActualComputerClicked]);
+  }, [props.isActualComputerClicked]);
 
   return (
     <>

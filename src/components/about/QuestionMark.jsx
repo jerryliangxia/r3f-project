@@ -12,8 +12,9 @@ export default function QuestionMark(props) {
   const groupRef = useRef();
 
   useFrame((state, delta) => {
+    // State must be included for render
     if (groupRef.current) {
-      const rotationSpeed = (2 * Math.PI) / 6; // Full rotation in 6 seconds
+      const rotationSpeed = (2 * Math.PI) / 6;
       groupRef.current.rotation.y += rotationSpeed * delta;
     }
   });
@@ -38,7 +39,7 @@ export default function QuestionMark(props) {
     timeoutId = setTimeout(() => {
       document.body.style.cursor = "default";
       setHoverEnabled(false);
-    }, 10); // delay in milliseconds
+    }, 10);
   };
 
   return (
