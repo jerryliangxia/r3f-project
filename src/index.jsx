@@ -159,6 +159,7 @@ function App() {
               zIndex: 1,
               transition: "bottom 0.5s ease-in-out, opacity 0.5s ease-in-out",
               opacity: showButtonDiv ? 1 : 0,
+              cursor: "pointer",
             }}
             onClick={(event) => {
               event.stopPropagation();

@@ -16,10 +16,13 @@ const Computer = forwardRef((props, ref) => {
   useEffect(() => {
     let timeoutId;
     if (props.isComputerClicked) {
-      timeoutId = setTimeout(() => {
-        if (!meshFirstRendered) setMeshFirstRendered(true);
-        setShowHtml(true);
-      }, 100);
+      timeoutId = setTimeout(
+        () => {
+          if (!meshFirstRendered) setMeshFirstRendered(true);
+          setShowHtml(true);
+        },
+        meshFirstRendered ? 0 : 1000
+      );
     } else {
       setShowHtml(false);
       props.setIsActualComputerClicked(false);
