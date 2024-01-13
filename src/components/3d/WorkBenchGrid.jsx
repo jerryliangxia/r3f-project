@@ -69,7 +69,7 @@ const WorkbenchGrid = forwardRef((props, ref) => {
       <mesh
         ref={props.meshRef}
         position={props.centerPosition.map(
-          (value, index) => value + [0, -0.08, 0][index]
+          (value, index) => value + [0, -0.08, 0.02][index]
         )}
       >
         <boxGeometry args={[1.22, 0.5, 1.05]} />

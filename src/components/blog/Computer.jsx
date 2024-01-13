@@ -65,7 +65,7 @@ const Computer = forwardRef((props, ref) => {
       >
         {meshFirstRendered &&
           (isMobile ? (
-            <Html center scale={0.5} position={[0, 0.6, 0]}>
+            <Html center scale={0.5} position={[0.03, 0.6, 0]}>
               <iframe
                 src="https://r3f-blog.vercel.app/"
                 style={{
