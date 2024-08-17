@@ -601,11 +601,23 @@ export function Model(props) {
         <mesh
           geometry={nodes.Plane_1.geometry}
           material={materials["Beige Concrete Base"]}
-        />
+        >
+          <meshStandardMaterial
+            color="#665434"
+            roughness={1.0}
+            metalness={0.0}
+          />
+        </mesh>
         <mesh
           geometry={nodes.Plane_2.geometry}
           material={materials["Beige Concrete Shadow"]}
-        />
+        >
+          <meshStandardMaterial
+            color="#5D4D30"
+            roughness={1.0}
+            metalness={0.0}
+          />
+        </mesh>
       </group>
       <mesh
         geometry={nodes.Dirty_Plane.geometry}

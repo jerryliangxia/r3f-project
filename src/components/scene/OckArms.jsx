@@ -39,6 +39,8 @@ export default function OckArms({ startPosition = [0, 90, 0] }) {
               ref={materialRef}
               map={texture}
               map-flipY={false}
+              roughness={0.5}
+              metalness={0.5}
             />
           </skinnedMesh>
           <primitive object={nodes.Bone} />
