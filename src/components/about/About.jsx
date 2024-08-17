@@ -17,8 +17,8 @@ export default function About() {
             About
           </WhiteText>
           <WhiteText color="gray">
-            Hi! I'm a SWE student at McGill, passionate about games. Read about
-            my journey with Hierarchical Task Networks in my latest blog!
+            This site was built during Insomniac Games' 2023 internship hiring
+            period.
           </WhiteText>
         </Flex>
       </section>
