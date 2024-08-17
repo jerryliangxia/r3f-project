@@ -61,54 +61,53 @@ export default function CharacterController({
 }) {
   const body = useRef();
   const character = useGLTF("./animated_spiderman2.glb");
-  // const character = useGLTF("./animated_spiderman_ps5.glb");
   const animations = useAnimations(character.animations, character.scene);
   const [characterState, setCharacterState] = useState("Idle");
   const [subscribeKeys, getKeys] = useKeyboardControls();
-  // const [isJumping, setIsJumping] = useState(false);
+  const [isJumping, setIsJumping] = useState(false);
   const [keysPressed, setKeysPressed] = useState(0);
 
   useFrame((state, delta) => {
-    // if (!isJumping) {
-    body?.current?.wakeUp();
-    if (isMobile || isAboutPage) return;
-    const { forward, backward, leftward, rightward } = getKeys();
-    setKeysPressed(
-      [forward, backward, leftward, rightward].filter(Boolean).length
-    );
-    if (keysPressed <= 2 && verifyLinvel(body)) {
-      const inputDirection = new THREE.Vector3(0, 0, 0);
-      if (forward) {
-        inputDirection.z += 1;
-      }
-      if (rightward) {
-        inputDirection.x -= 1;
-      }
-      if (backward) {
-        inputDirection.z -= 1;
-      }
-      if (leftward) {
-        inputDirection.x += 1;
-      }
-      inputDirection.applyMatrix4(getRotationMatrix(state));
-      const impulse = getImpulse(delta, inputDirection);
-      const isMoving = impulse.x !== 0 || impulse.z !== 0;
-      if (isMoving) {
-        character.scene.rotation.y = getRotation(impulse, delta, character);
-        if (verifyLinvel(body)) body.current.applyImpulse(impulse);
-
-        if (characterState !== "Run") {
-          setCharacterState("Run");
+    if (!isJumping) {
+      body?.current?.wakeUp();
+      if (isMobile || isAboutPage) return;
+      const { forward, backward, leftward, rightward } = getKeys();
+      setKeysPressed(
+        [forward, backward, leftward, rightward].filter(Boolean).length
+      );
+      if (keysPressed <= 2 && verifyLinvel(body)) {
+        const inputDirection = new THREE.Vector3(0, 0, 0);
+        if (forward) {
+          inputDirection.z += 1;
         }
-      } else if (characterState !== "Idle") {
-        setCharacterState("Idle");
+        if (rightward) {
+          inputDirection.x -= 1;
+        }
+        if (backward) {
+          inputDirection.z -= 1;
+        }
+        if (leftward) {
+          inputDirection.x += 1;
+        }
+        inputDirection.applyMatrix4(getRotationMatrix(state));
+        const impulse = getImpulse(delta, inputDirection);
+        const isMoving = impulse.x !== 0 || impulse.z !== 0;
+        if (isMoving) {
+          character.scene.rotation.y = getRotation(impulse, delta, character);
+          if (verifyLinvel(body)) body.current.applyImpulse(impulse);
+
+          if (characterState !== "Run") {
+            setCharacterState("Run");
+          }
+        } else if (characterState !== "Idle") {
+          setCharacterState("Idle");
+        }
       }
     }
-    // }
   });
 
   useEffect(() => {
-    if (!isMobile && keysPressed > 2) {
+    if (!isMobile && keysPressed > 2 && !isJumping) {
       setCharacterState("Idle");
     }
   }, [keysPressed]);
@@ -136,40 +135,40 @@ export default function CharacterController({
   });
 
   useEffect(() => {
-    // if (isJumping) {
-    //   const action = animations.actions[characterState];
-    //   action.reset().fadeIn(0.5).play();
-    //   setTimeout(() => {
-    //     setIsJumping(false);
-    //   }, 1500);
-    //   return () => {
-    //     action.fadeOut(0.5);
-    //   };
-    // } else {
-    const action = animations.actions[characterState];
-    action.reset().fadeIn(0.2).play();
-    return () => {
-      action.fadeOut(0.5);
-    };
-    // }
+    if (isJumping) {
+      const action = animations.actions[characterState];
+      action.reset().fadeIn(0.5).play();
+      setTimeout(() => {
+        setIsJumping(false);
+      }, 1500);
+      return () => {
+        action.fadeOut(0.5);
+      };
+    } else {
+      const action = animations.actions[characterState];
+      action.reset().fadeIn(0.2).play();
+      return () => {
+        action.fadeOut(0.5);
+      };
+    }
   }, [characterState]);
 
-  // const jump = () => {
-  //   setIsJumping(true);
-  //   setCharacterState("Jump");
-  // };
+  const jump = () => {
+    setIsJumping(true);
+    setCharacterState("Jump");
+  };
 
-  // useEffect(() => {
-  //   const unsubscribeJump = subscribeKeys(
-  //     (state) => state.jump,
-  //     (value) => {
-  //       if (value) jump();
-  //     }
-  //   );
-  //   return () => {
-  //     unsubscribeJump();
-  //   };
-  // });
+  useEffect(() => {
+    const unsubscribeJump = subscribeKeys(
+      (state) => state.jump,
+      (value) => {
+        if (value) jump();
+      }
+    );
+    return () => {
+      unsubscribeJump();
+    };
+  });
 
   return (
     <>
