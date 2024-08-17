@@ -14,6 +14,7 @@ import {
   Outline,
 } from "@react-three/postprocessing";
 import QuestionMark from "./components/about/QuestionMark";
+import OckArms from "./components/scene/OckArms";
 // import { useControls, button, buttonGroup, folder } from "leva";
 // import { Perf } from "r3f-perf";
 
@@ -226,7 +227,7 @@ export default function Experience({
       <CameraControls
         ref={cameraControlsRef}
         minDistance={minDistance}
-        maxDistance={maxDistance}
+        maxDistance={500}
         // enabled={enabled}
         // verticalDragToForward={verticalDragToForward}
         // dollyToCursor={dollyToCursor}
@@ -275,6 +276,7 @@ export default function Experience({
       <Sky isNight={isNight} /> */}
       <Environment preset="sunset" />
       <Sky azimuth={0} inclination={0} />
+      <OckArms />
       <Physics>
         <CharacterController
           handleCharacterClick={handleCharacterClick}
