@@ -6,7 +6,7 @@ import React from "react";
 import { useGLTF } from "@react-three/drei";
 
 export function Model(props) {
-  const { nodes, materials } = useGLTF("/venom_platform3.glb");
+  const { nodes, materials } = useGLTF("/scorpion_platform.glb");
   return (
     <group {...props} dispose={null}>
       <group
@@ -601,11 +601,23 @@ export function Model(props) {
         <mesh
           geometry={nodes.Plane_1.geometry}
           material={materials["Beige Concrete Base"]}
-        />
+        >
+          <meshStandardMaterial
+            color="#665434"
+            roughness={1.0}
+            metalness={0.0}
+          />
+        </mesh>
         <mesh
           geometry={nodes.Plane_2.geometry}
           material={materials["Beige Concrete Shadow"]}
-        />
+        >
+          <meshStandardMaterial
+            color="#5D4D30"
+            roughness={1.0}
+            metalness={0.0}
+          />
+        </mesh>
       </group>
       <mesh
         geometry={nodes.Dirty_Plane.geometry}

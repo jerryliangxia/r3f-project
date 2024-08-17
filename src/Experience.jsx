@@ -1,4 +1,4 @@
-import { Sky, CameraControls, Environment } from "@react-three/drei";
+import { CameraControls, Environment } from "@react-three/drei";
 import CharacterController from "./components/scene/CharacterController";
 import { Physics, CuboidCollider } from "@react-three/rapier";
 import { Model } from "./components/scene/Platform";
@@ -14,6 +14,9 @@ import {
   Outline,
 } from "@react-three/postprocessing";
 import QuestionMark from "./components/about/QuestionMark";
+import OckArms from "./components/scene/OckArms";
+import Sky from "./components/scene/shader/Sky";
+import SurroundingClouds from "./components/scene/Clouds";
 // import { useControls, button, buttonGroup, folder } from "leva";
 // import { Perf } from "r3f-perf";
 
@@ -271,10 +274,10 @@ export default function Experience({
           onClick={() => handleMeshClick(About)}
         />
       </Selection>
-      {/* <Environment preset={isNight ? "night" : "sunset"} />
-      <Sky isNight={isNight} /> */}
       <Environment preset="sunset" />
-      <Sky azimuth={0} inclination={0} />
+      <Sky />
+      <SurroundingClouds />
+      <OckArms />
       <Physics>
         <CharacterController
           handleCharacterClick={handleCharacterClick}

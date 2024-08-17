@@ -82,10 +82,10 @@ export default function RectAreaLightModels(props) {
           (value, index) => value + [positionX, positionY, positionZ][index]
         )}
         rotation={[rotationX, rotationY, rotationZ]}
-        width={2.0}
-        height={2.0}
-        intensity={7.5}
-        color="pink"
+        width={width}
+        height={height}
+        intensity={intensity}
+        color="red"
       />
     </>
   );
