@@ -1,5 +1,5 @@
-import React, { useRef, useState, useEffect } from "react";
-import { useGLTF, useAnimations, useTexture, Cloud } from "@react-three/drei";
+import React, { useRef, useEffect } from "react";
+import { useGLTF, useAnimations, useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
 export default function OckArms({ startPosition = [0, 90, 0] }) {
@@ -21,26 +21,30 @@ export default function OckArms({ startPosition = [0, 90, 0] }) {
   });
 
   return (
-    <>
-      <group ref={group} position={startPosition} scale={2.5} dispose={null}>
-        <group name="Scene">
-          <group name="Armature" position={[0, -61.863, 0]} scale={2.355}>
-            <skinnedMesh
-              name="Cube"
-              geometry={nodes.OckArm.geometry}
-              skeleton={nodes.OckArm.skeleton}
-            >
-              <meshStandardMaterial
-                ref={materialRef}
-                map={texture}
-                map-flipY={false}
-              />
-            </skinnedMesh>
-            <primitive object={nodes.Bone} />
-          </group>
+    <group
+      ref={group}
+      position={startPosition}
+      rotation={[0, Math.PI, 0]}
+      scale={2.5}
+      dispose={null}
+    >
+      <group name="Scene">
+        <group name="Armature" position={[0, -61.863, 0]} scale={2.355}>
+          <skinnedMesh
+            name="Cube"
+            geometry={nodes.OckArm.geometry}
+            skeleton={nodes.OckArm.skeleton}
+          >
+            <meshStandardMaterial
+              ref={materialRef}
+              map={texture}
+              map-flipY={false}
+            />
+          </skinnedMesh>
+          <primitive object={nodes.Bone} />
         </group>
       </group>
-    </>
+    </group>
   );
 }
 

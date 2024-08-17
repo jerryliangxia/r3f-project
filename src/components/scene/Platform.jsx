@@ -6,7 +6,7 @@ import React from "react";
 import { useGLTF } from "@react-three/drei";
 
 export function Model(props) {
-  const { nodes, materials } = useGLTF("/venom_platform3.glb");
+  const { nodes, materials } = useGLTF("/scorpion_platform.glb");
   return (
     <group {...props} dispose={null}>
       <group
